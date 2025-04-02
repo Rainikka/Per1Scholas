@@ -1,0 +1,74 @@
+:root {
+  box-sizing: border-box;
+  font-family: Roboto, Helvetica, Arial, Sans-serif;
+  color: navy;
+  font-weight: normal;
+}
+#page2-wrapper {
+  font-family: Roboto, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.light-para {
+  color: steelblue;
+}
+#table-wrapper {
+  margin: 0 auto;
+  width: 80%;
+  text-align: center;
+}
+#codeTable {
+  width: 100%;
+  border-spacing: 30px;
+  font-family: Raleway;
+  font-size: 12px;
+}
+.span {
+  font-size: 14px;
+  font-family: Arial;
+  font-weight: bolder;
+  color: navy;
+}
+td {
+  margin: 0 auto;
+  width: 150px;
+  height: 150px;
+  padding: 15px;
+  font-family: Raleway;
+  text-align: center;
+  border: 2px dotted navy;
+  color: navy;
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+  font-weight: bold;
+  color: navy;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+button[type="submit"] {
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  background-color: navy;
+  color: white;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+}

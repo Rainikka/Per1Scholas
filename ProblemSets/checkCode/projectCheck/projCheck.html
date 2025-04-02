@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    main {
+      margin: 0 auto;
+      display: flex;
+      flex-flow: column wrap;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #image-container {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between
+    }
+
+    .frames {
+      width: 100px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid lightseagreen;
+      text-align: center;
+    }
+
+    img,
+    .random-image {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .demos {
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+    }
+
+    #buttonClick {
+      margin-top: 100px;
+      padding: 10px 15px;
+      background: seagreen;
+      color: white;
+      font-weight: bolder;
+      border: 2px solid azure;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    #buttonClick:active {
+      background: lightseagreen;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div id="image-container">
+      <p id="demo0" class="demos"></p>
+      <p id="demoA" class="demos"></p>
+      <p id="demoB" class="demos"></p>
+
+      <div id="pic1Frame" class="frames">
+      </div>
+
+      <div id="pic2Frame" class="frames">
+        <img id="random-image" alt="Random Face Image">
+        <!-- <img id="random-image" src="./imagesFolder/5.png" alt="Random image"> -->
+      </div>
+      <p id="demo1" class="demos"></p>
+      <p id="demo2" class="demos"></p>
+      <p id="demo3" class="demos"></p>
+
+      <button id="buttonClick">Try Your Luck</button>
+
+      <button id="myBtn">Try it</button>
+  </main>
+
+  <script defer src="./projCheck.js" type="text/javascript"></script>
+</body>
+
+</html>
