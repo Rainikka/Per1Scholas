@@ -9,32 +9,18 @@
 /****** with JavaScript *******/
 /******** 31-MAR-2025 *********/
 
-/*** Username cannot be blank and must be a least 4 character &**/
-// (?=.{ 4, }$)
-
-/*** Username must be lettrs or numbers ***/
-// [a - zA - Z0 - 9] + -
-
-/*** Username has to have at least 2 unique character ***/
-// (?= (.* (.).*\2) { 1,}) - s
-
-// // Username Value
-// const errorDisplay = document.getElementById('errorDisplay');
-
-// // Input Values
-// const username = document.getElementById('username').value;
-// const username = document.getElementById('email').value;
-// const username = document.getElementById('password').value;
-
-
-
 /**************************************************
-*** REGEX ***
+*** REGEX VALIDATION ***
 *
-* Username includes at least one  alphanumeric character
+* Username includes at least one letter and one number
 * (?= [^ a - zA - Z0 - 9] * [a - zA - Z0 - 9])
 * Usernamde includes at least two unique characters
 * (?=([a - zA - Z0 - 9] * ([a - zA - Z0 - 9])) \1 ? $)
+*
+*
+*
+*
+*
 *
 /***************************************************/
 
@@ -49,13 +35,13 @@ function formvalidate() {
   /*** Get Error Message Elements By ID ***/
   const btnRegister = document.getElementById("register");
   const errorDisplay = document.getElementById('errorDisplay');
-
   /*** Username Regex Validation Requirements ***/
   /*** Must inlude a lettr and a number ***/
   const nameAlphaNumeric = [a - zA - Z0 - 9] + -
   /*** Must inlude 2 unique character ***/
   const name2UniqueChars = (?= (.* (.).*\2) { 1,}) - s
-
+  /*** Password Regex Validation Requirements ***/
+  /*** Must inlude a lettr and a number ***/
   /*** Username Regex Validation ***/
   const nameAlphaNumeric = (?= [^ a - zA - Z0 - 9] * [a - zA - Z0 - 9]);
   const name2UniqueChars = (?= ([a - zA - Z0 - 9] * ([a - zA - Z0 - 9])) \1 ? $);
@@ -70,3 +56,12 @@ function formvalidate() {
 
 
 }
+
+const submitButton = document.querySelector('input[type="submit"]');
+
+// Add click event listener to the button
+submitButton.addEventListener('click', function (event) {
+  event.preventDefault(); // Still need this to prevent form submission
+  console.log('Submit button clicked!');
+  // Your button click logic here
+});
