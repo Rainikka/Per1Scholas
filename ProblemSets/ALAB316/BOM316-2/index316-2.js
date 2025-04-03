@@ -111,9 +111,32 @@ cellB.id = "cellB";
 document.querySelector('cellB');
 cellB.textContent = "B";
 
-/******************** RANDOMIZATION *******************/
+/******************* RANDOMIZATION *******************?
+/*******  AI-Generated Photos Screenshots from *******
+ * 
+ * Nightingale S.J., Farid H. (2022).AI - synthesized faces are indistinguishable from real
+ * faces and more trustworthy.Proceedings of the National Academy of Sciences, USA, 119(8
+ * Article e2120481119.https://doi.org/10.1073/pnas.2120481119
+ * 
+ * Miller, E.J., Steward, B.A., Witkower, Z., Sutherland, C.A.M., Krumhuber, E.G., & Dawel, A  * (2023).  AI Hyperrealism: Why AI Faces Are Perceived as More Real Than Human Ones
+ * Psychological Science, 0(0).https://doi.org/10.1177/09567976231207095
+ * 
+ * Muñoz, C., Zannone, S., Mohammed, U., & Koshiyama, A.S. (2023).Uncovering Bias in Face
+ * Generation Models.ArXiv, abs / 2302.11562.
+ * 
+ * Nightingale S.J., Farid H. (2022).AI - synthesized faces are indistinguishable from real
+ * faces and more trustworthy.Proceedings of the National Academy of Sciences, USA, 119(8
+ * Article e2120481119.https://doi.org/10.1073/pnas.2120481119
+ * 
+/*******  Real People Photos Screenshots from ******* 
+ * 
+ * UnSplash: https://unsplash.com
+ * Pexels: https://www.pexels.com
+ * PixaBay: https://pixabay.com
+ 
+ 
+/******************* RANDOMIZATION ********************/
 /******************** Pic List Folder *****************/
-
 /**** Knowledge Inspiration: W3Schools: Random Number Generator ****/
 /*** Frame Randomization ***/
 function randomRandom() {
