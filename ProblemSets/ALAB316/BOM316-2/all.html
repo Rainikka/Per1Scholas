@@ -188,7 +188,9 @@
 
 <body>
   <!------ TESTING AREA --------------->
-  <p id="test">
+  <p id="test0">
+  </p>
+  <p id="test1">
   </p>
 
   <!------ JAVASCRIPT --------------->
@@ -311,23 +313,23 @@
     let maxB;
     // let folderA;
     // let folderB;
-    let totalPicsA;
-    let totalPicsB;
+    let totalAPics;
+    let totalBPics;
 
     /*** Pic Randomization ***/
     if (randomFrame() % 2) {
       function randomAImage() {
         // folderA = 1N; // Real-Natural Pics
         minA = 1;
-        maxA = 25;
+        maxA = 140;
         const randomANumber = Math.floor(Math.random() * (maxA - minA + 1)) + minA;
         return randomANumber
         // return folderA;
       }
       function randomBImage() {
         // folderB = 0S; // AI-Synthetic Pics
-        minB = 26;
-        maxB = 51;
+        minB = 1;
+        maxB = 140;
         const randomBNumber = Math.floor(Math.random() * (maxB - minB + 1)) + minB;
         return randomBNumber;
         // return folderB;
@@ -335,8 +337,8 @@
     } else {
       function randomAImage() {
         // folderA = 0S; // AI-Synthetic
-        minA = 26;
-        maxA = 51;
+        minA = 1;
+        maxA = 140;
         const randomANumber = Math.floor(Math.random() * (maxA - minA + 1)) + minA;
         return randomANumber;
         // return folderA;
@@ -344,7 +346,7 @@
       function randomBImage() {
         // folderB = 1N; // Real-Natural
         minB = 1;
-        maxB = 25;
+        maxB = 140;
         const randomBNumber = Math.floor(Math.random() * (maxB - minB + 1)) + minB;
         return randomBNumber;
         // return folderB;
@@ -363,23 +365,33 @@
 
     let folderA;
     let folderB;
+    let picA;
+    let picB;
     const picPrefix = "./sortedPics/";
     const picSuffix = ".png";
 
     if (randomFrame() % 2) {
-      folderA = "0S-Pics"; // AI-Synthetic Photos
-      folderB = "1N-Pics" // Real-Natural Photos
-      const picA = `${picPrefix}${folderA}${randomAImage()}${picSuffix}`
-      const picB = `${picPrefix}${folderB}${randomBImage()}${picSuffix}`
+      folderA = "pics0S/";     // AI-Synthetic Photos Photos
+      folderB = "pics1N/";    // Real-Natural 
+      picA = `${picPrefix}${folderA}${randomAImage()}${picSuffix}`
+      // picA.id = 'picA';
+      picB = `${picPrefix}${folderB}${randomBImage()}${picSuffix}`
+      // picB.id = 'picB';
     } else {
-      folderA = "1N-Pics" // Real-Natural Photos
-      folderB = "0S-Pics"; // AI-Synthetic Photos
-      const picA = `${picPrefix}${folderA}${randomAImage()}${picSuffix}`
-      const picB = `${picPrefix}${folderB}${randomBImage()}${picSuffix}`
+      folderA = "pics1N/";     // Real-Natural Photos
+      folderB = "pics0S/";    // AI-Synthetic Photos
+      picA = `${picPrefix}${folderA}${randomAImage()}${picSuffix}`
+      picB = `${picPrefix}${folderB}${randomBImage()}${picSuffix}`
     }
+
+    document.getElementById('test0').id = "test0";
+    test0.innerHTML = picA
+    document.getElementById('test1').id = "test1";
+    test1.innerHTML = picB;
+
     /*** Set Image Attributes Attributes ***/
-    picA.id = 'picA';
-    picB.id = 'picB';
+    // picA.id = 'picA';
+    // picB.id = 'picB';
     imageA.setAttribute('src', picA);
     imageB.setAttribute('src', picB);
 
