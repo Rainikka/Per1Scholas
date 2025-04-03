@@ -236,7 +236,7 @@ console.log(`Eccentricity of Venus: ${system.venus.eccentricity}`);
 console.log(`Satellites of Jupiter: ${system.jupiter.satellites} Satellites of Saturn: ${system.saturn.satellites} Satellites of Uranus: ${system.uranus.satellites} Satellites of Neptune: ${system.neptune.satellites} `)
 
 // 4. Write a conditional that checks if Mercury's radiusp is a string (remember the typeof command). If Mercury's radiusp is a string, change the value to be the same as its radiuse value. (radiusp is radius at the poles, radiuse is radius at the equator).
-if (typeof system.mercury.radiusp === string) {
+if (typeof system.mercury.radiusp === "string") {
   system.mercury.radiusp = system.mercury.radiuse;
   console.log(`Polar radius of Mercury: ${system.mercury.radiuse}`);
 } else {
