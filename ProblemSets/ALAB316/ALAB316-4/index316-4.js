@@ -26,18 +26,8 @@ const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 * Password Requirements
 * ( /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+{ };:,<.>]).{12,}$/;
 *
+*
 
-/*** Username Regex Validation Requirements ***/
-/*** Username inludes a letter and a number ***/
-const nameAlphaNumeric = /^[a-zA-Z0-9]+$/;
-/*** Username inludes 2 unique character ***/
-const name2UniqueChars = /^(?=.*(.).*\1)[a-zA-Z0-9]{4,}$/;
-/*** Email Regex Validation Requirements ***/
-/*** Email inludes a "@" and "." ***/
-const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-/*** Password Regex Validation Requirements ***/
-/*** Password inludes a "@" and "." ***/
-const passValid = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+{ };:,<.>]).{12,}$/;
 /**********************************************************/
 /************ Knowledge Inspiration: Geeks4Geeks **********/
 
