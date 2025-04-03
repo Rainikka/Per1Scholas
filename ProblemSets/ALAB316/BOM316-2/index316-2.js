@@ -116,7 +116,7 @@ cellB.textContent = "B";
 /**** Knowledge Inspiration: W3Schools: Random Number Generator ****/
 
 /*** Frame Randomization ***/
-function randomRandom() {
+function randomFrame() {
   const totalFrames = 2;
   const randomNumber = Math.floor((Math.random() * totalFrames) + 1);
   return randomNumber;
@@ -129,7 +129,7 @@ let maxB;
 let totalPics;
 
 /*** Pic Randomization ***/
-if (randomRandom() % 2) {
+if (randomFrame() % 2) {
   function randomAImage() {
     minA = 1;
     maxA = 25;

@@ -186,13 +186,14 @@
   </style>
 </head>
 
-
 <body>
-  <!--- TESTING AREA --->
+  <!------ TESTING AREA --------------->
   <p id="test">
   </p>
-  <!--------------------->
-  <script>const body = document.querySelector("body");
+
+  <!------ JAVASCRIPT --------------->
+  <script>
+    const body = document.querySelector("body");
 
     /*****************************************/
     /********** TESTING AREA ****************/
@@ -298,7 +299,7 @@
     /**** Knowledge Inspiration: W3Schools: Random Number Generator ****/
 
     /*** Frame Randomization ***/
-    function randomRandom() {
+    function randomFrame() {
       const totalFrames = 2;
       const randomNumber = Math.floor((Math.random() * totalFrames) + 1);
       return randomNumber;
@@ -308,39 +309,49 @@
     let maxA;
     let minB;
     let maxB;
-    let totalPics;
+    // let folderA;
+    // let folderB;
+    let totalPicsA;
+    let totalPicsB;
 
     /*** Pic Randomization ***/
-    if (randomRandom() % 2) {
+    if (randomFrame() % 2) {
       function randomAImage() {
+        // folderA = 1N; // Real-Natural Pics
         minA = 1;
         maxA = 25;
         const randomANumber = Math.floor(Math.random() * (maxA - minA + 1)) + minA;
-        return randomANumber;
+        return randomANumber
+        // return folderA;
       }
       function randomBImage() {
+        // folderB = 0S; // AI-Synthetic Pics
         minB = 26;
         maxB = 51;
         const randomBNumber = Math.floor(Math.random() * (maxB - minB + 1)) + minB;
         return randomBNumber;
+        // return folderB;
       }
     } else {
       function randomAImage() {
+        // folderA = 0S; // AI-Synthetic
         minA = 26;
         maxA = 51;
         const randomANumber = Math.floor(Math.random() * (maxA - minA + 1)) + minA;
         return randomANumber;
+        // return folderA;
       }
       function randomBImage() {
+        // folderB = 1N; // Real-Natural
         minB = 1;
         maxB = 25;
         const randomBNumber = Math.floor(Math.random() * (maxB - minB + 1)) + minB;
         return randomBNumber;
+        // return folderB;
       }
     }
 
     /************* Set Image Attributes ***********/
-
     /*** Image Frame Elements ***/
     const imageA = document.getElementById(frameA).firstChild;
     imageA.id = 'imageA';
@@ -349,6 +360,7 @@
 
     /******** Knowledge Inspiration: Geeks4Geeks ********/
     /*** Select Random Pic ***/
+    // const picFolder;
     const prefix = "./pics/";
     const suffix = ".png";
 
@@ -495,7 +507,8 @@
     // cells.style.height = "auto";
     // cells.style.textAlign = "center"
     // cells.style.fontSize = "32px";
-    // cells.style.color = "#333333";</script>
+    // cells.style.color = "#333333";
+  </script>
 
 </body>
 
