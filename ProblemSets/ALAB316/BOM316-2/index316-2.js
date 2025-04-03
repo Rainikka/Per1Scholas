@@ -14,8 +14,10 @@ const body = document.querySelector("body");
 
 /*****************************************/
 /********** TESTING AREA ****************/
-// document.getElementById("test");
-// test.innerHTML = ();
+// document.getElementById('test0').id = "test0";
+// test0.innerHTML = picA
+// document.getElementById('test1').id = "test1";
+// test1.innerHTML = picB;
 /******************************************/
 /*****************************************/
 
@@ -126,39 +128,49 @@ let minA;
 let maxA;
 let minB;
 let maxB;
-let totalPics;
+// let folderA;
+// let folderB;
+let totalAPics;
+let totalBPics;
 
 /*** Pic Randomization ***/
 if (randomFrame() % 2) {
   function randomAImage() {
+    // folderA = 1N; // Real-Natural Pics
     minA = 1;
-    maxA = 25;
+    maxA = 140;
     const randomANumber = Math.floor(Math.random() * (maxA - minA + 1)) + minA;
-    return randomANumber;
+    return randomANumber
+    // return folderA;
   }
   function randomBImage() {
-    minB = 26;
-    maxB = 51;
+    // folderB = 0S; // AI-Synthetic Pics
+    minB = 1;
+    maxB = 140;
     const randomBNumber = Math.floor(Math.random() * (maxB - minB + 1)) + minB;
     return randomBNumber;
+    // return folderB;
   }
 } else {
   function randomAImage() {
-    minA = 26;
-    maxA = 51;
+    // folderA = 0S; // AI-Synthetic
+    minA = 1;
+    maxA = 140;
     const randomANumber = Math.floor(Math.random() * (maxA - minA + 1)) + minA;
     return randomANumber;
+    // return folderA;
   }
   function randomBImage() {
+    // folderB = 1N; // Real-Natural
     minB = 1;
-    maxB = 25;
+    maxB = 140;
     const randomBNumber = Math.floor(Math.random() * (maxB - minB + 1)) + minB;
     return randomBNumber;
+    // return folderB;
   }
 }
 
 /************* Set Image Attributes ***********/
-
 /*** Image Frame Elements ***/
 const imageA = document.getElementById(frameA).firstChild;
 imageA.id = 'imageA';
@@ -167,15 +179,31 @@ imageB.id = 'imageB';
 
 /******** Knowledge Inspiration: Geeks4Geeks ********/
 /*** Select Random Pic ***/
-const prefix = "./pics/";
-const suffix = ".png";
 
-const picA = `${prefix}${randomAImage()}${suffix}`
-const picB = `${prefix}${randomBImage()}${suffix}`
-picA.id = 'picA';
-picB.id = 'picB';
+let folderA;
+let folderB;
+let picA;
+let picB;
+const picPrefix = "./sortedPics/";
+const picSuffix = ".png";
+
+if (randomFrame() % 2) {
+  folderA = "pics0S/";     // AI-Synthetic Photos Photos
+  folderB = "pics1N/";    // Real-Natural
+  picA = `${picPrefix}${folderA}${randomAImage()}${picSuffix}`
+  // picA.id = 'picA';
+  picB = `${picPrefix}${folderB}${randomBImage()}${picSuffix}`
+  // picB.id = 'picB';
+} else {
+  folderA = "pics1N/";     // Real-Natural Photos
+  folderB = "pics0S/";    // AI-Synthetic Photos
+  picA = `${picPrefix}${folderA}${randomAImage()}${picSuffix}`
+  picB = `${picPrefix}${folderB}${randomBImage()}${picSuffix}`
+}
 
 /*** Set Image Attributes Attributes ***/
+// picA.id = 'picA';
+// picB.id = 'picB';
 imageA.setAttribute('src', picA);
 imageB.setAttribute('src', picB);
 
