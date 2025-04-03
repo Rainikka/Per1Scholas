@@ -9,21 +9,22 @@
 /****** with JavaScript *******/
 /******** 31-MAR-2025 *********/
 
-/**************************************************
-***************** REGEX VALIDATION ****************
-*
+/************************************************/
+/*************** REGEX VALIDATION ***************/
+/**
 * ********* Username Regex ****************
 * Username includes at least one letter and one number
-* (?= [^ a - zA - Z0 - 9] * [a - zA - Z0 - 9])
+* (?= [^ a - zA - Z0 - 9] * [a - zA - Z0 - 9]);
 * Usernamde includes at least two unique characters
-* (?=([a - zA - Z0 - 9] * ([a - zA - Z0 - 9])) \1 ? $)
+* (?= ([a - zA - Z0 - 9] * ([a - zA - Z0 - 9])) \1 ? $);
 *
-* ********* Email Regex ****************
-*
-*
+* ************ Email Regex *****************
+* Email is valid with a "@" and "."
+* (/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
 *
 * ********* Password Regex ****************
-*
+* Password Requirements
+* (/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$ %^&*()\-_=+{};:,<.>]).{ 12,}$/);
 *
 /**********************************************************/
 /************ Knowledge Inspiration: Geeks4Geeks **********/
@@ -38,8 +39,8 @@ function formvalidate() {
   /*** InnerHTML Error Messages By Type ***/
   /*** Error Message Inner HTML ***/
   const errorDisplay = document.getElementById('errorDisplay');
-
   errorDisplay.id = 'errorDisplay';
+
   const usernameError = errorDisplay.innerHTML = "";
   const emailError = errorDisplay.innerHTML = "";
   const passError = errorDisplay.innerHtml = "";
@@ -49,27 +50,28 @@ function formvalidate() {
   const btnRegister = document.getElementById("register");
 
   /*** Username Regex Validation Requirements ***/
-  /*** Must inlude a lettr and a number ***/
-  const nameAlphaNumeric = [a - zA - Z0 - 9] + -
-  /*** Must inlude 2 unique character ***/
-  const name2UniqueChars = (?= (.* (.).*\2) { 1,}) - s
-
+  /*** Username inludes a letter and a number ***/
+  const nameAlphaNumeric = ([a - zA - Z0 - 9] + -);
+  /*** Username inludes 2 unique character ***/
+  const name2UniqueChars = ((?= (.* (.).*\2) { 1,}) - s);
   /*** Email Regex Validation Requirements ***/
-  /*** Must inlude a lettr and a number ***/
-  const nameAlphaNumeric = [a - zA - Z0 - 9] + -
-  /*** Must inlude 2 unique character ***/
-  const name2UniqueChars = (?= (.* (.).*\2) { 1,}) - s
-
-  /*** Username Regex Validation ***/
-  const nameAlphaNumeric = (?= [^ a - zA - Z0 - 9] * [a - zA - Z0 - 9]);
-  const name2UniqueChars = (?= ([a - zA - Z0 - 9] * ([a - zA - Z0 - 9])) \1 ? $);
+  /*** Email inludes a "@" and "." ***/
+  const emailInvalid = (/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
+  /*** Password Regex Validation Requirements ***/
+  /*** Password inludes a "@" and "." ***/
+  const passInvalid = (/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$ %^&*()\-_=+{};:,<.>]).{ 12,}$/);
 
   /*** Validation Conditionals ****/
-  if (usernameInput === "")|| (usernameInput.length < 4) || (!nameAlphaNumeric.test(usernameInput)) || (!name2UniqueChars.test(usernameInput)){
+  if (usernameInput === "") || (usernameInput.length < 4) || (!nameAlphaNumeric.test(usernameInput)) || (!name2UniqueChars.test(usernameInput)){
     errorDisplay.innerHTML = usernameError;
+  } else if (emailInput === "") || (!emailInvalid.test(emailInput)) {
+    errorDisplay.innerHTML = emailError;
+  } else if (passInput === "") || (!passInvalid.test(passInput)) {
+    errorDisplay.innerHTML = passError;
+  } else {
+    console.log('Submit button clicked!');
   }
 }
-
 
 const submitButton = document.querySelector('input[type="submit"]');
 
@@ -80,3 +82,7 @@ addEventListener('click', function (event) {
 });
 
 usernameError = "USERNAME ERROR: Please select a username based on the following criteria: <br>The username cannot be blank.<br>The username must be at least four characters long.<br>The username must contain at least two unique characters.<br>The username cannot contain any special characters or whitespace";
+
+emailError = "EMAILE ERROR: Email is not valid"";
+
+passError = "PASSWORD ERROR: Passwords must be at least 12 characters long.<br> Passwords must have at least one uppercase and one lowercase letter.<br> Passwords must contain at least one number.<br> Passwords must contain at least one special character.<br> Passwords cannot contain the word "password".<br> Passwords cannot contain the username.<br>Both passwords must match.";

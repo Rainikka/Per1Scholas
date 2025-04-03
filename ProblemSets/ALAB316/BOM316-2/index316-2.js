@@ -111,8 +111,8 @@ cellB.id = "cellB";
 document.querySelector('cellB');
 cellB.textContent = "B";
 
-/******************** RANDOMIZATION ********************/
-/******************** Pic List Folder ******************/
+/******************** RANDOMIZATION *******************/
+/******************** Pic List Folder *****************/
 
 /**** Knowledge Inspiration: W3Schools: Random Number Generator ****/
 /*** Frame Randomization ***/

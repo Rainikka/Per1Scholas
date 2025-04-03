@@ -157,16 +157,16 @@
 
     <!-- Registration Form -->
     <form id="registration">
-      <input id="username" name="username" type="text" placeholder="Username" />
+      <input id="username" name="username" type="text" placeholder="Username" required />
       <span class="input-icon"><i class="fa-solid fa-user"></i></span><br />
 
-      <input id="email" name="email" type="text" placeholder="Email" />
+      <input id="email" name="email" type="text" placeholder="Email" required />
       <span class="input-icon"><i class="fa-solid fa-envelope"></i></span><br />
 
-      <input id="password" name="password" type="text" placeholder="Password" />
+      <input id="password" name="password" type="text" placeholder="Password" required />
       <span class="input-icon"><i class="fa-solid fa-key"></i></span><br />
 
-      <input name="passwordCheck" type="text" placeholder="Repeat Password" />
+      <input id="passCheck" name=" passwordCheck" type="text" placeholder="Repeat Password" required />
       <span class="input-icon"><i class="fa-solid fa-key"></i></span><br /><br />
 
       <div class="flex-row">
@@ -209,7 +209,63 @@
 <div id="errorDisplay"></div>
 
 <!-- Script: JavaSxript -->
-<script defer src="./index316-4.js"></script>
+
+<script defer src="./index316-4.js">
+
+  function formValidate() {
+    /*** Get User Input Elements By ID ***/
+    const usernameInput = document.getElementById('username').value;
+    const emailInput = document.getElementById('email').value;
+    const passInput = document.getElementById('password').value;
+    const passCheckInput = document.querySelector('input[name="passwordCheck"]').value;
+    const termsAgree = document.getElementById('terms').checked
+
+    /*** InnerHTML Error Messages By Type ***/
+    /*** Error Message Inner HTML ***/
+    const errorDisplay = document.getElementById('errorDisplay');
+    errorDisplay.id = 'errorDisplay';
+
+    const usernameError = errorDisplay.innerHTML = "";
+    const emailError = errorDisplay.innerHTML = "";
+    const passError = errorDisplay.innerHtml = "";
+    const termsError = errorDisplay.innerHHTML = "";
+
+    /*** Get Error Message Elements By ID ***/
+    const btnRegister = document.getElementById("register");
+
+    /*** Username Regex Validation Requirements ***/
+    /*** Username inludes a letter and a number ***/
+    const nameAlphaNumeric = /^[a-zA-Z0-9]$/;
+    /*** Username inludes 2 unique character ***/
+    const name2UniqueChars = /^(?=.*(.).*\1)[a-zA-Z0-9]{4,}$/;
+    /*** Email Regex Validation Requirements ***/
+    /*** Email inludes a "@" and "." ***/
+    const emailInvalid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    /*** Password Regex Validation Requirements ***/
+    /*** Password inludes a "@" and "." ***/
+    const passInvalid = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+{};:,<.>]).{12,}$/;
+
+    /*** Validation Conditionals ****/
+    if ((usernameInput === "") || (usernameInput.length < 4) || (!nameAlphaNumeric.test(usernameInput)) || (!name2UniqueChars.test(usernameInput))) {
+      errorDisplay.innerHTML = usernameError;
+    } else if ((emailInput === "") || (!emailInvalid.test(emailInput))) {
+      errorDisplay.innerHTML = emailError;
+    } else if ((passInput === "") || (passInput < 12) || (!passInvalid.test(passInput))) {
+      errorDisplay.innerHTML = passError;
+    } else {
+      console.log('Submit button clicked!');
+    }
+  }
+
+  btnRegister.addEventListener('click', formValidate);
+
+  usernameError = "USERNAME ERROR: Please select a username based on the following criteria: <br>The username cannot be blank.<br>The username must be at least four characters long.<br>The username must contain at least two unique characters.<br>The username cannot contain any special characters or whitespace";
+
+  emailError = "EMAILE ERROR: Email is not valid";
+
+  passError = "PASSWORD ERROR: Passwords must be at least 12 characters long.<br> Passwords must have at least one uppercase and one lowercase letter.<br> Passwords must contain at least one number.<br> Passwords must contain at least one special character.<br> Passwords cannot contain the word 'password'.< br > Passwords cannot contain the username.< br > Both passwords must match.";
+</script>
+
 </body>
 
 </html>
