@@ -14,18 +14,30 @@
 /**
 * ********* Username Regex ****************
 * Username includes at least one letter and one number
-* (?= [^ a - zA - Z0 - 9] * [a - zA - Z0 - 9]);
+* /^[a-zA-Z0-9]+$/;
 * Usernamde includes at least two unique characters
-* (?= ([a - zA - Z0 - 9] * ([a - zA - Z0 - 9])) \1 ? $);
+*  /^(?=.*(.).*\1)[a-zA-Z0-9]{4,}$/;
 *
 * ************ Email Regex *****************
 * Email is valid with a "@" and "."
-* (/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
+const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 *
 * ********* Password Regex ****************
 * Password Requirements
-* (/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$ %^&*()\-_=+{};:,<.>]).{ 12,}$/);
+* ( /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+{ };:,<.>]).{12,}$/;
 *
+
+/*** Username Regex Validation Requirements ***/
+/*** Username inludes a letter and a number ***/
+const nameAlphaNumeric = /^[a-zA-Z0-9]+$/;
+/*** Username inludes 2 unique character ***/
+const name2UniqueChars = /^(?=.*(.).*\1)[a-zA-Z0-9]{4,}$/;
+/*** Email Regex Validation Requirements ***/
+/*** Email inludes a "@" and "." ***/
+const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+/*** Password Regex Validation Requirements ***/
+/*** Password inludes a "@" and "." ***/
+const passValid = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+{ };:,<.>]).{12,}$/;
 /**********************************************************/
 /************ Knowledge Inspiration: Geeks4Geeks **********/
 
