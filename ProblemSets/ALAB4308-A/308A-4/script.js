@@ -34,11 +34,11 @@ const body = document.querySelector("body");
 // document.getElementById('test2');
 // test2.innerHTML = "picC";
 /******************************************/
-/************ TESTING AREA ****************/
+/******************************************/
 
-/***************************/
+/******** Knowledge Inspiration: YouTube::LearnWebCode ********/
 /************* Elements Created ****************/
-/****** --- Knowledge Inspiration: YouTube : LearnWebCode  --- ******/
+
 /*** Fetches Dog CEO  Data List of Breeds */
 async function start() {
   const response = await fetch("https://dog.ceo/api/breeds/list/all")
@@ -47,21 +47,31 @@ async function start() {
 }
 start();
 
-/*** Create HTML Selection Dropdown Tool */
+/**** Create Select Dropdown Tool ****/
 function createBreedList(breedList) {
   /*** Create option for each breed in data.message ***/
   const breedDiv = document.getElementById('breedDiv');
   const select = breedDiv.appendChild(document.createElement('select'));
   select.id = 'select';
+  select.onchange = function () {
+    breedProfile(select.value);
+  };
 
-  /** Option0 : Select Prompt **/
+  /*** Option0: Select Brred Prompt ***/
   const option0 = select.appendChild(document.createElement('option'));
   option0.id = 'option0';
-  option0.textContent = 'Choose A Breed';
+  option0.textContent = 'Choose Dog Breed';
 
-  /** Option for each breed in breedList **/
+  /*** Option Elem for Each Breed on Breed List ***/
   Object.keys(breedList).forEach(breed => {
     const option = select.appendChild(document.createElement('option'));
     option.textContent = breed;
   });
+}
+
+/*** Profile Items for Each Breed of Dog ***/
+function breedProfile(breed) {
+  if (breed != "Choose Dog Breed") {
+    alert(breed);
+  }
 }
