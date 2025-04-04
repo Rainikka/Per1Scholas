@@ -12,26 +12,17 @@ s/*********************************/
 
 /****** --- Knowledge Inspiration: LearnWebCode YouTube --- ******/
 /*** Fetches the Dog CEO Data */
-async function start() {
-  const response = await fetch("https://dog.ceo/api/breeds/list/all")
-  const data = await response.json()
-  createBreedList(data.message)
-}
-start();
+// async function start() {
+//   const response = await fetch("https://dog.ceo/api/breeds/list/all")
+//   const data = await response.json()
+//   createBreedList(data.message)
+// }
+// start();
 
 /*** Create HTML Selection Dropdown Tool */
-/*** Fetches the Dod CEO Data */
-async function start() {
-  const response = await fetch("https://dog.ceo/api/breeds/list/all")
-  const data = await response.json()
-  createBreedList(data.message)
-}
-start()
-
-/*** Create HTML Selection Dropdown Tool */
-function createBreedList(breedList) {
-  document.getElementById("breed").innerHTML = `
-  <select>
+// function createBreedList(breedList) {
+const breed = document.getElementById('breed').innerHTML = `
+    <select>
     <option>Choose A Breed</option>
     <option>Boxer</option>
     <option>Bulldog</option>
@@ -39,5 +30,5 @@ function createBreedList(breedList) {
     <option>Pomeranian</option>
     <option>St. Bernard</option>
   </select>
-  `
-}
+    `
+//
