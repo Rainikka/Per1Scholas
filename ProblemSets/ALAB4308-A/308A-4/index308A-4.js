@@ -19,16 +19,22 @@ s/*********************************/
 // }
 // start();
 
+document.querySelector("body");
+
+const tilte = document.getElementById('title');
+title.innerHTML = "Infinite Dog App";
+
 /*** Create HTML Selection Dropdown Tool */
 // function createBreedList(breedList) {
-const breed = document.getElementById('breed').innerHTML = `
-    <select>
-    <option>Choose A Breed</option>
-    <option>Boxer</option>
-    <option>Bulldog</option>
-    <option>Corgi</option>
-    <option>Pomeranian</option>
-    <option>St. Bernard</option>
-  </select>
-    `
-//
+//   const breed = document.getElementById('breed').innerHTML = `
+//     <select>
+//     <option>Choose A Breed</option>
+//     <option>Boxer</option>
+//     <option>Bulldog</option>
+//     <option>Corgi</option>
+//     <option>Pomeranian</option>
+//     <option>St. Bernard</option>
+//   </select>
+//     `;
+// }
+// createBreedList();
