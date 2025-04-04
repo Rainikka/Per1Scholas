@@ -43,15 +43,15 @@ const body = document.querySelector("body");
 async function start() {
   const response = await fetch("https://dog.ceo/api/breeds/list/all")
   const data = await response.json()
-  createBreedList(data.message)
+  buildBreedList(data.message)
 }
 start();
 
 /**** Create Select Dropdown Tool ****/
-function createBreedList(breedList) {
+function buildBreedList(breedList) {
   /*** Create option for each breed in data.message ***/
-  const breedDiv = document.getElementById('breedDiv');
-  const select = breedDiv.appendChild(document.createElement('select'));
+  const selectDiv = document.getElementById('selectDiv');
+  const select = selectDiv.appendChild(document.createElement('select'));
   select.id = 'select';
   select.onchange = function () {
     breedProfile(select.value);
@@ -65,13 +65,85 @@ function createBreedList(breedList) {
   /*** Option Elem for Each Breed on Breed List ***/
   Object.keys(breedList).forEach(breed => {
     const option = select.appendChild(document.createElement('option'));
-    option.textContent = breed;
+    console.log(breed);
+    option.innerHTML = breed;
   });
 }
 
 /*** Profile Items for Each Breed of Dog ***/
-function breedProfile(breed) {
+async function breedProfile(breed) {
   if (breed != "Choose Dog Breed") {
-    alert(breed);
+    const response = await fetch(`https://dog.ceo/api/breed/${breed}/images`)
+    const data = await response.json()
+    console.log(data);
+  }
+}
+
+
+/*** Fetches Dog CEO Data List of Breeds */
+async function start() {
+  try {
+    const response = await fetch("https://dog.ceo/api/breeds/list/all");
+    const data = await response.json();
+    buildBreedList(data.message);
+  } catch (error) {
+    console.error("Error fetching breed list:", error);
+  }
+}
+start();
+
+/**** Create Select Dropdown Tool ****/
+function buildBreedList(breedList) {
+  const selectDiv = document.getElementById('selectDiv');
+  const select = document.createElement('select');
+  select.id = 'select';
+  selectDiv.appendChild(select);
+
+  // Default option
+  const defaultOption = document.createElement('option');
+  defaultOption.value = "";
+  defaultOption.textContent = 'Choose Dog Breed';
+  select.appendChild(defaultOption);
+
+  // Add all breeds
+  Object.keys(breedList).forEach(breed => {
+    const option = document.createElement('option');
+    option.value = formatBreedForAPI(breed); // Store API-friendly format in value
+    option.textContent = formatBreedForDisplay(breed); // Show pretty name
+    select.appendChild(option);
+  });
+
+  select.addEventListener('change', function () {
+    if (this.value) {
+      breedProfile(this.value);
+    }
+  });
+}
+
+/*** Format breed names for API URLs */
+function formatBreedForAPI(breed) {
+  return breed.toLowerCase().replace(/\s+/g, '');
+}
+
+/*** Format breed names for display */
+function formatBreedForDisplay(breed) {
+  return breed.replace(/([a-z])([A-Z])/g, '$1 $2') // Split camelCase
+    .replace(/\b\w/g, l => l.toUpperCase()); // Capitalize first letters
+}
+
+/*** Fetch images for selected breed */
+async function breedProfile(breed) {
+  try {
+    const response = await fetch(`https://dog.ceo/api/breed/${breed}/images`);
+    const data = await response.json();
+
+    if (data.status === "success") {
+      console.log(`Found ${data.message.length} images for ${breed}`);
+      // Process your images here
+    } else {
+      console.error("API error:", data.message);
+    }
+  } catch (error) {
+    console.error("Error fetching breed images:", error);
   }
 }
