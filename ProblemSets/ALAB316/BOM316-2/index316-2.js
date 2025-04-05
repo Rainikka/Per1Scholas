@@ -12,13 +12,13 @@
 /************ Body Dressing *************/
 const body = document.querySelector("body");
 
-/*****************************************/
+/****************************************/
 /********** TESTING AREA ****************/
 // document.getElementById('test0').id = "test0";
 // test0.innerHTML = picA
 // document.getElementById('test1').id = "test1";
 // test1.innerHTML = picB;
-/******************************************/
+/*****************************************/
 /*****************************************/
 
 /***************************/
@@ -138,7 +138,7 @@ if (randomFrame() % 2) {
   function randomAImage() {
     // folderA = 1N; // Real-Natural Pics
     minA = 1;
-    maxA = 140;
+    maxA = 184;
     const randomANumber = Math.floor(Math.random() * (maxA - minA + 1)) + minA;
     return randomANumber
     // return folderA;
@@ -146,7 +146,7 @@ if (randomFrame() % 2) {
   function randomBImage() {
     // folderB = 0S; // AI-Synthetic Pics
     minB = 1;
-    maxB = 140;
+    maxB = 176;
     const randomBNumber = Math.floor(Math.random() * (maxB - minB + 1)) + minB;
     return randomBNumber;
     // return folderB;
@@ -155,7 +155,7 @@ if (randomFrame() % 2) {
   function randomAImage() {
     // folderA = 0S; // AI-Synthetic
     minA = 1;
-    maxA = 140;
+    maxA = 184;
     const randomANumber = Math.floor(Math.random() * (maxA - minA + 1)) + minA;
     return randomANumber;
     // return folderA;
@@ -163,7 +163,7 @@ if (randomFrame() % 2) {
   function randomBImage() {
     // folderB = 1N; // Real-Natural
     minB = 1;
-    maxB = 140;
+    maxB = 176;
     const randomBNumber = Math.floor(Math.random() * (maxB - minB + 1)) + minB;
     return randomBNumber;
     // return folderB;
