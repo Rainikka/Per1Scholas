@@ -9,15 +9,14 @@
 /****** with JavaScript *******/
 /******** 29-MAR-2025 *********/
 
+
 /************ Body Dressing *************/
 const body = document.querySelector("body");
 
 /*****************************************/
 /********** TESTING AREA ****************/
-// document.getElementById('test0').id = "test0";
-// test0.innerHTML = picA
-// document.getElementById('test1').id = "test1";
-// test1.innerHTML = picB;
+// document.getElementById("test");
+// test.innerHTML = ();
 /******************************************/
 /*****************************************/
 
@@ -93,10 +92,16 @@ for (let l = 0; l < 1; l++) {
     const cell = document.createElement("td");
     row.appendChild(cell);
     cell.classList.add("cells");
+
+    for (let n = 0; n < 1; n++) {
+      const button = document.createElement("button");
+      cell.appendChild(button);
+      button.classList.add("buttons");
+    }
   }
 }
 
-/******* Assign IDs to Row Y Cell  Elements in Table *********/
+/******* Assign IDs to Row & Cell  Elements in Table *********/
 /*** Row IDs ***/
 const row0 = table.firstChild.id = "row0";
 const row1 = table.lastChild.id = "row1";
@@ -107,18 +112,25 @@ const frameB = document.getElementById(row0).lastChild.id = 'frameB';
 const cellA = document.getElementById(row1).firstChild;
 cellA.id = "cellA";
 document.querySelector('cellA');
-cellA.textContent = "A";
+const buttonA = document.getElementById(cellA).firstChild;
+buttonA.id = 'buttonA'
+document.querySelector('buttonA');
+buttonA.textContent = "A";
 const cellB = document.getElementById(row1).lastChild;
 cellB.id = "cellB";
 document.querySelector('cellB');
-cellB.textContent = "B";
+const buttonB = document.getElementById(cellB).lastChild;
+buttonB.id = 'buttonB'
+document.querySelector('buttonB');
+buttonA.textContent = "B";
 
-/************************* PIC RANDOMIZATION ************************/
-/*************************** Pic List Folder ************************/
+
+/****************** RANDOMIZATION ********************/
+/*******************  Pic List Folder  ******************
+ 
 /**** Knowledge Inspiration: W3Schools: Random Number Generator ****/
-
 /*** Frame Randomization ***/
-function randomFrame() {
+function randomRandom() {
   const totalFrames = 2;
   const randomNumber = Math.floor((Math.random() * totalFrames) + 1);
   return randomNumber;
@@ -128,49 +140,39 @@ let minA;
 let maxA;
 let minB;
 let maxB;
-// let folderA;
-// let folderB;
-let totalAPics;
-let totalBPics;
+let totalPics;
 
 /*** Pic Randomization ***/
-if (randomFrame() % 2) {
+if (randomRandom() % 2) {
   function randomAImage() {
-    // folderA = 1N; // Real-Natural Pics
     minA = 1;
-    maxA = 140;
+    maxA = 25;
     const randomANumber = Math.floor(Math.random() * (maxA - minA + 1)) + minA;
-    return randomANumber
-    // return folderA;
+    return randomANumber;
   }
   function randomBImage() {
-    // folderB = 0S; // AI-Synthetic Pics
-    minB = 1;
-    maxB = 140;
+    minB = 26;
+    maxB = 51;
     const randomBNumber = Math.floor(Math.random() * (maxB - minB + 1)) + minB;
     return randomBNumber;
-    // return folderB;
   }
 } else {
   function randomAImage() {
-    // folderA = 0S; // AI-Synthetic
-    minA = 1;
-    maxA = 140;
+    minA = 26;
+    maxA = 51;
     const randomANumber = Math.floor(Math.random() * (maxA - minA + 1)) + minA;
     return randomANumber;
-    // return folderA;
   }
   function randomBImage() {
-    // folderB = 1N; // Real-Natural
     minB = 1;
-    maxB = 140;
+    maxB = 25;
     const randomBNumber = Math.floor(Math.random() * (maxB - minB + 1)) + minB;
     return randomBNumber;
-    // return folderB;
   }
 }
 
 /************* Set Image Attributes ***********/
+
 /*** Image Frame Elements ***/
 const imageA = document.getElementById(frameA).firstChild;
 imageA.id = 'imageA';
@@ -179,31 +181,15 @@ imageB.id = 'imageB';
 
 /******** Knowledge Inspiration: Geeks4Geeks ********/
 /*** Select Random Pic ***/
+const prefix = "./pics/";
+const suffix = ".png";
 
-let folderA;
-let folderB;
-let picA;
-let picB;
-const picPrefix = "./sortedPics/";
-const picSuffix = ".png";
-
-if (randomFrame() % 2) {
-  folderA = "pics0S/";     // AI-Synthetic Photos Photos
-  folderB = "pics1N/";    // Real-Natural
-  picA = `${picPrefix}${folderA}${randomAImage()}${picSuffix}`
-  // picA.id = 'picA';
-  picB = `${picPrefix}${folderB}${randomBImage()}${picSuffix}`
-  // picB.id = 'picB';
-} else {
-  folderA = "pics1N/";     // Real-Natural Photos
-  folderB = "pics0S/";    // AI-Synthetic Photos
-  picA = `${picPrefix}${folderA}${randomAImage()}${picSuffix}`
-  picB = `${picPrefix}${folderB}${randomBImage()}${picSuffix}`
-}
+const picA = `${prefix}${randomAImage()}${suffix}`
+const picB = `${prefix}${randomBImage()}${suffix}`
+picA.id = 'picA';
+picB.id = 'picB';
 
 /*** Set Image Attributes Attributes ***/
-// picA.id = 'picA';
-// picB.id = 'picB';
 imageA.setAttribute('src', picA);
 imageB.setAttribute('src', picB);
 
@@ -211,8 +197,7 @@ document.getElementById('button2Reset').addEventListener('click', function () {
   location.reload();// Knowledge Inspiration : FreeCodeCamp
 });
 
-/****************** Prompt Elements ******************/
-function responseAI() {
+/****************** Prompt Elements ******************/function responseAI() {
   /************ User Prompt *************/
   let userInput = prompt("Which Person Is Really REAL: A or B ?");
 
@@ -224,6 +209,7 @@ function responseAI() {
     const response = document.getElementById('response');
     const frameA = document.getElementById('frameA');
     const cellA = document.getElementById('cellA');
+
     /******* InnerHTML ********/
     subtitle.innerHTML = "";
     responseLoud.innerHTML = "YOWZAH!";
@@ -243,6 +229,7 @@ function responseAI() {
     const response = document.getElementById('response');
     const frameA = document.getElementById('frameA');
     const cellA = document.getElementById('cellA');
+
     /******* InnerHTML ********/
     subtitle.innerHTML = "";
     responseLoud.innerHTML = "BAMBOOZLED BY AI!";
@@ -262,6 +249,7 @@ function responseAI() {
     const response = document.getElementById('response');
     const frameB = document.getElementById('frameB');
     const cellB = document.getElementById('cellB');
+
     /******* InnerHTML ********/
     subtitle.innerHTML = "";
     responseLoud.innerHTML = "YOWZAH!";
@@ -297,8 +285,8 @@ function responseAI() {
     const responseLoud = document.getElementById('responseLoud');
     const response = document.getElementById('response');
     /******* InnerHTML Response ********/
-    responseLoud.innerHTML = "<h2> #404--OOPSIES--DAISIES </h2 > ";
-    response.innerHTML = "<h4> Something Is Amiss -- Retry.</h4>";
+    responseLoud.innerHTML = "<h2>404 -- OOPSIE-DAISY</h2>";
+    response.innerHTML = "<h4>Something Is Amiss -- Retry.</h4>";
     /******* Add ClassList ********/
     responseLoud.classList.add('neutral');
     response.classList.add('neutral');
@@ -323,7 +311,7 @@ subtitle.style.fontWeight = "normal";
 subtitle.style.color = "darkslateblue";
 
 /*********** Style: Button2Play **********/
-button2Play.innerHTML = "<em> Try Your Luck </em>";
+button2Play.innerHTML = "<em> Try Your Luck</em>";
 button2Play.style.width = "0 28px";
 button2Play.style.padding = "12px 28px";
 button2Play.style.backgroundColor = "steelBlue";
@@ -342,30 +330,3 @@ cellB.style.borderLeft = "1px solid lightgray";
 // cells.style.textAlign = "center"
 // cells.style.fontSize = "32px";
 // cells.style.color = "#333333";
-
-/******************* PIC RANDOMIZATION *******************/
-/******* Photo Screenshots Origin: AI-Generated **********
- * 
- * Nightingale S.J., Farid H. (2022).AI - synthesized faces are indistinguishable from real
- * faces and more trustworthy.Proceedings of the National Academy of Sciences, USA, 119(8
- * Article e2120481119.https://doi.org/10.1073/pnas.2120481119
- * 
- * Miller, E.J., Steward, B.A., Witkower, Z., Sutherland, C.A.M., Krumhuber, E.G., & Dawel, A  * (2023).  AI Hyperrealism: Why AI Faces Are Perceived as More Real Than Human Ones
- * Psychological Science, 0(0).https://doi.org/10.1177/09567976231207095
- * 
- * Muñoz, C., Zannone, S., Mohammed, U., & Koshiyama, A.S. (2023).Uncovering Bias in Face
- * Generation Models.ArXiv, abs / 2302.11562.
- * 
- * Nightingale S.J., Farid H. (2022).AI - synthesized faces are indistinguishable from real
- * faces and more trustworthy.Proceedings of the National Academy of Sciences, USA, 119(8
- * Article e2120481119.https://doi.org/10.1073/pnas.2120481119
- * 
- * 
-/******* Photo Screenshots Origin: Real People **********
- * 
- * UnSplash: https://unsplash.com
- * Pexels: https://www.pexels.com
- * PixaBay: https://pixabay.com
- * 
- * 
- /********************* --- THE END --- ******************/

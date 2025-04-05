@@ -5,7 +5,7 @@ body {
 
 }
 main {
-  margin: 0 auto;
+  margin: 150px auto 0 auto;
   padding: 10px;
   width: 600px;
   height: auto;
@@ -23,7 +23,6 @@ header {
   justify-content: center;
   align-items: center;
   line-height: 5px;
-  
 }
 span {
   font-size: 60px;
@@ -127,18 +126,19 @@ img {
 }
 #buttonBox {
   margin: 30px auto;
-  width: auto;
+  width: 275px;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
 }
-#button2Play {
+#button2Play,
+#button2Reset {
 margin: 0 auto;
 width: 0 20px;
 cursor: pointer;
-border: 2px solid azure;
-border-radius: 6px;
+border: 2px solid steelblue;
+border-radius: 6px; 
 text-align: center;
 font-size: 16px;
 font-weight: bold;
@@ -146,17 +146,10 @@ color:white;
 box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 #button2Play:hover, 
-#button2RPlay:active,
+#button2Play:active,
 #button2Reset:hover, 
-#button2Reset:active  {
+#button2Reset:active {
    background: lightsteelblue;
    font-weight: bolder;
    color: "#333333";
 }
-
-
-
-
-
-
-
