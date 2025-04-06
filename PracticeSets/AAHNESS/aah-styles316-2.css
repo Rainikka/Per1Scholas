@@ -15,6 +15,7 @@ main {
   align-items: center;
   border: 2px solid steelblue;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
+  color: midnightblue;
 }
 header {
   margin: 50px auto 00 auto;
@@ -48,30 +49,19 @@ table {
   border-spacing: 20px;
 }
 th {
-  padding: 0;
+  padding: 0px;
 }
-td {
+#row0 {
+  margin: 0px;
   width: auto;
-  height: 30px;
-  margin: 0 auto;
-  text-align: center;
-  font-size: 32px;
-  font-weight: bold;
-  border: 1px solid lightSteelBlue;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
-}
-#cellA{
-  border-right: 8px solid white;
-}
-#cellB{
-  border-left: 8px solid white;
+  height: auto;
 }
  #frameA {
   padding: 0 8px 0 0;
 }
 #frameB {
   padding: 0 0 0 8px;
-} 
+}
 img {
   width: 200px; 
   height: 200px;
@@ -124,20 +114,32 @@ img {
   border: 5px solid firebrick;
   color: white;
 } 
+#buttonBox {
+  margin: 30px auto;
+  width: 275px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+#row1 {
+  margin: 0px;
+  width: auto;
+  height: 50px;
+  text-align: center;
+  font-weight: bold;
+}
 #buttonA,
 #buttonB {
-  margin: 0 auto;
-  width: 100%;
-  height: 100%;
-  /* padding: 12px 28px; */
-  /* border: 2px solid steelblue;
-  border-radius: 6px; 
-  background-color: steelBlue; */
+  width: 98%;
+  height: 35px;
+  border: 1px solid steelblue;background: lightgray;  
   text-align: center;
   font-size: 24px;
   font-weight: bold;
-  /* color:white; */
-  /* box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); */
+  color: midnightblue;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+
   cursor: pointer;
 }
 #button2Play,

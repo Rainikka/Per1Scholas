@@ -174,12 +174,12 @@ imageA.id = 'imageA';
 const imageB = document.getElementById(frameB).firstChild;
 imageB.id = 'imageB';
 
-/**************** -- FUTURE SELF NOT -- ****************/
-/*** Pic Folder 1N -- Realistic Natural Images ***/
-/*** Pic Folder 0S -* Synthetic AI-Generated Images ***/
-/*****************************************************/
+/************** -- NOTE FOR FUTURE SELF -- **************/
+/******* Pic Folder 1N - ALL-Natural Real Images *******/
+/**** Pic Folder 0S - Synthetic AI-Generated Images ****/
+/*******************************************************/
 
-/****** Knowledge Inspiration: Random Generator: Geeks4Geeks ******/
+/*** Knowledge Inspiration:Random Generator: Geeks4Geeks ***/
 /*** Select Random Pic Function ***/
 let folderA;
 let folderB;
@@ -192,9 +192,7 @@ if (randomFrame() % 2) {
   folderA = "pics0S/";   // AI-Synthetic Photos Photos
   folderB = "pics1N/";   // Real-Natural
   picA = `${picPrefix}${folderA}${randomAImage()}${picSuffix}`
-  picA.id = 'picA';
   picB = `${picPrefix}${folderB}${randomBImage()}${picSuffix}`
-  picB.id = 'picB';
 } else {
   folderA = "pics1N/";    // Real-Natural Photos
   folderB = "pics0S/";    // AI-Synthetic Photos
@@ -203,6 +201,8 @@ if (randomFrame() % 2) {
 }
 
 /*** Set Image Attributes Attributes ***/
+picA.id = 'picA';
+picB.id = 'picB';
 imageA.setAttribute('src', picA);
 imageB.setAttribute('src', picB);
 
@@ -220,21 +220,24 @@ function responseAI() {
     /******* Game Elements *********/
     const subtitle = document.getElementById('subtitle');
     const responseLoud = document.getElementById('responseLoud');
+
     const response = document.getElementById('response');
     const frameA = document.getElementById('frameA');
     const cellA = document.getElementById('cellA');
+
     /******* InnerHTML ********/
     subtitle.innerHTML = "";
     responseLoud.innerHTML = "YOWZAH!";
     response.innerHTML = "You Are Smarter Than AI";
     cellA.textContent = "I am Real";
+
     /******* Add ClassList ********/
     responseLoud.classList.add('shoutRight');
     response.classList.add('yesRight');
     frameA.classList.add('frameRight');
     cellA.classList.add('cellRight');
 
-    /************ Prompt Response: FRAME A IS AI *************/
+    /*********** Prompt Response: FRAME A IS AI ***********/
   } else if ((userInput === "A" || userInput === "a") && randomAImage() >= 26) {
     /******* Game Elements *********/
     const subtitle = document.getElementById('subtitle');
@@ -321,21 +324,27 @@ subtitle.style.fontSize = "20px";
 subtitle.style.fontWeight = "normal";
 subtitle.style.color = "darkslateblue";
 
+/*********** Style:  ButtonA & B ***********/
+buttonA.innerHTML = "A";
+buttonB.innerHTML = "B";
+buttonA.style.margin = "5px 10px 0 0";
+buttonB.style.margin = "5px  0 0 5px";
+
 /*********** Style: Button2Play **********/
 button2Play.innerHTML = "<em> Try Your Luck </em>";
 button2Play.style.width = "0 28px";
 button2Play.style.padding = "12px 28px";
 button2Play.style.backgroundColor = "steelBlue";
 
-/*********** Style: Button2Reset**********/
+/*********** Style: Button2Reset **********/
 button2Reset.innerHTML = "<em> Reset</em>";
 button2Reset.style.width = "0 20px";
 button2Reset.style.padding = "12px 18px";
 button2Reset.style.backgroundColor = "gray";
 
 /*********** Style: Cells **********/
-cellA.style.borderRight = "1px solid lightgray";
-cellB.style.borderLeft = "1px solid lightgray";
+// cellA.style.borderRight = "1px solid lightgray";
+// cellB.style.borderLeft = "1px solid lightgray";
 // cells.style.width = "auto";
 // cells.style.height = "auto";
 // cells.style.textAlign = "center"
