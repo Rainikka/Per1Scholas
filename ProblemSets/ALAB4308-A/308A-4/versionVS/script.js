@@ -9,7 +9,7 @@
 /************ with JavaScript *************/
 /************** 04-APR-2025 ***************/
 
-/************* Objectives *****************
+/************* Task Objectives **************
  * 
  * 1. Request data from an external API using fetch
  * and Axios.
@@ -26,6 +26,8 @@
 const body = document.querySelector("body");
 
 /******************************************/
+
+/*** Fetch Data List of Dog Breeds */
 /************ TESTING AREA ****************/
 // document.getElementById('test0');
 // test0.innerHTML = "picA";
@@ -47,34 +49,38 @@ async function start() {
 }
 start();
 
-/**** Create Dropdown Select  Tool ****/
+/**** Create Dropdown Selection Tool ****/
 function buildBreedList(breedList) {
   /*** Create option for each breed in data.message ***/
   const selectDiv = document.getElementById('selectDiv');
-  const select = selectDiv.appendChild(document.createElement('select'));
-  select.id = 'select';
-  select.onchange = function () {
-    breedProfile(select.value);
-  };
+  const breedSelect = selectDiv.appendChild(document.createElement('select'));
+  breedSelect.id = 'breedSelect';
+
+  // breedSelect.onchange = function breedProfil() {
+  //   buildBreedList(breedSelect.value);
 
   /*** Option0: Select Breed Prompt ***/
-  const option0 = select.appendChild(document.createElement('option'));
+  const option0 = breedSelect.appendChild(document.createElement('option'));
   option0.id = 'option0';
   option0.textContent = 'Choose Dog Breed';
-
-  /*** Option Elem for Each Breed on Breed List ***/
-  Object.keys(breedList).forEach(breed => {
-    const option = select.appendChild(document.createElement('option'));
-    console.log(breed);
-    option.innerHTML = breed;
-  });
 }
+/*** Option Elem for Each Breed on Breed List ***/
+Object.keys(breedList).forEach(breed => {
+  const option = breedSelect.appendChild(document.createElement('option'));
+  console.log(breed);
+  option.textContent = breed;
+});
+
+// Add event listener properly
+breedSelect.addEventListener('change', breedProfile() {
+  buildBreedList(breedSelect.value)
+});
 
 /*** Profile Items for Each Breed of Dog ***/
-async function breedProfile(breed) {
+function breedProfile(breed) {
   if (breed != "Choose Dog Breed") {
-    const response = await fetch(`https://dog.ceo/api/breed/${breed}/images`)
-    const data = await response.json()
-    console.log(data);
+    // const response = await fetch(`https://dog.ceo/api/breed/${breed}/images`)
+    // const data = await response.json()
+    alert(breed);
   }
 }
