@@ -113,20 +113,20 @@ const frameB = document.getElementById(row0).lastChild.id = 'frameB';
 /*** Cell IDs ***/
 const cellA = document.getElementById(row1).firstChild;
 cellA.id = "cellA";
-document.querySelector('cellA');
 
 const cellB = document.getElementById(row1).lastChild;
 cellB.id = "cellB";
 document.querySelector('cellB');
 
 /*** Cell IDs ***/
+document.querySelector('cellA');
 const buttonA = document.createElement('button');
-cellA.insertAdjacentElement('afterend', buttonA);
+cellA.appendChild(buttonA);
 buttonA.id = 'buttonA';
 buttonA.textContent = 'A';
 
 const buttonB = document.createElement('button');
-cellB.insertAdjacentElement('afterend', buttonB);
+cellB.appendChild(buttonB);
 buttonB.id = 'buttonB';
 buttonB.textContent = 'B';
 
@@ -141,29 +141,27 @@ function randomFrame() {
   return randomNumber;
 }
 /*** Set Minimum & Maximum ***/
-let minA;
-let maxA;
-let minB;
-let maxB;
-// let folderA;
-// let folderB;
-let totalAPics;
-let totalBPics;
+let minA = 1;
+let maxA = 220;
+let minB = 1;
+let maxB = 220;
+let folderA;
+let folderB;
 
 /*** Pic Randomization ***/
 if (randomFrame() % 2) {
   function randomAImage() {
     // folderA = 1N; // Real-Natural Pics
-    minA = 1;
-    maxA = 140;
+    // minA = 1;
+    // maxA = 20;
     const randomANumber = Math.floor(Math.random() * (maxA - minA + 1)) + minA;
     return randomANumber
     // return folderA;
   }
   function randomBImage() {
     // folderB = 0S; // AI-Synthetic Pics
-    minB = 1;
-    maxB = 140;
+    // minB = 1;
+    // maxB = 140;
     const randomBNumber = Math.floor(Math.random() * (maxB - minB + 1)) + minB;
     return randomBNumber;
     // return folderB;
@@ -171,8 +169,8 @@ if (randomFrame() % 2) {
 } else {
   function randomAImage() {
     // folderA = 0S; // AI-Synthetic
-    minA = 1;
-    maxA = 140;
+    // minA = 1;
+    // maxA = 140;
     const randomANumber = Math.floor(Math.random() * (maxA - minA + 1)) + minA;
     return randomANumber;
     // return folderA;
@@ -205,8 +203,8 @@ const picPrefix = "./sortedPics/";
 const picSuffix = ".png";
 
 if (randomFrame() % 2) {
-  folderA = "pics0S/";     // AI-Synthetic Photos Photos
-  folderB = "pics1N/";    // Real-Natural
+  folderA = "pics0S/";    // AI-Synthetic Photos Photos
+  folderB = "pics1N/";   // Real-Natural
   picA = `${picPrefix}${folderA}${randomAImage()}${picSuffix}`
   // picA.id = 'picA';
   picB = `${picPrefix}${folderB}${randomBImage()}${picSuffix}`

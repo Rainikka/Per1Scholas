@@ -123,29 +123,21 @@ img {
   background: firebrick;
   border: 5px solid firebrick;
   color: white;
-}
-#buttonBox {
-  margin: 30px auto;
-  width: 275px;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: center;
-}
-/* #buttonA,
+} 
+#buttonA,
 #buttonB {
   margin: 0 auto;
   width: 100%;
   height: 100%;
-  padding: 12px 28px;
-  border: 2px solid steelblue;
+  /* padding: 12px 28px; */
+  /* border: 2px solid steelblue;
   border-radius: 6px; 
-  background-color: steelBlue;
+  background-color: steelBlue; */
   text-align: center;
-  font-size: 16px;
+  font-size: 24px;
   font-weight: bold;
-  color:white;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  /* color:white; */
+  /* box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); */
   cursor: pointer;
 }
 #button2Play,
@@ -168,4 +160,4 @@ img {
    background: lightsteelblue;
    font-weight: bolder;
    color: "#333333";
-} */
+}
