@@ -147,7 +147,7 @@ let minB = 1;
 let maxB = 140;
 
 /*** Pic Randomization ***/
-if (randomFrame() % 2) {
+if (randomFrame() % 2 === 0) {
   function randomAImage() {
     const randomANumber = Math.floor(Math.random() * (maxA - minA + 1)) + minA;
     return randomANumber
@@ -188,7 +188,7 @@ let picB;
 const picPrefix = "./sortedPics/";
 const picSuffix = ".png";
 
-if (randomFrame() % 2) {
+if (randomFrame() % 2 === 0) {
   folderA = "pics0S/";   // AI-Synthetic Photos Photos
   folderB = "pics1N/";   // Real-Natural
   picA = `${picPrefix}${folderA}${randomAImage()}${picSuffix}`
@@ -211,34 +211,12 @@ document.getElementById('button2Reset').addEventListener('click', function () {
 });
 
 /****************** Prompt Elements ******************/
-function responseAI() {
+function responseA() {
   /************ User Prompt *************/
-  let userInput = prompt("Which Person Is Really REAL: A or B ?");
+  // let userInput = prompt("Which Person Is Really REAL: A or B ?");
 
-  /************ Prompt Response: FRAME A IS REAL *************/
-  if ((userInput === "A" || userInput === "a") && randomAImage() < 26) {
-    /******* Game Elements *********/
-    const subtitle = document.getElementById('subtitle');
-    const responseLoud = document.getElementById('responseLoud');
-
-    const response = document.getElementById('response');
-    const frameA = document.getElementById('frameA');
-    const cellA = document.getElementById('cellA');
-
-    /******* InnerHTML ********/
-    subtitle.innerHTML = "";
-    responseLoud.innerHTML = "YOWZAH!";
-    response.innerHTML = "You Are Smarter Than AI";
-    cellA.textContent = "I am Real";
-
-    /******* Add ClassList ********/
-    responseLoud.classList.add('shoutRight');
-    response.classList.add('yesRight');
-    frameA.classList.add('frameRight');
-    cellA.classList.add('cellRight');
-
-    /*********** Prompt Response: FRAME A IS AI ***********/
-  } else if ((userInput === "A" || userInput === "a") && randomAImage() >= 26) {
+  /**** Prompt Response: Frame A Is Not Real ****/
+  if (randomFrame() % 2 == 0) {
     /******* Game Elements *********/
     const subtitle = document.getElementById('subtitle');
     const responseLoud = document.getElementById('responseLoud');
@@ -247,7 +225,7 @@ function responseAI() {
     const cellA = document.getElementById('cellA');
     /******* InnerHTML ********/
     subtitle.innerHTML = "";
-    responseLoud.innerHTML = "BAMBOOZLED BY AI!";
+    responseLoud.innerHTML = "\u00A1 'BAMBOOZLED BY AI!";
     response.innerHTML = "You Are Not Smarter Than AI";
     cellA.textContent = "I am AI";
     /******* Add ClassList ********/
@@ -256,44 +234,25 @@ function responseAI() {
     frameA.classList.add('frameWrong');
     cellA.classList.add('cellWrong');
 
-    /************ Prompt Response: FRAME B IS REAL *************/
-  } else if ((userInput === "B" || userInput === "b") && randomBImage() < 26) {
+    /**** Prompt Response: Frame A Is Real ****/
+  } else if (randomFrame() % 2 != 0) {
     /******* Game Elements *********/
     const subtitle = document.getElementById('subtitle');
     const responseLoud = document.getElementById('responseLoud');
     const response = document.getElementById('response');
-    const frameB = document.getElementById('frameB');
-    const cellB = document.getElementById('cellB');
+    const frameA = document.getElementById('frameA');
+    const cellA = document.getElementById('cellA');
     /******* InnerHTML ********/
     subtitle.innerHTML = "";
-    responseLoud.innerHTML = "YOWZAH!";
+    responseLoud.innerHTML = "\u00A1 YOWZAH !";
     response.innerHTML = "You Are Smarter Than AI";
-    cellB.textContent = "I am Real";
+    cellA.textContent = "I am Real";
     /******* Add ClassList ********/
     responseLoud.classList.add('shoutRight');
     response.classList.add('yesRight');
-    frameB.classList.add('frameRight');
-    cellB.classList.add('cellRight');
-
-    /************ Prompt Response: FRAME B IS AI *************/
-  } else if ((userInput === "B" || userInput === "b") && randomBImage() >= 26) {
-    /******* Game Elements *********/
-    const subtitle = document.getElementById('subtitle');
-    const responseLoud = document.getElementById('responseLoud');
-    const response = document.getElementById('response');
-    const frameB = document.getElementById('frameB');
-    const cellB = document.getElementById('cellB');
-    /******* InnerHTML Response ********/
-    responseLoud.innerHTML = "BAMBOOZLED BY AI!";
-    response.innerHTML = "You Are Not Smarter Than AI";
-    cellB.textContent = "I am AI";
-    /******* Add ClassList ********/
-    subtitle.innerHTML = "";
-    responseLoud.classList.add('shoutWrong');
-    response.classList.add('noWrong');
-    frameB.classList.add('frameWrong');
-    cellB.classList.add('cellWrong');
-    /************ Prompt Response: 404 USER INPUT ERROR *************/
+    frameA.classList.add('frameRight');
+    cellA.classList.add('cellRight');
+    //     /************ Prompt Response: 404 USER INPUT ERROR *************/
   } else {
     /******* Game Elements *********/
     const responseLoud = document.getElementById('responseLoud');
@@ -306,6 +265,162 @@ function responseAI() {
     response.classList.add('neutral');
   }
 }
+
+function responseB() {
+  /************ User Prompt *************/
+  // let userInput = prompt("Which Person Is Really REAL: A or B ?");
+
+  /**** Prompt Response: Frame A Is Not Real ****/
+  if (randomFrame() % 2 == 0) {
+    /******* Game Elements *********/
+    const subtitle = document.getElementById('subtitle');
+    const responseLoud = document.getElementById('responseLoud');
+    const response = document.getElementById('response');
+    const frameB = document.getElementById('frameB');
+    const cellB = document.getElementById('cellB');
+    /******* InnerHTML ********/
+    subtitle.innerHTML = "";
+    responseLoud.innerHTML = "\u00A1 'BAMBOOZLED BY AI!";
+    response.innerHTML = "You Are Not Smarter Than AI";
+    cellB.textContent = "I am AI";
+    /******* Add ClassList ********/
+    responseLoud.classList.add('shoutWrong');
+    response.classList.add('noWrong');
+    frameB.classList.add('frameWrong');
+    cellB.classList.add('cellWrong');
+
+    /**** Prompt Response: Frame A Is Real ****/
+  } else if (randomFrame() % 2 != 0) {
+    /******* Game Elements *********/
+    const subtitle = document.getElementById('subtitle');
+    const responseLoud = document.getElementById('responseLoud');
+    const response = document.getElementById('response');
+    const frameB = document.getElementById('frameB');
+    const cellB = document.getElementById('cellB');
+    /******* InnerHTML ********/
+    subtitle.innerHTML = "";
+    responseLoud.innerHTML = "\u00A1 YOWZAH !";
+    response.innerHTML = "You Are Smarter Than AI";
+    cellB.textContent = "I am Real";
+    /******* Add ClassList ********/
+    responseLoud.classList.add('shoutRight');
+    response.classList.add('yesRight');
+    frameB.classList.add('frameRight');
+    cellB.classList.add('cellRight');
+    //     /************ Prompt Response: 404 USER INPUT ERROR *************/
+  } else {
+    /******* Game Elements *********/
+    const responseLoud = document.getElementById('responseLoud');
+    const response = document.getElementById('response');
+    /******* InnerHTML Response ********/
+    responseLoud.innerHTML = "<h2> #404--OOPSIES--DAISIES </h2 > ";
+    response.innerHTML = "<h4> Something Is Amiss -- Retry.</h4>";
+    /******* Add ClassList ********/
+    responseLoud.classList.add('neutral');
+    response.classList.add('neutral');
+  }
+}
+
+
+/****************** ButtonA ******************/
+buttonA.addEventListener('click', responseA);
+buttonB.addEventListener('click', responseB);
+/****************** ButtonB ******************/
+
+// function responseAI() {
+//   /************ User Prompt *************/
+//   let userInput = prompt("Which Person Is Really REAL: A or B ?");
+//   /************ Prompt Response: FRAME A IS REAL *************/
+//   if ((userInput === "A" || userInput === "a") && randomAImage() < 26) {
+//     /******* Game Elements *********/
+//     const subtitle = document.getElementById('subtitle');
+//     const responseLoud = document.getElementById('responseLoud');
+
+//     const response = document.getElementById('response');
+//     const frameA = document.getElementById('frameA');
+//     const cellA = document.getElementById('cellA');
+
+//     /******* InnerHTML ********/
+//     subtitle.innerHTML = "";
+//     responseLoud.innerHTML = "YOWZAH!";
+//     response.innerHTML = "You Are Smarter Than AI";
+//     cellA.textContent = "I am Real";
+
+//     /******* Add ClassList ********/
+//     responseLoud.classList.add('shoutRight');
+//     response.classList.add('yesRight');
+//     frameA.classList.add('frameRight');
+//     cellA.classList.add('cellRight');
+
+//     /*********** Prompt Response: FRAME A IS AI ***********/
+//   } else if ((userInput === "A" || userInput === "a") && randomAImage() >= 26) {
+//     /******* Game Elements *********/
+//     const subtitle = document.getElementById('subtitle');
+//     const responseLoud = document.getElementById('responseLoud');
+//     const response = document.getElementById('response');
+//     const frameA = document.getElementById('frameA');
+//     const cellA = document.getElementById('cellA');
+//     /******* InnerHTML ********/
+//     subtitle.innerHTML = "";
+//     responseLoud.innerHTML = "BAMBOOZLED BY AI!";
+//     response.innerHTML = "You Are Not Smarter Than AI";
+//     cellA.textContent = "I am AI";
+//     /******* Add ClassList ********/
+//     responseLoud.classList.add('shoutWrong');
+//     response.classList.add('noWrong');
+//     frameA.classList.add('frameWrong');
+//     cellA.classList.add('cellWrong');
+
+//     /************ Prompt Response: FRAME B IS REAL *************/
+//   } else if ((userInput === "B" || userInput === "b") && randomBImage() < 26) {
+//     /******* Game Elements *********/
+//     const subtitle = document.getElementById('subtitle');
+//     const responseLoud = document.getElementById('responseLoud');
+//     const response = document.getElementById('response');
+//     const frameB = document.getElementById('frameB');
+//     const cellB = document.getElementById('cellB');
+//     /******* InnerHTML ********/
+//     subtitle.innerHTML = "";
+//     responseLoud.innerHTML = "YOWZAH!";
+//     response.innerHTML = "You Are Smarter Than AI";
+//     cellB.textContent = "I am Real";
+//     /******* Add ClassList ********/
+//     responseLoud.classList.add('shoutRight');
+//     response.classList.add('yesRight');
+//     frameB.classList.add('frameRight');
+//     cellB.classList.add('cellRight');
+
+//     /************ Prompt Response: FRAME B IS AI *************/
+//   } else if ((userInput === "B" || userInput === "b") && randomBImage() >= 26) {
+//     /******* Game Elements *********/
+//     const subtitle = document.getElementById('subtitle');
+//     const responseLoud = document.getElementById('responseLoud');
+//     const response = document.getElementById('response');
+//     const frameB = document.getElementById('frameB');
+//     const cellB = document.getElementById('cellB');
+//     /******* InnerHTML Response ********/
+//     responseLoud.innerHTML = "BAMBOOZLED BY AI!";
+//     response.innerHTML = "You Are Not Smarter Than AI";
+//     cellB.textContent = "I am AI";
+//     /******* Add ClassList ********/
+//     subtitle.innerHTML = "";
+//     responseLoud.classList.add('shoutWrong');
+//     response.classList.add('noWrong');
+//     frameB.classList.add('frameWrong');
+//     cellB.classList.add('cellWrong');
+//     /************ Prompt Response: 404 USER INPUT ERROR *************/
+//   } else {
+//     /******* Game Elements *********/
+//     const responseLoud = document.getElementById('responseLoud');
+//     const response = document.getElementById('response');
+//     /******* InnerHTML Response ********/
+//     responseLoud.innerHTML = "<h2> #404--OOPSIES--DAISIES </h2 > ";
+//     response.innerHTML = "<h4> Something Is Amiss -- Retry.</h4>";
+//     /******* Add ClassList ********/
+//     responseLoud.classList.add('neutral');
+//     response.classList.add('neutral');
+//   }
+// }
 button2Play.addEventListener('click', responseAI);
 
 /*********** Style: Game Title **********/
