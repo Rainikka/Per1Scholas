@@ -128,8 +128,6 @@ let minA;
 let maxA;
 let minB;
 let maxB;
-// let folderA;
-// let folderB;
 let totalAPics;
 let totalBPics;
 
@@ -138,7 +136,7 @@ if (randomFrame() % 2) {
   function randomAImage() {
     // folderA = 1N; // Real-Natural Pics
     minA = 1;
-    maxA = 184;
+    maxA = 220;
     const randomANumber = Math.floor(Math.random() * (maxA - minA + 1)) + minA;
     return randomANumber
     // return folderA;
@@ -146,7 +144,7 @@ if (randomFrame() % 2) {
   function randomBImage() {
     // folderB = 0S; // AI-Synthetic Pics
     minB = 1;
-    maxB = 176;
+    maxB = 220;
     const randomBNumber = Math.floor(Math.random() * (maxB - minB + 1)) + minB;
     return randomBNumber;
     // return folderB;
@@ -155,7 +153,7 @@ if (randomFrame() % 2) {
   function randomAImage() {
     // folderA = 0S; // AI-Synthetic
     minA = 1;
-    maxA = 184;
+    maxA = 220;
     const randomANumber = Math.floor(Math.random() * (maxA - minA + 1)) + minA;
     return randomANumber;
     // return folderA;
@@ -163,7 +161,7 @@ if (randomFrame() % 2) {
   function randomBImage() {
     // folderB = 1N; // Real-Natural
     minB = 1;
-    maxB = 176;
+    maxB = 220;
     const randomBNumber = Math.floor(Math.random() * (maxB - minB + 1)) + minB;
     return randomBNumber;
     // return folderB;

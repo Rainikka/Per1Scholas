@@ -142,46 +142,28 @@ function randomFrame() {
 }
 /*** Set Minimum & Maximum ***/
 let minA = 1;
-let maxA = 220;
+let maxA = 140;
 let minB = 1;
-let maxB = 220;
-let folderA;
-let folderB;
+let maxB = 140;
 
 /*** Pic Randomization ***/
 if (randomFrame() % 2) {
   function randomAImage() {
-    // folderA = 1N; // Real-Natural Pics
-    // minA = 1;
-    // maxA = 20;
     const randomANumber = Math.floor(Math.random() * (maxA - minA + 1)) + minA;
     return randomANumber
-    // return folderA;
   }
   function randomBImage() {
-    // folderB = 0S; // AI-Synthetic Pics
-    // minB = 1;
-    // maxB = 140;
     const randomBNumber = Math.floor(Math.random() * (maxB - minB + 1)) + minB;
     return randomBNumber;
-    // return folderB;
   }
 } else {
   function randomAImage() {
-    // folderA = 0S; // AI-Synthetic
-    // minA = 1;
-    // maxA = 140;
     const randomANumber = Math.floor(Math.random() * (maxA - minA + 1)) + minA;
     return randomANumber;
-    // return folderA;
   }
   function randomBImage() {
-    // folderB = 1N; // Real-Natural
-    minB = 1;
-    maxB = 140;
     const randomBNumber = Math.floor(Math.random() * (maxB - minB + 1)) + minB;
     return randomBNumber;
-    // return folderB;
   }
 }
 
@@ -192,9 +174,13 @@ imageA.id = 'imageA';
 const imageB = document.getElementById(frameB).firstChild;
 imageB.id = 'imageB';
 
-/******** Knowledge Inspiration: Geeks4Geeks ********/
-/*** Select Random Pic ***/
+/**************** -- FUTURE SELF NOT -- ****************/
+/*** Pic Folder 1N -- Realistic Natural Images ***/
+/*** Pic Folder 0S -* Synthetic AI-Generated Images ***/
+/*****************************************************/
 
+/****** Knowledge Inspiration: Random Generator: Geeks4Geeks ******/
+/*** Select Random Pic Function ***/
 let folderA;
 let folderB;
 let picA;
@@ -203,22 +189,20 @@ const picPrefix = "./sortedPics/";
 const picSuffix = ".png";
 
 if (randomFrame() % 2) {
-  folderA = "pics0S/";    // AI-Synthetic Photos Photos
+  folderA = "pics0S/";   // AI-Synthetic Photos Photos
   folderB = "pics1N/";   // Real-Natural
   picA = `${picPrefix}${folderA}${randomAImage()}${picSuffix}`
-  // picA.id = 'picA';
+  picA.id = 'picA';
   picB = `${picPrefix}${folderB}${randomBImage()}${picSuffix}`
-  // picB.id = 'picB';
+  picB.id = 'picB';
 } else {
-  folderA = "pics1N/";     // Real-Natural Photos
+  folderA = "pics1N/";    // Real-Natural Photos
   folderB = "pics0S/";    // AI-Synthetic Photos
   picA = `${picPrefix}${folderA}${randomAImage()}${picSuffix}`
   picB = `${picPrefix}${folderB}${randomBImage()}${picSuffix}`
 }
 
 /*** Set Image Attributes Attributes ***/
-// picA.id = 'picA';
-// picB.id = 'picB';
 imageA.setAttribute('src', picA);
 imageB.setAttribute('src', picB);
 
