@@ -71,12 +71,11 @@ function buildBreedList(breedList) {
 }
 
 /*** Profile Items for Each Breed of Dog ***/
-// async
-function breedProfile(breed) {
+async function breedProfile(breed) {
   if (breed != "Choose Dog Breed") {
-    // const response = await fetch(`https://dog.ceo/api/breed/${breed}/images`)
-    // const data = await response.json()
-    // console.log(data);
-    alert(breed);
+    const response = await fetch(`https://dog.ceo/api/breed/${breed}/images`)
+    const data = await response.json()
+    console.log(data);
+
   }
 }
