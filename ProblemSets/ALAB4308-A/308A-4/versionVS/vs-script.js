@@ -77,10 +77,23 @@ function buildBreedList(breedList) {
 }
 
 /*** Profile Items for Each Dog Breed ***/
+// async function breedProfile(breed) {
+//   if (breed != "Choose Dog Breed") {
+//     const response = await fetch(`https://dog.ceo/api/breed/${breed}/images`)
+//     const data = await response.json()
+//     console.log(data);
+//   }
+// }
+
 async function breedProfile(breed) {
-  if (breed != "Choose Dog Breed") {
-    const response = await fetch(`https://dog.ceo/api/breed/${breed}/images`)
-    const data = await response.json()
-    console.log(data);
+  if (breed && breed !== "Choose Dog Breed") {
+    try {
+      const { data } = await axios.get(`https://dog.ceo/api/breed/${breed}/images`);
+      console.log(data.message); // Array of image URLs
+      return data.message;
+    } catch (error) {
+      console.error("Error fetching dog images:", error);
+      return null;
+    }
   }
 }
