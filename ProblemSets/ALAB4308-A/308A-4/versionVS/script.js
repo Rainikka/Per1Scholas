@@ -50,21 +50,25 @@ start();
 /**** Create Dropdown Select  Tool ****/
 function buildBreedList(breedList) {
   /*** Create option for each breed in data.message ***/
-  const selectDiv = document.getElementById('selectDiv');
-  const select = selectDiv.appendChild(document.createElement('select'));
-  select.id = 'select';
-  select.onchange = function () {
-    breedProfile(select.value);
+  const selectSect = document.getElementById('selectSect');
+  const breedSelect = selectSect.appendChild(document.createElement('select'));
+  breedSelect.id = 'breedSelect';
+  breedSelect.style.width = "300px";
+  breedSelect.classList.add("form-select", "form-select-lg", "my-1", "mx-auto");
+  breedSelect.setAttribute("aria-label", "form-select-lg");
+
+  breedSelect.onchange = function () {
+    breedProfile(breedSelect.value);
   };
 
   /*** Option0: Select Breed Prompt ***/
-  const option0 = select.appendChild(document.createElement('option'));
+  const option0 = breedSelect.appendChild(document.createElement('option'));
   option0.id = 'option0';
   option0.textContent = 'Choose Dog Breed';
 
   /*** Option Elem for Each Breed on Breed List ***/
   Object.keys(breedList).forEach(breed => {
-    const option = select.appendChild(document.createElement('option'));
+    const option = breedSelect.appendChild(document.createElement('option'));
     console.log(breed);
     option.innerHTML = breed;
   });
