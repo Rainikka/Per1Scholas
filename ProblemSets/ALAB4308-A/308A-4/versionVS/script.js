@@ -21,6 +21,8 @@
  * DELETE data from an external API.
  * 
  /******************************************/
+// Step 0: Store your API key here for reference and easy access.
+const API_KEY = "live_9Yc7HBBvJHIIs1QOg4wnQPUHeiENtsyop8i6yCKT41NaEmfbm7nJx2v8JuCDxDsZ";
 
 /************* Body Selector **************/
 const body = document.querySelector("body");
@@ -36,8 +38,8 @@ const body = document.querySelector("body");
 /******************************************/
 /******************************************/
 
-/******** Knowledge Inspiration:YouTube:: LearnWebCode ********/
-/************* Elements Created ****************/
+/******** Knowledge Inspiration:YouTube::LearnWebCode *********/
+/********************* Elements Created **********************/
 
 /*** Fetch Data List of Dog Breeds */
 async function start() {

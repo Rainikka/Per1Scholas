@@ -1,11 +1,11 @@
 
-//   if (data.status === "success") {
-//     console.log(`Found ${data.message.length} images for ${breed}`);
-//     // Process your images here
-//   } else {
-//     console.error("API error:", data.message);
-//   }
-// }
+if (data.status === "success") {
+  console.log(`Found ${data.message.length} images for ${breed}`);
+  // Process your images here
+} else {
+  console.error("API error:", data.message);
+}
+
 
 
 import * as Carousel from "./Carousel.js";
