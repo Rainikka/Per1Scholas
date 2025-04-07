@@ -53,6 +53,10 @@ function buildBreedList(breedList) {
   const selectSect = document.getElementById('selectSect');
   const breedSelect = selectSect.appendChild(document.createElement('select'));
   breedSelect.id = 'breedSelect';
+  /*** Select Style & Attributes ***/
+  breedSelect.style.width = "300px";
+  breedSelect.classList.add("form-select", "form-select-lg", "my-1", "mx-auto");
+  breedSelect.setAttribute("aria-label", "form-select-lg");
 
   /*** Populate Select With API Breed Data ***/
   breedSelect.onchange = function () {
