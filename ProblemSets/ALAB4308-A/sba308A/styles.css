@@ -57,9 +57,6 @@ span {
   align-items: center;
   text-align: center;
   border: none;
-  /* outline: white; */
-  /* background: transparent; */
-  /* color:#fff; */
   border-bottom: 1px solid #333;
 }
 #btnSearch {
@@ -93,7 +90,6 @@ justify-content: space-around;
 color: #fff;
 padding-bottom: 30px;
 }
-
 #extraInfo h5{
   font-size: 18px;
   text-transform: uppercase;

@@ -9,9 +9,16 @@
 /******** with JavaScript ********/
 /********** 08-APR-2025 **********/
 
-/*** Knowledge Inspiration: FreedCodeCamp: API for Beginners ***/
+/******* Open Weather API Site ********/
+// https://home.openweathermap.org
 
-//Open Weather App Key: cd51884d9897a04d51888d2ca1ef202d
+/******* Open Weather API Site ********/
+// API key cd51884d9897a04d51888d2ca1ef202d
+
+/******* Example of API Call: ********/
+// https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=cd51884d9897a04d51888d2ca1ef202d
+
+/*** Knowledge Inspiration: FreedCodeCamp: API for Beginners ***/
 
 /**** Accessing DOM Elements ****/
 const date = document.getElementById('date');
@@ -32,7 +39,56 @@ let year = dateObj.getUTCFullYear();
 
 date.innerHTML = `${month} ${day}, ${year}`;
 
-/**** Accessing DOM Elements ****/
-// const app = document.getElementById('app');
+/**** Accessing APP Elements ****/
+const app = document.getElementById('app');
 
-// const getWeather - async 
+const getWeather = async () => {
+  try {
+    const weathwerDataFetch = await fetch('https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=cd51884d9897a04d51888d2ca1ef202d', {
+      headers: {
+        Accept: "application/json"
+      }
+    });
+
+    const weatherData = await weatherDataFetch.json();
+    console.log(weatherData)
+  }
+  catch (error) {
+    console.log(error)
+  }
+}
+getWeather()
+
+
+
+
+
+/************************************************
+ * Dear Customer!
+ * 
+ * Thank you for subscribing to Free OpenWeatherMap!
+ * API key:
+ * - Within the next couple of hours, your API key 
+ * will be activated and ready to use:
+ * 
+ * API Key:
+ * cd51884d9897a04d51888d2ca1ef202d 
+ * 
+ * 
+ * 
+ * - You can later create more API keys on your account  page
+ * - Please, always use your API key in each API call
+ * 
+ * Endpoint:
+ * - Please, use the endpoint api.openweathermap.org for
+ * your API calls
+ * 
+ * Example of API call:
+ * api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=cd51884d9897a04d51888d2ca1ef202d
+ * 
+ * Useful links:
+ * - API documentation https://openweathermap.org/api
+ * - Details of your plan https://openweathermap.org/price
+ * - Please, note that 16 - days daily forecast and
+ * History API are not available for Free subscribers
+ /*********************************************************/
