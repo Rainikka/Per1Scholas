@@ -11,6 +11,7 @@
 
 /********** FETCHING AN API *********/
 fetch('https://dummyjson.com/products/1')
-  .then(response => console.log(response))
+  .then(response => response.json())
+  .catch(data => console.log(data))
   .catch(error => console.log(error))
 

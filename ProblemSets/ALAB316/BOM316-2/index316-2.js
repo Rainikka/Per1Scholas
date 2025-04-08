@@ -274,12 +274,12 @@ function responseAI() {
     const response = document.getElementById('response');
     const frameB = document.getElementById('frameB');
     const cellB = document.getElementById('cellB');
-    /******* InnerHTML Response ********/
+    /******* InnerHTML ********/
+    subtitle.innerHTML = "";
     responseLoud.innerHTML = "BAMBOOZLED BY AI!";
     response.innerHTML = "You Are Not Smarter Than AI";
     cellB.textContent = "I am AI";
     /******* Add ClassList ********/
-    subtitle.innerHTML = "";
     responseLoud.classList.add('shoutWrong');
     response.classList.add('noWrong');
     frameB.classList.add('frameWrong');
