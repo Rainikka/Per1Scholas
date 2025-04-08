@@ -1,6 +1,99 @@
 * {
   box-sizing: border-box;
   margin: 0 auto;
-  font-family: Roboto, sans-serif;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#app {
+  position: relative;
+  width: 414px;
+  height: 420px;
+  display: block;
+  margin: 40px auto;
+  text-align: center;
+  padding: 40px 0px;
+  overflow: hidden;
+  border-radius: 8px;
+  background-image: radial-gradient( circle 382px at 50% 50.2%,  rgba(73,76,212,1) 0.1%, rgba(3,1,50,1) 100.2% );
+}
+
+#appTitle {
+  margin: 20px auto;
+  color: azure;
+  text-shadow: 0 1px 0 rgba(0, 0, 128, 0.4);
+}
+span {
+  font-style: italic;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: normal;
+  color:lightsteelblue;
+}
+#subtitle {
+  font-style: italic;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: normal;
+  color: orange;
+}
+#searchBar {
+  margin: 30px auto;
+  width: 80%;
+  height: 50px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 5px solid skyblue;
+  border-radius: 12px;
+  background-color: azure;
+}
+#searchBarInput{
+  width: 98%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: none;
+  /* outline: white; */
+  /* background: transparent; */
+  /* color:#fff; */
+  border-bottom: 1px solid #333;
+}
+#btnSearch {
+  margin: 0;
+  padding: 6px;
+  background-color: none;
+  border: none;
+  border-left: 1.5px solid lightsteelblue;
+
+}
+#searchBarIcon{
+  width: 15px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: none;
+  font-size: 18px;
+  color: navy;
+}
+
+#extraInfo{
+position: absolute;
+bottom: 5px;
+width: 100%;
+display: flex;
+justify-content: space-around;
+color: #fff;
+padding-bottom: 30px;
+}
+
+#extraInfo h5{
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 

@@ -12,8 +12,6 @@
 /************* Body Dressing **************/
 const body = document.querySelector("body");
 
-
-
 /************************************************/
 /****************** TESTING AREA ****************
  * document.getElementById('test0').id = "test0";
