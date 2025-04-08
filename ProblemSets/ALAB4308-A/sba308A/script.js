@@ -33,6 +33,6 @@ let year = dateObj.getUTCFullYear();
 date.innerHTML = `${month} ${day}, ${year}`;
 
 /**** Accessing DOM Elements ****/
-const app = document.getElementById('app');
+// const app = document.getElementById('app');
 
-const getWeather - async 
+// const getWeather - async 
