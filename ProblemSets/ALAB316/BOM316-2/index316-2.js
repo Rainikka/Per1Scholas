@@ -12,12 +12,16 @@
 /************* Body Dressing **************/
 const body = document.querySelector("body");
 
+
+
 /************************************************/
 /****************** TESTING AREA ****************
  * document.getElementById('test0').id = "test0";
  * document.getElementById('test1').id = "test1";
- * test0.innerHTML = picA;
- * test1.innerHTML = picB;
+ * document.getElementById('test2').id = "test2";
+ * test0.innerHTML = randomFrame() % 2;
+ * test1.innerHTML = picA;
+ * test2.innerHTML = picB;
 /************************************************
 /************************************************/
 
@@ -26,8 +30,8 @@ const body = document.querySelector("body");
 const main = document.createElement("main");
 const header = document.createElement("header");
 const title = document.createElement("h1");
-const subtitle = document.createElement("h1");
-const answer = document.createElement("h1");
+const subtitle = document.createElement("p");
+const answer = document.createElement("p");
 const playSection = document.createElement("section");
 const responseBox = document.createElement("div");
 const responseLoud = document.createElement("p");
@@ -120,10 +124,12 @@ cellB.textContent = "B";
 /*** Frame Randomization ***/
 function randomFrame() {
   const totalFrames = 2;
-  const randomNumber = Math.floor((Math.random() * totalFrames) + 1);
+  const randomNumber = Math.floor((Math.random() * 2) + 1);
   return randomNumber;
 }
+
 /*** Set Minimum & Maximum ***/
+const atRandom = randomFrame();
 let minA = 1;
 let maxA = 222;
 let minB = 1;
@@ -132,7 +138,7 @@ let totalAPics;
 let totalBPics;
 
 /*** Pic Randomization ***/
-if (randomFrame() % 2) {
+if (atRandom % 2 === 0) {
   function randomAImage() {
     // folderA = 1N; // Real-Natural Pics
     const randomANumber = Math.floor(Math.random() * (maxA - minA + 1)) + minA;
@@ -169,8 +175,6 @@ imageB.id = 'imageB';
 
 /******** Knowledge Inspiration: Geeks4Geeks ********/
 /*** Select Random Pic ***/
-
-
 let folderA;
 let folderB;
 let picA;
@@ -178,7 +182,7 @@ let picB;
 const picPrefix = "./images/";
 const picSuffix = ".png";
 
-if (randomFrame() % 2) {
+if (atRandom % 2 === 0) {
   folderA = "pics0S/";     // AI-Synthetic Photos 
   folderB = "pics1N/";    // Real-Natural Photos
   picA = `${picPrefix}${folderA}${randomAImage()}${picSuffix}`
@@ -193,13 +197,11 @@ if (randomFrame() % 2) {
 }
 
 /*** Set Image Attributes Attributes ***/
-// picA.id = 'picA';
-// picB.id = 'picB';
 imageA.setAttribute('src', picA);
 imageB.setAttribute('src', picB);
 
 document.getElementById('button2Reset').addEventListener('click', function () {
-  location.reload();// Knowledge Inspiration : FreeCodeCamp
+  location.reload(); // Knowledge Inspiration : FreeCodeCamp
 });
 
 /****************** Prompt Elements ******************/
@@ -208,7 +210,7 @@ function responseAI() {
   let userInput = prompt("Which Person Is Really REAL: A or B ?");
 
   /************ Prompt Response: FRAME A IS REAL *************/
-  if ((userInput === "A" || userInput === "a") && randomAImage() < 26) {
+  if ((userInput === "A" || userInput === "a") && (atRandom % 2 !== 0)) {
     /******* Game Elements *********/
     const subtitle = document.getElementById('subtitle');
     const responseLoud = document.getElementById('responseLoud');
@@ -227,7 +229,7 @@ function responseAI() {
     cellA.classList.add('cellRight');
 
     /************ Prompt Response: FRAME A IS AI *************/
-  } else if ((userInput === "A" || userInput === "a") && randomAImage() >= 26) {
+  } else if ((userInput === "A" || userInput === "a") && (atRandom % 2 === 0)) {
     /******* Game Elements *********/
     const subtitle = document.getElementById('subtitle');
     const responseLoud = document.getElementById('responseLoud');
@@ -246,7 +248,7 @@ function responseAI() {
     cellA.classList.add('cellWrong');
 
     /************ Prompt Response: FRAME B IS REAL *************/
-  } else if ((userInput === "B" || userInput === "b") && randomBImage() < 26) {
+  } else if ((userInput === "B" || userInput === "b") && (atRandom % 2 === 0)) {
     /******* Game Elements *********/
     const subtitle = document.getElementById('subtitle');
     const responseLoud = document.getElementById('responseLoud');
@@ -265,7 +267,7 @@ function responseAI() {
     cellB.classList.add('cellRight');
 
     /************ Prompt Response: FRAME B IS AI *************/
-  } else if ((userInput === "B" || userInput === "b") && randomBImage() >= 26) {
+  } else if ((userInput === "B" || userInput === "b") && (atRandom % 2 !== 0)) {
     /******* Game Elements *********/
     const subtitle = document.getElementById('subtitle');
     const responseLoud = document.getElementById('responseLoud');
@@ -288,8 +290,8 @@ function responseAI() {
     const responseLoud = document.getElementById('responseLoud');
     const response = document.getElementById('response');
     /******* InnerHTML Response ********/
-    responseLoud.innerHTML = "<h2> #404--OOPSIES--DAISIES </h2 > ";
-    response.innerHTML = "<h4> Something Is Amiss -- Retry.</h4>";
+    responseLoud.innerHTML = "<h1> #404</h1>  <h3> OOPSY &#8212; DAISY </h3>";
+    response.innerHTML = "<h4> Something Is Amiss &#8211; Retry.</h4>";
     /******* Add ClassList ********/
     responseLoud.classList.add('neutral');
     response.classList.add('neutral');

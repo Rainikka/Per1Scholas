@@ -5,7 +5,7 @@ body {
 
 }
 main {
-  margin: 150px auto 0 auto;
+  margin: 50px auto 0 auto;
   padding: 10px;
   width: 600px;
   height: auto;
@@ -13,16 +13,20 @@ main {
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
-  border: 2px solid steelblue;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
+  border: 4px double steelblue;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.10); 
+  text-shadow: 0 1px 0 rgba(0, 0, 128, 0.4);
 }
 header {
-  margin: 50px auto 00 auto;
+  margin: 0 auto;
+  padding: 30px;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
   line-height: 5px;
+  text-shadow: 0 1px 0 rgba(0, 0, 128, 0.4);
+  box-shadow: 0 1px 0 rgba(0, 0, 128, 0.4);
 }
 span {
   font-size: 60px;
@@ -31,8 +35,11 @@ span {
   font-weight: normal;
   color:blue;
 }
+#title {
+  margin: 10px auto;
+}
 section {
-  margin: 0 auto;
+  margin: 10px auto;
   width: auto;
   display: flex;
   flex-flow: column wrap;

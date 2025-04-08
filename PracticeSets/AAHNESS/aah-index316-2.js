@@ -185,7 +185,7 @@ let folderA;
 let folderB;
 let picA;
 let picB;
-const picPrefix = "./sortedPics/";
+const picPrefix = "./images";
 const picSuffix = ".png";
 
 if (randomFrame() % 2 === 0) {
@@ -320,7 +320,6 @@ function responseB() {
     response.classList.add('neutral');
   }
 }
-
 
 /****************** ButtonA ******************/
 buttonA.addEventListener('click', responseA);
