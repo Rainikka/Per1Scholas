@@ -1,0 +1,30 @@
+/*** Fetch API Data With POST, PATCH, PUT, DELETE  ***/
+
+// fetch('https://dummyjson.com/products/add', {
+//   method: 'POST',
+//   headers: {
+//     'Content-type': 'application/json'
+//   },
+//   body: JSON.stringify({
+//     descript: 'Iphone 19',
+//     price: '$100',
+//     rating: '9/10'
+//   })
+// })
+
+// .then(response => response.json())
+// .then(data => console.log(data))
+// .catch(error => console.log(error))
+
+
+/*** Fetch API  Data With Async & Await ***/
+
+const getAllProducts = async () => {
+  const response = await fetch('https://dummyjson.com/products/');
+  const json = await response.json();
+  console.log(json);
+}
+
+getAllProducts()
+
+

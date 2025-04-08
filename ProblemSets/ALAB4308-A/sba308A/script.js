@@ -1,12 +1,12 @@
 /*********************************/
 /******* Rainikka Corprew ********/
 /********** JAVASCRIPT ***********/
-/************ 308A.2 *************/
+/*********** SBA 308A ************/
 /*********************************/
 
 /*********************************/
-/******* Objects & Arrays ********/
+/*** API Fetch,Async, & Await ****/
 /******** with JavaScript ********/
-/********** 30-MAR-2025 **********/
+/********** 08-APR-2025 **********/
 
-/*** Knowledge Inspiration: FreedCodeCamp: APIs for Beginners ***/
+/*** Knowledge Inspiration: FreedCodeCamp: API for Beginners ***/

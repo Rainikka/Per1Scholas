@@ -1,3 +1,5 @@
+/*** Chaining Promiaes Asynchronously  ***/
+
 // const promise = new Promise((resolve, reject) => {
 //   const allWentWell = true;
 //   if (allWentWell) {
@@ -27,7 +29,7 @@
 //   console.log(error)
 // });
 
-// // If one promise fails, then all chained promises fail (.all)
+/*** Case Scenaeio: If one promise fails, then all chained promises fail(.all) ***/
 
 // const promiseOne = new Promise((resolve, reject) => {
 //   setTimeout(() => {

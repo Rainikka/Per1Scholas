@@ -10,8 +10,5 @@
 /********** 07-APR-2025 **********/
 
 /********** FETCHING AN API *********/
-fetch('https://dummyjson.com/products/1')
-  .then(response => response.json())
-  .catch(data => console.log(data))
-  .catch(error => console.log(error))
+
 
