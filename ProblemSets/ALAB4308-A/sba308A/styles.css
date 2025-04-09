@@ -21,7 +21,7 @@
 }
 
 #header {
-  margin: 50px auto 10px auto;
+  margin: 50px auto 5px auto;
   width: 100%;
   height: auto;
   padding: 0px;
@@ -33,25 +33,31 @@
 }
 
 #imageBox {
-  margin: 0 auto;
-  width: 100%;
+  margin: 10px auto 0 auto;
+  width: 80%;
   height: auto;
+  border: 1px solid red;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 
 #sunsetPic {
-  margin: 0 15px auto 0;
+  margin: 0 auto;
   width: 360px;
-  height: 80px;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 #appTitle {
-  margin: 15px auto 10px auto;
-  font-size: 34px;
+  margin: 5px auto;
+  font-size: 33px;
   color: azure;
   text-shadow: 0 1px 0 rgba(0, 0, 128, 0.4);
 }
@@ -66,10 +72,10 @@ span {
 
 #subtitle {
   font-family: 'Times New Roman', Times, serif;
-  font-size: 25px;
+  font-size: 24px;
   font-style: italic;
   font-weight: normal;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   color: goldenrod;
 }
 
@@ -143,29 +149,55 @@ span {
 }
 
 #info {
-  line-height: 0.5rem;
-  color: aliceblue;
-  azure;
+  line-height: 30px;
+  font-family: Roboto;
+  font-size: 28px;
+  color: azure;
+}
+
+#date {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: lightsteelblue;
+  font-size: 22px;
 }
 
 #city {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 18px;
+  font-family: 'Gill Sans', ' Gill Sans MT', Calibri, ' Trebuchet MS', sans-serif;
+  */ font-size: 28px;
   text-transform: uppercase;
-  color: lightsteelblue;
+  color:
+    aliceblue;
 }
+
+#tempImageBox {
+  margin: 10px auto 0 auto;
+  width: 80%;
+  height: auto;
+  border: 1px solid red;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#tempImage {
+  margin: 0 auto;
+  width: 360px;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 
 #descript {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 18px;
   text-transform: uppercase;
   color: lightsteelblue;
-}
-
-#date {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  color: lightsteelblue;
-  font-size: 18px;
 }
 
 #extraInfo {
