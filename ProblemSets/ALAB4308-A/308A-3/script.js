@@ -57,7 +57,7 @@
 * 6. db.website,: string
 * 7. db.company. obj
 /**************************************************************/
-  
+
 // Importing database functions. DO NOT MODIFY THIS LINE.
 import { central, db1, db2, db3, vault } from "./databases.js";
 
@@ -69,3 +69,39 @@ function getUserData(id) {
   };
 }
 
+// const promise = new Promise((resolve, reject) => {
+//   const dbCentralIdPull = Math.floor(Math.random() * 10);
+//   console.log(randomNumber);
+
+//   setTimeout(() => {
+//     (randomNumber < 4) {
+//       resolve('Well Done! You Guessed Right!')
+//     } else {
+//       reject('Oops! You guessed wrong! Unlucky.')
+//     }
+//   }, 2000);
+// });
+
+// promise.then((value) => {
+//   console.log(value);
+// }).catch((error) => {
+//   console.log(error)
+// });
+
+const getWeather = async () => {
+  try {
+    const cityName = document.getElementById('searchBarInput').value;
+    const weatherDataFetch = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&APPID=cd51884d9897a04d51888d2ca1ef202d`,
+      {
+        headers: {
+          Accept: "application/json"
+        }
+      });
+
+    const weatherData = await weatherDataFetch.json();
+    console.log(weatherData)
+  }
+  catch (error) {
+    console.log(error)
+  }
+}
