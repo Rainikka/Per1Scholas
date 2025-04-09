@@ -63,9 +63,9 @@ const getWeather = async () => {
 
     const weatherData = await weatherDataFetch.json();
     console.log(weatherData)
-    city.innerHTML = `${weatherData.name}`;
+    city.innerHTML = `<h2>${weatherData.name}</h2>`;
     descript.innerHTML = `${weatherData.weather[0].main}`;
-    tempImage.innerHTML = `<img src="http://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png" />`;
+    tempImage.innerHTML = `<img src="http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png" />`;
 
     // Convert Kelvin to Celsius to Fahrenheit
     const tempF = Math.round((weatherData.main.temp - 273.15) * 9 / 5 + 32);
@@ -73,8 +73,8 @@ const getWeather = async () => {
     const tempMaxF = Math.round((weatherData.main.temp_max - 273.15) * 9 / 5 + 32);
 
     temp.innerHTML = `<h2>${tempF} \u00B0F</h2>`;
-    tempMin.innerHTML = `<h4>${tempMinF} \u00B0F</h4>`;
-    tempMax.innerHTML = `<h4>${tempMaxF} \u00B0F</h4>`;
+    tempMin.innerHTML = `<h3>${tempMinF} \u00B0F</h3>`;
+    tempMax.innerHTML = `<h3>${tempMaxF} \u00B0F</h3>`;
   }
   catch (error) {
     console.log(error)
