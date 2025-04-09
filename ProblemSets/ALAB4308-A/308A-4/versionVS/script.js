@@ -83,6 +83,6 @@ async function breedProfile(breed) {
 }
 
 function showDogImage(images) {
-  document.getElementById('slideshow').innerHTML = `
-  <div class="slide" style="background-image: url(${images[0]})">`;
+  document.getElementById('imageBox').innerHTML = `
+  <div class="imageDiv" style="background-image: url(${images[0]})">`;
 }
