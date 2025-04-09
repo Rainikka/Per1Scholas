@@ -59,15 +59,15 @@
 /**************************************************************/
 
 // Importing database functions. DO NOT MODIFY THIS LINE.
-import { central, db1, db2, db3, vault } from "./databases.js";
+// import { central, db1, db2, db3, vault } from "./databases.js";
 
-function getUserData(id) {
-  const dbs = {
-    db1: db1,
-    db2: db2,
-    db3: db3
-  };
-}
+// function getUserData(id) {
+//   const dbs = {
+//     db1: db1,
+//     db2: db2,
+//     db3: db3
+//   };
+// }
 
 // const promise = new Promise((resolve, reject) => {
 //   const dbCentralIdPull = Math.floor(Math.random() * 10);
@@ -90,8 +90,7 @@ function getUserData(id) {
 
 const getWeather = async () => {
   try {
-    const cityName = document.getElementById('searchBarInput').value;
-    const weatherDataFetch = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&APPID=cd51884d9897a04d51888d2ca1ef202d`,
+    const weatherDataFetch = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=London&APPID=cd51884d9897a04d51888d2ca1ef202d`,
       {
         headers: {
           Accept: "application/json"
@@ -105,3 +104,5 @@ const getWeather = async () => {
     console.log(error)
   }
 }
+
+getWeather()
