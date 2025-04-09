@@ -21,6 +21,7 @@
 /*** Knowledge Inspiration: FreedCodeCamp: API for Beginners ***/
 
 /**** Accessing DOM Elements ****/
+const body = document.querySelector('body');
 const date = document.getElementById('date');
 const city = document.getElementById('city');
 const temp = document.getElementById('temp');
@@ -42,9 +43,16 @@ date.innerHTML = `${month} ${day}, ${year}`;
 /**** Accessing APP Elements ****/
 const app = document.getElementById('app');
 
+/*********** TESTING AREA ************/
+document.getElementById('test0');
+// document.getElementById('test1');
+test0.innerHTML = geteWeather();
+// test1.innerHTML = picA;
+
+/********** SET UP FUNCTION TO FETCH API DATA **********/
 const getWeather = async () => {
   try {
-    const weathwerDataFetch = await fetch('https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=cd51884d9897a04d51888d2ca1ef202d', {
+    const weatherDataFetch = await fetch('https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=cd51884d9897a04d51888d2ca1ef202d', {
       headers: {
         Accept: "application/json"
       }
@@ -58,9 +66,6 @@ const getWeather = async () => {
   }
 }
 getWeather()
-
-
-
 
 
 /************************************************

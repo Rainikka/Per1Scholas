@@ -13,57 +13,71 @@
 
 
 <body>
-  <!-- TESTING AREA
+  <!-- TESTING AREA 
   <p id="test0"></p>
   <p id="test1"></p>
   -->
+
   <div id="app">
-    <h2 id="appTitle"> WEATHER <span>OR</span> WEATHER <span> NOT</span> </h2>
-    <h2 id="subtitle">Oh the Places, You Will Go!</h2>
-    <!-- Search Bar -->
-    <div id="searchBar">
-      <input type="text" id="searchBarInput" placeholder=" Search By City">
-      <button id="btnSearch">
-        <i id="searchBarIcon" class="fa fa-search" aria-hidden="true">
-        </i>
-      </button>
-    </div>
+    <!-- Header Section -->
+    <header id="header">
+      <!-- Image -->
+      <div id="imgBox">
+        <img id="sunsetPic" src="images/2Sunset.png" alt="sunset graphic" x>
+      </div>
+      <!-- Titles -->
+      <h1 id="appTitle"> WEATHER <span>OR</span> WEATHER <span> NOT</span> </h1>
+      <h2 id="subtitle">Oh the Places, You Will Go!</h2>
+    </header>
 
-    <!-- Date & City -->
-    <div id="info">
-      <p id="date"></p>
-      <h3 id="city"></h3>
-    </div>
+    <!-- Search Section -->
+    <section id="searchBox">
+      <!-- Search Bar -->
+      <div id="searchBar">
+        <input type="text" id="searchBarInput" placeholder=" Search By City">
+        <!-- Search  Button-->
+        <button id="btnSearch">
+          <i id="searchBarIcon" class="fa fa-search" aria-hidden="true">
+          </i>
+        </button>
+      </div>
+    </section>
 
-    <!-- Temp Image -->
-    <div id="tempImage"></div>
+    <!-- Main Section -->
+    <main id="main">
+      <!--Date & City -->
+      <div id="info">
+        <p id="date"></p>
+        <h3 id="city"></h3>
+      </div>
+      <!-- Temp Image -->
+      <div id="tempImage"></div>
+      <!-- Description -->
+      <div id="descript"></div>
+      <!-- Temp -->
+      <div id="temp"></div>
+    </main>
 
-    <!-- Description -->
-    <div id="descript"></div>
-
-    <!-- Temp -->
-    <div id="temp"></div>
-
-
+    <!-- Footer Section-->
     <!-- Exta Info -->
-    <div id="extraInfo">
-      <div class="col">
-        <div class="info">
-          <h5 id="high">High</h5>
-          <p id="tempHigh"></p>
+    <footer id="footer">
+      <div id="extraInfo">
+        <div class="col">
+          <div class="info">
+            <h5 id="high">High</h5>
+            <p id="tempHigh"></p>
+          </div>
         </div>
-      </div>
 
-
-      <div class="col">
-        <div class="info">
-          <h5 id="low">Low</h5>
-          <p id="tempLow"></p>
+        <div class="col">
+          <div class="info">
+            <h5 id="low">Low</h5>
+            <p id="tempLow"></p>
+          </div>
         </div>
+
       </div>
-
-    </div>
-
+    </footer>
   </div>
 
   <script defer src=" script.js">
