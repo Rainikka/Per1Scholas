@@ -45,7 +45,7 @@
 /***** Primary Key: id, Source: central db, Type: number *****
 * db1: id: 1-4
 * db2: id: 4 - 7
-* db3: id: 8 - 9 
+* db3: id: 8 - 10
 *
 /***** Foreign Keys: Data Source, Type, & Order ******
 * 0. central db.id
@@ -88,21 +88,34 @@
 //   console.log(error)
 // });
 
-const getWeather = async () => {
-  try {
-    const weatherDataFetch = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=London&APPID=cd51884d9897a04d51888d2ca1ef202d`,
-      {
-        headers: {
-          Accept: "application/json"
-        }
-      });
+// const getWeather = async () => {
+//   try {
+//     const weatherDataFetch = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=London&APPID=cd51884d9897a04d51888d2ca1ef202d`,
+//       {
+//         headers: {
+//           Accept: "application/json"
+//         }
+//       });
 
-    const weatherData = await weatherDataFetch.json();
-    console.log(weatherData)
-  }
-  catch (error) {
+//     const weatherData = await weatherDataFetch.json();
+//     console.log(weatherData)
+//   }
+//   catch (error) {
+//     console.log(error)
+//   }
+// }
+
+// getWeather()
+Show all
+const allClientContacts = async () => {
+  try {
+    const response = await fetch('https://jsonplaceholder.typicode.com/users/');
+    const json = await response.json();
+    console.log(json);
+  } catch (error) {
     console.log(error)
   }
 }
+allClientContacts()
 
-getWeather()
+/** https://jsonplaceholder.typicode.com/users/${id} **/
