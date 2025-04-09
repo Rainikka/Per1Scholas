@@ -52,20 +52,28 @@ test0.innerHTML = geteWeather();
 /********** SET UP FUNCTION TO FETCH API DATA **********/
 const getWeather = async () => {
   try {
-    const weatherDataFetch = await fetch('https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=cd51884d9897a04d51888d2ca1ef202d', {
-      headers: {
-        Accept: "application/json"
-      }
-    });
+    const cityName = document.getElementById('searchBarInput').value;
+    const weatherDataFetch = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&APPID=cd51884d9897a04d51888d2ca1ef202d`,
+      {
+        headers: {
+          Accept: "application/json"
+        }
+      });
 
     const weatherData = await weatherDataFetch.json();
     console.log(weatherData)
+    city.innerHTML = `${weatherData.name}`;
+    descript.innerHTML = `${weatherData.weather[0].main}`;
+    tempImage.innerHTML = `< img src = "http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png" /> `;
+    temp.innerHTML = `< h2 > ${Math.round(weatherData.main.temp)} \u00B0C </ > `; //-32*(5/9) for \u00B0F
+    tempMin.innerHTML = `${weatherData.main.temp_min} \u00B0C`;//-32*(5/9) for \u00B0F
+    tempMax.innerHTML = `${weatherData.main.temp_max} \u00B0C`; //-32*(5/9) for \u00B0F
   }
   catch (error) {
     console.log(error)
   }
 }
-getWeather()
+
 
 
 /************************************************
@@ -78,8 +86,6 @@ getWeather()
  * 
  * API Key:
  * cd51884d9897a04d51888d2ca1ef202d 
- * 
- * 
  * 
  * - You can later create more API keys on your account  page
  * - Please, always use your API key in each API call

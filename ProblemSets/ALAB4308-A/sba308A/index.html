@@ -36,7 +36,7 @@
       <div id="searchBar">
         <input type="text" id="searchBarInput" placeholder=" Search By City">
         <!-- Search  Button-->
-        <button id="btnSearch">
+        <button id="btnSearch" onclick="getWeather()">
           <i id="searchBarIcon" class="fa fa-search" aria-hidden="true">
           </i>
         </button>
@@ -65,14 +65,14 @@
         <div class="col">
           <div class="info">
             <h5 id="high">High</h5>
-            <p id="tempHigh"></p>
+            <p id="tempMax"></p>
           </div>
         </div>
 
         <div class="col">
           <div class="info">
             <h5 id="low">Low</h5>
-            <p id="tempLow"></p>
+            <p id="tempMin"></p>
           </div>
         </div>
 
