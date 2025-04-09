@@ -41,7 +41,7 @@ const body = document.querySelector("body");
 /******** Knowledge Inspiration:YouTube::LearnWebCode *********/
 /********************* Elements Created **********************/
 
-/*** Fetch Data List of Dog Breeds */
+/*** Fetch Data List of Dog Breeds ***/
 async function grabData() {
   const response = await fetch("https://dog.ceo/api/breeds/list/all")
   const data = await response.json()
