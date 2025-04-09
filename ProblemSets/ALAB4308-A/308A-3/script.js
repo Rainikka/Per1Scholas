@@ -69,44 +69,7 @@
 //   };
 // }
 
-// const promise = new Promise((resolve, reject) => {
-//   const dbCentralIdPull = Math.floor(Math.random() * 10);
-//   console.log(randomNumber);
 
-//   setTimeout(() => {
-//     (randomNumber < 4) {
-//       resolve('Well Done! You Guessed Right!')
-//     } else {
-//       reject('Oops! You guessed wrong! Unlucky.')
-//     }
-//   }, 2000);
-// });
-
-// promise.then((value) => {
-//   console.log(value);
-// }).catch((error) => {
-//   console.log(error)
-// });
-
-// const getWeather = async () => {
-//   try {
-//     const weatherDataFetch = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=London&APPID=cd51884d9897a04d51888d2ca1ef202d`,
-//       {
-//         headers: {
-//           Accept: "application/json"
-//         }
-//       });
-
-//     const weatherData = await weatherDataFetch.json();
-//     console.log(weatherData)
-//   }
-//   catch (error) {
-//     console.log(error)
-//   }
-// }
-
-// getWeather()
-Show all
 const allClientContacts = async () => {
   try {
     const response = await fetch('https://jsonplaceholder.typicode.com/users/');
