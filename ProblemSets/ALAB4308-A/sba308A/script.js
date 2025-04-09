@@ -44,11 +44,11 @@ date.innerHTML = `${month} ${day}, ${year}`;
 const app = document.getElementById('app');
 
 /*********** TESTING AREA ************/
-document.getElementById('test0');
+// document.getElementById('test0');
+// test0.innerHTML = getWeather();
 // document.getElementById('test1');
-test0.innerHTML = getWeather();
-// test1.innerHTML = picA;
-/*********************************/
+// test1.innerHTML = "";
+/************************************/
 
 /********** SET UP FUNCTION TO FETCH API DATA **********/
 const getWeather = async () => {
@@ -66,9 +66,15 @@ const getWeather = async () => {
     city.innerHTML = `${weatherData.name}`;
     descript.innerHTML = `${weatherData.weather[0].main}`;
     tempImage.innerHTML = `<img src="http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png" />`;
-    temp.innerHTML = `<h2> ${Math.round(weatherData.main.temp)} \u00B0C </h2>`; //-32*(5/9) for \u00B0F
-    tempMin.innerHTML = `${weatherData.main.temp_min} \u00B0C`;//-32*(5/9) for \u00B0F
-    tempMax.innerHTML = `${weatherData.main.temp_max} \u00B0C`; //-32*(5/9) for \u00B0F
+
+    // Convert Kelvin to Celsius to Fahrenheit
+    const tempF = Math.round((weatherData.main.temp - 273.15) * 9 / 5 + 32);
+    const tempMinF = Math.round((weatherData.main.temp_min - 273.15) * 9 / 5 + 32);
+    const tempMaxF = Math.round((weatherData.main.temp_max - 273.15) * 9 / 5 + 32);
+
+    temp.innerHTML = `<h2>${tempF} \u00B0F</h2>`;
+    tempMin.innerHTML = `${tempMinF} \u00B0F`;
+    tempMax.innerHTML = `${tempMaxF} \u00B0F`;
   }
   catch (error) {
     console.log(error)
