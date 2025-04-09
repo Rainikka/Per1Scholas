@@ -42,12 +42,12 @@ const body = document.querySelector("body");
 /********************* Elements Created **********************/
 
 /*** Fetch Data List of Dog Breeds */
-async function start() {
+async function grabData() {
   const response = await fetch("https://dog.ceo/api/breeds/list/all")
   const data = await response.json()
   buildBreedList(data.message)
 }
-start();
+grabData();
 
 /**** Create Dropdown Select Tool ****/
 function buildBreedList(breedList) {
@@ -78,11 +78,11 @@ async function breedProfile(breed) {
   if (breed != "Choose Dog Breed") {
     const { data } = await axios.get(`https://dog.ceo/api/breed/${breed}/images`);
     // return data.message
-    return createSlideShow(data.message)
+    return showDogImage(data.message)
   }
 }
 
-function createSlideShow(images) {
+function showDogImage(images) {
   document.getElementById('slideshow').innerHTML = `
   <div class="slide" style="background-image: url(${images[0]})">`;
 }
