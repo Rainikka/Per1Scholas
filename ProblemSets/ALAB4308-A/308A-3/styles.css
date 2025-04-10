@@ -41,23 +41,21 @@
 
 #imageBox {
   margin: 15px auto;
-  display: flex;
-  flex-direction: column;
+  display: none;
+  */ flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 #clientPic {
-  width: 240px;
-  height: 300px;
+  width: 300px;
+  height: 360px;
   display: block;
 }
 
-table {
+#cardTable {
   width: 400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: none;
   align-items: center;
   font-family: 'Calibri', sans-serif;
   font-size: 11px;

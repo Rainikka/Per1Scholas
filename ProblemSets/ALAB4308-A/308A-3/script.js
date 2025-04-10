@@ -130,21 +130,37 @@ function clientRolodex(clients) {
 
 /*** Add Client Company Data to Card ***/
 function updateClientProfile(client) {
+  document.getElementById('option0');
+  document.getElementById('cardSelector');
+  const imageBox = document.getElementById('imageBox');
+  const cardTable = document.getElementById('cardTable');
   const clientPic = document.getElementById('clientPic');
-  const mrTPic = `images/T${client.id}.jpg`;
-  clientPic.src = mrTPic;
-  clientPic.alt = `Photo of ${client.name}`;
-  document.getElementById('clientId').textContent = client.id;
-  document.getElementById('clientName').textContent = client.name;
-  document.getElementById('clientUsername').textContent = client.username;
-  document.getElementById('clientEmail').textContent = client.email;
-  document.getElementById('companyStreet').textContent = client.address.street;
-  document.getElementById('companySuite').textContent = client.address.suite;
-  document.getElementById('companyCity').textContent = client.address.city;
-  document.getElementById('companyZip').textContent = client.address.zipcode;
-  document.getElementById('companyPhone').textContent = client.phone;
-  document.getElementById('companyWebsite').textContent = client.website;
-  document.getElementById('companyName').textContent = client.company.name;
-  document.getElementById('companyMotto').textContent = client.company.catchPhrase;
-  document.getElementById('companyBS').textContent = client.company.bs;
+
+
+  if (!client) {
+    // Hide elements when no client selected
+    imageBox.style.display = "none";
+    cardTable.style.display = "none";
+    clientPic.src = "";
+    return;
+  } else {
+    imageBox.style.display = "block";
+    cardTable.style.display = "block";
+    const clientPic = document.getElementById('clientPic');
+    const mrTPic = `images/T${client.id}.jpg`;
+    clientPic.src = mrTPic;
+    document.getElementById('clientId').textContent = client.id;
+    document.getElementById('clientName').textContent = client.name;
+    document.getElementById('clientUsername').textContent = client.username;
+    document.getElementById('clientEmail').textContent = client.email;
+    document.getElementById('companyStreet').textContent = client.address.street;
+    document.getElementById('companySuite').textContent = client.address.suite;
+    document.getElementById('companyCity').textContent = client.address.city;
+    document.getElementById('companyZip').textContent = client.address.zipcode;
+    document.getElementById('companyPhone').textContent = client.phone;
+    document.getElementById('companyWebsite').textContent = client.website;
+    document.getElementById('companyName').textContent = client.company.name;
+    document.getElementById('companyMotto').textContent = client.company.catchPhrase;
+    document.getElementById('companyBS').textContent = client.company.bs;
+  }
 }
