@@ -78,30 +78,79 @@
 // }
 // fetchAllClientData();
 
+/************* Body Selector **************/
+const body = document.querySelector("body");
+
+/*** Fetch Data to Create Client Rolodex ***/
 const allClientContacts = async () => {
   try {
     const response = await fetch('https://jsonplaceholder.typicode.com/users/');
     const data = await response.json();
-    // return console.log(data)
-    // console.log(data)
-    // clientRolodex(data)
+    console.log(data)
+    clientRolodex(data)
   } catch (error) {
     console.log(error)
   }
 }
 allClientContacts()
 
-/**** Create Client Rolodex ****/
-function clientRolodex(clientCard) {
-  const body = document.querySelector('body');
-  const cardSelector = document.getElementById('cardSelector');
+/**** Create Dropdown Client Rolodex ****/
+function clientRolodex(clients) {
+  /*** Create Section & Select ***/
+  const selectSect = document.getElementById('selectSect');
+  const cardSelector = (document.createElement('select'));
+  cardSelector.id = 'cardSelector';
 
-  const header = document.getElementById('header');
-  const main = document.getElementById('main');
-  const locale = document.getElementById('locale');
-  const contact = document.getElementById('contact');
-  const info = document.getElementById('info');
+  /*** Option0: Chooose Company  Prompt ***/
+  const option0 = cardSelector.appendChild(document.createElement('option'));
+  option0.id = 'option0';
+  option0.textContent = 'Choose Company';
+
+  /*** Populate Selector With Client Data ***/
+  clients.forEach(client => {
+    const option = document.createElement('option');
+    option.value = client.id;
+    option.textContent = client.company.name;
+    cardSelector.appendChild(option);
+  });
+
+  /*** Selector Tool Dynamic Card Change ***/
+  cardSelector.onchange = () => {
+    const selectedClientId = cardSelector.value;
+    if (selectedClientId) {
+      const selectedClient = clients.find(client => client.id == selectedClientId);
+      if (selectedClient) {
+        updateClientProfile(selectedClient);
+      }
+    }
+  };
+
+  selectSect.appendChild(cardSelector);
 }
+
+/*** Add Client Company Info to Card ***/
+function updateClientProfile(client) {
+  const clientPic = document.getElementById('clientPic');
+  const mrTPic = `images/T${client.id}.jpg`;
+  clientPic.src = mrTPic;
+  clientPic.alt = `Photo of ${client.name}`;
+
+  document.getElementById('clientName').textContent = client.name;
+  document.getElementById('clientUsername').textContent = client.username;
+  document.getElementById('clientEmail').textContent = client.email;
+  document.getElementById('companyStreet').textContent = client.address.street;
+  document.getElementById('companySuite').textContent = client.address.suite;
+  document.getElementById('companyCity').textContent = client.address.city;
+  document.getElementById('companyZip').textContent = client.address.zipcode;
+  document.getElementById('companyPhone').textContent = client.phone;
+  document.getElementById('companyWebsite').textContent = client.website;
+  document.getElementById('companyName').textContent = client.company.name;
+  document.getElementById('companyMotto').textContent = client.company.catchPhrase;
+  document.getElementById('companyBS').textContent = client.company.bs;
+}
+
+
+
 
 
 /** https://jsonplaceholder.typicode.com/users/${id} **/
