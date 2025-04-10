@@ -82,12 +82,26 @@ const allClientContacts = async () => {
   try {
     const response = await fetch('https://jsonplaceholder.typicode.com/users/');
     const data = await response.json();
-    return console.log(data)
-    // console.log(json);
+    // return console.log(data)
+    // console.log(data)
+    // clientRolodex(data)
   } catch (error) {
     console.log(error)
   }
 }
 allClientContacts()
+
+/**** Create Client Rolodex ****/
+function clientRolodex(clientCard) {
+  const body = document.querySelector('body');
+  const cardSelector = document.getElementById('cardSelector');
+
+  const header = document.getElementById('header');
+  const main = document.getElementById('main');
+  const locale = document.getElementById('locale');
+  const contact = document.getElementById('contact');
+  const info = document.getElementById('info');
+}
+
 
 /** https://jsonplaceholder.typicode.com/users/${id} **/
