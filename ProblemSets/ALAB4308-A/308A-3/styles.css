@@ -4,11 +4,15 @@
   font-size: 14px;
 }
 
+.shade {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
+}
+
 #app {
-  margin: 40px auto;
+  margin: 20px auto;
   width: 500px;
-  height: 500px;
-  padding: 50px;
+  height: auto;
+  padding: 32px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,8 +20,23 @@
 }
 
 #selectSect {
-  margin: 20px auto 10px;
+  margin: 0;
+  padding: 0;
   text-align: center;
+}
+
+#cardSelector {
+  margin: 5px auto;
+  width: 300px;
+  height: 35px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: aliceblue;
+  border: 2px solid steelblue;
+  border-radius: 8px;
 }
 
 #imageBox {
@@ -31,15 +50,27 @@
 #clientPic {
   width: 240px;
   height: 300px;
-
+  display: block;
 }
 
 table {
+  width: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid navy;
+  font-family: 'Calibri', sans-serif;
+  font-size: 11px;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid steelblue;
+
+
 }
 
 ul {
