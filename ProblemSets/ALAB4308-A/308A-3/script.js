@@ -101,7 +101,7 @@ function clientRolodex(clients) {
   const cardSelector = (document.createElement('select'));
   cardSelector.id = 'cardSelector';
 
-  /*** Option0: Chooose Company  Prompt ***/
+  /*** Option0: Chooose Company Prompt ***/
   const option0 = cardSelector.appendChild(document.createElement('option'));
   option0.id = 'option0';
   option0.textContent = 'Choose Company';
@@ -128,13 +128,13 @@ function clientRolodex(clients) {
   selectSect.appendChild(cardSelector);
 }
 
-/*** Add Client Company Info to Card ***/
+/*** Add Client Company Data to Card ***/
 function updateClientProfile(client) {
   const clientPic = document.getElementById('clientPic');
   const mrTPic = `images/T${client.id}.jpg`;
   clientPic.src = mrTPic;
   clientPic.alt = `Photo of ${client.name}`;
-
+  document.getElementById('clientId').textContent = client.id;
   document.getElementById('clientName').textContent = client.name;
   document.getElementById('clientUsername').textContent = client.username;
   document.getElementById('clientEmail').textContent = client.email;
@@ -148,9 +148,3 @@ function updateClientProfile(client) {
   document.getElementById('companyMotto').textContent = client.company.catchPhrase;
   document.getElementById('companyBS').textContent = client.company.bs;
 }
-
-
-
-
-
-/** https://jsonplaceholder.typicode.com/users/${id} **/
