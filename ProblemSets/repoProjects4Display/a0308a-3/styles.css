@@ -39,6 +39,17 @@
   border-radius: 8px;
 }
 
+#main {
+  margin: 0 auto;
+  width: 360px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 2px solid steelblue;
+}
+
 #imageBox {
   margin: 15px auto;
   width: 350px;
