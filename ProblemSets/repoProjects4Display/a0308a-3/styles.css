@@ -42,8 +42,9 @@
 #main {
   margin: 0 auto;
   width: 360px;
-  height: 35px;
+  height: auto;
   display: flex;
+  flex-flow: column;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -68,6 +69,7 @@
 #cardTable {
   margin: 0 auto;
   width: 340px;
+  max-width: 360px;
   display: none;
   align-items: center;
   font-family: 'Calibri', sans-serif;
