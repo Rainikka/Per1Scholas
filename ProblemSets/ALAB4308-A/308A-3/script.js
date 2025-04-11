@@ -104,7 +104,7 @@ function clientRolodex(clients) {
   /*** Option0: Chooose Company Prompt ***/
   const option0 = cardSelector.appendChild(document.createElement('option'));
   option0.id = 'option0';
-  option0.textContent = 'Choose Company';
+  option0.textContent = 'Company Rolodex';
 
   /*** Populate Selector With Client Data ***/
   clients.forEach(client => {
@@ -144,8 +144,8 @@ function updateClientProfile(client) {
     clientPic.src = "";
     return;
   } else {
-    imageBox.style.display = "block";
-    cardTable.style.display = "block";
+    imageBox.style.display = "flex";
+    cardTable.style.display = "flex";
     const clientPic = document.getElementById('clientPic');
     const mrTPic = `images/T${client.id}.jpg`;
     clientPic.src = mrTPic;
