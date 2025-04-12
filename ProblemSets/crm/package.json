@@ -1,9 +1,9 @@
 {
   "name": "crm",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "script.js",
   "scripts": {
-    "start": "nodemon /index.js --exec babel-node"
+    "start": "nodemon /script.js --exec babel-node"
   },
   "repository": {
     "type": "git",
