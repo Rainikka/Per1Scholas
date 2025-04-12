@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon ./script.js --exec babel-node"
   },
   "repository": {
     "type": "git",
-    "url": "rainikka"
+    "url": "https://github.com/rainikka/crm.git"
   },
   "author": "Rainikka Corprew",
   "license": "ISC",
