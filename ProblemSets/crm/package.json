@@ -3,12 +3,9 @@
   "version": "1.0.0",
   "main": "script.js",
   "scripts": {
-    "start": "nodemon /script.js --exec babel-node"
+    "start": "nodemon script.js --exec babel-node"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/rainikka/crm.git"
-  },
+
   "author": "Rainikka Corprew",
   "license": "ISC",
   "description": "",
