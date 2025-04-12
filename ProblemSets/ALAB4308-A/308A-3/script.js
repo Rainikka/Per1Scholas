@@ -113,8 +113,6 @@ function clientRolodex(clients) {
     option.textContent = `${client.id}. ${client.company.name}`;
     cardSelector.appendChild(option);
   });
-  cardSelector.appendChild(option);
-});
 
 /*** Selector Tool Dynamic Card Change ***/
 cardSelector.onchange = () => {
