@@ -110,7 +110,7 @@ function clientRolodex(clients) {
   clients.forEach(client => {
     const option = document.createElement('option');
     option.value = client.id;
-    option.textContent = client.company.name;
+    option.textContent = `${client.id}. ${client.company.name}`;
     cardSelector.appendChild(option);
   });
 
@@ -147,7 +147,7 @@ function updateClientProfile(client) {
     imageBox.style.display = "flex";
     cardTable.style.display = "flex";
     const clientPic = document.getElementById('clientPic');
-    const mrTPic = `images/T${client.id}.jpg`;
+    const mrTPic = `images / T${client.id}.jpg`;
     clientPic.src = mrTPic;
     document.getElementById('clientId').textContent = client.id;
     document.getElementById('clientName').textContent = client.name;
