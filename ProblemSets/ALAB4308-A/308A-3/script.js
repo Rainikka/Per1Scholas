@@ -110,22 +110,24 @@ function clientRolodex(clients) {
   clients.forEach(client => {
     const option = document.createElement('option');
     option.value = client.id;
-    option.textContent = client.company.name;
+    option.textContent = `${client.id}. ${client.company.name}`;
     cardSelector.appendChild(option);
   });
+  cardSelector.appendChild(option);
+});
 
-  /*** Selector Tool Dynamic Card Change ***/
-  cardSelector.onchange = () => {
-    const selectedClientId = cardSelector.value;
-    if (selectedClientId) {
-      const selectedClient = clients.find(client => client.id == selectedClientId);
-      if (selectedClient) {
-        updateClientProfile(selectedClient);
-      }
+/*** Selector Tool Dynamic Card Change ***/
+cardSelector.onchange = () => {
+  const selectedClientId = cardSelector.value;
+  if (selectedClientId) {
+    const selectedClient = clients.find(client => client.id == selectedClientId);
+    if (selectedClient) {
+      updateClientProfile(selectedClient);
     }
-  };
+  }
+};
 
-  selectSect.appendChild(cardSelector);
+selectSect.appendChild(cardSelector);
 }
 
 /*** Add Client Company Data to Card ***/
