@@ -52,7 +52,7 @@
 * 1. db.username: string
 * 2. vt.name: string
 * 3. vt.email: string
-*4. vt.address: obj
+* 4. vt.address: obj
 * 5. vt.phone: string
 * 6. db.website,: string
 * 7. db.company. obj
