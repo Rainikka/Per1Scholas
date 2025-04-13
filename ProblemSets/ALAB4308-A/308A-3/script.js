@@ -114,18 +114,18 @@ function clientRolodex(clients) {
     cardSelector.appendChild(option);
   });
 
-/*** Selector Tool Dynamic Card Change ***/
-cardSelector.onchange = () => {
-  const selectedClientId = cardSelector.value;
-  if (selectedClientId) {
-    const selectedClient = clients.find(client => client.id == selectedClientId);
-    if (selectedClient) {
-      updateClientProfile(selectedClient);
+  /*** Selector Tool Dynamic Card Change ***/
+  cardSelector.onchange = () => {
+    const selectedClientId = cardSelector.value;
+    if (selectedClientId) {
+      const selectedClient = clients.find(client => client.id == selectedClientId);
+      if (selectedClient) {
+        updateClientProfile(selectedClient);
+      }
     }
-  }
-};
+  };
 
-selectSect.appendChild(cardSelector);
+  selectSect.appendChild(cardSelector);
 }
 
 /*** Add Client Company Data to Card ***/
@@ -135,7 +135,6 @@ function updateClientProfile(client) {
   const imageBox = document.getElementById('imageBox');
   const cardTable = document.getElementById('cardTable');
   const clientPic = document.getElementById('clientPic');
-
 
   if (!client) {
     // Hide elements when no client selected
