@@ -5,7 +5,6 @@
   "scripts": {
     "start": "nodemon script.js --exec babel-node"
   },
-
   "author": "Rainikka Corprew",
   "license": "ISC",
   "description": "",
