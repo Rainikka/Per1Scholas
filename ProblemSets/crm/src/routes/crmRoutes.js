@@ -23,6 +23,5 @@ const routes = (app) => {
     .delete((req, res) =>
       res.send('DELETE request is successful!')
     )
-
 };
 export default routes;
