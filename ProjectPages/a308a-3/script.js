@@ -147,7 +147,7 @@ function updateClientProfile(client) {
     imageBox.style.display = "flex";
     cardTable.style.display = "flex";
     const clientPic = document.getElementById('clientPic');
-    const mrTPic = `images / T${client.id}.jpg`;
+    const mrTPic = `images/T${client.id}.jpg`;
     clientPic.src = mrTPic;
     document.getElementById('clientId').textContent = client.id;
     document.getElementById('clientName').textContent = client.name;
@@ -164,4 +164,3 @@ function updateClientProfile(client) {
     document.getElementById('companyBS').textContent = client.company.bs;
   }
 }
-
