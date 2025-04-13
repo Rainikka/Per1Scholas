@@ -1,9 +1,15 @@
-function routes = (app) => {
+const routes = (app) => {
   app.route('/contact')
 
-    .get((req, res) =>
+    .get((req, res, next) => {
+      //middleware
+      console.log(`Request from: ${req.originalUrl}`)
+      console.log(`Response type: ${req.method}`)
+      next();
+    }, (req, res, next) => {
       res.send('GET request is successful!')
-    )
+    })
+
     .post((req, res) =>
       res.send('POST request is successful!')
     )
@@ -18,5 +24,5 @@ function routes = (app) => {
       res.send('DELETE request is successful!')
     )
 
-}
+};
 export default routes;
