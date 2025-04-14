@@ -8,7 +8,7 @@
 * .http file to test code for Rest API methods
 
 /*********** Basic Node Set-Up ***********
-* npm init -y     // initialize node.js
+* npm init -y     // initialize node.jPort = s
 * npm i express     // install exprss.js library
 * npm i --save-dev nodemon     // nodemon as dev dependency: automatically restarts server 
 anytime there are changes to code
