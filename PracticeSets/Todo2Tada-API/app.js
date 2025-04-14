@@ -1,3 +1,6 @@
+/*** Knowledge Inspiration: Medium.com :: Creating a RESTful API with Node.js and Express ;; from techiydude
+ ***/
+
 /***** SETTING UP EXPRESS SERVER ON NODE.JS *****/
 const express = require('express');
 const app = express();
@@ -72,16 +75,9 @@ app.put('/tasks/:id', (req, res) => {
 
 app.delete('/tasks/:id', (req, res) => {
   const id = parseInt(req.params.id);
-  const index = tasks.findIndex(task => task.id === id);
-
-  if (index === -1) {
-    return res.status(404).json({ message: 'Task not found' });
-  }
-
-  tasks.splice(index, 1);
+  tasks = tasks.filter((task) => task.id !== id);
   res.status(200).json({ message: 'Task deleted successfully', tasks });
 });
-
 
 
 
