@@ -1,0 +1,14 @@
+###### Setting Up Express Server Environment ########
+
+###### Auxiliary File Set-upt ########
+# Create App Dev Folder to Contain All Files
+# Create .http file to test coode
+
+###### Node.JS Set-Up########
+# npm init -y    // initialize node.js
+# npm i express  // install exprss.js library
+# npm i --save-dev nodemon // nodemon as dev dependency : automatically restarts server anytime there are changes to code
+# In package.json file, replace 
+# "scripts":  "test": "echo \"Error: no test specified\" && exit 1" 
+# "scripts":  "devStart": "nodemon server.js" 
+
