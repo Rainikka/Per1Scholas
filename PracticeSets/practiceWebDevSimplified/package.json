@@ -1,7 +1,7 @@
 {
   "name": "practicewebdevsimplified",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
     "devStart": "nodemon server.js" 
   },
