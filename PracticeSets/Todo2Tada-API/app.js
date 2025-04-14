@@ -72,7 +72,13 @@ app.put('/tasks/:id', (req, res) => {
 
 app.delete('/tasks/:id', (req, res) => {
   const id = parseInt(req.params.id);
-  tasks = tasks.filter((task) => task.id !== id);
+  const index = tasks.findIndex(task => task.id === id);
+
+  if (index === -1) {
+    return res.status(404).json({ message: 'Task not found' });
+  }
+
+  tasks.splice(index, 1);
   res.status(200).json({ message: 'Task deleted successfully', tasks });
 });
 
