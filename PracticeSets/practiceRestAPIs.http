@@ -1,31 +1,67 @@
-##################### API Discovery ################### 
+
+##################### API DISCOVERY ##################### 
 # To Open Requested Resource: ⌘ Command + ⌥ Option + R
 
-###################### OPTIONS ###################### 
+###################### HEAD ##################### 
+# HEAD: (method) Metadata included at the start of each respoonse
+# Most important information: HTTP Reaponse Status Numbber & Resource Data Type
+HEAD http://newsroom.spotify.com/wp-json/wp/v2/posts
+
+
+###################### OPTIONS ##################### 
 # OPTIONS: (method) 1st Step of Rest API Discovery  
 # OPTIONS: (method) Detailed List of All Methods & Arguments for the Resoource
 # POSTS: (argument) Resource Collection of All Posts on Site
-# Authorization Code Not Necessay, But Including Allows Access to All Options
+#POST (object): Singleton resource of a collection
+# Authorization Header  Not Necessay, But Including Allows Access to All Options
 OPTIONS http://newsroom.spotify.com/wp-json/wp/v2/posts
 Authorization: Basic Rainikka Password: *******
 
+
 ###################### GET ###################### 
-# GET: (method) Each post is structured as a nested JSON Object
-# Each post object (object) has its own resource link that can be used to link to the individual post from the collection
-GET http://newsroom.spotify.com/wp-json/wp/v2/posts
+# GET: Each post is structured as a nested JSON Object
+# Each post object (object) has its own resource link that can be used to link to the singleton  post from the collection
+GET http://newsroom.spotify.com/wp-json/wp/v2/posts/
 Authorization: Basic Rainikka Password: *******
 
-###### Adding Arguments to Resource Request ###### 
-# Can alter resource request by stringing the arguments on the URLquery
+
+######### ADDING ARGUMENTS TO RESOURCE REQUEST ######### 
+# Alter resource request by stringing argumentste end of URLquery
 GET http://newsroom.spotify.com/wp-json/wp/v2/posts?per_page=3
 Authorization: Basic Rainikka Password: *******
 
-##################### POST ###################### 
-# POST: (method) Each post is structured as a nested JSON Object
-# Each postoblect ( oblect) has its own  resource link that can be used to link to the individual post from the collection
-GET http://newsroom.spotify.com/wp-json/wp/v2/posts
-Authorization: Basic Rainikka Password: *******
-//Basic
-OPTIONS http://newsroom.spotify.com/wp-json/wp/v2/posts
 
-# 
+##################### POST ##################### 
+# POST: (method) Used to add a resource too the collection
+# Authroization Header: Must include to show proper permission to use the post method
+# Content-Type Header: must be included to define the data type of the resource being added.
+# Must encode actual resource to be added in data type
+# Must know minumum data requirements (key:value) for resource to be complete for inclusion in collection
+POST http://newsroom.spotify.com/wp-json/wp/v2/posts
+Authorization: Basic Rainikka Password: *******
+Content-Type: application/json
+{
+"title": "What Will Be the Song of the Summer",
+"content": "Creating Customized Software Solutions for Data Analysis Insights & Decision Clarity",
+"status": "publish",
+"author": 1 // author id
+}
+
+###################### PUT ###################### 
+# POST, PUT, & PATCH: In some REST APIs, the post, put, and patch  methods are all the same 
+# PUT: Add arguments to URL query to access single post
+# PUT:  add all elements of POST request except only include the specific updates to be made to post
+PUT http://newsroom.spotify.com/wp-json/wp/v2/posts/15
+Authorization: Basic Rainikka Password: *******
+Content-Type: application/json
+{
+"title": "What Will Be the 'R&B' Song of the Summer",
+}
+
+###################### DELETE ###################### 
+# DELETE: There may be several delete arrguments -- one to place in trash and the other to force delete frok database totally
+DELETE http://newsroom.spotify.com/wp-json/wp/v2/posts/15
+Authorization: Basic Rainikka Password: *******
+
+
+
