@@ -2,7 +2,8 @@
 
 ###### Auxiliary File Set-upt ########
 # Create App Dev Folder to Contain All Files
-# Create .http file to test coode
+# server.js file   // file to run all server code
+# .http file to test code for Rest API methods
 
 ###### Node.JS Set-Up########
 # npm init -y    // initialize node.js
@@ -11,4 +12,5 @@
 # In package.json file, replace 
 # "scripts":  "test": "echo \"Error: no test specified\" && exit 1" 
 # "scripts":  "devStart": "nodemon server.js" 
+# npm dev start // to test if server is running
 
