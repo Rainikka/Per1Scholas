@@ -1,0 +1,31 @@
+##################### API Discovery ################### 
+# To Open Requested Resource: ⌘ Command + ⌥ Option + R
+
+###################### OPTIONS ###################### 
+# OPTIONS: (method) 1st Step of Rest API Discovery  
+# OPTIONS: (method) Detailed List of All Methods & Arguments for the Resoource
+# POSTS: (argument) Resource Collection of All Posts on Site
+# Authorization Code Not Necessay, But Including Allows Access to All Options
+OPTIONS http://newsroom.spotify.com/wp-json/wp/v2/posts
+Authorization: Basic Rainikka Password: *******
+
+###################### GET ###################### 
+# GET: (method) Each post is structured as a nested JSON Object
+# Each post object (object) has its own resource link that can be used to link to the individual post from the collection
+GET http://newsroom.spotify.com/wp-json/wp/v2/posts
+Authorization: Basic Rainikka Password: *******
+
+###### Adding Arguments to Resource Request ###### 
+# Can alter resource request by stringing the arguments on the URLquery
+GET http://newsroom.spotify.com/wp-json/wp/v2/posts?per_page=3
+Authorization: Basic Rainikka Password: *******
+
+##################### POST ###################### 
+# POST: (method) Each post is structured as a nested JSON Object
+# Each postoblect ( oblect) has its own  resource link that can be used to link to the individual post from the collection
+GET http://newsroom.spotify.com/wp-json/wp/v2/posts
+Authorization: Basic Rainikka Password: *******
+//Basic
+OPTIONS http://newsroom.spotify.com/wp-json/wp/v2/posts
+
+# 
