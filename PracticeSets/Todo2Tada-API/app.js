@@ -70,12 +70,10 @@ app.put('/tasks/:id', (req, res) => {
  * Description: Delete A Task
  * Request: ****/
 
-app.delete('/tasks', (req, res) => {
-  const id = parseInt(req, params.id);
-  tasks.task.filter((tasks_ => task.id !== id);)
-res.status(200).json({
-  message: 'Task deleted successfully', tasks
-});
+app.delete('/tasks/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  tasks = tasks.filter((task) => task.id !== id);
+  res.status(200).json({ message: 'Task deleted successfully', tasks });
 });
 
 
