@@ -1,4 +1,4 @@
-***** SETTING UP EXPRESS SERVER ON NODE.JS *****/
+/***** SETTING UP EXPRESS SERVER ON NODE.JS *****/
 const express = require('express');
 const app = express();
 
