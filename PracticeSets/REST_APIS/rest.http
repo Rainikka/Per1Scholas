@@ -1,3 +1,4 @@
-GET https://reqres.in/api/users
-
+// Basic Get Request
+GET http://newsroom.spotify.com/wp-json/wp/v2/posts
+//Basic
 OPTIONS http://newsroom.spotify.com/wp-json/wp/v2/posts
