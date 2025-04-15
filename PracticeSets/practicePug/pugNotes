@@ -2,9 +2,9 @@
 ***** To Set-Up Pug Template Engine *****
 1. Create Root Folder
 2. Create html folder
-3. in html folder, create 'index.pug' file
+3. In the root directory, create 'index.pug' file
 4. At top of index.pug file, type 'doctype html'
-5. in vs code terminal, type 'pug -w ./ -o .index.html -P'
+5. In vs code terminal  with the current directory set to the root directory, type 'pug -w ./ -o ./html -P'
 6, Begin coding in index.pug
 --> 
 

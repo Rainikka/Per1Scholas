@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 
 // Initialize tasks array (missing in original code)
-const tasks = [];
+let tasks = [];
 
 const PORT = 3000;
 app.listen(PORT, () => {
