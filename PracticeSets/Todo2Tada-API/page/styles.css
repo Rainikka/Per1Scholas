@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#fieldset {
+  margin: 0 auto;
+  width: auto;
+  height: auto;
+  min-height: 500px;
+  padding: 20px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}

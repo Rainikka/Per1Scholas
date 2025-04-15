@@ -4,10 +4,12 @@ html(lang="en")
     title Simple To-Do List
     link(rel="stylesheet" href="/style.css")
   body
-    h1 To-Do #[span to] Ta-Da
-    form#task-form
-      input(type="text" id="task-input" placeholder="Add a task" required)
-      button(type="submit") Add
-    ul#task-list
+    fieldset#fieldset 
+      h1 To-Do #[span to] Ta-Da
+      legend#legend Daily & Consistent
+      form#-form
+        input(type="text" id="newTask" placeholder="Add a task")
+        button(type="submit") Add Task
+      ul#task-list
     script(src="/script.js")
     
