@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#fieldset {
+  margin: 0 auto;
+  width: auto;
+  height: auto;
+  min-height: 500px;
+  padding: 20px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#form {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+#task2Do {
+  flex: 1;
+  padding: 8px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  margin-bottom: 5px;
+  background: #f4f4f4;
+}
+
+button {
+  padding: 8px 12px;
+  margin-left: 5px;
+  cursor: pointer;
+}
