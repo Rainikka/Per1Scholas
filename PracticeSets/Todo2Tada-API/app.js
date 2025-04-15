@@ -1,14 +1,23 @@
-/*** Knowledge Inspiration: Medium.com :: Creating a RESTful API with Node.js and Express ;; from techiydude
+/*** Knowledge Inspiration: Medium.com :: Creating a RESTful API with Node.js and Express:: from techiydude
  ***/
 
-/***** SETTING UP EXPRESS SERVER ON NODE.JS *****/
+/***** SETTING UP EXPRESS SERVER WITH NODE.JS *****/
 const express = require('express');
 const app = express();
 
-// Middleware to handle JSON requests
-app.use(express.json());
+/*** Static files from page folder ***/
+app.use(express.static('page'));
 
-// Initialize tasks array (missing in original code)
+/*** HTML from  Pug Template Engine  ***/
+app.set('view engine', 'pug');
+app.set('views', './views');
+
+app.get('/', (req, res) => {
+  res.render('index');
+});
+
+/*** Adding Middleware ***/
+app.use(express.json());
 let tasks = [];
 
 const PORT = 3000;
@@ -16,7 +25,7 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
-/***** ADDING ROUTES FOR EACH TYPE OF REQUEST *****/
+/***** ADDING ROUTES FOR EACH REQUEST VERB *****/
 
 /** Creating Tasks: Post Request **
  * Endpoint: /tasks
@@ -28,7 +37,7 @@ app.post('/tasks', (req, res) => {
   const task = req.body.task;
   tasks.push({
     id: tasks.length + 1,
-    task: task  // Fixed syntax (was missing colon in original)
+    task: task
   });
   res.status(201).json({
     message: 'Task created successfully',
@@ -54,8 +63,8 @@ app.get('/tasks', (req, res) => {
 
 app.put('/tasks/:id', (req, res) => {
   const id = parseInt(req.params.id);
-  const task = req.body.task;  // Fixed missing space between const and task
-  const taskIndex = tasks.findIndex((t) => t.id === id);  // Fixed ==== (extra =)
+  const task = req.body.task;
+  const taskIndex = tasks.findIndex((t) => t.id === id);
 
   if (taskIndex !== -1) {
     tasks[taskIndex].task = task;
