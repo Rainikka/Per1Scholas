@@ -5,11 +5,21 @@
 3. in html folder, create 'index.pug' file
 4. At top of index.pug file, type 'doctype html'
 5. in vs code terminal, type 'pug -w ./ -o .index.html -P'
+6, Begin coding in index.pug
 --> 
 
-doctype html
+Code Example:
 html
   head
   body 
-    h1 Hello World
-    p
+  header#header 
+    h1#pageTitle  Hello World
+    p. 
+      This is the world
+      as we know it.
+    ul 
+      li.bullets Item 1
+      li.bullets item 2
+      li.bullets item 3
+    
+    input(type="password" name="inpPwd" data-js=`${1>= 2 ? "OK" : "Not Ok"}`)
