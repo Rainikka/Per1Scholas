@@ -35,7 +35,8 @@ app.get('/', (req, res) => {
   res.download('app.js') // prompt user to download current file
   res.render()
 })
-// server running on Port 3000
-app.listen(3000);
-console.log(`listening on ${PORT}`)
-// console.log(`Server running on Port ${Port}`);
+
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
