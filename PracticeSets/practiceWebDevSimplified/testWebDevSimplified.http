@@ -1,2 +1,2 @@
 # To Open Requested Resource: ⌘ Command + ⌥ Option + R
-http://localhost:3000/
+GET http://localhost:3000/
