@@ -47,21 +47,26 @@
 
 /*** Require Express Library ***/
 
-/*** Set-up: Call Express  ***/
+/*** Set-up: Call Express ***/
 const express = require('express');
 const app = express();
 
 /*** Set-up: EJS Template Engine ***/
 app.set("view engine", "ejs")  //app.set("view engine", "pug");
 
+/*** Set-Up: Get Method ***/
+app.get('/', (req, res) => {
+  console.log('Hero')
+  res.render('index')
+})
 
 
 
 
-/*** Set-up: Call Express  ***/
-/*** Set-up: Call Express  ***/
-/*** Set-up: Call Express  ***/
-/*** Set-up: Call Express  ***/
+/*** Set-up: Call Express ***/
+/*** Set-up: Call Express ***/
+/*** Set-up: Call Express ***/
+/*** Set-up: Call Express ***/
 
 
 
