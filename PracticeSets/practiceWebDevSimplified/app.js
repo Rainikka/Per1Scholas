@@ -52,7 +52,9 @@ const express = require('express');
 const app = express();
 
 /*** Set-up: EJS Template Engine ***/
-app.set("view engine", "ejs")  //app.set("view engine", "pug")
+app.set("view engine", "ejs")  //app.set("view engine", "pug");
+
+
 
 
 
