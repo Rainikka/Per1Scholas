@@ -14,8 +14,8 @@ HEAD http://newsroom.spotify.com/wp-json/wp/v2/posts
 # POSTS: (argument) Resource Collection of All Posts on Site
 #POST (object): Singleton resource of a collection
 # Authorization Header  Not Necessay, But Including Allows Access to All Options
-OPTIONS http://newsroom.spotify.com/wp-json/wp/v2/posts
-Authorization: Basic Rainikka Password: *******
+OPTIONS https://newsroom.spotify.com/wp-json/wp/v2/posts
+# Authorization: Basic Rainikka Password: *******
 
 
 ###################### GET ###################### 

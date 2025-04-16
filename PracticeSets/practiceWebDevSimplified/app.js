@@ -23,18 +23,23 @@
 /*********** Express Server Set-Up ***********/
 /** Require Express Library **/
 const express = require('express');
-/** calling espress as a function creates an application to set-up server **/
+/** Call Express to Set-up server **/
 const app = express();
+
+app.set("view engine", "ejs")
 
 /** Set-up Get Route - URL **/
 app.get('/', (req, res) => {
   console.log('Get Request')
+  res.json({ message: "error" })
 
-  // res.status(200).send("Message success") // status and send message to user
-  // res.status(200).json({ message: "success" }) // status and send message to API client
-  res.download('app.js') // prompt user to download current file
-  res.render()
 })
+
+// res.status(200).send("Message success") // status and send message to user
+// res.status(200).json({ message: "success" }) // status and send message to API client
+// res.download('app.js') // prompt user to download current file
+// res.render()
+//})
 
 const PORT = 3000;
 app.listen(PORT, () => {

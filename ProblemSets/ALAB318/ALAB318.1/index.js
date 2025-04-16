@@ -1,8 +1,22 @@
+/******************************/
+/****** Rainikka Corprew ******/
+/********* JAVASCRIPT *********/
+/******** ALAB 318.1 **********/
+/******************************/
 
-/********************* PART 1: Node Installation *********************/
+/******************************/
+/********** NODE.JS ***********/
+/******** INSTALLATION ********/
+/******** 16-APR-2025 *********/
+
+
+/******* PART 1: Node Installation ********/
+
 // node.js installed successfully
 
-/********************* PART 2: Node Command Line Interface *********************/
+
+/******* PART 2: Node Command Line Interface *******/
+
 /**** TASK 1: JavaScript code from the command line using the “eval” and “print” commands.The --eval or -e flag tells Node to evaluate the following string as a JavaScript expression.The--print or -p flag behaves similarly, but automatically prints the result if possible. ***/
 
 /** Requested operation entered on command line with Node  eval flag as method for displaying answered response  ***
@@ -18,7 +32,8 @@
  /**** TASK 2: Inside of the new JavaScript file, write some arbitrary code.We will use the classic “Hello World” example. Ensure that your file has some type of output using console.log! ***/
 console.log('Hello World');
 
-/********************* PART 3: Node Package Manager *********************/
+
+/******* PART 3: Node Package Manager *******/
 
 /**** TASK 1: Generate default npm pakage
 * Open the package.json file.
@@ -35,7 +50,8 @@ console.log('Hello World');
 * nodemon index.js
 
 
-/********************* PART 4: Creating A Server *********************/
+/******* PART 4: Creating A Server *******/
+
 /**** TASK 1: Module allows node to transfer data over the Hyper Text Transfer Protocol (HTTP) used by the internet. ***/
 const http = require('http');
 
@@ -71,7 +87,8 @@ const express = require('express');
 const app = express();
 const PORT = 3000;
 
-/********************* PART 5: Open Exploration *********************/
+/******* PART 5: Open Exploration *******/
+
 /**** TASK 1:  Aboutt Page Route ****/
 app.get('/about', (req, res) => {
   res.send('This is the About page');
