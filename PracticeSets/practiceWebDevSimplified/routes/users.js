@@ -20,7 +20,7 @@ router.post('/', (req, res) => {
 
 /*** Get User By ID ***/
 router.get('/:userId', (req, res) => {
-  res.send("Get User with ID ${req.params.userId}")
+  res.send(`Get User with ID ${req.params.userId} `)
 })
 
 /*** Export User Router ***/
