@@ -54,8 +54,11 @@ const app = express();
 /*** Set-Up: Static Middleware & Folder ***/
 app.use(express.static('static'))
 
-/*** Set-Up: Encoded Middleware for Form Inputs ***/
+/*** Set-Up: Middleware for Encoded Form Inputs ***/
 app.use(express.urlencoded({ extended: true }))
+
+/*** Set-Up: Middleware for Parsing JSONs ***/
+app.use(express.json())
 
 /*** Set-up: EJS Template Engine ***/
 app.set("view engine", "ejs")  //app.set("view engine", "pug");
