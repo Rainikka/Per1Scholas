@@ -13,5 +13,12 @@ router.get('/new', (req, res) => {
   res.send('User New Form')
 })
 
+/*** Set-Up: Create New User Router ***/
+router.posts('/', (req, res) => {
+  res.send('Create User')
+})
+
+router.get('/:id')
+
 /*** Export User Router ***/
 module.exports = router
