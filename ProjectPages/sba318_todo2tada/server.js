@@ -37,8 +37,8 @@
  * 2. Create server.js  file  (check package.json to make sure the value of main: is server.js)
  * 3. Create html folder
  * 4. In the root directory, create 'index.pug' file
- * 5. At top of index.pug file, type 'doctype html'
- * 6. In VS code terminal, within the root directory, type 'pug -w ./ -o ./html -P'
+ * 5. In VS code terminal, within the root directory, type 'pug -w ./ -o ./html -P'
+ * 6. At top of index.pug file, type 'doctype html' and check index.html file in html folder
  * 7. Begin indentation coding in index.pug
  * 8. When html coding is completed for index.html file, rename html folder to 'public' 
  * 9. Place style.css file in 'public' folder
