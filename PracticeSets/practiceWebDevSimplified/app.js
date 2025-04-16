@@ -1,4 +1,27 @@
 
+/******************************/
+/****** Rainikka Corprew ******/
+/********* JAVASCRIPT *********/
+/********** SBA 318 ***********/
+/******************************/
+
+/******************************/
+/****** EXPRESS SERVER ********/
+/******** APPLICATION *********/
+/******** 16-APR-2025 *********/
+
+/************************************************/
+/*************** REGEX VALIDATION ***************/
+/**
+* ********* Username Regex ****************
+*
+*
+* ************ Email Regex *****************
+*
+*
+
+/**********************************************************/
+/************ Knowledge Inspiration: Geeks4Geeks **********/
 
 /****** Setting Up Express Server Environment ********/
 
@@ -20,26 +43,27 @@
  * npm run devStart      // to test if server is running
 
 
-/*********** Express Server Set-Up ***********/
-/** Require Express Library **/
+/*********** EXPRESS SERVER SET-UP ***********/
+
+/*** Require Express Library ***/
+
+/*** Set-up: Call Express  ***/
 const express = require('express');
-/** Call Express to Set-up server **/
 const app = express();
 
-app.set("view engine", "ejs")
+/*** Set-up: EJS Template Engine ***/
+app.set("view engine", "ejs")  //app.set("view engine", "pug")
 
-/** Set-up Get Route - URL **/
-app.get('/', (req, res) => {
-  console.log('Get Request')
-  res.json({ message: "error" })
 
-})
 
-// res.status(200).send("Message success") // status and send message to user
-// res.status(200).json({ message: "success" }) // status and send message to API client
-// res.download('app.js') // prompt user to download current file
-// res.render()
-//})
+/*** Set-up: Call Express  ***/
+/*** Set-up: Call Express  ***/
+/*** Set-up: Call Express  ***/
+/*** Set-up: Call Express  ***/
+
+
+
+
 
 const PORT = 3000;
 app.listen(PORT, () => {
