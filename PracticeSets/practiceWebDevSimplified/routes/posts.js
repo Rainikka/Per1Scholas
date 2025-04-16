@@ -18,6 +18,11 @@ router.post('/', (req, res) => {
   res.send('Create New ToDo List Item')
 })
 
+/*** Get Task Line Item By ID ***/
+router.get('/:userId', (req, res) => {
+  res.send(`Get User with ID ${req.params.userId} `)
+})
+
 
 
 
