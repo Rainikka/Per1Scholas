@@ -20,6 +20,7 @@ router.post('/', (req, res) => {
 
 /*** Get ToDo2TaDa User By ID ***/
 router.get('/:id', (req, res) => {
+  console.log(req.user)
   res.send(`Get User with ID ${req.params.id} `)
 })
 
@@ -34,7 +35,7 @@ router.delete('/:id', (req, res) => {
 })
 
 /*** Added User Array of Objects ***/
-const users = [{ name: "Juniper" }, { name: "Lilacs" },];
+const users = [{ name: "Juniper" }, { name: "Lilac" }, { name: "Tiger Lily" }];
 
 /*** Param Middleware Function Runs Code Before Method ***/
 router.param("id", (req, res, next, id) => {

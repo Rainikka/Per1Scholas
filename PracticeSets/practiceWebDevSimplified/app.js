@@ -51,14 +51,18 @@
 const express = require('express');
 const app = express();
 
+/*** Set-Up: Static Middleware & Foldes ***/
+app.use(express.static('static'))
+
+
 /*** Set-up: EJS Template Engine ***/
 app.set("view engine", "ejs")  //app.set("view engine", "pug");
 
-/*** Set-Up: Get Method ***/
-app.get('/', (req, res) => {
-  console.log("We don't need another hero");
-  res.render('index', { text: "World" });
-});
+// /*** Set-Up: Initial Get Method ***/
+// app.get('/', (req, res) => {
+//   console.log("We don't need another hero");
+//   res.render('index', { text: "World" });
+// });
 
 /*** Export User Router & Linking to Path ***/
 const userRouter = require('./routes/users')
