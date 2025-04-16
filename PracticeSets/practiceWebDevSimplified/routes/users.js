@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
 
 /*** Set-Up: New ToDo2TaDa User Router ***/
 router.get('/new', (req, res) => {
-  res.send('User New ToDo Form')
+  res.render('user/new')
 })
 
 /*** Set-Up: Create New ToDo2TaDa User Router ***/
