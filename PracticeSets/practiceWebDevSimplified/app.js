@@ -60,27 +60,13 @@ app.get('/', (req, res) => {
   res.render('index', { text: "World" });
 });
 
-/*** Set-Up: User Route ***/
-app.get('/users', (req, res) => {
-  res.send('User List')
-})
+/*** Export User Router ***/
+const userRouter = require('./routes/users')
 
-/*** Set-Up: New User Route ***/
-app.get('/users/new', (req, res) => {
-  res.send('User New Form')
-})
+/*** Linking User Router to Path ***/
+app.use('/users', userRouter)
 
-
-
-/*** Set-up: Call Express ***/
-/*** Set-up: Call Express ***/
-/*** Set-up: Call Express ***/
-/*** Set-up: Call Express ***/
-
-
-
-
-
+/*** Server Running On LocalHost ***/
 const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

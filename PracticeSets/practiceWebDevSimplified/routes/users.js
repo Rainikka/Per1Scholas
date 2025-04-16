@@ -3,13 +3,15 @@
 const express = require('express')
 const router = express.Router()
 
-
-
-app.get('/users', (req, res) => {
+/*** Set-Up: General User Route ***/
+router.get('/', (req, res) => {
   res.send('User List')
 })
 
 /*** Set-Up: New User Route ***/
-app.get('/users/new', (req, res) => {
+router.get('/new', (req, res) => {
   res.send('User New Form')
 })
+
+/*** Export User Router ***/
+module.exports = router
