@@ -57,7 +57,7 @@ app.use(express.static('static'))
 /*** Set-Up: Middleware for Encoded Form Inputs ***/
 app.use(express.urlencoded({ extended: true }))
 
-/*** Set-Up: Middleware for Parsing JSONs ***/
+/*** Set-Up: Middleware for Parsing JSON ***/
 app.use(express.json())
 
 /*** Set-up: EJS Template Engine ***/
