@@ -55,11 +55,10 @@ const app = express();
 app.set("view engine", "ejs")  //app.set("view engine", "pug");
 
 /*** Set-Up: Get Method ***/
-app.get('/', (req, res), => {
-  console.log('Hero')
-  res.render('index', { text: "World" })
-})
-
+app.get('/', (req, res) => {
+  console.log('Hero');
+  res.render('index', { text: "World" });
+});
 
 
 
