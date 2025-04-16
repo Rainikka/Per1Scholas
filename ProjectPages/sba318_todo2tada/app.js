@@ -18,11 +18,11 @@
 /*** Set-Up: Basic Server ***/
 const express = require('express');
 const methodOverride = require;
+const methodOverride = requier('method-override');
 const app = express();
 
-
 /*** Set-Up: Middleware ***/
-app.use(express.static('statics')); //static files from page folder
+app.use(express.static('publics')); //static files from page folder
 app.set('view engine', 'pug');  // pug template engine
 app.set('views', './views'); // view static files
 app.use(express.urlencoded({ extended: true }));  // access encoded form input data
