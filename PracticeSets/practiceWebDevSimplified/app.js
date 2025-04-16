@@ -51,7 +51,7 @@
 const express = require('express');
 const app = express();
 
-/*** Set-Up: Static Middleware & Foldee ***/
+/*** Set-Up: Static Middleware & Folder ***/
 app.use(express.static('static'))
 
 
