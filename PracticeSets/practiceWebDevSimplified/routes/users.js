@@ -3,12 +3,12 @@
 const express = require('express')
 const router = express.Router()
 
-/*** Set-Up: General User Route ***/
+/*** Set-Up: General User Router ***/
 router.get('/', (req, res) => {
   res.send('User List')
 })
 
-/*** Set-Up: New User Route ***/
+/*** Set-Up: New User Router ***/
 router.get('/new', (req, res) => {
   res.send('User New Form')
 })

@@ -3,14 +3,14 @@
 const express = require('express')
 const router = express.Router()
 
-/*** Set-Up: General User Route ***/
+/*** Set-Up: General Task Router ***/
 router.get('/', (req, res) => {
-  res.send('User List')
+  res.send('Task List')
 })
 
-/*** Set-Up: New User Route ***/
+/*** Set-Up: New Task Router ***/
 router.get('/new', (req, res) => {
-  res.send('User New Form')
+  res.send('New Task Item')
 })
 
 /*** Export User Router ***/
