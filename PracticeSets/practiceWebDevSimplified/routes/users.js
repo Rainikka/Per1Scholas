@@ -40,7 +40,7 @@ const users = [];
 
 /*** Param Middleware Function Runs Code Before Method ***/
 router.param("id", (req, res, next, id) => {
-
+  /*** Set-Up: Param middleware function to connect user id to names by user array index ***/
   req.user = users[id]
   next()
 })
