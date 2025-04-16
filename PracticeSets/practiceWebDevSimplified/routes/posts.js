@@ -33,7 +33,6 @@ router.delete('/:userId', (req, res) => {
   res.send(`Delete User with ID ${req.params.userId} `)
 })
 
-
 /*** Export User Router ***/
 module.exports = router
 
