@@ -28,9 +28,9 @@ router.put('/:userId', (req, res) => {
   res.send(`Update User with ID ${req.params.userId} `)
 })
 
-/*** Get User By ID ***/
-router.get('/:userId', (req, res) => {
-  res.send(`Get User with ID ${req.params.userId} `)
+/*** Delete User By ID ***/
+router.delete('/:userId', (req, res) => {
+  res.send(`Delete User with ID ${req.params.userId} `)
 })
 
 /*** Export User Router ***/
