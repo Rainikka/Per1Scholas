@@ -33,10 +33,8 @@ router.delete('/:id', (req, res) => {
   res.send(`Delete User with ID ${req.params.Id} `)
 })
 
-
-
 /*** Added User Array of Objects ***/
-const users = [];
+const users = [{ name: "Juniper" }, { name: "Lilacs" },];
 
 /*** Param Middleware Function Runs Code Before Method ***/
 router.param("id", (req, res, next, id) => {
