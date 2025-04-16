@@ -40,7 +40,6 @@ let tasks = [
   { id: 6, task: 'Build CRUD Capstone' }
 ];
 
-
 /*** Set-Up: Route to Render Landing Page *****/
 /*** Get Route ***/
 app.get('/', (req, res) => {

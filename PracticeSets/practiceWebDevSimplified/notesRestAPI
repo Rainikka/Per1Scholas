@@ -10,8 +10,7 @@
  *  npm init -y     // initialize node.js for package.json
  * npm i express     // install exprss.js library
  *  npm i --save-dev nodemon     // nodemon as dev
- * dependency: automatically restarts server anytime there
- * are changes to code.
+ * dependency: automatically restarts server anytime there are changes to code.
  * In package.json file, replace 
     * "scripts":  "test": "echo\"Error: no test specified\" && exit 1" 
     * "scripts":  "devStart": "nodemon server.js" 

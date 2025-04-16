@@ -6,21 +6,19 @@ html
   body
     fieldset#fieldset
       h1 TO-DO 
-        span →
+        span#italic to
+        span#arrow →
         |  TA-DA!
       legend#legend Daily & Consistent
-      
       form(action="/tasks" method="POST")
-        input(type="text" name="task" placeholder="Add a to-do task" required)
+        input(type="text" name="task" placeholder="Add a to-do task")
         button(type="submit") Add Task
-      
-   
       ul#task-list
         each task in tasks
           li
             span= task.task
             form(action=`/tasks/${task.id}?_method=PUT` method="POST")
-              input(type="text" name="task" placeholder="Update task")
+              input(type="text" name="task" value=task.task)
               button(type="submit") Update
             form(action=`/tasks/${task.id}?_method=DELETE` method="POST")
               button(type="submit") Delete

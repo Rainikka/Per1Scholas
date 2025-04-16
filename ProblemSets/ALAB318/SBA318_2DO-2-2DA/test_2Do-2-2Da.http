@@ -1,1 +1,1 @@
-OPTIONS http://localhost:3000/tasks/ 
+GET http://localhost:3000/tasks/ 
