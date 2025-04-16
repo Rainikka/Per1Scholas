@@ -10,34 +10,46 @@
 /******** 17-APR-2025 *********/
 
 
-/*** Knowledge Inspiration: Medium.com :: Creating a RESTful API with Node.js and Express:: from techiydude
+/*** Knowledge Inspiration 1 :: Medium.com :: Creating a RESTful API with Node.js and Express :: from techiydude
+ ***/
+/*** Knowledge Inspiration 2 :: YouTube :: Learn Express JSs :: from WebDevSimplified
  ***/
 
-/***** SETTING UP EXPRESS SERVER WITH NODE.JS *****/
+/*** Set-Up: Basic Server ***/
 const express = require('express');
+const methodOverride = require;
 const app = express();
 
-/*** Static files from page folder ***/
-app.use(express.static('statics'));
 
-/*** HTML from  Pug Template Engine  ***/
-app.set('view engine', 'pug');
-app.set('views', './views');
 
+/*** Set-Up: Middleware ***/
+app.use(express.static('statics')); //static files from page folder
+app.set('view engine', 'pug');  // pug template engine
+app.set('views', './views'); // view static files
+app.use(express.urlencoded({ extended: true }));  // access encoded form input data
+app.use(methodOverride('_method')); // access encoded form input data
+app.use(express.json()); // putting json capabilities in play
+
+/*** Set-Up: Array of Dummy Task List ***/
+let tasks = [
+  { id: 1, task: 'Learn Node.js' },
+  { id: 2, task: 'Learn Express.js' },
+  { id: 3, task: 'Learn Mongo.db' },
+  { id: 4, task: 'Learn React.js' },
+  { id: 5, task: 'Build REST API' }
+  { id: 6, task: 'Build CRUD Capstone' }
+];
+
+
+
+/*** Set-Up: Route to Render Landing Page *****/
+/*** Get Route ***/
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('index', { tasks });
 });
 
-/*** Adding Middleware ***/
-app.use(express.json());
-let tasks = [];
 
-const PORT = 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
-
-/***** ADDING ROUTES FOR EACH REQUEST VERB *****/
+/*** Endpoint for Each Request Method ****/
 
 /** Creating Tasks: Post Request **
  * Endpoint: /tasks
@@ -56,6 +68,18 @@ app.post('/tasks', (req, res) => {
     tasks
   });
 });
+
+/** Viewing All Tasks: Get Request **
+ * Endpoint: /tasks
+ * HTTP Method: GET
+ * Description: View All Tasks
+ * Request: ****/
+
+app.get('/', (req, res) => {
+  res.render('index', { task });
+});
+
+
 
 /** Viewing All Tasks: Get Request **
  * Endpoint: /tasks
@@ -100,6 +124,11 @@ app.delete('/tasks/:id', (req, res) => {
   res.status(200).json({ message: 'Task deleted successfully', tasks });
 });
 
+/** Start-up Server ***/
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
 
 
 
