@@ -16,6 +16,8 @@
   flex-flow: column;
   align-items: center;
   justify-content: center;
+  background-color: #fff;
+  ;
   border: 5px double teal;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
     0 6px 20px 0 rgba(0, 0, 0, 0.10);
@@ -24,14 +26,21 @@
 
 h1 {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  color: darkcyan;
+  color: darkslategray;
   text-shadow: 0 1px 0 rgba(0, 0, 128, 0.4);
 }
 
-legend,
-span {
+legend {
   font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 20px;
   font-style: italic;
+  color: darkcyan
+}
+
+span {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 42px;
+  font-style: none;
   color: darkcyan
 }
 
@@ -75,4 +84,8 @@ button {
   color: #fff;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
     0 6px 20px 0 rgba(0, 0, 0, 0.10);
+}
+
+button:hover {
+  background: lightseagreen;
 }
