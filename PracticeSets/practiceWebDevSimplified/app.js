@@ -10,15 +10,8 @@
 /******** APPLICATION *********/
 /******** 16-APR-2025 *********/
 
-/************************************************/
-/*************** REGEX VALIDATION ***************/
-/**
-* ********* Username Regex ****************
-*
-*
-* ************ Email Regex *****************
-*
-*
+/**********************************************************/
+/*************** EXPRESS SERVER APPLICATION ***************/
 
 /**********************************************************/
 /************ Knowledge Inspiration: Geeks4Geeks **********/
@@ -32,9 +25,9 @@
  * .http file to test code for Rest API methods
 
 /*********** Basic Node Set-Up ***********
- *  npm init -y     // initialize node.js for package.json
+ * npm init -y     // initialize node.js for package.json
  * npm i express     // install exprss.js library
- *  npm i --save-dev nodemon     // nodemon as dev
+ * npm i --save-dev nodemon     // nodemon as dev
  * dependency: automatically restarts server anytime there
  * are changes to code.
  * In package.json file, replace 

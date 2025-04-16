@@ -10,7 +10,36 @@
 /******** 16-APR-2025 *********/
 
 
-/*** Knowledge Inspiration 1 :: Medium.com :: Creating a RESTful API with Node.js and Express :: from techiydude
+/**************************** PRE-CODE SET-UP & REQUIREMENTS ****************************/
+/****************************************************************************************/
+
+/****** REQUIRED INSTALLMENTS *******
+ * git init  ~~ git add . ~~  git commit -m "note" ~~ git push
+ * npm init -y
+ * npm i express pug method-override
+ * npm i --save-dev nodemon
+ * 9. In package.json file, replace 
+    * "scripts":  "test": "echo\"Error: no test specified\" && exit 1" 
+    * "scripts":  "devStart": "nodemon server.js" 
+* npm run devStart ~~ when ready to run server: automatically restarts server  anytime there are changes to code. ******
+ 
+/****** REQUIRED FOLDERS *******
+ * 1. Create Root Folder
+ * 2. Create server.js or app.js file  (check package.json to make sure main: is same name as .js file)
+ * 3. Create html folder
+ * 4. In the root directory, create 'index.pug' file
+ * 5. At top of index.pug file, type 'doctype html'
+ * 6. In VS code terminal, within the root directory, type 'pug -w ./ -o ./html -P'
+ * 7. Begin coding in index.pug
+ * 8. When index.html file completed, rename html folder to 'Public' 
+ * 9. Place style.css file in Public folder
+ * 10. Creare folder called 'Views' for ****
+ * 11. Create .http file to test routes (Command + Option + R )
+
+/************************* END OF PRE-CODE SET-UP REQUIREMENTS **************************/
+/****************************************************************************************/
+
+/*** Knowledge Inspiration 1 :: Medium.com :: Creating a RESTful API with Node.js & Express.js :: from techiydude
  ***/
 /*** Knowledge Inspiration 2 :: YouTube :: Learn Express JSs :: from WebDevSimplified
  ***/
