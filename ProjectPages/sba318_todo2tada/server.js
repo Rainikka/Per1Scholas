@@ -18,23 +18,32 @@
  * npm init -y
  * npm i express pug method-override
  * npm i --save-dev nodemon
- * 9. In package.json file, replace 
-    * "scripts":  "test": "echo\"Error: no test specified\" && exit 1" 
-    * "scripts":  "devStart": "nodemon server.js" 
+ * 9. In package.json file, 
+ * replace this key/value pair:
+ * 
+    * "scripts":  
+    * "test": "echo\"Error: no test specified\" && exit 1" 
+  * 
+  * with this key/value pair ******
+  * 
+    * "scripts": {
+        * "start": "node server.js",
+        * "devStart": "nodemon server.js"
+   * },
 * npm run devStart ~~ when ready to run server: automatically restarts server anytime there are changes to code. ******
  
 /****** REQUIRED FOLDERS *******
  * 1. Create Root Folder
- * 2. Create server.js or app.js file  (check package.json to make sure main: is same name as .js file)
+ * 2. Create server.js  file  (check package.json to make sure the value of main: is server.js)
  * 3. Create html folder
  * 4. In the root directory, create 'index.pug' file
  * 5. At top of index.pug file, type 'doctype html'
  * 6. In VS code terminal, within the root directory, type 'pug -w ./ -o ./html -P'
- * 7. Begin coding in index.pug
- * 8. When index.html file completed, rename html folder to 'Public' 
- * 9. Place style.css file in Public folder
- * 10. Creare folder called 'Views' for ****
- * 11. Create .http file to test routes (Command + Option + R )
+ * 7. Begin indentation coding in index.pug
+ * 8. When html coding is completed for index.html file, rename html folder to 'public' 
+ * 9. Place style.css file in 'public' folder
+ * 10. Creare folder called 'views' for ****
+ * 11. Create .http file to test routes (employing  shortcut: Command + Option + R )
 
 /************ END OF PRE-CODE SET-UP REQUIREMENTS *************/
 /*************************************************************/
@@ -47,7 +56,7 @@
  * 
 /******** Knowledge Inspiration 2 ********
  * 
- * Media Outlet:: YouTube.com
+ * Media Outlet :: YouTube.com
  * Title :: Learn Express JSs 
  * Creator/Autor :: WebDevSimplified
  * 
