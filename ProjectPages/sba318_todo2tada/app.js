@@ -10,8 +10,8 @@
 /******** 16-APR-2025 *********/
 
 
-/**************************** PRE-CODE SET-UP & REQUIREMENTS ****************************/
-/****************************************************************************************/
+/************ PRE-CODE SET-UP & REQUIREMENTS ************/
+/*******************************************************/
 
 /****** REQUIRED INSTALLMENTS *******
  * git init  ~~ git add . ~~  git commit -m "note" ~~ git push
@@ -21,7 +21,7 @@
  * 9. In package.json file, replace 
     * "scripts":  "test": "echo\"Error: no test specified\" && exit 1" 
     * "scripts":  "devStart": "nodemon server.js" 
-* npm run devStart ~~ when ready to run server: automatically restarts server  anytime there are changes to code. ******
+* npm run devStart ~~ when ready to run server: automatically restarts server anytime there are changes to code. ******
  
 /****** REQUIRED FOLDERS *******
  * 1. Create Root Folder
@@ -36,13 +36,22 @@
  * 10. Creare folder called 'Views' for ****
  * 11. Create .http file to test routes (Command + Option + R )
 
-/************************* END OF PRE-CODE SET-UP REQUIREMENTS **************************/
-/****************************************************************************************/
+/************ END OF PRE-CODE SET-UP REQUIREMENTS *************/
+/*************************************************************/
 
-/*** Knowledge Inspiration 1 :: Medium.com :: Creating a RESTful API with Node.js & Express.js :: from techiydude
- ***/
-/*** Knowledge Inspiration 2 :: YouTube :: Learn Express JSs :: from WebDevSimplified
- ***/
+/******** Knowledge Inspiration 1 ********
+ * 
+ * Media Outlet :: Medium.com
+ * Title :: Creating a RESTful API with Node.js & Express.js 
+ * Creator/Autor :: techiydude
+ * 
+/******** Knowledge Inspiration 2 ********
+ * 
+ * Media Outlet:: YouTube.com
+ * Title :: Learn Express JSs 
+ * Creator/Autor :: WebDevSimplified
+ * 
+ *****************************************
 
 /*** Set-Up: Basic Server ***/
 const express = require('express');
@@ -57,7 +66,6 @@ app.set('views', './views'); // view static files
 app.use(express.urlencoded({ extended: true }));  // access encoded form input data
 app.use(methodOverride('_method')); // access encoded form input data
 app.use(express.json()); // putting json capabilities in play
-
 
 /*** Set-Up: Array of Dummy Task List ***/
 let tasks = [
