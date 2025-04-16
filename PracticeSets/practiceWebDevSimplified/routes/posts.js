@@ -28,6 +28,10 @@ router.put('/:userId', (req, res) => {
   res.send(`Update User with ID ${req.params.userId} `)
 })
 
+/*** Delete Task Line Item By ID ***/
+router.delete('/:userId', (req, res) => {
+  res.send(`Delete User with ID ${req.params.userId} `)
+})
 
 
 /*** Export User Router ***/
