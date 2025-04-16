@@ -5,7 +5,7 @@ const router = express.Router()
 
 /*** Set-Up: General User Router ***/
 router.get('/', (req, res) => {
-  res.send('User ToDo List')
+  res.send('Get ToDo User')
 })
 
 /*** Set-Up: New User Router ***/
