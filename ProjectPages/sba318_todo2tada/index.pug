@@ -2,23 +2,16 @@ doctype html
 html 
   head 
     title To-Do to Ta-Da Task Success List 
-    link(rel="stylesheet", href="style.css  ")
+    link(rel="stylesheet", href="style.css")
   body 
     fieldset#fieldset 
     h1 TO-DO 
       span ➾
         TA-DA!
-    legend#legend Daily & Consistent 
-    form(action="/tasks" method="POST")
-      input(type="text" name="task" placeholder="Add a to-do task for success")
-      button(type="submit") Add Task 
-    ul#task-list 
-      each task in tasks 
-        li 
-        span= task.task 
-        form(action=`/tasks/${task.id}?_method=PUT` method="POST")
-          input(type="text" name="task" value=task.task)
-          buttpm(tupe="submit") Update 
-        form(actioon=`/tasls/${task.ud}?_method=DELETE` method="POST")
-          button(type="submit") Delete
-          
+
+
+  
+
+
+
+
