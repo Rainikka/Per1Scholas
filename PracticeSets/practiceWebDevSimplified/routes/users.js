@@ -14,11 +14,14 @@ router.get('/new', (req, res) => {
 })
 
 /*** Set-Up: Create New User Router ***/
-router.posts('/', (req, res) => {
-  res.send('Create User')
+router.post('/', (req, res) => {
+  res.send('Create New User')
 })
 
-router.get('/:id')
+/*** Get User Bby ID ***/
+router.get('/:userId', (req, res) => {
+  res.send("Get User with ID ${req.params.userId}")
+})
 
 /*** Export User Router ***/
 module.exports = router
