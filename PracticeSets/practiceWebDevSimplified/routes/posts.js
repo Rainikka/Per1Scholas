@@ -19,18 +19,18 @@ router.post('/', (req, res) => {
 })
 
 /*** Get ToDo2TaDa Task Line Item By ID ***/
-router.get('/:userId', (req, res) => {
-  res.send(`Get User with ID ${req.params.userId} `)
+router.get('/:id', (req, res) => {
+  res.send(`Get User with ID ${req.params.id} `)
 })
 
 /*** Update ToDo2TaDa Task Line Item By ID ***/
-router.put('/:userId', (req, res) => {
-  res.send(`Update User with ID ${req.params.userId} `)
+router.put('/:id', (req, res) => {
+  res.send(`Update User with ID ${req.params.id} `)
 })
 
 /*** Delete ToDo2TaDa Task Line Item By ID ***/
-router.delete('/:userId', (req, res) => {
-  res.send(`Delete User with ID ${req.params.userId} `)
+router.delete('/:id', (req, res) => {
+  res.send(`Delete User with ID ${req.params.id} `)
 })
 
 /*** Export User Router ***/

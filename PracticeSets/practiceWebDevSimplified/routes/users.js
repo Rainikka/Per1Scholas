@@ -19,23 +19,30 @@ router.post('/', (req, res) => {
 })
 
 /*** Get ToDo2TaDa User By ID ***/
-router.get('/:userId', (req, res) => {
-  res.send(`Get User with ID ${req.params.userId} `)
+router.get('/:id', (req, res) => {
+  res.send(`Get User with ID ${req.params.id} `)
 })
 
 /*** Update ToDo2TaDa User By ID ***/
-router.put('/:userId', (req, res) => {
-  res.send(`Update User with ID ${req.params.userId} `)
+router.put('/:id', (req, res) => {
+  res.send(`Update User with ID ${req.params.id} `)
 })
 
 /*** Delete ToDo2TaDa User By ID ***/
-router.delete('/:userId', (req, res) => {
-  res.send(`Delete User with ID ${req.params.userId} `)
+router.delete('/:id', (req, res) => {
+  res.send(`Delete User with ID ${req.params.Id} `)
 })
 
 
+
+/*** Added User Array of Objects ***/
+const users = [];
+
+/*** Param Middleware Function Runs Code Before Method ***/
 router.param("id", (req, res, next, id) => {
-  console.log(id)
+
+  req.user = users[id]
+  next()
 })
 
 /*** Export User Router ***/
