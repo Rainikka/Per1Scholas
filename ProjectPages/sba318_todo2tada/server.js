@@ -69,7 +69,7 @@ const app = express();
 
 /*** Set-Up: Middleware ***/
 app.use(express.static('public')); //static files from page folder
-app.set('view engine', 'pug');  // pug template engine
+app.set('view engine', 'ejs);  // pug template engine
 app.set('views', './views'); // view static files
 app.use(express.urlencoded({ extended: true }));  // access encoded form input data
 app.use(methodOverride('_method')); // method override for PUT/DELETE
