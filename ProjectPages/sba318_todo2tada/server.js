@@ -1,3 +1,4 @@
+
 /******************************/
 /****** Rainikka Corprew ******/
 /********* JAVASCRIPT *********/
@@ -8,7 +9,6 @@
 /****** EXPRESS SERVER ********/
 /******** APPLICATION *********/
 /******** 16-APR-2025 *********/
-
 
 /************ PRE-CODE SET-UP & REQUIREMENTS ************/
 /*******************************************************/
@@ -42,7 +42,7 @@
  * 7. Begin indentation coding in index.pug
  * 8. When html coding is completed for index.html file, rename html folder to 'public' 
  * 9. Place style.css file in 'public' folder
- * 10. Creare folder called 'views' for ****
+ * 10. Creare folder called 'views' to access static files
  * 11. Create .http file to test routes (employing  shortcut: Command + Option + R )
 
 /************ END OF PRE-CODE SET-UP REQUIREMENTS *************/
@@ -60,23 +60,22 @@
  * Title :: Learn Express JSs 
  * Creator/Autor :: WebDevSimplified
  * 
- *****************************************
+ *****************************************/
 
 /*** Set-Up: Basic Server ***/
 const express = require('express');
-const methodOverride = require;
-const methodOverride = requier('method-override');
+const methodOverride = require('method-override')
 const app = express();
 
 /*** Set-Up: Middleware ***/
-app.use(express.static('publics')); //static files from page folder
+app.use(express.static('public')); //static files from page folder
 app.set('view engine', 'pug');  // pug template engine
 app.set('views', './views'); // view static files
 app.use(express.urlencoded({ extended: true }));  // access encoded form input data
-app.use(methodOverride('_method')); // access encoded form input data
-app.use(express.json()); // putting json capabilities in play
+app.use(methodOverride('_method')); // method override for PUT/DELETE
+app.use(express.json()); // putting json capabilities into play
 
-/*** Set-Up: Array of Dummy Task List ***/
+/*** Set-Up: Array of Dummy To-Do Task List ***/
 let tasks = [
   { id: 1, task: 'Learn Node.js' },
   { id: 2, task: 'Learn Express.js' },
@@ -86,14 +85,13 @@ let tasks = [
   { id: 6, task: 'Build CRUD Capstone' }
 ];
 
-/*** Set-Up: Route to Render Landing Page *****/
+/*** Set-Up: Route to Render Landing Page ***/
 /*** Get Route ***/
 app.get('/', (req, res) => {
   res.render('index', { tasks });
 });
 
-
-/*** API Endpoint for Each Request Method ****/
+/***** API Endpoints for Each Request Type ******/
 
 /** Creating Tasks: Post Request **
  * Endpoint: /tasks
@@ -109,7 +107,7 @@ app.post('/tasks', (req, res) => {
   res.redirect('/');
 });
 
-/** Viewing All Tasks: Get Request **
+/*** Viewing All Tasks: Get Request ***
  * Endpoint: /tasks
  * HTTP Method: GET
  * Description: View All Tasks
@@ -118,7 +116,7 @@ app.get('/tasks', (req, res) => {
   res.json(tasks);
 });
 
-/** Updating A Tasks: Put Request **
+/*** Updating A Tasks: Put Request ***
  * Endpoint: /tasks/:id   // update task by id
  * HTTP Method: PUT
  * Description: Update A Task
@@ -136,7 +134,7 @@ app.put('/tasks/:id', (req, res) => {
   }
 });
 
-/** Removing Tasks: Delete Request **
+/*** Removing Tasks: Delete Request ***
  * Endpoint: /tasks/:id
  * HTTP Method: DELETE
  * Description: Delete A Task
@@ -147,7 +145,7 @@ app.delete('/tasks/:id', (req, res) => {
   res.redirect('/');
 });
 
-/** Set-Up: Server Start ***/
+/** Set-Up: Server Running Start ***/
 const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
