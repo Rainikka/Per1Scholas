@@ -60,6 +60,16 @@ app.get('/', (req, res) => {
   res.render('index', { text: "World" });
 });
 
+/*** Set-Up: User Route ***/
+app.get('/users', (req, res) => {
+  res.send('User List')
+})
+
+/*** Set-Up: New User Route ***/
+app.get('/users/new', (req, res) => {
+  res.send('User New Form')
+})
+
 
 
 /*** Set-up: Call Express ***/
