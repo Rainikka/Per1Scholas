@@ -36,7 +36,7 @@ let tasks = [
   { id: 2, task: 'Learn Express.js' },
   { id: 3, task: 'Learn Mongo.db' },
   { id: 4, task: 'Learn React.js' },
-  { id: 5, task: 'Build REST API' }
+  { id: 5, task: 'Build REST API' },
   { id: 6, task: 'Build CRUD Capstone' }
 ];
 
