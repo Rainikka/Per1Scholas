@@ -18,7 +18,7 @@ router.post('/', (req, res) => {
   res.send('Create New User')
 })
 
-/*** Get User Bby ID ***/
+/*** Get User By ID ***/
 router.get('/:userId', (req, res) => {
   res.send("Get User with ID ${req.params.userId}")
 })
