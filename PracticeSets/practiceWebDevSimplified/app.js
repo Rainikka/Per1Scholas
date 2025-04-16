@@ -64,6 +64,10 @@ app.get('/', (req, res) => {
 const userRouter = require('./routes/users')
 app.use('/users', userRouter)
 
+/*** Export Post Router & Linking to Path ***/
+const postRouter = require('./routes/posts')
+app.use('/posts', postRouter)
+
 /*** Server Running On LocalHost ***/
 const PORT = 3000;
 app.listen(PORT, () => {
