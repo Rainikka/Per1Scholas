@@ -56,14 +56,12 @@ app.set("view engine", "ejs")  //app.set("view engine", "pug");
 
 /*** Set-Up: Get Method ***/
 app.get('/', (req, res) => {
-  console.log('Hero');
+  console.log("We don't need another hero");
   res.render('index', { text: "World" });
 });
 
-/*** Export User Router ***/
+/*** Export User Router & Linking to Path ***/
 const userRouter = require('./routes/users')
-
-/*** Linking User Router to Path ***/
 app.use('/users', userRouter)
 
 /*** Server Running On LocalHost ***/
