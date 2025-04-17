@@ -85,7 +85,9 @@ app.set('view engine', 'ejs');  // ejs template engine
 app.use(express.urlencoded({ extended: true }));  // access encoded form input data
 
 /*** Set-Up: Route to Render Landing Page ***/
-
+app.get('/', (req, res) => {
+  res.render('index', { tasks: tasks });
+});
 
 /*** Set-Up: Array of Dummy To-Do Task List ***/
 let tasks = [
