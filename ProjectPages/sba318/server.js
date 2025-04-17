@@ -60,6 +60,14 @@
  * Title :: Learn Express JSs 
  * Creator/Autor :: WebDevSimplified
  * 
+ *****************************************
+ *
+/******** Knowledge Inspiration 3 ********
+ * 
+ * Media Outlet :: LinkedInLearning
+ * Title :: Learning Restful APIs 
+ * Creator/Autor :: Morten Rand-Hendriksen
+ * 
  *****************************************/
 
 /*** Set-Up: Basic Server ***/
@@ -86,11 +94,13 @@ app.use(express.json()); // putting json capabilities into play
 /*** Set-Up: Array of Dummy To-Do Task List ***/
 let tasks = [
   { id: 0, task: 'Test Delete Case' },
+  { id: 1, task: 'Learn Mongo.db' },
   { id: 2, task: 'Learn Express.js' },
-  { id: 3, task: 'Learn Mongo.db' },
-  { id: 4, task: 'Learn React.js' },
+  { id: 3, task: 'Learn React.js' },
+  { id: 4, task: 'Learn Node.js' },
   { id: 5, task: 'Build REST API' },
   { id: 6, task: 'Build CRUD Capstone' },
+  { id: 7, task: 'Get Good Sleep Again' }
 ];
 
 /***** API Endpoints for Each Request Type ******/
