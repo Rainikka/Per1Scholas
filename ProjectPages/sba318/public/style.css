@@ -67,7 +67,6 @@ ul {
     0 6px 20px 0 rgba(0, 0, 0, 0.10); */
 }
 
-
 li form {
   display: flex;
   gap: 5px;
@@ -86,6 +85,43 @@ input {
   justify-content: space-betweend;
   align-items: end;
   border: 1px solid lightgray;
+}
+
+li {
+  display: flex;
+  /* Makes the li a flex container */
+  justify-content: space-between;
+  /* Puts maximum space between children */
+  align-items: center;
+  /* Vertically centers the items */
+  padding: 10px 15px;
+  /* Adds some padding */
+  margin: 5px 0;
+  /* Adds spacing between list items */
+  background: #f4f4f4;
+  /* Light gray background */
+  border-radius: 4px;
+  /* Slightly rounded corners */
+}
+
+li form {
+  margin: 0;
+  /* Removes default form margins */
+}
+
+li button {
+  background: #ff4444;
+  /* Red color for delete button */
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+li button:hover {
+  background: #cc0000;
+  /* Darker red on hover */
 }
 
 button {
