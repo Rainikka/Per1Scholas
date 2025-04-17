@@ -1,19 +1,22 @@
-<!-- views/index.ejs -->
 <!DOCTYPE html>
 <html>
 
 <head>
-  <title>To-Do to Ta-Da Task Success List</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Simple To-Do List</title>
+  <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
   <fieldset id="fieldset">
-    <h1>TO-DO <span>➾</span> TA-DA!</h1>
-    <legend>Daily & Consistent</legend>
+    <h1>TO-DO
+      <span id="italic">to</span>
+      <span id="arrow">→</span>
+      TA-DA!
+    </h1>
+    <legend id="legend">Daily & Consistent</legend>
 
     <form action="/tasks" method="POST">
-      <input type="text" name="task" placeholder="Add a to-do task" required>
+      <input type="text" name="task" placeholder="Add a to-do task">
       <button type="submit">Add Task</button>
     </form>
 

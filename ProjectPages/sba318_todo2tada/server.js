@@ -34,16 +34,15 @@
  
 /****** REQUIRED FOLDERS *******
  * 1. Create Root Folder
- * 2. Create server.js  file  (check package.json to make sure the value of main: is server.js)
- * 3. Create html folder
- * 4. In the root directory, create 'index.pug' file
- * 5. In VS code terminal, within the root directory, type 'pug -w ./ -o ./html -P'
- * 6. At top of index.pug file, type 'doctype html' and check index.html file in html folder
- * 7. Begin indentation coding in index.pug
- * 8. When html coding is completed for index.html file, rename html folder to 'public' 
- * 9. Place style.css file in 'public' folder
- * 10. Creare folder called 'views' to access static files
- * 11. Create .http file to test routes (employing  shortcut: Command + Option + R )
+ * 2. Create server.js file  (check package.json to make sure thst the value of main: is server.js)
+ * 3. Create 'views' folder to store html templates: Pug or EJS
+ * 4. For basic html structure, Pug is swift
+ * 5. To create pug files, cd to  root directory in VS code terminal, type 'pug -w ./views -o ./public -P'
+ * 6. Begin indentation coding in the 'index.pug' file by typing 'doctype html'.
+ * 7. In public folder, watch for output of index.html  based on updated of the index.pug file.
+ * 8. For javascript integration of code in HTML, EJS is the dynamo
+ * 9. Place style.css file and other static files in pubblic folder
+ * 10. Create .http file to test routes (employing  shortcut: Command + Option + R )
 
 /************ END OF PRE-CODE SET-UP REQUIREMENTS *************/
 /*************************************************************/
@@ -64,7 +63,7 @@
 
 /*** Set-Up: Basic Server ***/
 const express = require('express');
-const methodOverride = require('method-override')
+const methodOverride = require('method-override');
 const app = express();
 
 /*** Set-Up: Middleware ***/
@@ -124,15 +123,9 @@ app.get('/tasks', (req, res) => {
  * Request: ****/
 app.put('/tasks/:id', (req, res) => {
   const id = parseInt(req.params.id);
-  const updatedTask = req.body.task;
   const taskIndex = tasks.findIndex(t => t.id === id);
-
-  if (taskIndex !== -1) {
-    tasks[taskIndex].task = updatedTask;
-    res.redirect('/');
-  } else {
-    res.status(404).json({ message: 'Task not found' });
-  }
+  tasks[taskIndex].task = req.body.task;
+  res.redirect('/');
 });
 
 /*** Removing Tasks: Delete Request ***
@@ -141,7 +134,7 @@ app.put('/tasks/:id', (req, res) => {
  * Description: Delete A Task
  * Request: ****/
 app.delete('/tasks/:id', (req, res) => {
-  const id = parseInt(req.params.id);
+  const id = Number(req.params.id);
   tasks = tasks.filter(task => task.id !== id);
   res.redirect('/');
 });
