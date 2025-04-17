@@ -80,13 +80,9 @@ const PORT = 3000;
 
 /*** Set-Up: Middleware ***/
 app.use(express.json()); // putting json capabilities into play
-
-// app.use(express.static('public')); / / static files from page folder
-// app.set('view engine', 'ejs');  // ejs template engine
-// app.set('views', './views'); // view static files
-// app.use(express.urlencoded({ extended: true }));  // access encoded form input data
-// app.use(bodyParser.json()); //
-// app.use(methodOverride('_method')); // method override for PUT/DELETE
+app.use(express.static('public')); // static files from page folder
+app.set('view engine', 'ejs');  // ejs template engine
+app.use(express.urlencoded({ extended: true }));  // access encoded form input data
 
 /*** Set-Up: Route to Render Landing Page ***/
 
