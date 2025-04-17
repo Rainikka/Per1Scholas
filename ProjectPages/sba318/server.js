@@ -74,7 +74,7 @@
 const express = require('express');
 const app = express();
 const PORT = 3000;
-// const methodOverride = require('method-override');
+
 // const bodyParser = require('body-parser');
 
 
@@ -83,6 +83,9 @@ app.use(express.json()); // putting json capabilities into play
 app.use(express.static('public')); // static files from page folder
 app.set('view engine', 'ejs');  // ejs template engine
 app.use(express.urlencoded({ extended: true }));  // access encoded form input data
+const methodOverride = require('method-override');
+app.use(methodOverride('_method')); // allows forms to respond to PUT & DELETE requests
+
 
 /*** Set-Up: Route to Render Landing Page ***/
 app.get('/', (req, res) => {
@@ -157,7 +160,7 @@ app.put('/tasks/:id', (req, res) => {
  * Request: ****/
 app.delete('/tasks/:id', (req, res) => {
   tasks = tasks.filter(task => task.id !== parseInt(req.params.id));
-  res.send("Task deleted");
+  res.redirect('/');
 });
 
 /** Set-Up: Server Running Start ***/
