@@ -7,25 +7,30 @@
 </head>
 
 <body>
-  <h1>My To-Do List</h1>
-  <fieldset id="fieldset">
+  <main id="bodyBox">
 
-    <form action="/tasks" method="POST">
-      <input type="text" name="task" placeholder="New task">
-      <button>Add Task</button>
-    </form>
+    <fieldset id="fieldset">
+      <legend id="legend"> Daily &
+        Consistent
+      </legend>
+      <h1>TO-DO <span>&rArr;</span> TA-DA!</h1>
+      <form action="/tasks" method="POST">
+        <input id="task2Do" type=" text" name="task" placeholder="Add A New To-Dok">
+        <button>ADD TO-DO</button>
+      </form>
 
-    <ul>
-      <% tasks.forEach(task=> { %>
-        <li>
-          <%= task.task %>
-            <form action="/tasks/<%= task.id %>?_method=DELETE" method="POST">
-              <button type="submit">Delete</button>
-            </form>
-        </li>
-        <% }); %>
-    </ul>
-  </fieldset>
+      <ul>
+        <% tasks.forEach(task=> { %>
+          <li>
+            <%= task.task %>
+              <form action="/tasks/<%= task.id %>?_method=DELETE" method="POST">
+                <button type="submit">TA-DA!</button>
+              </form>
+          </li>
+          <% }); %>
+      </ul>
+    </fieldset>
+  </main>
 </body>
 
 </html>
