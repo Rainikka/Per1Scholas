@@ -8,7 +8,7 @@
 /******************************/
 /****** EXPRESS SERVER ********/
 /******** APPLICATION *********/
-/******** 16-APR-2025 *********/
+/******** 17-APR-2025 *********/
 
 /************ PRE-CODE SET-UP & REQUIREMENTS ************/
 /*******************************************************/
@@ -75,17 +75,14 @@ const express = require('express');
 const app = express();
 const PORT = 3000;
 
-// const bodyParser = require('body-parser');
-
 
 /*** Set-Up: Middleware ***/
-app.use(express.json()); // putting json capabilities into play
-app.use(express.static('public')); // static files from page folder
-app.set('view engine', 'ejs');  // ejs template engine
-app.use(express.urlencoded({ extended: true }));  // access encoded form input data
+app.use(express.json()); /* putting json capabilities into play */
+app.use(express.static('public')); /* static files from page folder */
+app.set('view engine', 'ejs'); /* ejs template engine */
+app.use(express.urlencoded({ extended: true })); /* access encoded form input data */
 const methodOverride = require('method-override');
-app.use(methodOverride('_method')); // allows forms to respond to PUT & DELETE requests
-
+app.use(methodOverride('_method')); /* allows forms to respond to PUT & DELETE requests */
 
 /*** Set-Up: Route to Render Landing Page ***/
 app.get('/', (req, res) => {
@@ -137,11 +134,11 @@ app.post('/tasks', (req, res) => {
     task: req.body.task
   };
   tasks.push(newTask);
-  res.send(newTask);
+  res.redirect('/');
 });
 
 /*** Route:PUT::Updating A To-Do Task ***
- * Endpoint: /tasks/:id   // update task by id
+ * Endpoint: /tasks/:id 
  * HTTP Method: PUT
  * Description: Update A Task
  * Request: ****/
@@ -159,7 +156,8 @@ app.put('/tasks/:id', (req, res) => {
  * Description: Delete A Task
  * Request: ****/
 app.delete('/tasks/:id', (req, res) => {
-  tasks = tasks.filter(task => task.id !== parseInt(req.params.id));
+  const taskId = parseInt(req.params.id);
+  tasks = tasks.filter(task => task.id !== taskId);
   res.redirect('/');
 });
 
