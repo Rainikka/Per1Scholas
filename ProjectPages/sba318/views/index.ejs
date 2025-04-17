@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Simple To-Do List</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <h1>My To-Do List</h1>
+
+  <!-- Add Task Form -->
+  <form action="/tasks" method="POST">
+    <input type="text" name="task" placeholder="New task">
+    <button>Add Task</button>
+  </form>
+
+  <!-- Tasks List -->
+  <ul>
+    <% tasks.forEach(task=> { %>
+      <li>
+        <%= task.task %>
+          <!-- Delete Form -->
+          <form action="/tasks/<%= task.id %>" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <button>Delete</button>
+          </form>
+      </li>
+      <% }); %>
+  </ul>
+</body>
+
+</html>
