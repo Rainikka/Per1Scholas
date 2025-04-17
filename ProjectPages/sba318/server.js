@@ -22,15 +22,15 @@
  * In package.json file, 
  * replace this key/value pair:
     * "scripts":  
-       * "test": "echo\"Error: no test specified\" && exit 1" 
+       -"test": "echo\"Error: no test specified\" && exit 1" 
   
   * with this key/value pair ******
     * "scripts": {
-        * "start": "node server.js",
-        * "devStart": "nodemon server.js"
+        - "start": "node server.js",
+        - "devStart": "nodemon server.js"
    * },
    
-* npm run devStart ~~ when ready to run server: automatically restarts server anytime there are changes to code. ******
+**** npm run devStart ~~ when ready to run server: automatically restarts server anytime there are changes to code. ******
  
 /****** REQUIRED FOLDERS *******
  * 1. Create Root Folder
@@ -43,6 +43,7 @@
  * 8. For javascript integration of code in HTML, EJS is the dynamo
  * 9. Place style.css file and other static files in pubblic folder
  * 10. Create .http file to test routes (employing  shortcut: Command + Option + R )
+
 
 /************ END OF PRE-CODE SET-UP REQUIREMENTS *************/
 /*************************************************************/
