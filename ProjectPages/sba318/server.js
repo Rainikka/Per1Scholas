@@ -85,13 +85,12 @@ app.use(express.json()); // putting json capabilities into play
 
 /*** Set-Up: Array of Dummy To-Do Task List ***/
 let tasks = [
-  { id: 1, task: 'Learn Node.js' },
+  { id: 0, task: 'Test Delete Case' },
   { id: 2, task: 'Learn Express.js' },
   { id: 3, task: 'Learn Mongo.db' },
   { id: 4, task: 'Learn React.js' },
   { id: 5, task: 'Build REST API' },
   { id: 6, task: 'Build CRUD Capstone' },
-  { id: 7, task: 'Graduate With Honor' }
 ];
 
 /***** API Endpoints for Each Request Type ******/
