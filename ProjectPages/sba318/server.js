@@ -30,7 +30,7 @@
         - "devStart": "nodemon server.js"
    * },
    
-**** npm run devStart ~~ when ready to run server: automatically restarts server anytime there are changes to code. ******
+**** nodemon devStart ~~ when ready to run server: automatically restarts server anytime there are changes to code. ******
  
 /****** REQUIRED FOLDERS *******
  * 1. Create Root Folder
@@ -90,8 +90,8 @@ let tasks = [
   { id: 3, task: 'Learn Mongo.db' },
   { id: 4, task: 'Learn React.js' },
   { id: 5, task: 'Build REST API' },
-  { id: 6, task: 'Build CRUD Capstone' }
- { id: 7, task: 'Graduate With Honor' }
+  { id: 6, task: 'Build CRUD Capstone' },
+  { id: 7, task: 'Graduate With Honor' }
 ];
 
 /***** API Endpoints for Each Request Type ******/
