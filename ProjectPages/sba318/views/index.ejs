@@ -8,23 +8,24 @@
 
 <body>
   <h1>My To-Do List</h1>
+  <fieldset id="fieldset">
 
-  <form action="/tasks" method="POST">
-    <input type="text" name="task" placeholder="New task">
-    <button>Add Task</button>
-  </form>
+    <form action="/tasks" method="POST">
+      <input type="text" name="task" placeholder="New task">
+      <button>Add Task</button>
+    </form>
 
-  <ul>
-<% tasks.forEach(task=> { %>
-  <li>
-    <%= task.task %>
-      <!-- Delete Form - This is the key part -->
-      <form action="/tasks/<%= task.id %>?_method=DELETE" method="POST">
-        <button type="submit">Delete</button>
-      </form>
-  </li>
-  <% }); %>
-  </ul>
+    <ul>
+      <% tasks.forEach(task=> { %>
+        <li>
+          <%= task.task %>
+            <form action="/tasks/<%= task.id %>?_method=DELETE" method="POST">
+              <button type="submit">Delete</button>
+            </form>
+        </li>
+        <% }); %>
+    </ul>
+  </fieldset>
 </body>
 
 </html>
