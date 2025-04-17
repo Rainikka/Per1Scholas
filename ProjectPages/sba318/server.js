@@ -13,7 +13,7 @@
 /************ PRE-CODE SET-UP & REQUIREMENTS ************/
 /*******************************************************/
 
-/****** REQUIRED INSTALLMENTS *******
+/****** GIT & NODE INITIALIZATIONS *******
  * git init  ~~ git add . ~~  git commit -m "note" ~~ git push
  * npm init -y
  * npm i express body-parser method-override ejs
@@ -64,18 +64,23 @@
 
 /*** Set-Up: Basic Server ***/
 const express = require('express');
-const methodOverride = require('method-override');
-const bodyParser = require('body-parser');
 const app = express();
+const PORT = 3000;
+// const methodOverride = require('method-override');
+// const bodyParser = require('body-parser');
+
 
 /*** Set-Up: Middleware ***/
-app.use(express.static('public')); //static files from page folder
-app.set('view engine', 'ejs');  // ejs template engine
-app.set('views', './views'); // view static files
-app.use(express.urlencoded({ extended: true }));  // access encoded form input data
-app.use(bodyParser.json()); //
-app.use(methodOverride('_method')); // method override for PUT/DELETE
 app.use(express.json()); // putting json capabilities into play
+
+// app.use(express.static('public')); / / static files from page folder
+// app.set('view engine', 'ejs');  // ejs template engine
+// app.set('views', './views'); // view static files
+// app.use(express.urlencoded({ extended: true }));  // access encoded form input data
+// app.use(bodyParser.json()); //
+// app.use(methodOverride('_method')); // method override for PUT/DELETE
+
+/*** Set-Up: Route to Render Landing Page ***/
 
 
 /*** Set-Up: Array of Dummy To-Do Task List ***/
@@ -86,15 +91,32 @@ let tasks = [
   { id: 4, task: 'Learn React.js' },
   { id: 5, task: 'Build REST API' },
   { id: 6, task: 'Build CRUD Capstone' }
+ { id: 7, task: 'Graduate With Honor' }
 ];
 
-/*** Set-Up: Route to Render Landing Page ***/
-/*** Get Route ***/
-app.get('/', (req, res) => {
-  res.render('index', { tasks });
-});
 
 /***** API Endpoints for Each Request Type ******/
+
+/*** Route: Get::All To-Do Tasks ***
+ * Endpoint: /tasks
+ * HTTP Method: GET
+ * Description: View All Tasks
+ * Request: ****/
+app.get('/tasks', (req, res) => {
+  res.json(tasks);
+});
+
+/*** Route: Get::Singleton To-Do Task ***
+ * Endpoint: /tasks/:id
+ * HTTP Method: GET
+ * Description: View Singleton Task
+ * Request: ****/
+app.get('/tasks/:id', (req, res) => {
+  const task = tasks.find(t => t.id === parseInt(req.params.id));
+  if (!task) return res.status(404).send('Task not found');
+  res.json(task);
+});
+
 
 /** Creating Tasks: Post Request **
  * Endpoint: /tasks
@@ -107,7 +129,7 @@ app.post('/tasks', (req, res) => {
     task: req.body.task
   };
   tasks.push(newTask);
-  res.redirect('/');
+  res.status(201).json(newTask);
 });
 
 /*** Viewing All Tasks: Get Request ***
@@ -143,7 +165,6 @@ app.delete('/tasks/:id', (req, res) => {
 });
 
 /** Set-Up: Server Running Start ***/
-const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
