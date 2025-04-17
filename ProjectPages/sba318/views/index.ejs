@@ -14,18 +14,16 @@
     <button>Add Task</button>
   </form>
 
-  <!-- Tasks List -->
   <ul>
-    <% tasks.forEach(task=> { %>
-      <li>
-        <%= task.task %>
-
-          <form action="/tasks/<%= task.id %>" method="POST">
-            <input type="hidden" name="_method" value="DELETE">
-            <button>Delete</button>
-          </form>
-      </li>
-      <% }); %>
+<% tasks.forEach(task=> { %>
+  <li>
+    <%= task.task %>
+      <!-- Delete Form - This is the key part -->
+      <form action="/tasks/<%= task.id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete</button>
+      </form>
+  </li>
+  <% }); %>
   </ul>
 </body>
 
