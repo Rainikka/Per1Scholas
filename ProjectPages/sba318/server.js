@@ -94,10 +94,9 @@ let tasks = [
  { id: 7, task: 'Graduate With Honor' }
 ];
 
-
 /***** API Endpoints for Each Request Type ******/
 
-/*** Route: Get::All To-Do Tasks ***
+/*** Route:GET::All To-Do Tasks ***
  * Endpoint: /tasks
  * HTTP Method: GET
  * Description: View All Tasks
@@ -106,19 +105,18 @@ app.get('/tasks', (req, res) => {
   res.json(tasks);
 });
 
-/*** Route: Get::Singleton To-Do Task ***
+/*** Route:GET::Singleton To-Do Task ***
  * Endpoint: /tasks/:id
  * HTTP Method: GET
  * Description: View Singleton Task
  * Request: ****/
 app.get('/tasks/:id', (req, res) => {
   const task = tasks.find(t => t.id === parseInt(req.params.id));
-  if (!task) return res.status(404).send('Task not found');
+  // if (!task) return res.status(404).send('Task not found');
   res.json(task);
 });
 
-
-/** Creating Tasks: Post Request **
+/*** Route:POST::New To-Do Task ***
  * Endpoint: /tasks
  * HTTP Method: POST
  * Description: Add a New Task
@@ -129,39 +127,30 @@ app.post('/tasks', (req, res) => {
     task: req.body.task
   };
   tasks.push(newTask);
-  res.status(201).json(newTask);
+  res.send(newTask);
 });
 
-/*** Viewing All Tasks: Get Request ***
- * Endpoint: /tasks
- * HTTP Method: GET
- * Description: View All Tasks
- * Request: ****/
-app.get('/tasks', (req, res) => {
-  res.json(tasks);
-});
-
-/*** Updating A Tasks: Put Request ***
+/*** Route:PUT::Updating A To-Do Task ***
  * Endpoint: /tasks/:id   // update task by id
  * HTTP Method: PUT
  * Description: Update A Task
  * Request: ****/
 app.put('/tasks/:id', (req, res) => {
-  const id = parseInt(req.params.id);
-  const taskIndex = tasks.findIndex(t => t.id === id);
-  tasks[taskIndex].task = req.body.task;
-  res.redirect('/');
+  const task = tasks.find(t => t.id === parseInt(req.params.id));
+  if (!task) return res.status(404).send('Task not found');
+
+  task.task = req.body.task;
+  res.json(task);
 });
 
-/*** Removing Tasks: Delete Request ***
+/*** Route:DELETE::Remove A To-Do Task ***
  * Endpoint: /tasks/:id
  * HTTP Method: DELETE
  * Description: Delete A Task
  * Request: ****/
 app.delete('/tasks/:id', (req, res) => {
-  const id = Number(req.params.id);
-  tasks = tasks.filter(task => task.id !== id);
-  res.redirect('/');
+  tasks = tasks.filter(task => task.id !== parseInt(req.params.id));
+  res.send("Task deleted");
 });
 
 /** Set-Up: Server Running Start ***/
