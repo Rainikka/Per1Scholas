@@ -16,20 +16,20 @@
 /****** REQUIRED INSTALLMENTS *******
  * git init  ~~ git add . ~~  git commit -m "note" ~~ git push
  * npm init -y
- * npm i express pug method-override
+ * npm i express body-parser method-override ejs
  * npm i --save-dev nodemon
- * 9. In package.json file, 
+ 
+ * In package.json file, 
  * replace this key/value pair:
- * 
     * "scripts":  
-    * "test": "echo\"Error: no test specified\" && exit 1" 
-  * 
+       * "test": "echo\"Error: no test specified\" && exit 1" 
+  
   * with this key/value pair ******
-  * 
     * "scripts": {
         * "start": "node server.js",
         * "devStart": "nodemon server.js"
    * },
+   
 * npm run devStart ~~ when ready to run server: automatically restarts server anytime there are changes to code. ******
  
 /****** REQUIRED FOLDERS *******
