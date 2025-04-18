@@ -32,7 +32,7 @@ const users = require("./routes/users");
 const posts = require("./routes/posts");
 const error = require("./utilities/error");
 
-/*** Timestamp Middleware ***/
+/** Timestamp Middleware ***/
 app.use((req, res, next) => {
   const time = new Date();
 
@@ -40,10 +40,13 @@ app.use((req, res, next) => {
     `-----
 ${time.toLocaleTimeString()}: Received a ${req.method} request to ${req.url}.`
   );
-  if (Object.keys(req.body).length > 0) {
+
+  // Safely check for request body
+  if (req.body && typeof req.body === 'object' && Object.keys(req.body).length > 0) {
     console.log("Containing the data:");
     console.log(`${JSON.stringify(req.body)}`);
   }
+
   next();
 });
 
