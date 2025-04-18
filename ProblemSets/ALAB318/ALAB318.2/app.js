@@ -31,11 +31,41 @@ app.get('/', (req, res) => {
 });
 
 /** Set-Up View: Render Landing ***/
-app.get('/articles/add', (req, res) => {
-  res.render('add', {
-    title: 'Add Articles'
+app.get('/', (req, res) => {
+
+  let articles = [
+    {
+      id: 1,
+      title: 'Article One',
+      author: 'Rain Corp',
+      body: 'This is article one'
+    },
+    {
+      id: 2,
+      title: 'Article Two',
+      author: 'Rain Corp',
+      body: 'This is article two'
+    },
+    {
+      id: 3,
+      title: 'Article Three',
+      author: 'Rain Corp',
+      body: 'This is article three'
+    },
+  ];
+  res.render('index', {
+    title: "Articles",
+    articles: articles
   });
 });
+
+/** Set-Up View: Add Articl ***/
+app.get('/articles/add', (req, res) => {
+  res.render('add_article', {
+    title: 'Add Article'
+  });
+});
+
 
 /** Get Route: Home Page ***/
 // app.get('/', (req, res) => {
