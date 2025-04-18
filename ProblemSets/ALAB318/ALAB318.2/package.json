@@ -12,5 +12,8 @@
   },
   "author": "Rainikka Corprew",
   "license": "ISC",
-  "description": "ALAB318.3"
+  "description": "ALAB318.3",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
 }
