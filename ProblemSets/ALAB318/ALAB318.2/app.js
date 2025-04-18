@@ -10,6 +10,7 @@
 /******* 18-APR-2025 *********/
 
 
+/****** Set-Up: Server & Template Engine ******/
 /*** Set-Up: Express Server Module ***/
 const express = require("express");
 const app = express();
@@ -20,17 +21,8 @@ app.set('view engine', 'pug')
 app.set('views', 'views')
 
 
-
-/*** Set-Up: API Endpoint Routes ***/
-
-/** Set-Up View: Render Landing ***/
-app.get('/', (req, res) => {
-  res.render('index', {
-    title: "Articles"
-  });
-});
-
-/** Set-Up View: Render Landing ***/
+/****** Set-Up: API Endpoint Routes ******/
+/*** Set-Up View: Render Landing ***/
 app.get('/', (req, res) => {
 
   let articles = [

@@ -1,8 +1,13 @@
 doctype html
 html
   head
-    title ALAB318.2
+    title= title
   body
-    h1 #{title}
+    h1 Welcome to #{title}
+    a(href="/add") Add New Article
+    a(href="/about") About
     ul
-      li each article, i in articles
+      each article in articles
+        li
+          h2= article.title
+          p= article.body
