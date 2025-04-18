@@ -1,5 +1,5 @@
-const express = require("express");
-const bodyParser = require("body-parser");
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 const users = require("./routes/users");
 const posts = require("./routes/posts");
