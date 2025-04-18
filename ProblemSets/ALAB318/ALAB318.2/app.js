@@ -23,14 +23,14 @@ app.set('views', 'pug')
 /*** Set-Up: API Endpoint Routes ***/
 
 /** Set-Up View: Render Landing ***/
-// app.get('/', (req, res) => {
-//   res.render('Hello World')
-// });
+app.get('/', (req, res) => {
+  res.render('index')
+});
 
 /** Get Route: Home Page ***/
-app.get('/', (req, res) => {
-  res.send('Hello World')
-});
+// app.get('/', (req, res) => {
+//   res.send('Hello World')
+// });
 
 
 
