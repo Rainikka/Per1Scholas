@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-     "devStart": "nodempm server.js"
+    "devStart": "nodempm server.js"
   },
   "repository": {
     "type": "git",
@@ -17,5 +17,12 @@
   "bugs": {
     "url": "https://github.com/Rainikka/Per1Scholas/issues"
   },
-  "homepage": "https://github.com/Rainikka/Per1Scholas#readme"
+  "homepage": "https://github.com/Rainikka/Per1Scholas#readme",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "dotenv": "^16.5.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "method-override": "^3.0.0"
+  }
 }

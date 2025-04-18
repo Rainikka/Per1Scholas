@@ -32,5 +32,5 @@
 
 /****** STARTING UP THE SERVER ENGINE *******    
  * node start ~~- One server run 
- * nodemon devStart ~~ automatically restarts server when changes made to code 
+ * nodemon devStart ~~ automatically restarts server with everye change in code 
 /*******************************************************/
