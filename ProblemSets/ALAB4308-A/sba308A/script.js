@@ -1,19 +1,16 @@
-/*************************************/
-/********* Rainikka Corprew *********/
-/*********** JAVASCRIPT ************/
-/************ SBA 308A ************/
+/**********************************/
+/******** Rainikka Corprew *******/
+/********* JAVASCRIPT ************/
+/*********** SBA 308A ************/
 /*********************************/
 
-/***********************************/
-/*** *API Fetch,Async & Await *****/
-/******** with JavaScript ********/
+/*********************************/
+/*** API Fetch,Async & Await ****/
+/******* with JavaScript ********/
 /********* 08-APR-2025 **********/
 
-/******* Open Weather API Site ********/
+/**** Open Weather API Site *****/
 // https://home.openweathermap.org
-
-/******* Open Weather API Site ********/
-// API key cd51884d9897a04d51888d2ca1ef202d
 
 /******* Example of API Call: ********/
 // https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=cd51884d9897a04d51888d2ca1ef202d
@@ -90,9 +87,6 @@ const getWeather = async () => {
  * API key:
  * - Within the next couple of hours, your API key 
  * will be activated and ready to use:
- * 
- * API Key:
- * cd51884d9897a04d51888d2ca1ef202d 
  * 
  * - You can later create more API keys on your account  page
  * - Please, always use your API key in each API call
