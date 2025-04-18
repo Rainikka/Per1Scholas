@@ -1,19 +1,26 @@
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
 
-const users = require("./routes/users");
-const posts = require("./routes/posts");
-
-const error = require("./utilities/error");
-
+/*** Set-Up: Express Server ***/
+const express = require("express");
+const bodyParser = require("body-parser");
 const app = express();
 const port = 3000;
 
-// Parsing Middleware
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json({ extended: true }));
+/*** Set-Up: Middleware Initialization ***/
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-// Logging Middlewaare
+/*** Set-Up: JSON Body-Parsers */
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+/*** Importing Routes ***/
+const users = require("./routes/users");
+const posts = require("./routes/posts");
+const error = require("./utilities/error");
+
+/*** Timestamp Middleware ***/
 app.use((req, res, next) => {
   const time = new Date();
 
@@ -29,7 +36,7 @@ ${time.toLocaleTimeString()}: Received a ${req.method} request to ${req.url}.`
 });
 
 // Valid API Keys.
-apiKeys = ["perscholas", "ps-example", "hJAsknw-L198sAJD-l3kasx"];
+let apiKeys = ["perscholas", "ps-example", "hJAsknw-L198sAJD-l3kasx"];
 
 // New middleware to check for API keys!
 // Note that if the key is not verified,
