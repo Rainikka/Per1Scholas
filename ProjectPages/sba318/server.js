@@ -87,6 +87,7 @@ const PORT = 3000;
 /*** Set-Up: Middleware ***/
 app.use(express.json()); /* putting json capabilities into play */
 app.use(express.static('public')); /* static files from page folder */
+app.set('views', 'views'); /*set view engine path */
 app.set('view engine', 'ejs'); /* ejs template engine */
 app.use(express.urlencoded({ extended: true })); /* access encoded form input data */
 const methodOverride = require('method-override');
