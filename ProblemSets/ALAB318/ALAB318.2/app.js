@@ -17,7 +17,7 @@ const PORT = 3000;
 
 /*** Set-Up Views: Template Engine ***/
 app.set('view engine', 'pug')
-app.set('views', './views')
+app.set('views', 'views')
 
 
 
@@ -25,14 +25,22 @@ app.set('views', './views')
 
 /** Set-Up View: Render Landing ***/
 app.get('/', (req, res) => {
-  res.render('index')
+  res.render('index', {
+    title: "Articles"
+  });
+});
+
+/** Set-Up View: Render Landing ***/
+app.get('/articles/add', (req, res) => {
+  res.render('add', {
+    title: 'Add Articles'
+  });
 });
 
 /** Get Route: Home Page ***/
 // app.get('/', (req, res) => {
 //   res.send('Hello World')
 // });
-
 
 
 
