@@ -31,12 +31,6 @@ const users = require("./routes/users");
 const posts = require("./routes/posts");
 const error = require("./utilities/error");
 
-// Creating a GET route for the entire users database.
-// This would be impractical in larger data sets.
-app.get("/api/users", (req, res) => {
-  res.json(users);
-});
-
 /** Timestamp Middleware ***/
 app.use((req, res, next) => {
   const time = new Date();
