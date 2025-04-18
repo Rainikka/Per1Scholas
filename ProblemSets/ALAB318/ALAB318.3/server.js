@@ -22,7 +22,7 @@
  * In package.json file, 
  * replace this key/value pair:
     * "scripts":  
-       -"test": "echo\"Error: no test specified\" && exit 1" 
+       -"test": "echo\"Error: no test specified\" && exit 1"
   
   * with this key/value pair ******
     * "scripts": {
