@@ -95,14 +95,13 @@ app.get('/', (req, res) => {
 
 /*** Set-Up: Array of Dummy To-Do Task List ***/
 let tasks = [
-  { id: 0, task: 'Test Delete Case' },
-  { id: 1, task: 'Learn Mongo.db' },
+  { id: 1, task: 'Learn Node.js' },
   { id: 2, task: 'Learn Express.js' },
-  { id: 3, task: 'Learn React.js' },
-  { id: 4, task: 'Learn Node.js' },
-  { id: 5, task: 'Build REST API' },
+  { id: 3, task: 'Build API Restfully' },
+  { id: 4, task: 'Learn Mongo.db' },
+  { id: 5, task: 'Learn React.js' },
   { id: 6, task: 'Build CRUD Capstone' },
-  { id: 7, task: 'Get Good Sleep Again' }
+  { id: 7, task: 'Get Better Sleep' }
 ];
 
 /***** API Endpoints for Each Request Type ******/
