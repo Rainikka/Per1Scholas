@@ -29,5 +29,8 @@
         - "start": "node server.js",
         - "devStart": "nodemon server.js"
    * },
-   
-**** nodemon devStart ~~ when ready to run server: automatically restarts server anytime there are changes to code. ******
+
+/****** STARTING UP THE SERVER ENGINE *******    
+ * node start ~~- One server run 
+ * nodemon devStart ~~ automatically restarts server when changes made to code 
+/*******************************************************/
