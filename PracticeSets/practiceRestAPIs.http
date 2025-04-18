@@ -17,7 +17,6 @@ HEAD http://newsroom.spotify.com/wp-json/wp/v2/posts
 OPTIONS https://newsroom.spotify.com/wp-json/wp/v2/posts
 # Authorization: Basic Rainikka Password: *******
 
-
 ###################### GET ###################### 
 # GET: Each post is structured as a nested JSON Object
 # Each post object (object) has its own resource link that can be used to link to the singleton  post from the collection
