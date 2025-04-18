@@ -16,8 +16,9 @@ const app = express();
 const PORT = 3000;
 
 /*** Set-Up Views: Template Engine ***/
-app.set('views', 'views')
-app.set('views', 'pug')
+app.set('view engine', 'pug')
+app.set('views', './views')
+
 
 
 /*** Set-Up: API Endpoint Routes ***/
