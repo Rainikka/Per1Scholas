@@ -78,6 +78,7 @@ input {
   display: flex;
   justify-content: space-betweend;
   align-items: end;
+  text-align: center;
   border: 1px solid seagreen;
 }
 
