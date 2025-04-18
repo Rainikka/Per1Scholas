@@ -19,18 +19,3 @@
   },
   "homepage": "https://github.com/Rainikka/Per1Scholas#readme"
 }
-
-  "setupTasks": [
-    {
-      "name": "Install Dependencies",
-      "command": "yarn install",
-      "restartOn": {
-        "files": [
-          "yarn.lock",
-          "**/package.json"
-        ],
-        "branch": true,
-        "resume": false
-      }
-    }
-  ],
