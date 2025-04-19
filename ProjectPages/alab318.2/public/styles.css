@@ -18,7 +18,7 @@ h1 {
 
 a {
   margin: 0 15px;
-  color: #3498db;
+  color: steelblue;
   text-decoration: none;
 }
 
@@ -39,7 +39,7 @@ li {
 form {
   padding: 20px;
   border-radius: 5px;
-  background: #f9f9f9;
+  background: #f0f0f9;
 }
 
 label {
@@ -59,12 +59,12 @@ textarea {
 button {
   padding: 10px 15px;
   border: none;
-  background: #3498db;
+  background: navy;
   border-radius: 4px;
   color: white;
   cursor: pointer;
 }
 
 button:hover {
-  background: #2980b9;
+  background: steelblue
 }
