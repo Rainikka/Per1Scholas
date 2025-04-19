@@ -61,6 +61,7 @@ app.set('views', 'views')
 
 /*** Set-Up: Middleware ***/
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public')); 
 
 /*** Set-Up: Array of Article ***/
 let articles = [
