@@ -1,0 +1,85 @@
+* {
+  box-sizing: border-box;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 20px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+#app {
+  width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 5px;
+  background: #fff;
+}
+
+#selectSect {
+  margin: 0;
+  padding: 0;
+}
+
+#cardSelector {
+  margin: 10px auto;
+  width: 400px;
+  padding: 8px;
+  border: 1px solid steelblue;
+  border-radius: 4px;
+  background: #eee;
+  text-align: center;
+  font-size: 16px;
+}
+
+#main {
+  margin: 20px auto;
+  width: 100%;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+#imageBox {
+  margin: 0 auto;
+  width: 100%;
+  width: 400px;
+  display: none;
+}
+
+#clientPic {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1.5px solid #ddd;
+}
+
+#cardTable {
+  margin: 20px auto;
+  width: 100%;
+  width: 400px;
+  border-collapse: collapse;
+  display: none;
+  font-size: 14px;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid steelblue;
+}
+
+th {
+  background-color: lightsteelblue;
+  font-weight: bold;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px auto;
+  width: 100%;
+}

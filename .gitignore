@@ -1,3 +1,15 @@
-.DS_Store
-node_modules/
+# macOS
+._*
 *.log
+.DS_Store
+*.DS_Store
+$().DS_Store
+.Spotlight-V100
+.Trashes
+
+# Node.js
+node_modules/
+node_modules
+*node_modules
+.env
+*.env

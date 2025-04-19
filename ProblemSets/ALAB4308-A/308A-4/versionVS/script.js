@@ -21,6 +21,8 @@
  * DELETE data from an external API.
  * 
  /******************************************/
+// Step 0: Store your API key here for reference and easy access.
+const API_KEY = "live_9Yc7HBBvJHIIs1QOg4wnQPUHeiENtsyop8i6yCKT41NaEmfbm7nJx2v8JuCDxDsZ";
 
 /************* Body Selector **************/
 const body = document.querySelector("body");
@@ -36,16 +38,16 @@ const body = document.querySelector("body");
 /******************************************/
 /******************************************/
 
-/******** Knowledge Inspiration:YouTube:: LearnWebCode ********/
-/************* Elements Created ****************/
+/******** Knowledge Inspiration:YouTube::LearnWebCode *********/
+/********************* Elements Created **********************/
 
-/*** Fetch Data List of Dog Breeds */
-async function start() {
+/*** Fetch Data List of Dog Breeds ***/
+async function grabData() {
   const response = await fetch("https://dog.ceo/api/breeds/list/all")
   const data = await response.json()
   buildBreedList(data.message)
 }
-start();
+grabData();
 
 /**** Create Dropdown Select Tool ****/
 function buildBreedList(breedList) {
@@ -76,11 +78,11 @@ async function breedProfile(breed) {
   if (breed != "Choose Dog Breed") {
     const { data } = await axios.get(`https://dog.ceo/api/breed/${breed}/images`);
     // return data.message
-    return createSlideShow(data.message)
+    return showDogImage(data.message)
   }
 }
 
-function createSlideShow(images) {
-  document.getElementById('slideshow').innerHTML = `
-  <div class="slide" style="background-image: url(${images[0]})">`;
+function showDogImage(images) {
+  document.getElementById('imageBox').innerHTML = `
+  <div class="imageDiv" style="background-image: url(${images[0]})">`;
 }

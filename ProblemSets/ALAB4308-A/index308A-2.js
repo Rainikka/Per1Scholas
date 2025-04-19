@@ -63,7 +63,7 @@ solarSystem[2].diameter = "7926.2 mi";
 console.log(`Earth's diameter: ${solarSystem[2].diameter}`);
 
 // 6. Change Mercury's ringSystem boolean to true.
-solarSystem[0].ringSystem = "true";
+solarSystem[0].ringSystem = true;
 console.log(`Mercury's ring system: ${solarSystem[0].ringSystem}`);
 
 // 7. Change Uranus' moon "Umbriel" to "Oberon"
@@ -72,7 +72,7 @@ console.log(`The moons of Uranus: ${solarSystem[6].moons}`);
 
 // 8. Iterate through the solarSystem array and print only the objects that have a ringSystem (where ringSystem: true), and ignore the others.
 solarSystem.forEach(planet => {
-  if (planet.ringSystem = "true") {
+  if (planet.ringSystem = true) {
     console.log(`${planet.name}`);
   }
 });
