@@ -2,7 +2,15 @@ doctype html
 html
   head
     title= title
+    link(rel='stylesheet', href='/styles.css')
   body
+    header
+      a(href="/") Home
+      a(href="/add") Add Article
+      a(href="/about") About
+      a(href="/download-sample") Download Sample
+    br
+    br
     h1= title
     p This is the about page.
     a(href="/") Back to Home
