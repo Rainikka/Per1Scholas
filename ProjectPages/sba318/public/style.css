@@ -94,8 +94,13 @@ li {
     0 6px 20px 0 rgba(0, 0, 0, 0.10);
 }
 
-li form {
-  margin: 0;
+input {
+  margin: 5px 0;
+  width: 100%;
+  padding: 8px;
+
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
 button {
