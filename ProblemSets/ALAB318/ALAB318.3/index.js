@@ -13,11 +13,11 @@
 
 /*** Set-Up: Express Server ***/
 const express = require("express");
-const bodyParser = require("body-parser");
 const app = express();
 const port = 3000;
 
 /*** Set-Up: Middleware Initialization ***/
+const bodyParser = require("body-parser");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -134,6 +134,7 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500);
   res.json({ error: err.message });
 });
+
 
 /********************* START OF ASSIGNMENT **********************/
 /** Create the following routes using good organizational coding **/
