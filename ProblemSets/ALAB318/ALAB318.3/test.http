@@ -1,3 +1,4 @@
-GET http://localhost:3000/api/users/:id/posts
+
+GET http://localhost:3000/api/posts?api-key=perscholas
 
 
