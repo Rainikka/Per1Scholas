@@ -10,18 +10,13 @@
 /********* EXPANSION **********/
 /******** 18-APR-2025 *********/
 
-
 /*** Set-Up: Express Server ***/
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const port = 3000;
 
-/*** Set-Up: Middleware Initialization ***/
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-
-/*** Set-Up: JSON Body-Parsers */
+/*** Set-Up: Express Middleware  ***/
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -46,13 +41,11 @@ ${time.toLocaleTimeString()}: Received a ${req.method} request to ${req.url}.`
     console.log("Containing the data:");
     console.log(`${JSON.stringify(req.body)}`);
   }
-
   next();
 });
 
 // Valid API Keys.
 let apiKeys = ["perscholas", "ps-example", "hJAsknw-L198sAJD-l3kasx"];
-
 // New middleware to check for API keys!
 // Note that if the key is not verified,
 // we do not call next(); this is the end.
@@ -62,10 +55,10 @@ app.use("/api", function (req, res, next) {
   var key = req.query["api-key"];
 
   // Check for the absence of a key.
-  if (!key) next(error(400, "API Key Required"));
+  if (!key) return next(error(400, "API Key Required")); // Added return
 
   // Check for key validity.
-  if (apiKeys.indexOf(key) === -1) next(error(401, "Invalid API Key"));
+  if (apiKeys.indexOf(key) === -1) return next(error(401, "Invalid API Key")); // Added return
 
   // Valid key! Store it in req.key for route access.
   req.key = key;
@@ -117,23 +110,7 @@ app.get("/api", (req, res) => {
   });
 });
 
-// 404 Middleware
-app.use((req, res, next) => {
-  next(error(404, "Resource Not Found"));
-});
 
-// Error-handling middleware.
-// Any call to next() that includes an
-// Error() will skip regular middleware and
-// only be processed by error-handling middleware.
-// This changes our error handling throughout the application,
-// but allows us to change the processing of ALL errors
-// at once in a single location, which is important for
-// scalability and maintainability.
-app.use((err, req, res, next) => {
-  res.status(err.status || 500);
-  res.json({ error: err.message });
-});
 
 /********************* START OF ASSIGNMENT **********************/
 /** Create the following routes using good organizational coding **/
@@ -148,7 +125,6 @@ app.get("api/:userid/posts", (req, res, next) => {
 
 /***  GET / api / posts ? userId = <VALUE> ***/
 // Retrieves all posts by a user with the specified postId.
-
 
 //   GET /comments
 //   Note that we do not have any comments data yet; that is okay! Make sure that you create a
@@ -176,6 +152,23 @@ app.get("api/:userid/posts", (req, res, next) => {
 //         userId.
 //         GET /users/:id/comments?postId=<VALUE>
 //           Retrieves comments made by the user with the specified id on the post with the specified postId.
+
+// 404 Middleware
+app.use((req, res, next) => {
+  next(error(404, "Resource Not Found"));
+});
+// Error-handling middleware.
+// Any call to next() that includes an
+// Error() will skip regular middleware and
+// only be processed by error-handling middleware.
+// This changes our error handling throughout the application,
+// but allows us to change the processing of ALL errors
+// at once in a single location, which is important for
+// scalability and maintainability.
+app.use((err, req, res, next) => {
+  res.status(err.status || 500);
+  res.json({ error: err.message });
+});
 
 app.listen(port, () => {
   console.log(`Server listening on port: ${port}.`);
