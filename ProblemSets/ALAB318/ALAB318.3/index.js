@@ -13,18 +13,21 @@
 
 /*** Set-Up: Express Server ***/
 const express = require("express");
+const bodyParser = require("body-parser");
 const app = express();
 const port = 3000;
 
 /*** Set-Up: Middleware Initialization ***/
-const bodyParser = require("body-parser");
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+/*** Set-Up: JSON Body-Parsers */
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 
 /*** Importing Routes ***/
-const route = express.Router();
 const users = require("./routes/users");
 const posts = require("./routes/posts");
 const error = require("./utilities/error");
@@ -114,18 +117,23 @@ app.get("/api", (req, res) => {
   });
 });
 
+// 404 Middleware
+app.use((req, res, next) => {
+  next(error(404, "Resource Not Found"));
+});
 
-app
-  .route("/api/users")
-  .get((req, res) => {
-    res.json(users);
-  });
-app
-  .route("/api/users")
-  .get((req, res) => {
-    res.json(users);
-  });
-
+// Error-handling middleware.
+// Any call to next() that includes an
+// Error() will skip regular middleware and
+// only be processed by error-handling middleware.
+// This changes our error handling throughout the application,
+// but allows us to change the processing of ALL errors
+// at once in a single location, which is important for
+// scalability and maintainability.
+app.use((err, req, res, next) => {
+  res.status(err.status || 500);
+  res.json({ error: err.message });
+});
 
 /********************* START OF ASSIGNMENT **********************/
 /** Create the following routes using good organizational coding **/
@@ -134,8 +142,7 @@ app
 // Retrieves all posts by a user with the specified id.
 // GET /api/users/:id/posts - Get all posts by a specific user
 // GET /api/users/:id/posts - Get all posts by a specific user
-
-router.get("/:id/posts", (req, res, next) => {
+app.get("api/:userid/posts", (req, res, next) => {
   const userId = parseInt(req.params.id);
 });
 
@@ -169,26 +176,6 @@ router.get("/:id/posts", (req, res, next) => {
 //         userId.
 //         GET /users/:id/comments?postId=<VALUE>
 //           Retrieves comments made by the user with the specified id on the post with the specified postId.
-
-
-// 404 Middleware
-app.use((req, res, next) => {
-  next(error(404, "Resource Not Found"));
-});
-
-// Error-handling middleware.
-// Any call to next() that includes an
-// Error() will skip regular middleware and
-// only be processed by error-handling middleware.
-// This changes our error handling throughout the application,
-// but allows us to change the processing of ALL errors
-// at once in a single location, which is important for
-// scalability and maintainability.
-app.use((err, req, res, next) => {
-  res.status(err.status || 500);
-  res.json({ error: err.message });
-});
-
 
 app.listen(port, () => {
   console.log(`Server listening on port: ${port}.`);
