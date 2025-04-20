@@ -35,9 +35,7 @@ app.use((req, res, next) => {
     `-----
 ${time.toLocaleTimeString()}: Received a ${req.method} request to ${req.url}.`
   );
-
-  // Safely check for request body
-  if (req.body && typeof req.body === 'object' && Object.keys(req.body).length > 0) {
+  if (Object.keys(req.body).length > 0) {
     console.log("Containing the data:");
     console.log(`${JSON.stringify(req.body)}`);
   }
@@ -58,7 +56,7 @@ app.use("/api", function (req, res, next) {
   if (!key) return next(error(400, "API Key Required")); // Added return
 
   // Check for key validity.
-  if (apiKeys.indexOf(key) === -1) return next(error(401, "Invalid API Key")); // Added return
+  if (apiKeys.indexOf(key) === -1) return next(error(401, "Invalid API Key"));
 
   // Valid key! Store it in req.key for route access.
   req.key = key;
@@ -111,7 +109,6 @@ app.get("/api", (req, res) => {
 });
 
 
-
 /********************* START OF ASSIGNMENT **********************/
 /** Create the following routes using good organizational coding **/
 
@@ -119,21 +116,12 @@ app.get("/api", (req, res) => {
 // Retrieves all posts by a user with the specified id.
 app.get("/api/users/:id/posts", (req, res, next) => {
   const userId = parseInt(req.params.id);
-  res.json({ message: `Posts for user ${userId} would go here` });
-});
-
-/*** GET / api / posts ? userId = <VALUE> ***/
-// Retrieves all posts by a user with the specified postId.
-app.get("/api/posts", (req, res) => {  // Added basic implementation
-  if (req.query.userId) {
-    return res.json({ message: `Posts for user ${req.query.userId} would go here` });
-  }
-  res.json({ message: "All posts would go here" });
+  res.json({ message: `All posts for user ${userId}` });
 });
 
 /*** GET / api / comments ***/
 // Place to store comments, but you do not need to populate that data.
-app.get("/api/comments", (req, res) => {  // Added basic implementation
+app.get("/api/comments", (req, res) => {
   res.json({ message: "Comments would go here" });
 });
 
@@ -143,40 +131,41 @@ app.get("/api/comments", (req, res) => {  // Added basic implementation
 //   postId: the id of the post the comment was made on.
 //   body: the text of the comment.
 app.post("/api/comments", (req, res) => {
-  res.json({ message: "Comment would be created here" });
+  const newComment = {
+    id: comments.length + 1,
+    userId: req.body.userId,
+    postId: req.body.postId,
+    body: req.body.body,
+    createdAt: new Date()
+  };
+  comments.push(newComment);
+  res.json({ message: ` ${newComment}` });
 });
 
 /*** GET / api / comments / :id ***/
 // Retrieves the comment with the specified id.
 app.get("/api/comments/:id", (req, res) => {
-  res.json({ message: `Comment ${req.params.id} would go here` });
+  res.json({ message: `Comment ${req.params.id}` });
 });
 
 /*** PATCH / api / comments / :id ***/
 // Used to update a comment with the specified id with a new body.
-app.patch("/api/comments/:id", (req, res) => {  /
-  res.json({ message: `Comment ${req.params.id} would be updated here` });
+app.patch("/api/comments/:id", (req, res) => {
+  res.json({ message: `Comment ${req.params.id}e` });
 });
 
 /*** DELETE / api / comments / :id ***/
 // Used to delete a comment with the specified id.
-app.delete("/api/comments/:id", (req, res) => {  // Added basic implementation
-  res.json({ message: `Comment ${req.params.id} would be deleted here` });
+app.delete("/api/comments/:id", (req, res) => {
+  res.json({ message: `Comment ${req.params.id}e` });
 });
-
-/***  GET / api / comments?userId=<VALUE>
-// Retrieves comments by the user with the specified userId.
-
-/***  GET / api / comments?postId=<VALUE>
-// Retrieves comments made on the post with the specified postId.
-
 
 // 404 Middleware
 app.use((req, res, next) => {
   next(error(404, "Resource Not Found"));
 });
 
-// Error-handling middleware.
+// Error - handling middleware.
 // Any call to next() that includes an
 // Error() will skip regular middleware and
 // only be processed by error-handling middleware.
