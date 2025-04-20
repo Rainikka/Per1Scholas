@@ -4,8 +4,8 @@
   "description": "Node.js template",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "devStart": "nodempm server.js"
+    "start": "node index2.js",
+    "devStart": "nodempm index2.js"
   },
   "repository": {
     "type": "git",

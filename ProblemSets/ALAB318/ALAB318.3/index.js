@@ -114,23 +114,17 @@ app.get("/api", (req, res) => {
   });
 });
 
-// 404 Middleware
-app.use((req, res, next) => {
-  next(error(404, "Resource Not Found"));
-});
 
-// Error-handling middleware.
-// Any call to next() that includes an
-// Error() will skip regular middleware and
-// only be processed by error-handling middleware.
-// This changes our error handling throughout the application,
-// but allows us to change the processing of ALL errors
-// at once in a single location, which is important for
-// scalability and maintainability.
-app.use((err, req, res, next) => {
-  res.status(err.status || 500);
-  res.json({ error: err.message });
-});
+app
+  .route("/api/users")
+  .get((req, res) => {
+    res.json(users);
+  });
+app
+  .route("/api/users")
+  .get((req, res) => {
+    res.json(users);
+  });
 
 
 /********************* START OF ASSIGNMENT **********************/
@@ -175,6 +169,26 @@ router.get("/:id/posts", (req, res, next) => {
 //         userId.
 //         GET /users/:id/comments?postId=<VALUE>
 //           Retrieves comments made by the user with the specified id on the post with the specified postId.
+
+
+// 404 Middleware
+app.use((req, res, next) => {
+  next(error(404, "Resource Not Found"));
+});
+
+// Error-handling middleware.
+// Any call to next() that includes an
+// Error() will skip regular middleware and
+// only be processed by error-handling middleware.
+// This changes our error handling throughout the application,
+// but allows us to change the processing of ALL errors
+// at once in a single location, which is important for
+// scalability and maintainability.
+app.use((err, req, res, next) => {
+  res.status(err.status || 500);
+  res.json({ error: err.message });
+});
+
 
 app.listen(port, () => {
   console.log(`Server listening on port: ${port}.`);
