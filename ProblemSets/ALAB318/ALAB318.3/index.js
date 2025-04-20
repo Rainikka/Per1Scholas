@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
 
 /*** Importing Routes ***/
-const router = express.Router();
+const route = express.Router();
 const users = require("./routes/users");
 const posts = require("./routes/posts");
 const error = require("./utilities/error");

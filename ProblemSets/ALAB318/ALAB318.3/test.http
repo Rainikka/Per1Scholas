@@ -1,1 +1,3 @@
- GET http://localhost:3000/api/users/
+HEAD https://t9dpp9-3000.csb.app/api/users/2
+
+
