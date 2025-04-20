@@ -20,14 +20,11 @@ const port = 3000;
 const bodyParser = require("body-parser");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-/*** Set-Up: JSON Body-Parsers */
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(bodyParser.json())
 
 /*** Importing Routes ***/
+const router = express.Router();
 const users = require("./routes/users");
 const posts = require("./routes/posts");
 const error = require("./utilities/error");
@@ -143,7 +140,8 @@ app.use((err, req, res, next) => {
 // Retrieves all posts by a user with the specified id.
 // GET /api/users/:id/posts - Get all posts by a specific user
 // GET /api/users/:id/posts - Get all posts by a specific user
-app.get("api/:userid/posts", (req, res, next) => {
+
+router.get("/:id/posts", (req, res, next) => {
   const userId = parseInt(req.params.id);
 });
 
