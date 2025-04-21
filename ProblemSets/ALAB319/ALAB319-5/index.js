@@ -1,10 +1,50 @@
-import express from "express";
 
+/******************************/
+/****** Rainikka Corprew ******/
+/********* JAVASCRIPT *********/
+/********** SBA 318 ***********/
+/******************************/
+
+/******************************/
+/****** EXPRESS SERVER ********/
+/******** APPLICATION *********/
+/******** 17-APR-2025 *********/
+
+
+/************ PRE-CODE SET-UP & REQUIREMENTS ************/
+/*******************************************************/
+
+/****** GIT & NODE INITIALIZATIONS *******
+ * git init  ~~ git add . ~~  git commit -m "note" ~~ git push
+ * npm init -y
+ * npm i express mongodb mongoose dotenv  urlencode cors body-parser method-override ejs 
+ * npm i --save-dev nodemon
+ 
+ * In package.json file, 
+ * replace this key/value pair:
+    * "scripts":  
+       -"test": "echo\"Error: no test specified\" && exit 1"
+  
+  * with this key/value pair ******
+    * "scripts": {
+        - "start": "node server.js",
+        - "devStart": "nodemon server.js"
+   * },
+
+/****** STARTING UP THE SERVER ENGINE *******   
+ *  
+ * node start ~~- One server run 
+ * nodemon devStart ~~ automatically restarts server with everye change in code 
+ * 
+/*******************************************************/
+
+/******** Set-Up: Express Server ********/
+const express = require("express");
 const PORT = 5050;
 const app = express();
 
-import grades from "./routes/grades.mjs";
-import grades_agg from "./routes/grades_agg.mjs";
+const grades = require("./routes/grades.js");
+const grade_agg = require("./routes/grades_agg.mjs");
 
 app.use(express.json());
 
