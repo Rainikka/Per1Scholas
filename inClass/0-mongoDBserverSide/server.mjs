@@ -2,10 +2,14 @@ import express from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 dotenv.config()
-import Fruit from './fruits/models/fruit.mjs'
+import Fruit from './models/fruit.mjs'
 
 const app = express()
 const port = process.env.PORT || 3000
+
+// Middleware 
+app.use(express.urlencoded)
+app.use(express.json)
 
 // Mongoose Connection
 mongoose.connect(process.env.ATLAS_URI)
@@ -47,8 +51,9 @@ app.get('/fruits/seed', async (req, res) => {
   }
 })
 
+// INDUCES
 
-// GET all fruits 
+// GET all fruits- Index
 app.get('/fruits', async (req, res) => {
   try {
     const fruits = await Fruit.find()
@@ -59,7 +64,38 @@ app.get('/fruits', async (req, res) => {
   // res.send(fruits)
 })
 
-// POST Create a new fruit
+// New - to be handled by our front end 
+
+// Delete - Delete one fruit by Id
+app.delete('/fruits/:id', async (req, res) => {
+  try {
+    await Fruit.findByIdAndRemove(req.params.id)
+    res.redirect('/fruits')//redirect back to fruits index
+  } catch (error) {
+    console.error(error);
+  }
+})
+
+// Update - Update an existing fruit by id
+app.put("/fruits/:id", async (req, res) => {
+  try {
+    if (req.body.readyToEat === "on") {
+      //if checked, req.body.readyToEat is set to 'on'
+      req.body.readyToEat = true; //do some data correction
+    } else {
+      //if not checked, req.body.readyToEat is undefined
+      req.body.readyToEat = false; //do some data correction
+    }
+    // fruits.push(req.body);
+    await Fruit.findByIdAndUpdate(req.params.id, req.body);
+
+    res.redirect("/fruits");
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+// Create - POST Create a new fruit 
 app.post('/fruits/', (req, res) => {
   if (req.body.readyToEat == "on") {
     req.body.readyToEat = true
@@ -71,7 +107,10 @@ app.post('/fruits/', (req, res) => {
   })
 })
 
-//GET one fruit by its ID
+// Edit - to be handled by Frunt end
+
+
+//Show - GET one fruit by its ID
 app.get('/fruits/:id', async (req, res) => {
   try {
     const fruit = await Fruit.findById(req.params.id)
