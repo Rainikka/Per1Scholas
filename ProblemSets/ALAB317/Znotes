@@ -117,11 +117,18 @@ console.log(myBuick.mdl);
 /*** gebrate tsconfig.json file
 // npx tsc --init
 
-/*** creatte source (src) folder for index.ts file
+/*** In root directory, creatte source (src) folder for input file: index.ts
 // src/index.ts
 
-/*** changr start script in pckg.json to watch for changes in source code
+/*** In pckg.json, add start script to watch for changes in source code
 // npm start: automatically compiles
 // "scripts": {
-          "start": "tsc --watch"
+          "start": "tsc --watch",
 },
+/*** In tsconfig.json, change the placement of th output file: index.js 
+// Comment out: Outdir and add index.js file location:
+// "outDir": "./dest", 
+
+/*** In tsconfig.json, change module from commonJS to es6
+// Comment out: Module and change to es6
+// "module": "es6", 
