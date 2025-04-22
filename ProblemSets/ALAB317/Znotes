@@ -104,3 +104,15 @@ const myBuick = new Car("Buick", "Regal");
 myBuick.wheels = myBuick.wheels - 1;
 console.log(myBuick.wheels);
 console.log(myBuick.mdl);
+
+
+***********************
+
+/** initialize node
+npm init -y
+
+/*** run in dev dependencies"
+npm i --save-dev typescript nodemon
+
+/*** gebrate tsconfig.json file
+npx tsc --init
