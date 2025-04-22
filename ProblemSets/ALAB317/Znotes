@@ -109,10 +109,19 @@ console.log(myBuick.mdl);
 ***********************
 
 /** initialize node
-npm init -y
+// npm init -y
 
 /*** run in dev dependencies"
-npm i --save-dev typescript nodemon
+// npm i --save-dev typescript nodemon
 
 /*** gebrate tsconfig.json file
-npx tsc --init
+// npx tsc --init
+
+/*** creatte source (src) folder for index.ts file
+// src/index.ts
+
+/*** changr start script in pckg.json to watch for changes in source code
+// npm start: automatically compiles
+// "scripts": {
+          "start": "tsc --watch"
+},
