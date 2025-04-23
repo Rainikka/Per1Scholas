@@ -15,10 +15,12 @@
 /*******************************************************/
 
 /****** GIT & NODE INITIALIZATIONS *******
- * git init  ~~ git add . ~~  git commit -m "note" ~~ git push
+ * 
  * npm init -y
- * npm i express mongodb mongoose dotenv  urlencode cors body-parser method-override ejs 
+ * npm i express mongodb mongoose dotenv urlencode cors method-override
  * npm i --save-dev nodemon
+ * 
+ * git init  ~~ git add . ~~  git commit -m "note" ~~ git push
  
  * In package.json file, 
  * replace this key/value pair:
