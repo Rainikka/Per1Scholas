@@ -2,7 +2,7 @@ import express from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 dotenv.config()
-import Fruit from './models/fruit.mjs'
+import Fruit from './models/Fruit.mjs'
 import Fruits from './routes/fruits.mjs'
 
 const app = express()

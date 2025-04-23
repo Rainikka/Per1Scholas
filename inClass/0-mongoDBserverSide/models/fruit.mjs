@@ -1,4 +1,4 @@
-import  mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
 const fruitSchema = new mongoose.Schema({
   name: { type: String, required: true },
@@ -8,4 +8,5 @@ const fruitSchema = new mongoose.Schema({
 
 const Fruit = mongoose.model('Fruit', fruitSchema);
 
-module.exports = Fruit;
+export default Fruit;
+
