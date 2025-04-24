@@ -34,6 +34,7 @@ mongoose.connection.once('open', () => {
 })
 
 
+console.log(process.env.MONGO_URI);
 app.listen(3000, () => {
   console.log(`Server is listeing on ${PORT}`)
 })
