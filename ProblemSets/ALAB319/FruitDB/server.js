@@ -7,24 +7,21 @@
 /*******************************/
 /******* Express Server ********/
 /******** Application **********/
-/******** 24-APR-2025 **********/
+/******** 23-APR-2025 **********/
 
 
-/*********** ENVIRONMENT SET-UP  ***********/
-/*******************************************/
+/*********** ENVIRONMENT SET-UP ***********/
+/******************************************/
 
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 dotenv.config();
 const app = express();
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
-app.set('view engine'. 'jsx');
-app.engin('jsx', require('jsx-view-engine').createEngine());
-
-const Fruit require('./models/fruit.mjs');
-const Fruit require('./routes/fruits.mjs');
+const Fruit = require('./models/fruit.js');
+const Fruits = require('./routes/fruits.js');
 
 // Middleware 
 app.use(express.urlencoded())
@@ -36,6 +33,7 @@ mongoose.connection.once('open', () => {
   console.log('connected to mongoDB')
 })
 
+
 app.listen(3000, () => {
-  console.log(`Server is listeing on ${Port}`)
+  console.log(`Server is listeing on ${PORT}`)
 })
