@@ -4,9 +4,9 @@
 /******************************/
 
 /******************************/
-/****** EXPRESS SERVER ********/
-/******** APPLICATION *********/
-/******** 17-APR-2025 *********/
+/****** WORKING WITH  ********/
+/******** MONGOOSE *********/
+/******** 25-APR-2025 *********/
 
 /*********** ENVIRONMENT SET-UP ***********/
 /******************************************/
@@ -36,9 +36,54 @@ const Veggies = require('./routes/Veggies.js');
 // mongoose.connect(process.env.ATLAS_URI)
 // mongoose.connection.once('open', () => {
 //   console.log('connected to mongoDB')
-// })
+// });
+
+/*** Mock Data for Testing ***/
+// const Veggies = ["broccoli", "cabbage", "kale"]
+
+/*** Establish Endpoint Routes ***/
+
+/************** INDUCES **************/
+
+/*** Index: Get ***/
+app.get('/', (req, res) => {
+  res.send(`Welcome to the Veggie API!
+    Go ahead and introduce yourself to a veggie today`)
+})
+
+// seed route
+app.get('/veggies/seed', async (req, res) => {
+  try {
+    await Veggie.create([
+      {
+        name: 'grapefruit',
+        color: 'pink',
+        readyToEat: true
+      },
+      {
+        name: 'grape',
+        color: 'purple',
+        readyToEat: false
+      },
+      {
+        name: 'avocado',
+        color: 'green',
+        readyToEat: true
+      }
+    ])
+    res.redirect('/fruits')
+  } catch (error) {
+    console.error(error)
+  }
+})
+// From our Fruit Routes
+app.use('/fruits', Fruits)
 
 
+// Global error handling
+app.use((err, _req, res, next) => {
+  res.status(500).send("Seems like we messed up somewhere...");
+});
 
 
 app.listen(PORT, () => {
