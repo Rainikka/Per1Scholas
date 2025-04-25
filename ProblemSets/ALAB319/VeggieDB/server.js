@@ -44,30 +44,29 @@ const Veggies = require('./routes/Veggies.js');
 /*** Establish Endpoint Routes ***/
 
 /************** INDUCES **************/
-
 /*** Index: Get ***/
 app.get('/', (req, res) => {
   res.send(`Welcome to the Veggie API!
     Go ahead and introduce yourself to a veggie today`)
 })
 
-// seed route
+/***  Seed Data ***/
 app.get('/veggies/seed', async (req, res) => {
   try {
     await Veggie.create([
       {
-        name: 'grapefruit',
-        color: 'pink',
+        name: 'corn',
+        color: 'yellow',
         readyToEat: true
       },
       {
-        name: 'grape',
-        color: 'purple',
+        name: 'eggplant',
+        color: 'spotted',
         readyToEat: false
       },
       {
-        name: 'avocado',
-        color: 'green',
+        name: 'carrots',
+        color: 'orange',
         readyToEat: true
       }
     ])
