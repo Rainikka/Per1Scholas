@@ -1,0 +1,32 @@
+{
+  "name": "alab318.3",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "devStart": "nodempm index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rainikka/Per1Scholas.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rainikka/Per1Scholas/issues"
+  },
+  "homepage": "https://github.com/Rainikka/Per1Scholas#readme",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "method-override": "^3.0.0",
+    "urlencode": "^2.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}

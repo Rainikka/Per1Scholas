@@ -1,0 +1,223 @@
+/** -- Root & Body -- **/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: Roboto, Helvetica, Arial, Sans-serif;
+}
+:root {
+  box-sizing: border-box;
+  font-family: Roboto, Helvetica, Arial, Sans-serif;
+  --header-font: font-family: Raleway, Helvetica, Arial, Sans-serif; 
+}
+#projectWrapper {
+  margin: 2px;
+  padding: 8px;
+  min-width: 100%;
+  min-height: 100%;
+} 
+/** -- Open Sesame -- **/
+/**#overlay {
+  margin: 0 auto;
+  width: 100vw;
+  height: 100vh; 
+  padding: 8px;**/
+ background-image: url('./images/overlay.png');
+  /*background: rgba(28, 28, 132, 0.8);*/
+  place-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  cursor: pointer;
+  animation: slide-out 4s both;}
+  @keyframes slide-out {
+    from {transform: translateX(0);}
+    to {transform: translateX(100%);}
+} 
+  #overlayPic{
+  width: 100%;
+  height: 100%;
+  object-fit: cover; */
+  background-image: url("./images/background3.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  /* border: 4px dotted yellow; */
+  place-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  cursor: pointer;
+  animation: slide-out 4s both;}
+  @keyframes slide-out {
+    from {transform: translateX(0);}
+    to {transform: translateX(100%);}
+ }
+ /** -- Background -- **/
+#backgroundImage {
+  margin: 0 auto;
+  width: 100%;
+  height: 675px;
+  background-image: url("./images/background3.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  /* border: 3px solid white; */
+  place-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+#page1Wrapper {
+  margin: 0 auto;
+  width: auto;
+  height: 650px;
+  /* border: 4px solid fuchsia; */
+  position: relative;
+  z-index: -1;
+  text-align: center;
+} 
+a{
+  margin-bottom: 10px;
+  font-size: 12px;
+  font-family: var(--header-font);
+  color: lightgoldenrodyellow;
+}
+/** -- Grid Areas -- **/
+#grid-wrap {
+  margin: 0 auto;
+  width: auto;
+  height: 650px;
+  padding: 5px;
+  /* border: 3px solid navy; */
+  z-index: 10;
+}
+.grid-bin {
+  margin: 0 auto;
+  width: auto;
+  height: 625px;
+  display: grid;
+  grid-template-areas:
+    "photo"
+    "name"
+    "items"
+    "labels";
+  grid-template-rows: 40% 30% 20% 5%;
+  grid-template-columns: auto;
+  /* border: 2px solid limegreen; */
+}
+.grid-container > div {
+  text-align: center;
+
+}
+.area1 {grid-area: photo;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.area2 {grid-area: name;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+.area3 {grid-area: items;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+.area4 {grid-area: labels;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: start;
+  align-items: space-around;
+  text-align: center;
+}
+/** Photo Box **/
+#photoFrame {
+  width: 125px;
+  height: 140px;
+  border-radius: 50%;
+  border: 2.5px solid white;
+  display:flex;
+  flex-flow: column wrap;
+  z-index: -1;
+}
+#mePic {
+  width: 125px;
+  height: 140px;
+  border-radius: 50%;
+  z-index: 5;
+}
+/** Name Plate **/
+#namePlate {
+  margin: 0 auto;
+  padding-top: 12px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  line-height: 36px;
+  text-align: center;
+  font-family: Audrey, Arial, Helvetica, sans-serif;
+  color: whiteSmoke;
+}
+button {
+  margin: 0;
+  width: 75px;
+  height: 75px;
+  background: navy;
+  color: white;
+  /* border: 2px dotted fuchsia; */
+  cursor: pointer;
+    animation: ease-in 4s both;
+  @keyframes ease-in {
+    from {transform: translateY(0);}
+    to {transform: translateY(100%);}
+}
+}
+
+ button:hover {
+  background: white;
+  color: black;
+  border-color: black;
+  cursor: pointer;
+  animation: slide-out 4s both;
+  @keyframes slide-out {
+    from {transform: translateX(0);}
+    to {transform: translateX(100%);}
+} */
+
+ .btnPic{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+ }
+
+.labelBox {
+  margin: 0 auto;
+  width: 80px;
+  height: 40px;
+  /* border: 2px dotted fuchsia; */
+  line-height: 18px;
+  font-size:14px;
+  text-align: center;
+  color: whitesmoke;
+} 
+
+
+ 

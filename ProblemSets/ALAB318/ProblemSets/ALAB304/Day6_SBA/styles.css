@@ -1,0 +1,11 @@
+.image_wrapper {
+  width: auto;
+  height: auto;
+  position: relative;
+}
+
+.overlay {
+  position: absolute; 
+  left: 0;
+  top: 0;
+}

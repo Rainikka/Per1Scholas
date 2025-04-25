@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    title Simple To-Do List
+    link(rel="stylesheet" href="/style.css")
+  body
+    fieldset#fieldset
+      h1 TO-DO 
+        span →
+        |  TA-DA!
+      legend#legend Daily & Consistent
+      
+      form(action="/tasks" method="POST")
+        input(type="text" name="task" placeholder="Add a to-do task" required)
+        button(type="submit") Add Task
+      
+   
+      ul#task-list
+        each task in tasks
+          li
+            span= task.task
+            form(action=`/tasks/${task.id}?_method=PUT` method="POST")
+              input(type="text" name="task" placeholder="Update task")
+              button(type="submit") Update
+            form(action=`/tasks/${task.id}?_method=DELETE` method="POST")
+              button(type="submit") Delete

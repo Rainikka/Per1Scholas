@@ -1,0 +1,25 @@
+<!--Knowledge Inspiration: Pug Templare Engine :: FreeCode Camp 
+***** To Set-Up Pug Template Engine *****
+1. Create Root Folder
+2. Create html folder
+3. In the root directory, create 'index.pug' file
+4. At top of index.pug file, type 'doctype html'
+5. In vs code terminal, within the root directory, type 'pug -w ./ -o ./html -P'
+6, Begin coding in index.pug
+--> 
+
+Code Example:
+html
+  head
+  body 
+  header#header 
+    h1#pageTitle  Hello World
+    p. 
+      This is the world
+      as we know it.
+    ul 
+      li.bullets Item 1
+      li.bullets item 2
+      li.bullets item 3
+    
+    input(type="password" name="inpPwd" data-js=`${1>= 2 ? "OK" : "Not Ok"}`)
