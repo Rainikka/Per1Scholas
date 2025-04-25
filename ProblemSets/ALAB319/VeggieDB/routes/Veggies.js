@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Fruit = require('../models/fruit');
+const Fruit = require('../models/Veggie');
 
 // Index Route
 router.get('/', async (req, res) => {
