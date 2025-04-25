@@ -1,2 +1,3 @@
 /*** Secure Connection String  ***/
-const 
+const dotenv = reuiqre("dotenv");
+dotenv.config();
