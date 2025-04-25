@@ -6,21 +6,24 @@
 const dotenv = require("dotenv");
 dotenv.config();
 
-/*** Set-Up: Express Server ***/
+/*** Require: Express Server ***/
 const express = require("express");
 const app = express();
 const PORT = 3000;
 
-/*** Set-Up: Middleware ***/
+/*** Require: Middleware ***/
 app.use(express.urlencoded());
 app.use(express.json());
 
-/*** Set-Up: Datatases: MongoDB & Mongoose ***/
+/*** Require: MongoDB & Mongoose Datatases ***/
 const mongoDB = require("mongodb");
 const mongoose = require("mongoose");
 
-/*** Database Models & Connections ***/
-const Fruit = require('./models/Fruit.js');
+/*** Require: Database Models ***/
+const Veggie = require('./models/Veggie.js');
+const Veggies = require('./routes/Veggie.js');
+
+
 
 app.listen(PORT, () => {
   console.log(`Server is listening on Port: André${PORT}`)
