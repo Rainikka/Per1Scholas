@@ -1,8 +1,12 @@
+
+/****** for: server.mjs ***/ 
+
 import express from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 dotenv.config()
-import Fruit from './models/Fruit.mjs'
+
+import Fruit from './models/fruit.mjs'
 import Fruits from './routes/fruits.mjs'
 
 const app = express()
@@ -14,45 +18,45 @@ app.use(express.json())
 
 // Mongoose Connection
 mongoose.connect(process.env.ATLAS_URI)
-mongoose.connection.once('open', () => {
-  console.log('connected to mongoDB')
+mongoose.connection.once('open', ()=> {
+    console.log('connected to mongoDB')
 })
 
 // Mock data
 // const fruits = ["apple", "banana", "pear"]
 
 // Routes
-app.get('/', (req, res) => {
-  res.send('Welcome to the Fruits API!')
+app.get('/',(req, res)=>{
+    res.send('Welcome to the Fruits API!')
 })
 
 // seed route
-app.get('/fruits/seed', async (req, res) => {
-  try {
-    await Fruit.create([
-      {
-        name: 'grapefruit',
-        color: 'pink',
-        readyToEat: true
-      },
-      {
-        name: 'grape',
-        color: 'purple',
-        readyToEat: false
-      },
-      {
-        name: 'avocado',
-        color: 'green',
-        readyToEat: true
-      }
+app.get('/fruits/seed', async (req, res)=>{
+    try {
+        await Fruit.create([
+        {
+            name:'grapefruit',
+            color:'pink',
+            readyToEat:true
+        },
+        {
+            name:'grape',
+            color:'purple',
+            readyToEat:false
+        },
+        {
+            name:'avocado',
+            color:'green',
+            readyToEat:true
+        }
     ])
-    res.redirect('/fruits')
-  } catch (error) {
-    console.error(error)
-  }
+        res.redirect('/fruits')
+    } catch (error) {
+        console.error(error)
+      }
 })
 // From our Fruit Routes
-app.use('/fruits', Fruits)
+app.use('/fruits', Fruits )
 
 // INDUCES
 
@@ -91,7 +95,7 @@ app.use('/fruits', Fruits)
 //       }
 //       // fruits.push(req.body);
 //       await Fruit.findByIdAndUpdate(req.params.id, req.body);
-
+  
 //       res.redirect("/fruits");
 //     } catch (error) {
 //       console.log(error);
@@ -109,15 +113,16 @@ app.use('/fruits', Fruits)
 //           req.body.readyToEat = false //do some data correction
 //         }
 //          await Fruit.create(req.body)
-
+    
 //         res.redirect("/fruits")
-
+    
 //       } catch(error) {
 //         console.log(error)
 //       }
 // })
 
 // // Edit - to be handled by Frunt end
+
 
 // //Show - GET one fruit by its ID
 // app.get('/fruits/:id', async (req, res) =>{
@@ -131,10 +136,10 @@ app.use('/fruits', Fruits)
 
 // Global error handling
 app.use((err, _req, res, next) => {
-  res.status(500).send("Seems like we messed up somewhere...");
-});
+    res.status(500).send("Seems like we messed up somewhere...");
+  });
 
 // App.listen
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`)
+app.listen(port, () =>{
+console.log(`Server is running on port ${port}`)
 })
