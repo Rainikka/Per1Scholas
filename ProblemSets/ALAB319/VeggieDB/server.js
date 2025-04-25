@@ -70,13 +70,14 @@ app.get('/veggies/seed', async (req, res) => {
         readyToEat: true
       }
     ])
-    res.redirect('/fruits')
+    /*** Redirection ***/
+    res.redirect('/veggies')
   } catch (error) {
     console.error(error)
   }
 })
 // From our Fruit Routes
-app.use('/fruits', Fruits)
+app.use('/veggies', Veggies)
 
 
 // Global error handling
