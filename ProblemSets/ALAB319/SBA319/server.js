@@ -9,6 +9,7 @@ const PORT = 3000;
 /*** Addition: Middleware ***/
 app.use(express.json());
 
+
 /** Mongoose ***/
 
 
@@ -16,6 +17,6 @@ app.use(express.json());
 
 /*** Server Listening***/
 app.listen(3000, () => {
-  console.log(`Server listing at port: André${PORT}`)
+  console.log(`Server listing on Port: André${PORT}`)
 
 });
