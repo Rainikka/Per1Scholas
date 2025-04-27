@@ -21,12 +21,20 @@ const PORT = 3000;
 
 /*** Addition: Middleware ***/
 app.use(express.json());
+const urlencode = require('urlencode')
+app.use(express.urlencoded({ extended: true }));
+
+/*** Database: Mongoose ***/
+const mongo = require('mongo');
+const mongoose = require('mongoose');
 
 
-/** Mongoose ***/
 
-
-
+/*** Require: Database Connection ***/
+mongoose.connect(process.env.ATLAS_URI)
+mongoose.connection.once('open', () => {
+  console.log('Connected to mongoDB')
+});
 
 /*** Server Listening***/
 app.listen(3000, () => {
