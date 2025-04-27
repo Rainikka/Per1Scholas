@@ -1,0 +1,19 @@
+{
+  "name": "rest_api_node_express_mongo",
+  "version": "1.0.0",
+  "description": "SBS 319",
+  "license": "ISC",
+  "author": "Rainikka Corprew",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "mongoose": "^8.14.0",
+    "nodemon": "^3.1.10"
+  }
+}
