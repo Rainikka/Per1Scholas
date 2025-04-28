@@ -15,5 +15,5 @@ Connection string valid for one week
 - **Password** 2025RTT04
 
 ## To Test API
-- **Internal Test: test.http** GET http://localhost:3001/fruits
-- **External Test: localhost** http://localhost:3001/fruits
+- **Internal Test:test.http** GET http://localhost:3001/fruits or http://localhost:3001/veggies
+- **External Test:localhost** http://localhost:3001/fruits or http://localhost:3001/veggies
