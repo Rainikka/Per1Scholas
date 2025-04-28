@@ -29,9 +29,8 @@ const mongo = require('mongo');
 const mongoose = require('mongoose');
 
 
-
 /*** Require: Database Connection ***/
-mongoose.connect(process.env.ATLAS_URI)
+mongoose.connect(process.env.COMPASS_URI)
 mongoose.connection.once('open', () => {
   console.log('Connected to mongoDB')
 });
