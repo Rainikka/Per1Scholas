@@ -13,19 +13,19 @@
  * 
  * Media Outlet :: YouTube 
  * Title :: Node.js & Express 
- * Creator/Autor :: Traversy Media
+ * Creator/Author :: Traversy Media
  * 
  ******** Knowledge Inspiration 2 ********
  * 
  * Media Outlet:: Geeks4Geeks
  * Title :: Pug View Engne Installation
- * Creator / Autor :: Geeks4Geeks
+ * Creator / Author :: Geeks4Geeks
  * 
  * ******** Knowledge Inspiration 3 ********
  * 
  * Media Outlet :: Medium.com
  * Title :: Hosting a JSON API on GitHub Pages
- * Creator / Autor :: Vistor Scholz
+ * Creator / Author :: Vistor Scholz
  * 
  * *****************************************
 

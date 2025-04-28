@@ -3,31 +3,45 @@
 /********** SBA 319 ***********/
 /******************************/
 
-/*****************************/
-/******* WORKING WITH ********/
-/********* MONGOOSE *********/
-/******* 25-APR-2025 ********/
+/******************************/
+/******** WORKING WITH ********/
+/********* MONGOOSE ***********/
+/******** 25-APR-2025 *********/
+
+/******** Knowledge Inspiration 1 ********
+ * 
+ * Media Outlet :: YouTube
+ * Title :: Learn MongoDBb
+ * Title :: Learn Mongoose
+ * Creator/Author :: WebDevSimplified
+ * 
+******** Knowledge Inspiration 2 ********
+ * 
+ * Media Outlet :: FreeCodeCamp
+ *  Title :: How to Build a RESTful API
+ *  Creator / Author :: Nishant Kumar
+ *  
+ *****************************************/
 
 /*********** ENVIRONMENT SET-UP ***********/
 /******************************************/
 
 /*** Secured connection string ***/
-const dotenv = require('dotenv').config
+const dotenv = require('dotenv').config();
 
-/*** Start Server ***/
+/*** Start: Express Server ***/
 const express = require('express');
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
-/*** Addition: Middleware ***/
+/*** Require: Middleware ***/
 app.use(express.json());
 const urlencode = require('urlencode')
 app.use(express.urlencoded({ extended: true }));
 
-/*** Database: Mongoose ***/
-const mongo = require('mongo');
+/*** Require: Database ***/
+const mongo = require('mongodb');
 const mongoose = require('mongoose');
-
 
 /*** Require: Database Connection ***/
 mongoose.connect(process.env.COMPASS_URI)
@@ -35,8 +49,7 @@ mongoose.connection.once('open', () => {
   console.log('Connected to mongoDB')
 });
 
-/*** Server Listening***/
-app.listen(3000, () => {
+/*** Set-Up: Server Listening ***/
+app.listen(PORT, () => {
   console.log(`Server listing on Port: André${PORT}`)
-
 });
