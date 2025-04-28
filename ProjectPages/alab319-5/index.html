@@ -10,10 +10,20 @@
 <body>
 
   <form action="/fruits" method="POST">
-    <input type="text" name="name" placeholder="Fruit name" required>
+    <input type="text" name="name" placeholder="Fruit Name" required>
     <input type="text" name="color" placeholder="Color" required>
     <input type="checkbox" name="readyToEat"> Ready to eat?
     <button type="submit">Add Fruit</button>
+  </form>
+
+  <form action="/veggies" method="POST">
+    <h2>Add Vegetable</h2>
+    <input type="text" name="name" placeholder="Vegetable Name" required>
+    <input type="text" name="color" placeholder="Color" required>
+    <label>
+      <input type="checkbox" name="readyToEat"> Ready to eat?
+    </label>
+    <button type="submit">Add Vegetable</button>
   </form>
 
 </body>
