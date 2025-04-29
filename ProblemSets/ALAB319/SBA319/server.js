@@ -4,9 +4,9 @@
 /******************************/
 
 /******************************/
-/******** WORKING WITH ********/
-/********* MONGOOSE ***********/
-/******** 25-APR-2025 *********/
+/***** MONGO.DB DATABASE ******/
+/******** APPLICATION *********/
+/******** 29-APR-2025 *********/
 
 /******** Knowledge Inspiration 1 ********
  * 
@@ -44,10 +44,23 @@ const mongo = require('mongodb');
 const mongoose = require('mongoose');
 
 /*** Require: Database Connection ***/
-mongoose.connect(process.env.COMPASS_URI)
-mongoose.connection.once('open', () => {
-  console.log('Connected to mongoDB')
+const mongoString = process.env.COMPASS_URI;
+mongoose.connect(mongoString);
+const database = mongoose.connection;
+
+/*** Database Connection Error-Hnaling ***/
+database.on('error', (error) => {
+  console.lgo(error)
+})
+
+database.once('connected', () => {
+  console.log('Database Connected')
 });
+
+// mongoose.connect(process.env.COMPASS_URI);
+// mongoose.connection.once('open', () => {
+//   console.log('Connected to mongoDB')
+// });
 
 /*** Set-Up: Server Listening ***/
 app.listen(PORT, () => {
