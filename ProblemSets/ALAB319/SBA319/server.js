@@ -11,7 +11,7 @@
 /******** Knowledge Inspiration 1 **********
  * 
  * Media Outlet :: YouTube
- * Title :: Learn MongoDBb
+ * Title :: Learn MongoDB
  * Title :: Learn Mongoose
  * Creator/Author :: WebDevSimplified
  * 
