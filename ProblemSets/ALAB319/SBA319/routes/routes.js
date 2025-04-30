@@ -18,11 +18,11 @@ router.get('/getAll', (req, res) => {
 });
 
 /*** Endpoint: Get By Id Method ***/
-router.post('/post', (req, res) => {
-  res.send('Post API')
+router.get('/getOne/:id', (req, res) => {
+  res.send('Get By ID API')
 });
 
-/*** Endpoint: Get By Id Method ***/
+/*** Endpoint: Update By Id Method ***/
 router.post('/post', (req, res) => {
   res.send('Post API')
 });
