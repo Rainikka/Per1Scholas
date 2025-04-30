@@ -1,10 +1,12 @@
 /*** Set: Router for Endpoints ***/
+const express = require('express');
 const router = express.Router();
+
 const routes = require('./routes/routes');
-app.use('./api', routes);
+app.use('/routes', routes);
 
 
-/****** Endopoint Routes: INDUCES *********/
+/****** Endpoint Routes: INDUCES *********/
 
 /*** Endpoint: Post Method ***/
 router.post('/post', (req, res) => {

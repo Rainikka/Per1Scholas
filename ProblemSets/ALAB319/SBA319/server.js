@@ -23,8 +23,9 @@
  *  
  ******************************************/
 
-/*********** ENVIRONMENT SET-UP ***********/
-/******************************************/
+
+/********** ENVIRONMENT SET-UP ***********/
+/*****************************************/
 
 /*** Require: Connection String ***/
 const dotenv = require('dotenv').config();
@@ -50,10 +51,12 @@ const mongoString = process.env.COMPASS_URI;
 mongoose.connect(mongoString);
 const database = mongoose.connection;
 
-/*** Database Connection Error-Hnaling ***/
+/*** Database Connection Error-Handling ***/
 database.on('error', (error) => {
   console.log(error)
-})
+});
+
+const Model = require('../models/model')
 
 database.once('connected', () => {
   console.log('Database Connected')
