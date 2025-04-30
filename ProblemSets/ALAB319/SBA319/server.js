@@ -8,25 +8,25 @@
 /******** APPLICATION *********/
 /******** 29-APR-2025 *********/
 
-/******** Knowledge Inspiration 1 ********
+/******** Knowledge Inspiration 1 **********
  * 
  * Media Outlet :: YouTube
  * Title :: Learn MongoDBb
  * Title :: Learn Mongoose
  * Creator/Author :: WebDevSimplified
  * 
-******** Knowledge Inspiration 2 ********
+******** Knowledge Inspiration 2 **********
  * 
  * Media Outlet :: FreeCodeCamp
  *  Title :: How to Build a RESTful API
  *  Creator / Author :: Nishant Kumar
  *  
- *****************************************/
+ ******************************************/
 
 /*********** ENVIRONMENT SET-UP ***********/
 /******************************************/
 
-/*** Secured connection string ***/
+/*** Require: Connection String ***/
 const dotenv = require('dotenv').config();
 
 /*** Start: Express Server ***/
@@ -35,8 +35,10 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 /*** Require: Middleware ***/
+const urlencode = require('urlencode');
+
+/*** Set: Data Parsers ***/
 app.use(express.json());
-const urlencode = require('urlencode')
 app.use(express.urlencoded({ extended: true }));
 
 /*** Require: Database ***/
@@ -50,7 +52,7 @@ const database = mongoose.connection;
 
 /*** Database Connection Error-Hnaling ***/
 database.on('error', (error) => {
-  console.lgo(error)
+  console.log(error)
 })
 
 database.once('connected', () => {
@@ -62,7 +64,15 @@ database.once('connected', () => {
 //   console.log('Connected to mongoDB')
 // });
 
-/*** Set-Up: Server Listening ***/
+
+
+
+
+
+/*** Set: Server Listening Port ***/
 app.listen(PORT, () => {
   console.log(`Server listing on Port: André${PORT}`)
 });
+
+
+
