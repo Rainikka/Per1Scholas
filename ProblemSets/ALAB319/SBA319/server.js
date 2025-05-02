@@ -56,7 +56,7 @@ database.on('error', (error) => {
   console.log(error)
 });
 
-const Model = require('../models/model')
+const Model = require('./models/model')
 
 database.once('connected', () => {
   console.log('Database Connected')
