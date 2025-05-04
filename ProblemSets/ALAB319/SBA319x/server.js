@@ -6,7 +6,7 @@
 /******************************/
 /***** MONGO.DB DATABASE ******/
 /******** APPLICATION *********/
-/******** 29-APR-2025 *********/
+/******** 04-MAY-2025 *********/
 
 /******** Knowledge Inspiration 1 **********
  * 
@@ -15,13 +15,20 @@
  * Title :: Learn Mongoose
  * Creator/Author :: WebDevSimplified
  * 
-******** Knowledge Inspiration 2 **********
+******** Knowledge Inspiration 2 ************
  * 
  * Media Outlet :: FreeCodeCamp
  *  Title :: How to Build a RESTful API
  *  Creator / Author :: Nishant Kumar
  *  
- ******************************************/
+ ******** Knowledge Inspiration 3 **********
+ * 
+ * Media Outlet :: FreeCodeCamp
+ *  Title :: CRUD API
+ *  Creator / Author :: Nishant Kumar
+ *  
+*******************************************
+
 
 /********** ENVIRONMENT SET-UP ***********/
 /*****************************************/

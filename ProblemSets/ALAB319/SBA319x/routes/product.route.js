@@ -17,18 +17,18 @@ router.get('/', async (req, res) => {
   }
 });
 
-/*** Route: Get All Products ***/
-router.get('/api/products', async (req, res) => {
-  try {
-    const products = await Product.find({});
-    res.json(products);
-  } catch (error) {
-    res.json({ message: error.message })
-  }
-});
+// /*** Route: Get All Products ***/
+// router.get('/', async (req, res) => {
+//   try {
+//     const products = await Product.find({});
+//     res.json(products);
+//   } catch (error) {
+//     res.json({ message: error.message })
+//   }
+// });
 
 /*** Route: Get One Product By Id ***/
-router.get('/api/products/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const product = await Product.findById(id);
@@ -40,7 +40,7 @@ router.get('/api/products/:id', async (req, res) => {
 
 
 /*** Route: Add New Product ***/
-router.post('/api/products', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const product = await Product.create(req.body);
     console.log("Received Product:", product);
@@ -53,7 +53,7 @@ router.post('/api/products', async (req, res) => {
 
 
 /*** Route: Delete Product By Id ***/
-router.delete('/api/products/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const product = await Product.findByIdAndDelete(id);
@@ -70,7 +70,7 @@ router.delete('/api/products/:id', async (req, res) => {
 
 
 /*** Route: Update Product By Id ***/
-router.put('/api/products/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const product = await Product.findByIdAndUpdate(id, req.body);
