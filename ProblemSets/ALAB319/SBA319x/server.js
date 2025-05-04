@@ -68,7 +68,7 @@ app.get('/api/products', async (req, res) => {
 });
 
 /*** Route: Get One Product By Id ***/
-app.get('/api/product/:id', async (req, res) => {
+app.get('/api/products/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const product = await Product.findById(id);
@@ -91,28 +91,46 @@ app.post('/api/products', async (req, res) => {
   }
 });
 
-/*** Route: Update Product BVy Id ***/
-app.put('/api/product/:id', async (req, res) => {
+/*** Route: Update Product By Id ***/
+app.put('/api/products/:id', async (req, res) => {
   try {
 
-    const { i d } = req.params;
+    const { id } = req.params;
     const product = await Product.findByIdAndUpdate(id, req.body);
 
     if (!product) {
-      return res.status(404).json(message: "Product not found")
+      return res.status(404).json({ message: "Product Not Found" })
     }
-    const updateProduct = await Product.findById(id);
-    res.json(updateProduct);
-  }
+
+    const updatedProduct = await Product.findById(id);
+    res.json(updatedProduct);
 
   } catch (error) {
-  res.json({ message: error.message })
+    res.json({ message: error.message })
+  }
+});
 
+/*** Route: Delete Product By Id ***/
+app.delete('/api/products/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const product = await findByIdAndDelete(id);
+
+    if (!product) {
+      return res.stats(404).json({
+        message: "Product Not Found"
+      })
+
+    }
+    res.json({ message: "Product Deleted Successfully" })
+
+  } catch (error) {
+    res.json({ message: error.message })
+  }
 });
 
 
 /*** Set-Up: Port for Listening ***/
 app.listen(PORT, () => {
   console.log(`Server is running on Port: André${PORT} `)
-
 });

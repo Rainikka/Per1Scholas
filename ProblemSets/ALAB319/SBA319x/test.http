@@ -21,5 +21,15 @@
 # GET http://localhost:3000/api/products
 
 
-# GET PRODUCTS BY ID
-GET http://localhost:3000/api/product/6817048d2bbf21f133357882
+# GET PRODUCT BY ID
+# GET http://localhost:3000/api/products/6817048d2bbf21f133357882
+
+
+# UPDATE PRODUCT BY ID
+# PUT  http://localhost:3000/api/products/681704a82bbf21f133357884
+#  Content-Type: application/json
+
+# {
+# "name" : "Newer Product",
+# "price" : 10.99
+# }
