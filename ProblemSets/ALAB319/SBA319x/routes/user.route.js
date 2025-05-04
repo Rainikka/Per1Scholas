@@ -2,8 +2,8 @@
 /*** Requirements & Imports for Router ***/
 const express = require('express')
 const router = express.Router();
-const Product = require('../models/product.model')
-
+const Product = require('../models/product.model');
+const Product = require('../models/product.model');
 
 /************** ALL CRUD ROUTES *************/
 
@@ -17,16 +17,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-// /*** Route: Get All Products ***/
-// router.get('/', async (req, res) => {
-//   try {
-//     const products = await Product.find({});
-//     res.json(products);
-//   } catch (error) {
-//     res.json({ message: error.message })
-//   }
-// });
-
 /*** Route: Get One Product By Id ***/
 router.get('/:id', async (req, res) => {
   try {
@@ -37,7 +27,6 @@ router.get('/:id', async (req, res) => {
     res.json({ message: error.message })
   }
 });
-
 
 /*** Route: Add New Product ***/
 router.post('/', async (req, res) => {
@@ -50,7 +39,6 @@ router.post('/', async (req, res) => {
     res.json({ message: "Error creating product" });
   }
 });
-
 
 /*** Route: Delete Product By Id ***/
 router.delete('/:id', async (req, res) => {

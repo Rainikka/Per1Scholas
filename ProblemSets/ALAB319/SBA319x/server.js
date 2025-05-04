@@ -25,9 +25,9 @@
  * 
  * Media Outlet :: FreeCodeCamp
  *  Title :: CRUD API
- *  Creator / Author :: Nishant Kumar
+ *  Creator / Author :: Coding Cleverly
  *  
-*******************************************
+*******************************************/
 
 
 /********** ENVIRONMENT SET-UP ***********/
@@ -39,33 +39,60 @@ const dotenv = require('dotenv').config();
 /*** Require: Express Server ***/
 const express = require("express");
 const mongoose = require("mongoose");
-const app = express();
 const PORT = process.env.PORT || 3000;
+const app = express();
 
-/*** Import Product Model & Routes***/
-const Product = require('./models/product.model');
-const productRoute = require('./routes/product.route')
 
 /*** Middleware for JSON use ***/
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-/** Connect: Database to Server ***/
-const mongoString = process.env.DATABASE_URI;
+/*** Connect: Database to Server ***/
+const mongoString = process.env.DATABASE_URI || 'mongodb://localhost:27017/backendDB';
 mongoose.connect(mongoString)
   .then(() => {
-    console.log("Database is Connected");
+    console.log("Database is Connected")
   })
   .catch((error) => {
     console.log("Database NOT Connected:", error.message);
   });
 
+/*** Seed Workout Data ***/
+const sampleProducts = [
+  {
+    name: "Typical Product",
+    quantity: 50,
+    price: 19.99
+  },
+  {
+    name: "New Product",
+    quantity: 30,
+    price: 89.99
+  },
+  {
+    name: "Quality Product",
+    quantity: 20,
+    price: 39.99
+  }
+];
 
-/*** Link to All Routes ***/
-app.use('/api/products', productRoute)
+/*** Import All Models ***/
+const User = require('./models/user.model');
+const Aerobic = require('./models/aerobic.model');
+const weightLift = require('./models/weightlift.model');
+
+/*** Import All Routes ***/
+const userRoute = require('./routes/user.route');
+const aerobicRoute = require('./routes/aerobic.route')
+const weightLiftRoute = require('./routes/weightLift.route');
+
+/*** Set Endpoint for Routes ***/
+app.use('/api/users', userRoute);
+app.use('/api/aerobics', aerobicRoute);
+app.use('/api/weightLifts', weightLiftRoute);
 
 
 /*** Set-Up: Port for Listening ***/
 app.listen(PORT, () => {
-  console.log(`Server is running on Port: André${PORT} `)
+  console.log(`Server is running on Port: André${PORT}`)
 });
