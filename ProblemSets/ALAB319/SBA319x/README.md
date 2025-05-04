@@ -18,4 +18,44 @@ PerScholas connection string valid for one week
 - **Internal Test: test.http** GET http://localhost:3001/fruits or http://localhost:3001/veggies
 - **External Test: localhost** http://localhost:3001/fruits or http://localhost:3001/veggies
 
+
+## API CRUD EXAMPLES 
+- **GET ALL PRODUCTS**
+GET http://localhost:3000/api/products
+
+- **GET PRODUCT BY ID**
+ GET http://localhost:3000/api/products/6817048d2bbf21f133357882
+
+- **ADD NEW  PRODUCT**
+POST http://localhost:3000/api/products
+Content-Type: application/json
+
+ [
+ {
+   "name": "Test Product",
+    "quantity": 5,
+    "price": 19.99
+  },
+  {
+    "name": "Quality Product",
+    "quantity": 15,
+    "price": 29.99
+  }
+ ]
+
+- **UPDATE PRODUCT BY ID**
+ PUT  http://localhost:3000/api/products/681704a82bbf21f133357884
+Content-Type: application/json
+
+ {
+ "name" : "Newer Product",
+ "price" : 10.99
+ }
+
+- **DELETE PRODUCT BY ID**
+DELETE http://localhost:3000/api/products/6817295ba460dac588392613
+ Content-Type: application/json
+
+
+
 ## Desiderata
