@@ -52,11 +52,26 @@ mongoose.connect(mongoString)
     console.log("Database NOT Connected:", error.message);
   });
 
-/*** Route: Index Page ***/
+/*** Route: Landing Page ***/
 app.get('/', (req, res) => {
   res.send("Hello from Node API")
 });
 
+/*** Route: Add New Product ***/
+app.get('/api/products', async (req, res) => {
+  try {
+    const products = await Product.find({});
+    res.json(products);
+  } catch (error) {
+    res.json({ message: error.message })
+  }
+});
+
+
+
+
+
+/*** Route: Add New Product ***/
 app.post('/api/products', async (req, res) => {
   try {
     const product = await Product.create(req.body);
@@ -67,8 +82,6 @@ app.post('/api/products', async (req, res) => {
     res.json({ message: "Error creating product" });
   }
 });
-
-
 
 
 /*** Set-Up: Port for Listening ***/
