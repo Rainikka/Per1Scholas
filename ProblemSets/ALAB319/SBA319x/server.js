@@ -68,7 +68,7 @@ app.get('/api/products', async (req, res) => {
 });
 
 /*** Route: Get One Product By Id ***/
-app.get('api/product/:id', async (req, res) => {
+app.get('/api/product/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const product = await Product.findById(id);
@@ -89,6 +89,25 @@ app.post('/api/products', async (req, res) => {
     console.log("Error creating product:", error);
     res.json({ message: "Error creating product" });
   }
+});
+
+/*** Route: Update Product BVy Id ***/
+app.put('/api/product/:id', async (req, res) => {
+  try {
+
+    const { i d } = req.params;
+    const product = await Product.findByIdAndUpdate(id, req.body);
+
+    if (!product) {
+      return res.status(404).json(message: "Product not found")
+    }
+    const updateProduct = await Product.findById(id);
+    res.json(updateProduct);
+  }
+
+  } catch (error) {
+  res.json({ message: error.message })
+
 });
 
 
