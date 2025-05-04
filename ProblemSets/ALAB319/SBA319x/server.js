@@ -63,7 +63,7 @@ app.post('/api/products', async (req, res) => {
     console.log("Received Product:", product);
     res.json(product);
   } catch (error) {
-    console.error("Error creating product:", error);
+    console.log("Error creating product:", error);
     res.json({ message: "Error creating product" });
   }
 });
