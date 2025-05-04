@@ -1,1 +1,7 @@
 POST http://localhost:3000/api/products
+
+{
+  "name": "Coding Cleverly",
+  "quantity": 10,
+  "price": 20
+}

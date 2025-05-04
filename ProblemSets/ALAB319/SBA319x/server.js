@@ -29,11 +29,15 @@
 /*** Require: Connection String ***/
 const dotenv = require('dotenv').config();
 
-/*** Require: Express Sever ***/
+/*** Require: Express Server ***/
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+/*** Allow Reading of Json ***/
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 /** Connect: Database to Server ***/
 const mongoString = process.env.DATABASE_URI;
@@ -46,18 +50,24 @@ mongoose.connect(mongoString)
   });
 
 
-/*** Response: Default Page ***/
+/*** Route: Index Page ***/
 app.get('/', (req, res) => {
   res.send("Hello from Node API")
 });
 
+/*** Route: Add Product to Collection ***/
 app.post('/api/products', (req, res) => {
-  res.send("Data Received")
+  try {
+    console.log("Received Product:", req.body);
+    res.json(req.body)
+  } catch (error) {
+    res.sende(`error`)
+  }
 });
 
 
 /*** Set-Up: Port for Listening ***/
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log(`Server is running on Port: André${PORT}`)
 
 });
