@@ -35,7 +35,10 @@ const mongoose = require("mongoose");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-/*** Allow Reading of Json ***/
+/*** Import Product Model ***/
+const Product = require('./models/product.model');
+
+/*** Middleware for JSON use ***/
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -46,28 +49,28 @@ mongoose.connect(mongoString)
     console.log("Database is Connected");
   })
   .catch((error) => {
-    console.log("Database NOT Connected");
+    console.log("Database NOT Connected:", error.message);
   });
-
 
 /*** Route: Index Page ***/
 app.get('/', (req, res) => {
   res.send("Hello from Node API")
 });
 
-/*** Route: Add Product to Collection ***/
-app.post('/api/products', (req, res) => {
+app.post('/api/products', async (req, res) => {
   try {
-    console.log("Received Product:", req.body);
-    res.json(req.body)
+    const product = await Product.create(req.body);
+    console.log("Received Product:", product);
+    res.json(product);
   } catch (error) {
-    res.sende(`error`)
+    console.error("Error creating product:", error);
+    res.json({ message: "Error creating product" });
   }
 });
 
 
 /*** Set-Up: Port for Listening ***/
 app.listen(PORT, () => {
-  console.log(`Server is running on Port: André${PORT}`)
+  console.log(`Server is running on Port: André${PORT} `)
 
 });
