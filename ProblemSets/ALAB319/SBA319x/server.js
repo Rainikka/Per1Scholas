@@ -91,25 +91,6 @@ app.post('/api/products', async (req, res) => {
   }
 });
 
-/*** Route: Update Product By Id ***/
-app.put('/api/products/:id', async (req, res) => {
-  try {
-
-    const { id } = req.params;
-    const product = await Product.findByIdAndUpdate(id, req.body);
-
-    if (!product) {
-      return res.status(404).json({ message: "Product Not Found" })
-    }
-
-    const updatedProduct = await Product.findById(id);
-    res.json(updatedProduct);
-
-  } catch (error) {
-    res.json({ message: error.message })
-  }
-});
-
 /*** Route: Delete Product By Id ***/
 app.delete('/api/products/:id', async (req, res) => {
   try {
@@ -123,6 +104,25 @@ app.delete('/api/products/:id', async (req, res) => {
 
     }
     res.json({ message: "Product Deleted Successfully" })
+
+  } catch (error) {
+    res.json({ message: error.message })
+  }
+});
+
+/*** Route: Update Product By Id ***/
+app.put('/api/products/:id', async (req, res) => {
+  try {
+
+    const { id } = req.params;
+    const product = await Product.findByIdAndUpdate(id, req.body);
+
+    if (!product) {
+      return res.status(404).json({ message: "Product Not Found" })
+    }
+
+    const updatedProduct = await Product.findById(id);
+    res.json(updatedProduct);
 
   } catch (error) {
     res.json({ message: error.message })
