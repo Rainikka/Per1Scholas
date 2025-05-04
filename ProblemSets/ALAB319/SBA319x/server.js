@@ -57,7 +57,7 @@ app.get('/', (req, res) => {
   res.send("Hello from Node API")
 });
 
-/*** Route: Add New Product ***/
+/*** Route: Get All Products ***/
 app.get('/api/products', async (req, res) => {
   try {
     const products = await Product.find({});
@@ -67,9 +67,17 @@ app.get('/api/products', async (req, res) => {
   }
 });
 
+/*** Route: Get One Product By Id ***/
+app.get('api/product/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const product = await Product.findById(id);
+    res.json(product);
 
-
-
+  } catch (error) {
+    res.json({ message: error.message })
+  }
+});
 
 /*** Route: Add New Product ***/
 app.post('/api/products', async (req, res) => {

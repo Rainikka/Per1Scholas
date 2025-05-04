@@ -17,9 +17,9 @@
 # ]
 
 
-# GET ALL PRODUCTS
-GET http://localhost:3000/api/products
+# # GET ALL PRODUCTS
+# GET http://localhost:3000/api/products
 
 
 # GET PRODUCTS BY ID
-GET http://localhost:3000/api/products
+GET http://localhost:3000/api/product/6817048d2bbf21f133357882
