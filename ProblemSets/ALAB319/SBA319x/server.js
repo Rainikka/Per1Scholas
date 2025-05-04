@@ -95,18 +95,17 @@ app.post('/api/products', async (req, res) => {
 app.delete('/api/products/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const product = await findByIdAndDelete(id);
+    const product = await Product.findByIdAndDelete(id);
 
     if (!product) {
-      return res.stats(404).json({
+      return res.status(404).json({
         message: "Product Not Found"
-      })
-
+      });
     }
-    res.json({ message: "Product Deleted Successfully" })
+    res.json({ message: "Product Deleted Successfully" });
 
   } catch (error) {
-    res.json({ message: error.message })
+    res.json({ message: error.message });
   }
 });
 
