@@ -35,8 +35,9 @@ const mongoose = require("mongoose");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-/*** Import Product Model ***/
+/*** Import Product Model & Routes***/
 const Product = require('./models/product.model');
+const productRoute = require('./routes/product.route')
 
 /*** Middleware for JSON use ***/
 app.use(express.json());
@@ -52,10 +53,7 @@ mongoose.connect(mongoString)
     console.log("Database NOT Connected:", error.message);
   });
 
-/*** Route: Landing Page ***/
-app.get('/', (req, res) => {
-  res.send("Hello from Node API")
-});
+
 /*** Link to All Routes ***/
 app.use('/api/products', productRoute)
 

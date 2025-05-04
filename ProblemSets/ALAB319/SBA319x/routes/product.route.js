@@ -1,8 +1,21 @@
+
+/*** Requirements & Imports for Router ***/
 const express = require('express')
 const router = express.Router();
+const Product = require('../models/product.model')
 
 
-/********* ALL CRUD ROUTES ************ */
+/************** ALL CRUD ROUTES *************/
+
+/*** Route: Landing Page ***/
+router.get('/', async (req, res) => {
+  try {
+    const products = await Product.find({});
+    res.json(products)
+  } catch (error) {
+    res.json({ message: error.message })
+  }
+});
 
 /*** Route: Get All Products ***/
 router.get('/api/products', async (req, res) => {
@@ -13,7 +26,6 @@ router.get('/api/products', async (req, res) => {
     res.json({ message: error.message })
   }
 });
-
 
 /*** Route: Get One Product By Id ***/
 router.get('/api/products/:id', async (req, res) => {
@@ -71,3 +83,5 @@ router.put('/api/products/:id', async (req, res) => {
     res.json({ message: error.message })
   }
 });
+
+module.exports = router;
