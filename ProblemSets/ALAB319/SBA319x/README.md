@@ -1,22 +1,26 @@
 # SBA 319: Fitness Tracker REST API
-A REST API to track Aerobic & Weightlifting Exercises of Individual Users.
+ A REST API to track Aerobic & Weightlifting Exercises built with Mongoose.db, Express, & Node.js.
 
 ## Knowledge Inspiration
 This project was inspired by:
-- **WebDevSimplified** on YouTube: "Learn MongoDB" and "Learn Mongoose" tutorials
-- **Nishant Kumar** on FreeCodeCamp: "How to Build a RESTful API" tutorial
-- **Coding Cleverly** on FreeCodeCamp: "CRUD API" tutorial
+- *Web Dev Simplified on YouTube*: "Learn MongoDB" and "Learn Mongoose" tutorials
+- *Nishant Kumar on FreeCodeCamp*: "How to Build a RESTful API" tutorial
+- *Coding Cleverly on FreeCodeCamp*: "CRUD API" tutorial
 
-## Connection String
+## Connection String for Access
 PerScholas connection string valid for one week
-- **Usernamed** PerScholas
-- **Password** 2025RTT04
+- *Username:* PerScholas
+- *Password* 2025RTT04
 
-## To Test API
-**Internal Test:** 
-- **Password** 2025RTT04
-- **Password** 2025RTT04
-GET http://localhost:3001/fruits or http://localhost:3001/
+## To Test Endpoints Within VS Code
+1. In the VS Code root directory of SBA319x, go to the file: 
+- **{test.http}**
+2. All viable routes are labeled and commented out, uncomment out the one route to test at a time.
+3. Once a route is uncommented out, a *Send Request* link will appear above the route link, Click {Send Request}
+4. A window parallel to the test.http window will appear with the requested route information.
+5. To test another route, comment out the previous and uncomment out the next route for testing and follow steps 1 through 4.
+
+## To Test Endpoints Within Web Browser
 
 ## API CRUD EXAMPLES 
 - **GET ALL USERS**
@@ -62,5 +66,5 @@ DELETE http://localhost:3000/api/products/6817295ba460dac588392613
  Content-Type: application/json
 
 ## Desiderata
-All the data models in my head are tabular -- this is a hard left turn.
-Desire to better understang of cross-reference data from diiferent routes.
+- All the data models in my head are tabular -- this is a hard left turn.
+- Desire to better understang of cross-reference data from diiferent routes.
