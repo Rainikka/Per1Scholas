@@ -2,71 +2,70 @@
 /*** Requirements & Imports for Router ***/
 const express = require('express')
 const router = express.Router();
-const Product = require('../models/product.model');
-const Product = require('../models/product.model');
+const User = require('../models/user.model');
+
 
 /************** ALL CRUD ROUTES *************/
 
 /*** Route: Landing Page ***/
 router.get('/', async (req, res) => {
   try {
-    const products = await Product.find({});
-    res.json(products)
+    const users = await User.find({});
+    res.json(users)
   } catch (error) {
     res.json({ message: error.message })
   }
 });
 
-/*** Route: Get One Product By Id ***/
+/*** Route: Get One User By Id ***/
 router.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const product = await Product.findById(id);
-    res.json(product);
+    const user = await User.findById(id);
+    res.json(user);
   } catch (error) {
     res.json({ message: error.message })
   }
 });
 
-/*** Route: Add New Product ***/
+/*** Route: Add New User ***/
 router.post('/', async (req, res) => {
   try {
-    const product = await Product.create(req.body);
-    console.log("Received Product:", product);
-    res.json(product);
+    const user = await User.create(req.body);
+    console.log("User Entry Received:", user);
+    res.json(user);
   } catch (error) {
-    console.log("Error creating product:", error);
-    res.json({ message: "Error creating product" });
+    console.log("Error Creating User:", error);
+    res.json({ message: "Error Creating User" });
   }
 });
 
-/*** Route: Delete Product By Id ***/
+/*** Route: Delete User By Id ***/
 router.delete('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const product = await Product.findByIdAndDelete(id);
-    if (!product) {
+    const user = await User.findByIdAndDelete(id);
+    if (!user) {
       return res.status(404).json({
-        message: "Product Not Found"
+        message: "User Not Found"
       });
     }
-    res.json({ message: "Product Deleted Successfully" });
+    res.json({ message: "User Deleted Successfully" });
   } catch (error) {
     res.json({ message: error.message });
   }
 });
 
-
-/*** Route: Update Product By Id ***/
+/*** Route: Update Usert By Id ***/
 router.put('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const product = await Product.findByIdAndUpdate(id, req.body);
-    if (!product) {
-      return res.status(404).json({ message: "Product Not Found" })
+    const user = await User.findByIdAndUpdate(id, req.body);
+    if (!user) {
+      return res.status(404).json({ message: "User Not Found" })
     }
-    const updatedProduct = await Product.findById(id);
-    res.json(updatedProduct);
+    const updatedUser = await User.findById(id);
+    res.json(updatedUser);
   } catch (error) {
     res.json({ message: error.message })
   }

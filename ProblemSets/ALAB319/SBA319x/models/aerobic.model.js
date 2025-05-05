@@ -1,27 +1,27 @@
 const mongoose = require('mongoose');
-const ProductSchema = new mongoose.Schema({
-  name: {
+const AerobicSchema = new mongoose.Schema({
+  cardio: {
     type: String,
-    required: [true, "Please enter product name"]
+    required: [true, "Enter aerobic exercise"]
   },
-  quantity: {
+  time: {
     type: Number,
     required: true,
     default: 0
   },
-  price: {
+  intensity: {
     type: Number,
     required: true,
     default: 0
   },
-  image: {
-    type: String,
-    required: false
-  }
+  distance: {
+    type: Number,
+    required: false,
+    default: 0
+  },
 }, {
   timestamps: true
 });
 
-
-const Product = mongoose.model("Product", ProductSchema);
-module.exports = Product;
+const Aerobic = mongoose.model('Aerobic', AerobicSchema);
+module.exports = Aerobic;

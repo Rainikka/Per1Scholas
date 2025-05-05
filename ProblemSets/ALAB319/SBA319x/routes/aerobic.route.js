@@ -2,70 +2,69 @@
 /*** Requirements & Imports for Router ***/
 const express = require('express')
 const router = express.Router();
-const Product = require('../models/product.model');
+const Aerobic = require('../models/aerobic.model');
 
 /************** ALL CRUD ROUTES *************/
 
 /*** Route: Landing Page ***/
 router.get('/', async (req, res) => {
   try {
-    const products = await Product.find({});
-    res.json(products)
+    const aerobics = await Aerobic.find({});
+    res.json(aerobics)
   } catch (error) {
     res.json({ message: error.message })
   }
 });
 
-/*** Route: Get One Product By Id ***/
+/*** Route: Get One Exercise Entry By Id ***/
 router.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const product = await Product.findById(id);
-    res.json(product);
+    const aerobic = await Aerobic.findById(id);
+    res.json(aerobic);
   } catch (error) {
     res.json({ message: error.message })
   }
 });
 
-/*** Route: Add New Product ***/
+/*** Route: Add New Exercise Entry ***/
 router.post('/', async (req, res) => {
   try {
-    const product = await Product.create(req.body);
-    console.log("Received Product:", product);
-    res.json(product);
+    const aerobic = await Aerobic.create(req.body);
+    console.log("New Entry Created:", aerobic);
+    res.json(aerobic);
   } catch (error) {
-    console.log("Error creating product:", error);
-    res.json({ message: "Error creating product" });
+    console.log("Error creating exercise entry:", error);
+    res.json({ message: "Error Creating Exercise Entry" });
   }
 });
 
-/*** Route: Delete Product By Id ***/
+/*** Route: Delete Exercise Entry By Id ***/
 router.delete('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const product = await Product.findByIdAndDelete(id);
-    if (!product) {
+    const aerobic = await Aerobic.findByIdAndDelete(id);
+    if (!aerobic) {
       return res.status(404).json({
-        message: "Product Not Found"
+        message: "Exercise Entry Not Found"
       });
     }
-    res.json({ message: "Product Deleted Successfully" });
+    res.json({ message: "Exercise Entry Deleted Successfully" });
   } catch (error) {
     res.json({ message: error.message });
   }
 });
 
-
-/*** Route: Update Product By Id ***/
+/*** Route: Update Exercise Entry By Id ***/
 router.put('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const product = await Product.findByIdAndUpdate(id, req.body);
-    if (!product) {
-      return res.status(404).json({ message: "Product Not Found" })
+    const aerobic = await Aerobic.findByIdAndUpdate(id, req.body);
+    if (!aerobic) {
+      return res.status(404).json({ message: "Aerobic Not Found" })
     }
-    const updatedProduct = await Product.findById(id);
-    res.json(updatedProduct);
+    const updatedAerobic = await Aerobic.findById(id);
+    res.json(updatedAerobic);
   } catch (error) {
     res.json({ message: error.message })
   }

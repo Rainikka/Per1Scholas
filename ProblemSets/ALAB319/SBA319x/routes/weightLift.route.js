@@ -2,70 +2,69 @@
 /*** Requirements & Imports for Router ***/
 const express = require('express')
 const router = express.Router();
-const Product = require('../models/product.model');
+const Weightlift = require('../models/weightlift.model');
 
 /************** ALL CRUD ROUTES *************/
 
 /*** Route: Landing Page ***/
 router.get('/', async (req, res) => {
   try {
-    const products = await Product.find({});
-    res.json(products)
+    const weightlift = await Weightlift.find({});
+    res.json(weightlift)
   } catch (error) {
     res.json({ message: error.message })
   }
 });
 
-/*** Route: Get One Product By Id ***/
+/*** Route: Get One Weightlift Entry By Id ***/
 router.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const product = await Product.findById(id);
-    res.json(product);
+    const weightlift = await Weightlift.findById(id);
+    res.json(weightlift);
   } catch (error) {
     res.json({ message: error.message })
   }
 });
 
-/*** Route: Add New Product ***/
+/*** Route: Add New Weightlift Entry  ***/
 router.post('/', async (req, res) => {
   try {
-    const product = await Product.create(req.body);
-    console.log("Received Product:", product);
-    res.json(product);
+    const weightlift = await Weightlift.create(req.body);
+    console.log("Weightlift Entry Created:", weightlift);
+    res.json(weightlift);
   } catch (error) {
-    console.log("Error creating product:", error);
-    res.json({ message: "Error creating product" });
+    console.log("Error creating weightlift entry:", error);
+    res.json({ message: "Error Creating Weightlift Entry" });
   }
 });
 
-/*** Route: Delete Product By Id ***/
+/*** Route: Delete Weightlift Entry  By Id ***/
 router.delete('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const product = await Product.findByIdAndDelete(id);
-    if (!product) {
+    const weightlift = await Weightlift.findByIdAndDelete(id);
+    if (!weightlift) {
       return res.status(404).json({
-        message: "Product Not Found"
+        message: "Weightlift Entry Not Found"
       });
     }
-    res.json({ message: "Product Deleted Successfully" });
+    res.json({ message: "Weightlift Entry Deleted Successfully" });
   } catch (error) {
     res.json({ message: error.message });
   }
 });
 
-
-/*** Route: Update Product By Id ***/
+/*** Route: Update Weightlift Entry By Id ***/
 router.put('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const product = await Product.findByIdAndUpdate(id, req.body);
-    if (!product) {
-      return res.status(404).json({ message: "Product Not Found" })
+    const weightlift = await Weightlift.findByIdAndUpdate(id, req.body);
+    if (!weightlift) {
+      return res.status(404).json({ message: "Weightlift Entry Not Found" })
     }
-    const updatedProduct = await Product.findById(id);
-    res.json(updatedProduct);
+    const updatedWeightlift = await Weightlift.findById(id);
+    res.json(updatedWeightlift);
   } catch (error) {
     res.json({ message: error.message })
   }

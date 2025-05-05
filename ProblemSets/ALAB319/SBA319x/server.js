@@ -48,7 +48,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 /*** Connect: Database to Server ***/
-const mongoString = process.env.DATABASE_URI || 'mongodb://localhost:27017/backendDB';
+const mongoString = process.env.DATABASE_URI;
 mongoose.connect(mongoString)
   .then(() => {
     console.log("Database is Connected")
@@ -79,17 +79,17 @@ const sampleProducts = [
 /*** Import All Models ***/
 const User = require('./models/user.model');
 const Aerobic = require('./models/aerobic.model');
-const weightLift = require('./models/weightlift.model');
+const Weightlift = require('./models/weightlift.model');
 
 /*** Import All Routes ***/
 const userRoute = require('./routes/user.route');
 const aerobicRoute = require('./routes/aerobic.route')
-const weightLiftRoute = require('./routes/weightLift.route');
+const weightliftRoute = require('./routes/weightlift.route');
 
 /*** Set Endpoint for Routes ***/
 app.use('/api/users', userRoute);
 app.use('/api/aerobics', aerobicRoute);
-app.use('/api/weightLifts', weightLiftRoute);
+app.use('/api/weightlifts', weightliftRoute);
 
 
 /*** Set-Up: Port for Listening ***/
