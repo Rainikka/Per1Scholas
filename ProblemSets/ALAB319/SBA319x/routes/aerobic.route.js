@@ -6,81 +6,59 @@ const Aerobic = require('../models/aerobic.model');
 
 /************** ALL CRUD ROUTES *************/
 
-/*** Route: Landing Page ***/
-router.get('/', async (req, res) => {
-  try {
-    const aerobics = await Aerobic.find({});
-    res.json(aerobics)
-  } catch (error) {
-    res.json({ message: error.message })
-  }
-});
-
-/*** Route: Get One Exercise Entry By Id ***/
-router.get('/:id', async (req, res) => {
-  try {
-    const { id } = req.params;
-    const aerobic = await Aerobic.findById(id);
-    res.json(aerobic);
-  } catch (error) {
-    res.json({ message: error.message })
-  }
-});
-
-/*** Route: Get Aerobics by User ID ***/
+/*** Get All Aerobics for a User ***/
 router.get('/user/:userId', async (req, res) => {
   try {
-    const { userId } = req.params;
-    const aerobics = await Aerobic.find({ user: userId });
+    const aerobics = await Aerobic.find({ user: req.params.userId });
     res.json(aerobics);
   } catch (error) {
-    res.json({ message: error.message });
+    res.status(500).json({ message: error.message });
   }
 });
 
-/*** Route: Add New Aerobics Exercise Entry ***/
+/*** Create New aArobic Exercise for a User ***/
 router.post('/', async (req, res) => {
   try {
-    const aerobicData = req.body;
-    aerobicData.user = aerobicData.userId; // Add this line
-    const aerobic = await Aerobic.create(aerobicData);
-    console.log("New Entry Created:", aerobic);
+    const aerobic = await Aerobic.create({
+      user: req.body.userId,
+      cardio: req.body.cardio,
+      time: req.body.time,
+      intensity: req.body.intensity,
+      distance: req.body.distance
+    });
     res.json(aerobic);
-  } catch (error) {
-    console.log("Error creating exercise entry:", error);
-    res.json({ message: "Error Creating Exercise Entry" });
-  }
-});
-
-/*** Route: Delete Exercise Entry By Id ***/
-router.delete('/:id', async (req, res) => {
-  try {
-    const { id } = req.params;
-    const aerobic = await Aerobic.findByIdAndDelete(id);
-    if (!aerobic) {
-      return res.status(404).json({
-        message: "Exercise Entry Not Found"
-      });
-    }
-    res.json({ message: "Exercise Entry Deleted Successfully" });
   } catch (error) {
     res.json({ message: error.message });
   }
 });
 
-/*** Route: Update Exercise Entry By Id ***/
+/*** Update Aerobic Exercise for a User ***/
 router.put('/:id', async (req, res) => {
   try {
-    const { id } = req.params;
-    const aerobic = await Aerobic.findByIdAndUpdate(id, req.body);
-    if (!aerobic) {
-      return res.status(404).json({ message: "Aerobic Not Found" })
-    }
-    const updatedAerobic = await Aerobic.findById(id);
-    res.json(updatedAerobic);
+    const aerobic = await Aerobic.findOneAndUpdate(
+      { _id: req.params.id, user: req.body.userId },
+      req.body,
+      { new: true }
+    );
+    if (!aerobic) return res.status(404).json({ message: "Exercise not found" });
+    res.json(aerobic);
   } catch (error) {
-    res.json({ message: error.message })
+    res.json({ message: error.message });
   }
 });
 
-module.exports = router;
+/*** Delete Aerobic Exercise for a User ***/
+router.delete('/:id', async (req, res) => {
+  try {
+    const aerobic = await Aerobic.findOneAndDelete({
+      _id: req.params.id,
+      user: req.body.userId
+    });
+    if (!aerobic) return res.status(404).json({ message: "Exercise not found" });
+    res.json({ message: "Exercise deleted successfully" });
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+});
+
+module.exports = router; 

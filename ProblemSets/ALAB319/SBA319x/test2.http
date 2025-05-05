@@ -1,0 +1,174 @@
+
+################ USER ROUTES ################
+#############################################
+
+# GET ALL USERS 
+# Exmaple: Get All Users
+#GET http://localhost:3000/api/users
+
+# GET USER BY ID
+# Example : Get User Maxine Shaw
+# GET http://localhost:3000/api/users/6818523ea14e85e2dff7676a
+
+# UPDATE USER BY ID
+# Example: Update Name of User Synclair James
+# PUT http://localhost:3000/api/users/6818523ea14e85e2dff7676f
+# Content-Type: application/json
+# {
+#   "user": "Synclaire James-Jones",
+#   "age": 29
+# }
+
+# DELETE USER BY ID
+# Example: Delete User Maxine Shaw
+# DELETE http://localhost:3000/api/users/6818523ea14e85e2dff7676a
+# Content-Type: application/json
+
+# ADD NEW USERS
+# Example: Add New User
+# POST http://localhost:3000/api/users
+# Content-Type: application/json
+# 
+#   {
+#     "user": "Maxine Shaw",
+#     "age": 30,
+#     "height": 65,
+#     "weight": 150,
+#     "fitness": "Athletic"
+#   }
+
+
+################ AEROBIC ROUTES ################
+################################################
+
+# GET ALL AEROBIC EXERCISES
+# GET http://localhost:3000/api/aerobics
+
+# GET AEROBIC EXERCISE BY ID 
+# Example: Get Bench Press
+# GET http://localhost:3000/api/aerobics/681859d5a14e85e2dff76782
+
+# GET ALL AEROBIC EXERCISES BY USER ID
+# Example: Get All Aerobic Activities for User: 
+ # GET http://localhost:3000//api/aerobics/user/
+
+
+# UPDATE AEROBIC EXERCISE BY ID
+# Update Hiking
+# PUT http://localhost:3000/api/aerobics/:id
+# Content-Type: application/json
+
+# {
+#   "time": 95,
+#   "intensity": 7
+# }
+
+# DELETE AEROBIC EXERCISE BY ID
+# Delete Bench Press
+# DELETE http://localhost:3000/api/aerobics/681859d5a14e85e2dff76782
+
+# ADD NEW AEROBIC EXERCISES
+# POST http://localhost:3000/api/aerobics
+# Content-Type: application/json
+# [
+#   {
+#     "cardio": "Running",
+#     "time": 30,
+#     "intensity": 7,
+#     "distance": 3.5
+#   },
+#   {
+#     "cardio": "Swimming",
+#     "time": 45,
+#     "intensity": 6,
+#     "distance": 2
+#   },
+#   {
+#     "cardio": "Zumba",
+#     "time": 42,
+#     "intensity": 5,
+#     "distance": 0
+#   },
+#   {
+#     "cardio": "Treadmill",
+#     "time": 30,
+#     "intensity": 7,
+#     "distance": 2
+#   },
+#   {
+#     "cardio": "Hiking",
+#     "time": 90,
+#     "intensity": 6,
+#     "distance": 4
+#   }
+# ]
+
+
+############## WEIGHTLIFT ROUTES ################
+#################################################
+
+# GET ALL WEIGHTLIFT EXERCISES
+# Example: Get All Weightlift Exercises
+# GET http://localhost:3000/api/weightlifts
+
+# GET WEIGHTLIFT EXERCISE BY ID
+# Get Lunge:
+# Example: Get All Weightlift Exercises By Exercise ID
+# GET http://localhost:3000/api/weightlifts/681859d5a14e85e2dff76785
+
+# GET ALL WEIGHTLIFT EXERCISE BY USER ID
+# Example: Get All Weightlift Exercises By User ID
+# GET http://localhost:3000//api/weightlifts/user/:userId
+
+
+# UPDATE WEIGHTLIFT EXERCISE BY ID
+# Example: Update Butterly Press
+# PUT http://localhost:3000/api/weightlifts/681859d5a14e85e2dff76786
+# Content-Type: application/json
+#
+# {
+#   "muscle": "Chest",
+#   "reps": 10
+# }
+
+# DELETE WEIGHTLIFT EXERCISE BY ID
+# Example: Delete Lunge
+# DELETE http://localhost:3000/api/weightlifts/681859d5a14e85e2dff76785
+
+#ADD NEW WEIGHTLIFT EXERCISE
+# Example: Post 
+# POST http://localhost:3000/api/weightlifts
+# Content-Type: application/json
+# [
+#   {
+#     "exercise": "Bench Press",
+#     "muscle": "Chest",
+#     "weight": 135,
+#     "reps": 10
+#   },
+#   {
+#     "exercise": "Squat",
+#     "muscle": "Legs",
+#     "weight": 185,
+#     "reps": 8
+#   },
+#   {
+#     "exercise": "Leg Press",
+#     "muscle": "Legs",
+#     "weight": 90,
+#     "reps": 4
+#   },
+#   {
+#     "exercise": "Lunge",
+#     "muscle": "Legs",
+#     "weight": 120,
+#     "reps": 6
+#   },
+#   {
+#     "exercise": "Butterfly Press",
+#     "muscle": "Arms",
+#     "weight": 40,
+#     "reps": 8
+#   }
+# ]
+
