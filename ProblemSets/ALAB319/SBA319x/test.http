@@ -1,21 +1,17 @@
 
-
 ################ USER ROUTES ################
+#############################################
 
 # GET ALL USERS 
-
 # GET http://localhost:3000/api/users
 
 # GET USER BY ID
 # Get User Maxine Shaw
-
 # GET http://localhost:3000/api/users/6818523ea14e85e2dff7676a
 
 # ADD NEW USERS
-
 # POST http://localhost:3000/api/users
 # Content-Type: application/json
-
 # [
 #   {
 #     "user": "Maxine Shaw",
@@ -63,10 +59,8 @@
 
 # UPDATE USER BY ID
 # Updating User Synclair James
-
 # PUT http://localhost:3000/api/users/6818523ea14e85e2dff7676f
 # Content-Type: application/json
-
 # {
 #   "user": "Synclaire James-Jones",
 #   "age": 29
@@ -74,28 +68,26 @@
 
 # DELETE USER BY ID
 # Delete User Maxine Shaw
-
 # DELETE http://localhost:3000/api/users/6818523ea14e85e2dff7676a
 # Content-Type: application/json
 
 
 ################ AEROBIC ROUTES ################
+################################################
 
 # GET ALL AEROBIC EXERCISES
-
 # GET http://localhost:3000/api/aerobics
 
 # GET AEROBIC EXERCISE BY ID 
 #BBench Press
-
 # GET http://localhost:3000/api/aerobics/681859d5a14e85e2dff76782
 
+# GET ALL AEROBIC EXERCISE BY USER ID
+# GET http://localhost:3000//api/aerobics/user/:userId
 
 # ADD NEW AEROBIC EXERCISES
-
 # POST http://localhost:3000/api/aerobics
 # Content-Type: application/json
-
 # [
 #   {
 #     "cardio": "Running",
@@ -131,7 +123,6 @@
 
 # UPDATE AEROBIC EXERCISE BY ID
 # Update Hiking
-
 # PUT http://localhost:3000/api/aerobics/:id
 # Content-Type: application/json
 
@@ -142,16 +133,18 @@
 
 # DELETE AEROBIC EXERCISE BY ID
 # Delete Bench Press
-
 # DELETE http://localhost:3000/api/aerobics/681859d5a14e85e2dff76782
 
 
 ############## WEIGHTLIFT ROUTES ################
+#################################################
 
 # GET ALL WEIGHTLIFT EXERCISES
-
 # GET http://localhost:3000/api/weightlifts
 
+# GET ALL WEIGHTLIFT EXERCISE BY USER ID
+# GET http://localhost:3000//api/weightlifts/user/:userId
+ 
 # GET WEIGHTLIFT EXERCISE BY ID
 # Get Lunge:
 
@@ -159,10 +152,8 @@
 
 
 #ADD NEW WEIGHTLIFT EXERCISE
-
 # POST http://localhost:3000/api/weightlifts
 # Content-Type: application/json
-
 # [
 #   {
 #     "exercise": "Bench Press",
@@ -198,7 +189,6 @@
 
 # UPDATE WEIGHTLIFT EXERCISE BY ID
 # Update Butterly Press
-
 # PUT http://localhost:3000/api/weightlifts/681859d5a14e85e2dff76786
 # Content-Type: application/json
 #
@@ -209,5 +199,4 @@
 
 # DELETE WEIGHTLIFT EXERCISE BY ID
 # Delete Lunge
-
 # DELETE http://localhost:3000/api/weightlifts/681859d5a14e85e2dff76785
