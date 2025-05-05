@@ -57,25 +57,6 @@ mongoose.connect(mongoString)
     console.log("Database NOT Connected:", error.message);
   });
 
-/*** Seed Workout Data ***/
-const sampleProducts = [
-  {
-    name: "Typical Product",
-    quantity: 50,
-    price: 19.99
-  },
-  {
-    name: "New Product",
-    quantity: 30,
-    price: 89.99
-  },
-  {
-    name: "Quality Product",
-    quantity: 20,
-    price: 39.99
-  }
-];
-
 /*** Import All Models ***/
 const User = require('./models/user.model');
 const Aerobic = require('./models/aerobic.model');

@@ -11,7 +11,7 @@ const AerobicSchema = new mongoose.Schema({
   },
   intensity: {
     type: Number,
-    required: true,
+    required: [true, "Rate Intensity: 0 - Low  & 10 - High"]
     default: 0
   },
   distance: {

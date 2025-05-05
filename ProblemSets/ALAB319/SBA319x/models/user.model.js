@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const UserSchema = new mongoose.Schema({
-  username: {
+  user: {
     type: String,
-    required: [true, "Enter full name"]
+    required: [true, "Enter Full Name"]
   },
   age: {
     type: Number,
@@ -21,12 +21,11 @@ const UserSchema = new mongoose.Schema({
   },
   fitness: {
     type: String,
-    required: [true, "Enter fitness level"]
+    required: [true, "Enter Current Fitness Level"]
   },
 }, {
   timestamps: true
 });
-
 
 const User = mongoose.model('User', UserSchema);
 module.exports = User;

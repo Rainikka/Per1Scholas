@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 const WeightliftSchema = new mongoose.Schema({
   exercise: {
     type: String,
-    required: [true, "Enter strength exercise"]
+    required: [true, "Enter Strength Exercise"]
   },
   muscle: {
     type: String,
-    required: [true, "Enter muscle group of focus"]
+    required: [true, "Enter Muscle Group of Focus"]
   },
   weight: {
     type: Number,

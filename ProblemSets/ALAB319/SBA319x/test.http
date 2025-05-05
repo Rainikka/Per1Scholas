@@ -1,40 +1,190 @@
 
-# GET ALL PRODUCTS
-GET http://localhost:3000/api/products
 
+################ USER ROUTES ################
 
-# GET PRODUCT BY ID
-# GET http://localhost:3000/api/products/6817048d2bbf21f133357882
+# GET ALL USERS 
+# GET http://localhost:3000/api/users
 
-# ADD NEW PRODUCTS
-# POST http://localhost:3000/api/products
+# GET USER BY ID
+# GET http://localhost:3000/api/users/6817048d2bbf21f133357882
+
+# ADD NEW USERS
+# POST http://localhost:3000/api/users
 # Content-Type: application/json
 
-# [
-#   {
-#     "name": "Newish Product",
-#     "quantity": 2,
-#     "price": 8.99
-#   }
-#   ,
-#     {
-#     "name": "Gently-Loved Product",
-#     "quantity": 8,
-#     "price": 12.99
-#   }
-# ]
+[
+  {
+    "user": "Maxine Shaw",
+    "age": 30,
+    "height": 65,
+    "weight": 150,
+    "fitness": "Athletic"
+  },
+  {
+    "user": "Kyle Barker",
+    "age": 30,
+    "height": 68,
+    "weight": 150,
+    "fitness": "Athletic"
+  },
+   {
+    "user": "Regine Hunter",
+    "age": 30,
+    "height": 65,
+    "weight": 150,
+    "fitness": "Beginner"
+  },
+  {
+    "user": "Overton Wakefield",
+    "age": 30,
+    "height": 68,
+    "weight": 150,
+    "fitness": "Intermediate"
+  },
+  {"user": "Khadijah James",
+    "age": 30,
+    "height": 65,
+    "weight": 150,
+    "fitness": "Intermediate"
+  },
+    {
+    "user": "Synclair James",
+    "age": 30,
+    "height": 65,
+    "weight": 150,
+    "fitness": "Beginner"
+  }
+];
 
-
-
-# UPDATE PRODUCT BY ID
-# PUT  http://localhost:3000/api/products/681704a82bbf21f133357884
+# UPDATE USER  BY ID
+# PUT  http://localhost:3000/api/users/681704a82bbf21f133357884
 #  Content-Type: application/json
 
-# {
-# "name" : "Newer Product",
-# "price" : 10.99
-# }
+# Updating Synclair James
+    {
+    "user": "Synclaire James-Jones",
+    "age": 29
+  }
+# DELETE USER BY ID
+# DELETE http://localhost:3000/api/users/6817295ba460dac588392613
+# Content-Type: application/json
 
-# DELETE PRODUCT BY ID
-# DELETE http://localhost:3000/api/products/6817295ba460dac588392613
+
+
+################ AEROBIC ROUTES ################
+
+# GET ALL AEROBICS
+# GET http://localhost:3000/api/aerobics
+
+# GET AEROBIC BY ID
+# GET http://localhost:3000/api/aerobics/
+
+# ADD NEW AEROBICS
+# POST http://localhost:3000/api/aerobics
+# Content-Type: application/json
+
+[
+  {
+    "cardio": "Running",
+    "time": 30,
+    "intensity": 7,
+    "distance": 3.5
+  },
+  {
+    "cardio": "Swimming",
+    "time": 45,
+    "intensity": 6,
+    "distance": 2
+  },
+    {
+    "cardio": "Zumba",
+    "time": 42,
+    "intensity": 5,
+    "distance": 
+  },
+    {
+    "cardio": "Treadmill",
+    "time": 30,
+    "intensity": 7,
+    "distance": 2
+  },
+    {
+    "cardio": "Hiking",
+    "time": 90,
+    "intensity": 6,
+    "distance": 4
+  },
+];
+
+# UPDATE AEROBIC BY ID
+# PUT http://localhost:3000/api/aerobics/
+#  Content-Type: application/json
+
+# Update Hiking
+   {
+    "time": 95,
+    "intensity": 7
+  },
+
+# DELETE AEROBIC BY ID
+# DELETE http://localhost:3000/api/aerobics/
+# Content-Type: application/json
+
+
+################ WEIGHTLIFT ROUTES ################
+
+# GET ALL WEIGHTLIFTS 
+# GET http://localhost:3000/api/weightlifts
+
+# GET WEIGHTLIFT BY ID
+# GET http://localhost:3000/api/weightlifts/
+
+# ADD NEW WEIGHTLIFTS
+POST http://localhost:3000/api/weightlifts
+Content-Type: application/json
+[
+   {
+    "exercise": "Bench Press",
+    "muscle": "Chest",
+    "weight": 135,
+    "reps": 10
+  },
+  {
+    "exercise": "Squat",
+    "muscle": "Legs",
+    "weight": 185,
+    "reps": 8
+  },
+   {
+    "exercise": "Leg Press",
+    "muscle": "Legs",
+    "weight": 90,
+    "reps": 4
+  },
+   {
+    "exercise": "Lunge",
+    "muscle": "Legs",
+    "weight": 120,
+    "reps": 6
+  },
+   {
+    "exercise": "Butterfly Press",
+    "muscle": "Arms",
+    "weight": 40,
+    "reps": 8
+  }
+];
+
+# UPDATE WEIGHTLIFT BY ID
+# PUT  http://localhost:3000/api/weightlifts/
+#  Content-Type: application/json
+
+# Update: Butterfly Press
+  #  {
+  #   "muscle": "Chest",
+  #   "reps": 10
+  # }
+
+# DELETE WEIGHTLIFT BY ID
+# DELETE http://localhost:3000/api/weightlifts/
 # Content-Type: application/json
