@@ -3,188 +3,211 @@
 ################ USER ROUTES ################
 
 # GET ALL USERS 
+
 # GET http://localhost:3000/api/users
 
 # GET USER BY ID
-# GET http://localhost:3000/api/users/6817048d2bbf21f133357882
+# Get User Maxine Shaw
+
+# GET http://localhost:3000/api/users/6818523ea14e85e2dff7676a
 
 # ADD NEW USERS
+
 # POST http://localhost:3000/api/users
 # Content-Type: application/json
 
-[
-  {
-    "user": "Maxine Shaw",
-    "age": 30,
-    "height": 65,
-    "weight": 150,
-    "fitness": "Athletic"
-  },
-  {
-    "user": "Kyle Barker",
-    "age": 30,
-    "height": 68,
-    "weight": 150,
-    "fitness": "Athletic"
-  },
-   {
-    "user": "Regine Hunter",
-    "age": 30,
-    "height": 65,
-    "weight": 150,
-    "fitness": "Beginner"
-  },
-  {
-    "user": "Overton Wakefield",
-    "age": 30,
-    "height": 68,
-    "weight": 150,
-    "fitness": "Intermediate"
-  },
-  {"user": "Khadijah James",
-    "age": 30,
-    "height": 65,
-    "weight": 150,
-    "fitness": "Intermediate"
-  },
-    {
-    "user": "Synclair James",
-    "age": 30,
-    "height": 65,
-    "weight": 150,
-    "fitness": "Beginner"
-  }
-];
+# [
+#   {
+#     "user": "Maxine Shaw",
+#     "age": 30,
+#     "height": 65,
+#     "weight": 150,
+#     "fitness": "Athletic"
+#   },
+#   {
+#     "user": "Kyle Barker",
+#     "age": 30,
+#     "height": 68,
+#     "weight": 150,
+#     "fitness": "Athletic"
+#   },
+#   {
+#     "user": "Regine Hunter",
+#     "age": 30,
+#     "height": 65,
+#     "weight": 150,
+#     "fitness": "Beginner"
+#   },
+#   {
+#     "user": "Overton Wakefield",
+#     "age": 30,
+#     "height": 68,
+#     "weight": 150,
+#     "fitness": "Intermediate"
+#   },
+#   {
+#     "user": "Khadijah James",
+#     "age": 30,
+#     "height": 65,
+#     "weight": 150,
+#     "fitness": "Intermediate"
+#   },
+#   {
+#     "user": "Synclair James",
+#     "age": 30,
+#     "height": 65,
+#     "weight": 150,
+#     "fitness": "Beginner"
+#   }
+# ]
 
-# UPDATE USER  BY ID
-# PUT  http://localhost:3000/api/users/681704a82bbf21f133357884
-#  Content-Type: application/json
+# UPDATE USER BY ID
+# Updating User Synclair James
 
-# Updating Synclair James
-    {
-    "user": "Synclaire James-Jones",
-    "age": 29
-  }
-# DELETE USER BY ID
-# DELETE http://localhost:3000/api/users/6817295ba460dac588392613
+# PUT http://localhost:3000/api/users/6818523ea14e85e2dff7676f
 # Content-Type: application/json
 
+# {
+#   "user": "Synclaire James-Jones",
+#   "age": 29
+# }
+
+# DELETE USER BY ID
+# Delete User Maxine Shaw
+
+# DELETE http://localhost:3000/api/users/6818523ea14e85e2dff7676a
+# Content-Type: application/json
 
 
 ################ AEROBIC ROUTES ################
 
-# GET ALL AEROBICS
+# GET ALL AEROBIC EXERCISES
+
 # GET http://localhost:3000/api/aerobics
 
-# GET AEROBIC BY ID
-# GET http://localhost:3000/api/aerobics/
+# GET AEROBIC EXERCISE BY ID 
+#BBench Press
 
-# ADD NEW AEROBICS
+# GET http://localhost:3000/api/aerobics/681859d5a14e85e2dff76782
+
+
+# ADD NEW AEROBIC EXERCISES
+
 # POST http://localhost:3000/api/aerobics
 # Content-Type: application/json
 
-[
-  {
-    "cardio": "Running",
-    "time": 30,
-    "intensity": 7,
-    "distance": 3.5
-  },
-  {
-    "cardio": "Swimming",
-    "time": 45,
-    "intensity": 6,
-    "distance": 2
-  },
-    {
-    "cardio": "Zumba",
-    "time": 42,
-    "intensity": 5,
-    "distance": 
-  },
-    {
-    "cardio": "Treadmill",
-    "time": 30,
-    "intensity": 7,
-    "distance": 2
-  },
-    {
-    "cardio": "Hiking",
-    "time": 90,
-    "intensity": 6,
-    "distance": 4
-  },
-];
+# [
+#   {
+#     "cardio": "Running",
+#     "time": 30,
+#     "intensity": 7,
+#     "distance": 3.5
+#   },
+#   {
+#     "cardio": "Swimming",
+#     "time": 45,
+#     "intensity": 6,
+#     "distance": 2
+#   },
+#   {
+#     "cardio": "Zumba",
+#     "time": 42,
+#     "intensity": 5,
+#     "distance": 0
+#   },
+#   {
+#     "cardio": "Treadmill",
+#     "time": 30,
+#     "intensity": 7,
+#     "distance": 2
+#   },
+#   {
+#     "cardio": "Hiking",
+#     "time": 90,
+#     "intensity": 6,
+#     "distance": 4
+#   }
+# ]
 
-# UPDATE AEROBIC BY ID
-# PUT http://localhost:3000/api/aerobics/
-#  Content-Type: application/json
-
+# UPDATE AEROBIC EXERCISE BY ID
 # Update Hiking
-   {
-    "time": 95,
-    "intensity": 7
-  },
 
-# DELETE AEROBIC BY ID
-# DELETE http://localhost:3000/api/aerobics/
+# PUT http://localhost:3000/api/aerobics/:id
 # Content-Type: application/json
 
+# {
+#   "time": 95,
+#   "intensity": 7
+# }
 
-################ WEIGHTLIFT ROUTES ################
+# DELETE AEROBIC EXERCISE BY ID
+# Delete Bench Press
 
-# GET ALL WEIGHTLIFTS 
+# DELETE http://localhost:3000/api/aerobics/681859d5a14e85e2dff76782
+
+
+############## WEIGHTLIFT ROUTES ################
+
+# GET ALL WEIGHTLIFT EXERCISES
+
 # GET http://localhost:3000/api/weightlifts
 
-# GET WEIGHTLIFT BY ID
-# GET http://localhost:3000/api/weightlifts/
+# GET WEIGHTLIFT EXERCISE BY ID
+# Get Lunge:
 
-# ADD NEW WEIGHTLIFTS
-POST http://localhost:3000/api/weightlifts
-Content-Type: application/json
-[
-   {
-    "exercise": "Bench Press",
-    "muscle": "Chest",
-    "weight": 135,
-    "reps": 10
-  },
-  {
-    "exercise": "Squat",
-    "muscle": "Legs",
-    "weight": 185,
-    "reps": 8
-  },
-   {
-    "exercise": "Leg Press",
-    "muscle": "Legs",
-    "weight": 90,
-    "reps": 4
-  },
-   {
-    "exercise": "Lunge",
-    "muscle": "Legs",
-    "weight": 120,
-    "reps": 6
-  },
-   {
-    "exercise": "Butterfly Press",
-    "muscle": "Arms",
-    "weight": 40,
-    "reps": 8
-  }
-];
+# GET http://localhost:3000/api/weightlifts/681859d5a14e85e2dff76785
 
-# UPDATE WEIGHTLIFT BY ID
-# PUT  http://localhost:3000/api/weightlifts/
-#  Content-Type: application/json
 
-# Update: Butterfly Press
-  #  {
-  #   "muscle": "Chest",
-  #   "reps": 10
-  # }
+#ADD NEW WEIGHTLIFT EXERCISE
 
-# DELETE WEIGHTLIFT BY ID
-# DELETE http://localhost:3000/api/weightlifts/
+# POST http://localhost:3000/api/weightlifts
 # Content-Type: application/json
+
+# [
+#   {
+#     "exercise": "Bench Press",
+#     "muscle": "Chest",
+#     "weight": 135,
+#     "reps": 10
+#   },
+#   {
+#     "exercise": "Squat",
+#     "muscle": "Legs",
+#     "weight": 185,
+#     "reps": 8
+#   },
+#   {
+#     "exercise": "Leg Press",
+#     "muscle": "Legs",
+#     "weight": 90,
+#     "reps": 4
+#   },
+#   {
+#     "exercise": "Lunge",
+#     "muscle": "Legs",
+#     "weight": 120,
+#     "reps": 6
+#   },
+#   {
+#     "exercise": "Butterfly Press",
+#     "muscle": "Arms",
+#     "weight": 40,
+#     "reps": 8
+#   }
+# ]
+
+# UPDATE WEIGHTLIFT EXERCISE BY ID
+# Update Butterly Press
+
+# PUT http://localhost:3000/api/weightlifts/681859d5a14e85e2dff76786
+# Content-Type: application/json
+#
+# {
+#   "muscle": "Chest",
+#   "reps": 10
+# }
+
+# DELETE WEIGHTLIFT EXERCISE BY ID
+# Delete Lunge
+
+# DELETE http://localhost:3000/api/weightlifts/681859d5a14e85e2dff76785
