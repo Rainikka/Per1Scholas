@@ -24,8 +24,8 @@
  ******** Knowledge Inspiration 3 **********
  * 
  * Media Outlet :: FreeCodeCamp
- *  Title :: CRUD API
- *  Creator / Author :: Coding Cleverly
+ * Title :: CRUD API
+ * Creator / Author :: Coding Cleverly
  *  
 *******************************************/
 

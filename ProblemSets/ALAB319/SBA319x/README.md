@@ -1,13 +1,11 @@
-# Fruit & Veggie API
-
-A REST API to track fruits and vegetables freshnss, 
-API built with JavaScript, Node.js, Express, Mongo.db, Mongoose.
-Per Scholas Assignment: SBA 319
+# SBA 319: Fitness Tracker REST API
+A REST API to track Aerobic & Weightlifting Exercises of Individual Users.
 
 ## Knowledge Inspiration
 This project was inspired by:
 - **WebDevSimplified** on YouTube: "Learn MongoDB" and "Learn Mongoose" tutorials
 - **Nishant Kumar** on FreeCodeCamp: "How to Build a RESTful API" tutorial
+- **Coding Cleverly** on FreeCodeCamp: "CRUD API" tutorial
 
 ## Connection String
 PerScholas connection string valid for one week
@@ -15,13 +13,20 @@ PerScholas connection string valid for one week
 - **Password** 2025RTT04
 
 ## To Test API
-- **Internal Test: test.http** GET http://localhost:3001/fruits or http://localhost:3001/veggies
-- **External Test: localhost** http://localhost:3001/fruits or http://localhost:3001/veggies
-
+**Internal Test:** 
+- **Password** 2025RTT04
+- **Password** 2025RTT04
+GET http://localhost:3001/fruits or http://localhost:3001/
 
 ## API CRUD EXAMPLES 
-- **GET ALL PRODUCTS**
-GET http://localhost:3000/api/products
+- **GET ALL USERS**
+GET http://localhost:3000/api/users
+
+- **GET ALL AEROBBIC EXERCISES**
+GET http://localhost:3000/api/aerobics
+
+- **GET ALL WEIGHTLIFT EXERCISES**
+GET http://localhost:3000/api/weghtlifts
 
 - **GET PRODUCT BY ID**
  GET http://localhost:3000/api/products/6817048d2bbf21f133357882
