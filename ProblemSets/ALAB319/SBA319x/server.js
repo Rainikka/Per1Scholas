@@ -39,9 +39,7 @@ const dotenv = require('dotenv').config();
 /*** Require: Express Server ***/
 const express = require("express");
 const mongoose = require("mongoose");
-const PORT = process.env.PORT || 3000;
 const app = express();
-
 
 /*** Middleware for JSON use ***/
 app.use(express.json());
@@ -72,8 +70,8 @@ app.use('/api/users', userRoute);
 app.use('/api/aerobics', aerobicRoute);
 app.use('/api/weightlifts', weightliftRoute);
 
-
 /*** Set-Up: Port for Listening ***/
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on Port: André${PORT}`)
 });

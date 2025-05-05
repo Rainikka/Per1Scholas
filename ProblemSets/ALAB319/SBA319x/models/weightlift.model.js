@@ -1,5 +1,15 @@
+/*** Require: Mongoose ***/
 const mongoose = require('mongoose');
+
+// const WeightliftSchema = new mongoose.Schema({
+
+/*** Weightlift Activities to Include User ID ***/
 const WeightliftSchema = new mongoose.Schema({
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  },
   exercise: {
     type: String,
     required: [true, "Enter Strength Exercise"]

@@ -1,5 +1,16 @@
+/*** Require: Mongoose ***/
 const mongoose = require('mongoose');
+
+// const AerobicSchema = new mongoose.Schema({
+
+/*** Aerobic Activities to Include User ID ***/
 const AerobicSchema = new mongoose.Schema({
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  },
+
   cardio: {
     type: String,
     required: [true, "Enter aerobic exercise"]

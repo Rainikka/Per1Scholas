@@ -27,10 +27,23 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-/*** Route: Add New Weightlift Entry  ***/
+/*** Route: Get Weightlifts by User ID ***/
+router.get('/user/:userId', async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const weightlifts = await Weightlift.find({ user: userId });
+    res.json(weightlifts);
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+});
+
+/*** Route: Add New Weightlift Entry BBy ID ***/
 router.post('/', async (req, res) => {
   try {
-    const weightlift = await Weightlift.create(req.body);
+    const weightliftData = req.body;
+    weightliftData.user = weightliftData.userId; // Add this line
+    const weightlift = await Weightlift.create(weightliftData);
     console.log("Weightlift Entry Created:", weightlift);
     res.json(weightlift);
   } catch (error) {

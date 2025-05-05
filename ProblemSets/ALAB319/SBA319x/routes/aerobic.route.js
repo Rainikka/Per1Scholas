@@ -27,10 +27,23 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-/*** Route: Add New Exercise Entry ***/
+/*** Route: Get Aerobics by User ID ***/
+router.get('/user/:userId', async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const aerobics = await Aerobic.find({ user: userId });
+    res.json(aerobics);
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+});
+
+/*** Route: Add New Aerobics Exercise Entry ***/
 router.post('/', async (req, res) => {
   try {
-    const aerobic = await Aerobic.create(req.body);
+    const aerobicData = req.body;
+    aerobicData.user = aerobicData.userId; // Add this line
+    const aerobic = await Aerobic.create(aerobicData);
     console.log("New Entry Created:", aerobic);
     res.json(aerobic);
   } catch (error) {
