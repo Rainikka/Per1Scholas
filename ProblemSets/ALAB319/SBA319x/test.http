@@ -3,62 +3,15 @@
 #############################################
 
 # GET ALL USERS 
-# GET http://localhost:3000/api/users
+# Exmaple: Get All Users
+#GET http://localhost:3000/api/users
 
 # GET USER BY ID
-# Get User Maxine Shaw
+# Example : Get User Maxine Shaw
 # GET http://localhost:3000/api/users/6818523ea14e85e2dff7676a
 
-# ADD NEW USERS
-# POST http://localhost:3000/api/users
-# Content-Type: application/json
-# [
-#   {
-#     "user": "Maxine Shaw",
-#     "age": 30,
-#     "height": 65,
-#     "weight": 150,
-#     "fitness": "Athletic"
-#   },
-#   {
-#     "user": "Kyle Barker",
-#     "age": 30,
-#     "height": 68,
-#     "weight": 150,
-#     "fitness": "Athletic"
-#   },
-#   {
-#     "user": "Regine Hunter",
-#     "age": 30,
-#     "height": 65,
-#     "weight": 150,
-#     "fitness": "Beginner"
-#   },
-#   {
-#     "user": "Overton Wakefield",
-#     "age": 30,
-#     "height": 68,
-#     "weight": 150,
-#     "fitness": "Intermediate"
-#   },
-#   {
-#     "user": "Khadijah James",
-#     "age": 30,
-#     "height": 65,
-#     "weight": 150,
-#     "fitness": "Intermediate"
-#   },
-#   {
-#     "user": "Synclair James",
-#     "age": 30,
-#     "height": 65,
-#     "weight": 150,
-#     "fitness": "Beginner"
-#   }
-# ]
-
 # UPDATE USER BY ID
-# Updating User Synclair James
+# Example: Update Name of User Synclair James
 # PUT http://localhost:3000/api/users/6818523ea14e85e2dff7676f
 # Content-Type: application/json
 # {
@@ -67,9 +20,22 @@
 # }
 
 # DELETE USER BY ID
-# Delete User Maxine Shaw
+# Example: Delete User Maxine Shaw
 # DELETE http://localhost:3000/api/users/6818523ea14e85e2dff7676a
 # Content-Type: application/json
+
+# ADD NEW USERS
+# Example: Add New User
+# POST http://localhost:3000/api/users
+# Content-Type: application/json
+# 
+#   {
+#     "user": "Maxine Shaw",
+#     "age": 30,
+#     "height": 65,
+#     "weight": 150,
+#     "fitness": "Athletic"
+#   }
 
 
 ################ AEROBIC ROUTES ################
@@ -79,11 +45,27 @@
 # GET http://localhost:3000/api/aerobics
 
 # GET AEROBIC EXERCISE BY ID 
-#BBench Press
+# Example: Get Bench Press
 # GET http://localhost:3000/api/aerobics/681859d5a14e85e2dff76782
 
-# GET ALL AEROBIC EXERCISE BY USER ID
-# GET http://localhost:3000//api/aerobics/user/:userId
+# GET ALL AEROBIC EXERCISES BY USER ID
+# Example: Get All Aerobic Activities for User: 
+ # GET http://localhost:3000//api/aerobics/user/
+
+
+# UPDATE AEROBIC EXERCISE BY ID
+# Update Hiking
+# PUT http://localhost:3000/api/aerobics/:id
+# Content-Type: application/json
+
+# {
+#   "time": 95,
+#   "intensity": 7
+# }
+
+# DELETE AEROBIC EXERCISE BY ID
+# Delete Bench Press
+# DELETE http://localhost:3000/api/aerobics/681859d5a14e85e2dff76782
 
 # ADD NEW AEROBIC EXERCISES
 # POST http://localhost:3000/api/aerobics
@@ -121,37 +103,40 @@
 #   }
 # ]
 
-# UPDATE AEROBIC EXERCISE BY ID
-# Update Hiking
-# PUT http://localhost:3000/api/aerobics/:id
-# Content-Type: application/json
-
-# {
-#   "time": 95,
-#   "intensity": 7
-# }
-
-# DELETE AEROBIC EXERCISE BY ID
-# Delete Bench Press
-# DELETE http://localhost:3000/api/aerobics/681859d5a14e85e2dff76782
-
 
 ############## WEIGHTLIFT ROUTES ################
 #################################################
 
 # GET ALL WEIGHTLIFT EXERCISES
+# Example: Get All Weightlift Exercises
 # GET http://localhost:3000/api/weightlifts
 
-# GET ALL WEIGHTLIFT EXERCISE BY USER ID
-# GET http://localhost:3000//api/weightlifts/user/:userId
- 
 # GET WEIGHTLIFT EXERCISE BY ID
 # Get Lunge:
-
+# Example: Get All Weightlift Exercises By Exercise ID
 # GET http://localhost:3000/api/weightlifts/681859d5a14e85e2dff76785
 
+# GET ALL WEIGHTLIFT EXERCISE BY USER ID
+# Example: Get All Weightlift Exercises By User ID
+# GET http://localhost:3000//api/weightlifts/user/:userId
+
+
+# UPDATE WEIGHTLIFT EXERCISE BY ID
+# Example: Update Butterly Press
+# PUT http://localhost:3000/api/weightlifts/681859d5a14e85e2dff76786
+# Content-Type: application/json
+#
+# {
+#   "muscle": "Chest",
+#   "reps": 10
+# }
+
+# DELETE WEIGHTLIFT EXERCISE BY ID
+# Example: Delete Lunge
+# DELETE http://localhost:3000/api/weightlifts/681859d5a14e85e2dff76785
 
 #ADD NEW WEIGHTLIFT EXERCISE
+# Example: Post 
 # POST http://localhost:3000/api/weightlifts
 # Content-Type: application/json
 # [
@@ -187,16 +172,3 @@
 #   }
 # ]
 
-# UPDATE WEIGHTLIFT EXERCISE BY ID
-# Update Butterly Press
-# PUT http://localhost:3000/api/weightlifts/681859d5a14e85e2dff76786
-# Content-Type: application/json
-#
-# {
-#   "muscle": "Chest",
-#   "reps": 10
-# }
-
-# DELETE WEIGHTLIFT EXERCISE BY ID
-# Delete Lunge
-# DELETE http://localhost:3000/api/weightlifts/681859d5a14e85e2dff76785
