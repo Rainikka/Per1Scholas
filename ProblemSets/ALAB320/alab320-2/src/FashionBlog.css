@@ -1,13 +1,39 @@
 .page-container {
+  margin: 0 auto;
   width: 800px;
   height: 600px;
   display: flex;
+  flex-direction: column;
 }
 
-.left-column {
-  width: 400px;
-  display: flex;
-  flex-direction: column;
+.header {
+  width: 800px;
+  height: 144px;
+  border: 1px solid blue;
+}
+
+.title {}
+
+.subtitle {}
+
+.navBar {}
+
+.navList {}
+
+.list-items {}
+
+.a-links {}
+
+.main {
+  width: 800px;
+  height: 228px;
+  border: 1px solid orange;
+}
+
+.footer {
+  width: 800px;
+  height: 228px;
+  border: 1px solid fuchsia;
 }
 
 .left-top-box {
