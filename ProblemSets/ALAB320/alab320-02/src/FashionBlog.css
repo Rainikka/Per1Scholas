@@ -9,6 +9,7 @@ body {
 }
 
 .page-container {
+  padding: 20px;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -30,6 +31,7 @@ body {
 }
 
 .subtitle {
+  margin: 2rem;
   font-size: 2.5rem;
   color: gray;
   font-weight: normal;
@@ -79,8 +81,8 @@ body {
 
 .article-dates {
   color: darkgray;
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  margin: 2rem;
 }
 
 .article-titles {
@@ -103,9 +105,11 @@ body {
   text-align: left;
 }
 
-.article-continue {
+.article-continues {
+  margin: 0 0 0 80%;
+  width: 100%;
   text-align: right;
-  color: gray;
+  color: tomato;
   font-style: italic;
 }
 

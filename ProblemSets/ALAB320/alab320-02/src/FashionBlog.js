@@ -33,6 +33,7 @@ function FashionBlog() {
           <article className="articles article1">
             <p className="article-texts"> Quisque a auctor neque. Aliquam erat volutpat. Praesent tristique malesuada leo at commodo. Nullam ut accumsan ligula, et hendrerit ex. Fusce est massa, placerat quis elit sed, varius gravida tellus. Mauris a purus lobortis, posuere massa ut, blandit tellus. In accumsan nisi vitae iaculis ultrices. In lectus libero, scelerisque vitae interdum placerat, tempor ac nunc. Mauris cursus urna dolor, ac porta nibh interdum nec. Aliquam placerat erat vitae luctus sollicitudin.
             </p> </article>
+          <a className="article-continues" href="http://perscholas.org" > Continues...</a>
         </section>
 
 
@@ -43,13 +44,14 @@ function FashionBlog() {
           <article className="articles article1">
             <p className="article-texts"> Nam eleifend urna libero, vel aliquam lacus dictum in. Mauris bibendum convallis libero, in consequat sapien dignissim a. Nunc faucibus magna at lorem porttitor, vel elementum velit sagittis. Donec porttitor et mi non placerat. Donec rutrum quis ex convallis venenatis. Aliquam in hendrerit odio. Aenean dolor enim, laoreet quis ipsum ac, imperdiet blandit lectus. Vestibulum cursus mauris id nulla semper scelerisque. Fusce metus nisi, vehicula in tristique quis, molestie quis sem. Morbi ut finibus ipsum, ac finibus sapien.</p>
           </article>
+          <a className="article-continues" href="http://perscholas.org" > Continues...</a>
         </section>
-      </main>
+      </main >
 
       {/* Footer */}
-      <footer className="footer">
+      <footer footer className="footer" >
       </footer>
-    </div>
+    </div >
   );
 }
 
