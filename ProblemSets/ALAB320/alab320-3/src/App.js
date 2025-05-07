@@ -1,25 +1,58 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
 
-function App() {
+export default function Form() {
+  const [person, setPerson] = useState({
+    firstName: null,
+    lastName: null,
+    email: null
+  });
+
+  function handleChange(e) {
+    setPerson({
+      ...person,
+      [e.target.name]: e.target.value
+    });
+  }
+
+  // function handleFirstNameChange(e) {
+  //   setPerson({
+  //     ...person,
+  //     firstName: e.target.value
+  //   })
+  // }
+
+  // function handleLastNameChange(e) {
+  //   setPerson({
+  //     ...person,
+  //     lastName: e.target.value
+  //   })
+  // }
+
+  // function handleEmailChange(e) {
+  //   setPerson({
+  //     ...person,
+  //     email: e.target.value
+  //   })
+  // }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <label>
+        First name:
+        <input name='firstName' value={person.firstName} onChange={handleChange} />
+      </label>
+      <label>
+        Last name:
+        <input name='lastName' value={person.lastName} onChange={handleChange} />
+      </label>
+      <label>
+        Email:
+        <input name='email' value={person.email} onChange={handleChange} />
+      </label>
+      <p>
+        {person.firstName} {person.lastName} ({person.email})
+      </p>
+    </>
   );
 }
 
-export default App;
