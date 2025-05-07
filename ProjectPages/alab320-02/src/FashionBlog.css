@@ -1,0 +1,139 @@
+/* Base Styles */
+body {
+  font-family: sans-serif;
+  color: #333;
+  max-width: 1000px;
+  min-height: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.page-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  border: 5px solid lightgray;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid lightgray;
+}
+
+.title {
+  margin-bottom: 0.5rem;
+  letter-spacing: 2px;
+  font-size: 5rem;
+  color: tomato;
+}
+
+.subtitle {
+  margin: 2rem;
+  font-size: 2.5rem;
+  color: gray;
+  font-weight: normal;
+}
+
+/* NavBar */
+.navBar {
+  margin: 1.5rem 0;
+}
+
+.navList {
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.list-items {
+  margin: 0 1rem;
+}
+
+.links {
+  text-decoration: none;
+  color: gray;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+
+/* Main Content */
+.main {
+  flex: 1;
+  padding: 1rem 2rem;
+}
+
+.article-container {
+  margin: 100px 0;
+}
+
+.articles {
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.article-dates {
+  color: darkgray;
+  font-size: 1.5rem;
+  margin: 2rem;
+}
+
+.article-titles {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: black;
+}
+
+.article-images {
+  width: 500px;
+  height: 350px;
+  margin-bottom: 1.5rem;
+  border-radius: 4px;
+}
+
+.article-texts {
+  margin-bottom: .5rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  text-align: left;
+}
+
+.article-continues {
+  margin: 0 0 0 80%;
+  width: 100%;
+  text-align: right;
+  color: tomato;
+  font-style: italic;
+}
+
+/* Footer Styles */
+.footer {
+  background-color: whitesmoke;
+  padding: 1rem 2rem;
+  text-align: center;
+  border-top: 1px solid whitesmoke;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer-link {
+  margin: 0 0.5rem;
+  color: gray;
+  text-decoration: none;
+}
+
+.copyright {
+  margin-top: 1rem;
+  color: gray;
+  font-size: 0.9rem;
+}
