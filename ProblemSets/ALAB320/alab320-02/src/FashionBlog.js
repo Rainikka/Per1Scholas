@@ -40,7 +40,7 @@ function FashionBlog() {
         <section classname="article-container">
           <div className="article-dates article-date-1">11/12/20</div>
           <div className="article-titles article-title-1">Vintage in Vogue</div>
-          <img className="article-images image1" src={sartre2} alt="Vintage fashion" />
+          <img className="article-images image2" src={sartre2} alt="Vintage fashion" />
           <article className="articles article1">
             <p className="article-texts"> Nam eleifend urna libero, vel aliquam lacus dictum in. Mauris bibendum convallis libero, in consequat sapien dignissim a. Nunc faucibus magna at lorem porttitor, vel elementum velit sagittis. Donec porttitor et mi non placerat. Donec rutrum quis ex convallis venenatis. Aliquam in hendrerit odio. Aenean dolor enim, laoreet quis ipsum ac, imperdiet blandit lectus. Vestibulum cursus mauris id nulla semper scelerisque. Fusce metus nisi, vehicula in tristique quis, molestie quis sem. Morbi ut finibus ipsum, ac finibus sapien.</p>
           </article>

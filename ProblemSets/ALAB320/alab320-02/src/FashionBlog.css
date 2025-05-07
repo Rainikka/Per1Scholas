@@ -91,9 +91,16 @@ body {
   color: black;
 }
 
-.article-images {
+.image1 {
   width: 500px;
   height: 350px;
+  margin-bottom: 1.5rem;
+  border-radius: 4px;
+}
+
+.image2 {
+  width: 400px;
+  height: 550px;
   margin-bottom: 1.5rem;
   border-radius: 4px;
 }
