@@ -28,7 +28,6 @@ for (const tool of adventurer.inventory) {
  * The companion's name is "Frank" 
  * The companion's type is "Flea" 
  * The companion has its own belongings, which inclues a small hat and sunglasses ****/
-
 adventurer = {
   name: "Robin",
   health: 10,
@@ -105,26 +104,87 @@ console.log("Leo's roll result:", leoRoll);
 
 /*********** PART 3: CLASS FEATURES **********/
 /*** Task 1: Add Attributes that Are Specific to the Character Class ***/
-
 class Adventurer extends Character {
   constructor(name, role) {
     super(name);
-    // Adventurers have specialized roles. this.role = role;
-    // Every adventurer starts with a bed and 50 gold coins.
+    this.role = role;
+    this.specialAbility = this.determineSpecialAbility(role);
+    this.health = this.determineBaseHealth(role);
     this.inventory.push("bedroll", "50 gold coins");
   }
-  // Adventurers have the ability to scout ahead of them.
+  determineSpecialAbility(role) {
+    const abilities = {
+      'warrior': 'rage',
+      'mage': 'spellcasting',
+      'rogue': 'stealth',
+      'cleric': 'healing'
+    };
+    return abilities[role.toLowerCase()] || 'investigation';
+  }
+  determineBaseHealth(role) {
+    const healthStats = {
+      'warrior': 120,
+      'mage': 80,
+      'rogue': 100,
+      'cleric': 110
+    };
+    return healthStats[role.toLowerCase()] || 90;
+  }
   scout() {
-    console.log(`${this.name} is scouting ahead...`); super.roll();
+    console.log(`${this.name} the ${this.role} is scouting ahead...`);
+    super.roll();
   }
 }
 
 /*** Task 2: Add Attributes that Are Specific to the Companion Class ***/
-
+const dragonCompanion = new Companion('Smaug', 'dragon', 3);
+dragonCompanion.assist();
+dragonCompanion.bond(2);
 
 /*** Task 3: Change the Declaraton of Robin & COmpanions to Use the Classes ***/
+const robin = new Adventurer("Robin", "ranger");
+robin.inventory.push("sword", "potion", "artifact");
+robin.health = 110;
+robin.specialAbility = "archery";
+
+const companions = [
+  new Companion("Leo", "wolf", 8),
+  new Companion("Frank", "mechanical", 4),
+  new Companion("Ralph", "spirit", 6),
+  new Companion("Troy", "dragon", 2)
+];
+
+console.log(`${robin.name} is a ${robin.role} with ${robin.health} health`);
+robin.scout();
+
+companions.forEach(companion => {
+  console.log(`${companion.name} is a ${companion.type} that can ${companion.specialSkill}`);
+  companion.assist();
+});
+
+companions[3].bond(3);
+
+/*********** PART 4: CLASS UNIFORMS **********/
+/*** Task 1: Add a static MAX_HEALTH property to the Character class, equal to 100  ***/
+
+/*** Task 2: Add a static ROLES array to the Adventurer class tht ensures thhe given role matches one of these values  ***/
 
 
-
-
-/*** Task 1: Add Attributes that Are Specific to a Companion ***/
+/*********** PART 5: GATHER YOUR PARTY  **********/
+/*** Task 1: Create many  "healer" role adventurers using a factory class ***/
+class AdventurerFactory {
+  constructor(role) {
+    this.role = role;
+    this.adventurers = [];
+  }
+  generate(name) {
+    const newAdventurer = new Adventurer(name, this.role); this.adventurers.push(newAdventurer);
+  }
+  findByIndex(index) {
+    return this.adventurers[index];
+  }
+  findByName(name) {
+    return this.adventurers.find((a) => a.name === name);
+  }
+}
+const healers = new AdventurerFactory("Healer"); const robin = healers.generate("Robin");
