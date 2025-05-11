@@ -35,7 +35,7 @@ adventurer = {
   companion: {
     name: "Leo",
     type: "cat",
-    inventory: [], // Leo should have his own inventory
+    inventory: [],
     companion: {
       name: "Frank",
       type: "Flea",
@@ -52,7 +52,7 @@ adventurer = {
   companion: {
     name: "Leo",
     type: "cat",
-    inventory: [], // Leo should have his own inventory
+    inventory: [],
     companion: {
       name: "Frank",
       type: "Flea",
@@ -70,12 +70,11 @@ const fewRolls = [];
 for (let i = 0; i < 3; i++) {
   fewRolls.push(adventurer.roll());
 }
-console.log(fewRolls);
+console.log(fewRolls); gitinit
 
 
 /*********** PART 2: CLASS FANTASY **********/
 /*** Task 1: Add the roll method to the Character class ***/
-
 class Character {
   constructor(name) {
     this.name = name;
@@ -104,35 +103,17 @@ console.log("Leo's roll result:", leoRoll);
 
 /*********** PART 3: CLASS FEATURES **********/
 /*** Task 1: Add Attributes that Are Specific to the Character Class ***/
-class Adventurer extends Character {
-  constructor(name, role) {
-    super(name);
-    this.role = role;
-    this.specialAbility = this.determineSpecialAbility(role);
-    this.health = this.determineBaseHealth(role);
-    this.inventory.push("bedroll", "50 gold coins");
+class Character {
+  constructor(name) {
+    this.name = name;
+    this.health = 100;
+    this.level = 1;
+    this.inventory = [];
+    this.isAlive = true;
   }
-  determineSpecialAbility(role) {
-    const abilities = {
-      'warrior': 'rage',
-      'mage': 'spellcasting',
-      'rogue': 'stealth',
-      'cleric': 'healing'
-    };
-    return abilities[role.toLowerCase()] || 'investigation';
-  }
-  determineBaseHealth(role) {
-    const healthStats = {
-      'warrior': 120,
-      'mage': 80,
-      'rogue': 100,
-      'cleric': 110
-    };
-    return healthStats[role.toLowerCase()] || 90;
-  }
-  scout() {
-    console.log(`${this.name} the ${this.role} is scouting ahead...`);
-    super.roll();
+
+  roll() {
+    return Math.floor(Math.random() * 20) + 1;  // Returns 1-20
   }
 }
 
@@ -142,49 +123,68 @@ dragonCompanion.assist();
 dragonCompanion.bond(2);
 
 /*** Task 3: Change the Declaraton of Robin & COmpanions to Use the Classes ***/
-const robin = new Adventurer("Robin", "ranger");
-robin.inventory.push("sword", "potion", "artifact");
-robin.health = 110;
-robin.specialAbility = "archery";
+class Character {
+  constructor(name) {
+    this.name = name;
+    this.inventory = [];
+  }
 
-const companions = [
-  new Companion("Leo", "wolf", 8),
-  new Companion("Frank", "mechanical", 4),
-  new Companion("Ralph", "spirit", 6),
-  new Companion("Troy", "dragon", 2)
-];
+  roll() {
+    return Math.floor(Math.random() * 20) + 1;
+  }
+}
 
-console.log(`${robin.name} is a ${robin.role} with ${robin.health} health`);
-robin.scout();
+const robin = new Character("Robin");
+robin.inventory = ["sword", "potion", "artifact"];
 
-companions.forEach(companion => {
-  console.log(`${companion.name} is a ${companion.type} that can ${companion.specialSkill}`);
-  companion.assist();
-});
+const leo = new Character("Leo");
+leo.type = "Cat";
 
-companions[3].bond(3);
+const frank = new Character("Frank");
+frank.type = "Flea";
+frank.inventory = ["small hat", "sunglasses"];
+
+robin.companion = leo;
+leo.companion = frank;
+
+const leoRoll = leo.roll();
+console.log("Leo's roll result:", leoRoll);
+
 
 /*********** PART 4: CLASS UNIFORMS **********/
-/*** Task 1: Add a static MAX_HEALTH property to the Character class, equal to 100  ***/
+/*** Task 1: Add a static MAX_HEALTH property to the Character class, equal to 100 ***/
 
-/*** Task 2: Add a static ROLES array to the Adventurer class tht ensures thhe given role matches one of these values  ***/
+class Character {
+  static MAX_HEALTH = 100;
 
+  constructor(name) {
+    this.name = name;
+    this.inventory = [];
+  }
+}
+
+/*** Task 2: Add a static ROLES array to the Adventurer class that ensures the given role matches one of these values ***/
+
+class Adventurer extends Character {
+  static ROLES = ['warrior', 'mage', 'rogue', 'cleric', 'ranger'];
+
+  constructor(name, role) {
+    super(name);
+
+    this.role = role;
+    this.inventory.push("bedroll", "50 gold coins");
+  }
+}
 
 /*********** PART 5: GATHER YOUR PARTY  **********/
-/*** Task 1: Create many  "healer" role adventurers using a factory class ***/
-class AdventurerFactory {
-  constructor(role) {
-    this.role = role;
-    this.adventurers = [];
-  }
-  generate(name) {
-    const newAdventurer = new Adventurer(name, this.role); this.adventurers.push(newAdventurer);
-  }
-  findByIndex(index) {
-    return this.adventurers[index];
-  }
-  findByName(name) {
-    return this.adventurers.find((a) => a.name === name);
+/*** Task 1: Create many "healer" role adventurers using a factory class ***/
+
+class HealerFactory {
+  static createHealer(name) {
+    const healer = new Adventurer(name, "cleric");
+    healer.inventory.push("healing potion", "holy symbol");
+    healer.specialAbility = "healing";
+    return healer;
   }
 }
 const healers = new AdventurerFactory("Healer"); const robin = healers.generate("Robin");
