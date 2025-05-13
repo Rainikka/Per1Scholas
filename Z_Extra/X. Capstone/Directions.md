@@ -29,4 +29,4 @@
 - Config EsLint to Create-React-App Default Settings
   `sudo npm i -D eslint@8.56.0 eslint-config-react-app`
 
-### Clearing Out Unused Files
+### Setting Up Environmental Variables
