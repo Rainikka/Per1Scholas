@@ -9,8 +9,8 @@
 /******** 18-MAY-2025 *********/
 
 
-/********** ENVIRONMENT SET-UP ***********/
-/*****************************************/
+/********* ENVIRONMENT SET-UP ***********/
+/****************************************/
 
 /*** Secure Environment Variable ***/
 const dotenv = require('dotenv');
@@ -35,7 +35,7 @@ app.use(cors());
 
 /*** Mongo Database Connecton ***/
 const mongoose = require('mongoose');
-mongoose.connect(process.env.MONGO_URI);
+mongoose.connect(process.env.CAPSTONE_URI);
 mongoose.connection.once('open', () => {
   console.log(`Connected to MongoDB database: ${mongoose.connection.name}`);
 });
