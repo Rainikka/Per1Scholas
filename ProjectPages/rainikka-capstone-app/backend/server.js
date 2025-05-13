@@ -33,13 +33,13 @@ app.use(cors());
 // const notesRouter = require('./routes/notes-router.js');
 // app.use('/notes', notesRouter);
 
-/*** Mongo Server Connecton ***/
+/*** Mongo Database Connecton ***/
 const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGO_URI);
 mongoose.connection.once('open', () => {
   console.log(`Connected to MongoDB database: ${mongoose.connection.name}`);
 });
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () =>
   console.log(`server is listening on PORT: André${PORT}`));
