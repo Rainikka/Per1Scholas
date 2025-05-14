@@ -38,11 +38,10 @@ app.get('/', (req, res) => {
   res.send('Hello from Node API Server Update')
 });
 
-
 app.post('/api/books', async (req, res) => {
   try {
     const book = await Book.create(req.body);
-    res.statu(200).json(book);
+    res.statu(201).json(book);
     console.log(`${book} created successfully`);
   } catch (error) {
     res.status(500).json({
