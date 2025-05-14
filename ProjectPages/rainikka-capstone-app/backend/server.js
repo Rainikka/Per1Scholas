@@ -33,7 +33,7 @@ app.use(cors());
 // const notesRouter = require('./routes/books-router.js');
 // app.use('/books', notesRouter);
 
-const Book = requre('./models/book.model.js');
+const Book = require('./models/book-model.js');
 app.get('/', (req, res) => {
   res.send('Hello from Node API Server Update')
 });
@@ -43,12 +43,12 @@ app.post('/api/books', async (req, res) => {
   try {
     const book = await Book.create(req.body);
     res.statu(200).json(book);
-  } catch (error) {
     console.log(`${book} created successfully`);
+  } catch (error) {
     res.status(500).json({
       message: error.message
-      console.log(`${book} NOT created`);
-    })
+    });
+    console.log(`${book} NOT created `);
   }
 });
 
