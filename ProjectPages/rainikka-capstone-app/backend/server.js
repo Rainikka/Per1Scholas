@@ -25,9 +25,10 @@ const cors = require('cors');
 const urlencoded = require('urlencode');
 
 /** Configure Middleware ***/
-app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
+app.use(express.urlencoded({ extended: true }));
+
 
 /*** Import Router ***/
 // const notesRouter = require('./routes/books-router.js');

@@ -42,7 +42,6 @@ const mongoose = require("mongoose");
 const PORT = process.env.PORT || 3000;
 const app = express();
 
-
 /*** Middleware for JSON use ***/
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
