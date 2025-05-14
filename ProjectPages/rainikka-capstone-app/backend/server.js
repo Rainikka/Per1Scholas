@@ -1,5 +1,5 @@
 /****** Rainikka Corprew ******/
-/********* JAVASCRIPT *********/
+/********* MERN STACK *********/
 /******** 2025-RTT-04 *********/
 /******************************/
 
@@ -29,17 +29,41 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 
-/*** Import Notes Router ***/
+/*** Import Router ***/
 // const notesRouter = require('./routes/books-router.js');
 // app.use('/books', notesRouter);
 
-/*** Mongo Database Connecton ***/
-const mongoose = require('mongoose');
-mongoose.connect(process.env.MONGO_URI);
-mongoose.connection.once('open', () => {
-  console.log(`Connected to MongoDB database: ${mongoose.connection.name}`);
+const Book = requre('./models/book.model.js');
+app.get('/', (req, res) => {
+  res.send('Hello from Node API Server Update')
 });
 
-const PORT = process.env.PORT || 3000;
+
+app.post('/api/books', async (req, res) => {
+  try {
+    const book = await Book.create(req.body);
+    res.statu(200).json(book);
+  } catch (error) {
+    console.log(`${book} created successfully`);
+    res.status(500).json({
+      message: error.message
+      console.log(`${book} NOT created`);
+    })
+  }
+});
+
+/*** Mongo Database Connection ***/
+const mongoose = require('mongoose');
+const mongoString = process.env.MONGO_URI;
+mongoose.connect(mongoString)
+  .then(() => {
+    console.log(`Database is Connected: ${mongoose.connection.name} `)
+  })
+  .catch((error) => {
+    console.log("Database NOT Connected:", error.message);
+  });
+
+/*** Set-Up: Port for Listening ***/
+const PORT = process.env.PORT || 3000
 app.listen(PORT, () =>
-  console.log(`server is listening on PORT: André${PORT}`));
+  console.log(`Server is listening on PORT: André${PORT} `));
