@@ -37,17 +37,17 @@ app.use(express.urlencoded({ extended: true }));
 /*** Import All Models ***/
 const User = require('./models/user.model');
 const Aerobic = require('./models/aerobic.model');
-const Weightlift = require('./models/weightlift.model');
+const school = require('./models/school.model');
 
 /*** Import All Routes ***/
 const userRoute = require('./routes/user.route');
 const aerobicRoute = require('./routes/aerobic.route')
-const weightliftRoute = require('./routes/weightlift.route');
+const schoolRoute = require('./routes/school.route');
 
 /*** Set Endpoint for Routes ***/
 app.use('/api/users', userRoute);
 app.use('/api/aerobics', aerobicRoute);
-app.use('/api/weightlifts', weightliftRoute);
+app.use('/api/schools', schoolRoute);
 
 // const Book = require('./models/book-model.js');
 // app.get('/', (req, res) => {

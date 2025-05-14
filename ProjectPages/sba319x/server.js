@@ -73,6 +73,13 @@ app.use('/api/aerobics', aerobicRoute);
 app.use('/api/weightlifts', weightliftRoute);
 
 
+/*** Proper Error-Handling ***/
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ message: 'Something broke!' });
+});
+
+
 /*** Set-Up: Port for Listening ***/
 app.listen(PORT, () => {
   console.log(`Server is running on Port: André${PORT}`)

@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const weightlift = await Weightlift.findById(id);
+    const weightlift = await Weightlift.find({ user: req.params.userId });
     res.json(weightlift);
   } catch (error) {
     res.json({ message: error.message })
@@ -39,11 +39,12 @@ router.post('/', async (req, res) => {
   }
 });
 
+
 /*** Route: Delete Weightlift Entry  By Id ***/
 router.delete('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const weightlift = await Weightlift.findByIdAndDelete(id);
+    const weightlift = await Weightlift.findByIdAndDelete({ user: req.params.userId, req.body });
     if (!weightlift) {
       return res.status(404).json({
         message: "Weightlift Entry Not Found"
@@ -59,7 +60,7 @@ router.delete('/:id', async (req, res) => {
 router.put('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const weightlift = await Weightlift.findByIdAndUpdate(id, req.body);
+    const weightlift = await Weightlift.findByIdAndUpdate({ user: req.params.userId, req.body });
     if (!weightlift) {
       return res.status(404).json({ message: "Weightlift Entry Not Found" })
     }
