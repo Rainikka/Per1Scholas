@@ -5,7 +5,7 @@ const router = express.Router();
 const User = require('../models/user.model');
 
 
-/************** ALL CRUD ROUTES *************/
+/************** USER: ALL CRUD ROUTES *************/
 
 /*** Route: Landing Page ***/
 router.get('/', async (req, res) => {
@@ -32,11 +32,11 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const user = await User.create(req.body);
-    console.log("User Entry Received:", user);
-    res.json(user);
+    res.status(200).json(user);
+    console.log(`${user} created successfully`);
   } catch (error) {
-    console.log("Error Creating User:", error);
-    res.json({ message: "Error Creating User" });
+    console.log(`${user} NOT created`);
+    res.status(500).json({ message: "Error Creating User" });
   }
 });
 

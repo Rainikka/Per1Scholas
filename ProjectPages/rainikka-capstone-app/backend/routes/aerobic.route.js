@@ -4,7 +4,7 @@ const express = require('express')
 const router = express.Router();
 const Aerobic = require('../models/aerobic.model');
 
-/************** ALL CRUD ROUTES *************/
+/************** AEROBIC: ALL CRUD ROUTES *************/
 
 /*** Route: Landing Page ***/
 router.get('/', async (req, res) => {
@@ -31,11 +31,11 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const aerobic = await Aerobic.create(req.body);
-    console.log("New Entry Created:", aerobic);
-    res.json(aerobic);
+    res.status(200).json(aerobic);
+    console.log(`${aerobic} created successfully`);
   } catch (error) {
-    console.log("Error creating exercise entry:", error);
-    res.json({ message: "Error Creating Exercise Entry" });
+    console.log(`${aerobic} NOT created`);
+    res.status(500).json({ message: "Error Creating Aerobic" });
   }
 });
 

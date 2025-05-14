@@ -4,7 +4,7 @@ const express = require('express')
 const router = express.Router();
 const Weightlift = require('../models/weightlift.model');
 
-/************** ALL CRUD ROUTES *************/
+/************** WEIGHTLIFT: ALL CRUD ROUTES *************/
 
 /*** Route: Landing Page ***/
 router.get('/', async (req, res) => {
@@ -27,15 +27,15 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-/*** Route: Add New Weightlift Entry  ***/
+/*** Route: Add New Exercise Entry ***/
 router.post('/', async (req, res) => {
   try {
     const weightlift = await Weightlift.create(req.body);
-    console.log("Weightlift Entry Created:", weightlift);
-    res.json(weightlift);
+    res.status(200).json(weightlift);
+    console.log(`${weightlift} created successfully`);
   } catch (error) {
-    console.log("Error creating weightlift entry:", error);
-    res.json({ message: "Error Creating Weightlift Entry" });
+    console.log(`${weightlift} NOT created`);
+    res.status(500).json({ message: "Error Creating Weightlift" });
   }
 });
 

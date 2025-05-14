@@ -35,39 +35,38 @@ app.use(express.urlencoded({ extended: true }));
 // app.use('/books', notesRouter);
 
 /*** Import All Models ***/
-// const User = require('./models/user.model');
-// const Admin = require('./models/admin.model');
-// const Book = require('./models/book.model');
+const User = require('./models/user.model');
+const Aerobic = require('./models/aerobic.model');
+const Weightlift = require('./models/weightlift.model');
 
 /*** Import All Routes ***/
-// const userRoute = require('./routes/user.route');
-// const adminRoute = require('./routes/admin.route')
-// const bookRoute = require('./routes/book.route');
+const userRoute = require('./routes/user.route');
+const aerobicRoute = require('./routes/aerobic.route')
+const weightliftRoute = require('./routes/weightlift.route');
 
 /*** Set Endpoint for Routes ***/
-// app.use('/api/users', userRoute);
-// app.use('/api/admins', adminRoute);
-// app.use('/api / books', bookRoute);
+app.use('/api/users', userRoute);
+app.use('/api/aerobics', aerobicRoute);
+app.use('/api/weightlifts', weightliftRoute);
 
-const Book = require('./models/book-model.js');
-app.get('/', (req, res) => {
-  res.send('Hello from Node API Server Update')
-});
+// const Book = require('./models/book-model.js');
+// app.get('/', (req, res) => {
+//   res.send('Hello from Node API Server Update')
+// });
 
-
-/*** Route to Create **/
-app.get('/api/books', async (req, res) => {
-  try {
-    const book = await Book.create(req.body);
-    res.statu(201).json(book);
-    console.log(`${book} created successfully`);
-  } catch (error) {
-    res.status(500).json({
-      message: error.message
-    });
-    console.log(`${book} NOT created `);
-  }
-});
+// /*** Route to Create **/
+// app.get('/api/books', async (req, res) => {
+//   try {
+//     const book = await Book.create(req.body);
+//     res.statu(201).json(book);
+//     console.log(`${book} created successfully`);
+//   } catch (error) {
+//     res.status(500).json({
+//       message: error.message
+//     });
+//     console.log(`${book} NOT created `);
+//   }
+// });
 
 /*** Mongo Database Connection ***/
 const mongoose = require('mongoose');
