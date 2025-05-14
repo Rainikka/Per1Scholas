@@ -3,60 +3,60 @@
 ################ USER ROUTES ################
 
 # GET ALL USERS 
-# GET http://localhost:3000/api/users
+ GET http://localhost:3000/api/users
 
 # GET USER BY ID
 # Get User Maxine Shaw
 # GET http://localhost:3000/api/users/6818523ea14e85e2dff7676a
 
 # ADD NEW USERS
-POST http://localhost:3000/api/users
-Content-Type: application/json
+# POST http://localhost:3000/api/users
+# Content-Type: application/json
 
-[
-  {
-    "user": "Maxine Shaw",
-    "age": 30,
-    "height": 65,
-    "weight": 150,
-    "fitness": "Athletic"
-  },
-  {
-    "user": "Kyle Barker",
-    "age": 30,
-    "height": 68,
-    "weight": 150,
-    "fitness": "Athletic"
-  },
-  {
-    "user": "Regine Hunter",
-    "age": 30,
-    "height": 65,
-    "weight": 150,
-    "fitness": "Beginner"
-  },
-  {
-    "user": "Overton Wakefield",
-    "age": 30,
-    "height": 68,
-    "weight": 150,
-    "fitness": "Intermediate"
-  },
-  {
-    "user": "Khadijah James",
-    "age": 30,
-    "height": 65,
-    "weight": 150,
-    "fitness": "Intermediate"
-  },
-  {
-    "user": "Synclair James",
-    "age": 30,
-    "height": 65,
-    "weight": 150,
-    "fitness": "Beginner"
-  }
-]
+# [
+#   {
+#     "user": "Maxine Shaw",
+#     "age": 30,
+#     "height": 65,
+#     "weight": 150,
+#     "fitness": "Athletic"
+#   },
+#   {
+#     "user": "Kyle Barker",
+#     "age": 30,
+#     "height": 68,
+#     "weight": 150,
+#     "fitness": "Athletic"
+#   },
+#   {
+#     "user": "Regine Hunter",
+#     "age": 30,
+#     "height": 65,
+#     "weight": 150,
+#     "fitness": "Beginner"
+#   },
+#   {
+#     "user": "Overton Wakefield",
+#     "age": 30,
+#     "height": 68,
+#     "weight": 150,
+#     "fitness": "Intermediate"
+#   },
+#   {
+#     "user": "Khadijah James",
+#     "age": 30,
+#     "height": 65,
+#     "weight": 150,
+#     "fitness": "Intermediate"
+#   },
+#   {
+#     "user": "Synclair James",
+#     "age": 30,
+#     "height": 65,
+#     "weight": 150,
+#     "fitness": "Beginner"
+#   }
+# ]
 
 # UPDATE USER BY ID
 # Updating User Synclair James

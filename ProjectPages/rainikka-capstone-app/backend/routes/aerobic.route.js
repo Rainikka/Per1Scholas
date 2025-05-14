@@ -10,9 +10,9 @@ const Aerobic = require('../models/aerobic.model');
 router.get('/', async (req, res) => {
   try {
     const aerobics = await Aerobic.find({});
-    res.json(aerobics)
+    res.status(200).json(aerobics)
   } catch (error) {
-    res.json({ message: error.message })
+    res.status(500).json({ message: error.message })
   }
 });
 
@@ -21,9 +21,9 @@ router.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const aerobic = await Aerobic.findById(id);
-    res.json(aerobic);
+    res.status(200).json(aerobic);
   } catch (error) {
-    res.json({ message: error.message })
+    res.status(500).json({ message: error.message })
   }
 });
 
@@ -49,9 +49,9 @@ router.delete('/:id', async (req, res) => {
         message: "Exercise Entry Not Found"
       });
     }
-    res.json({ message: "Exercise Entry Deleted Successfully" });
+    res.status(200).json({ message: "Exercise Entry Deleted Successfully" });
   } catch (error) {
-    res.json({ message: error.message });
+    res.status(500).json({ message: error.message });
   }
 });
 
@@ -64,9 +64,9 @@ router.put('/:id', async (req, res) => {
       return res.status(404).json({ message: "Aerobic Not Found" })
     }
     const updatedAerobic = await Aerobic.findById(id);
-    res.json(updatedAerobic);
+    res.status(200).json(updatedAerobic);
   } catch (error) {
-    res.json({ message: error.message })
+    res.status(400).json({ message: error.message })
   }
 });
 

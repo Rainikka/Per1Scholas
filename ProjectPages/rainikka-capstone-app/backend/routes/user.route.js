@@ -4,16 +4,15 @@ const express = require('express')
 const router = express.Router();
 const User = require('../models/user.model');
 
-
 /************** USER: ALL CRUD ROUTES *************/
 
 /*** Route: Landing Page ***/
 router.get('/', async (req, res) => {
   try {
     const users = await User.find({});
-    res.json(users)
+    res.status(200).json(users)
   } catch (error) {
-    res.json({ message: error.message })
+    res.status(500).json({ message: error.message })
   }
 });
 
@@ -22,9 +21,9 @@ router.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const user = await User.findById(id);
-    res.json(user);
+    res.status(200).json(user);
   } catch (error) {
-    res.json({ message: error.message })
+    res.status(500).json({ message: error.message })
   }
 });
 
@@ -50,9 +49,9 @@ router.delete('/:id', async (req, res) => {
         message: "User Not Found"
       });
     }
-    res.json({ message: "User Deleted Successfully" });
+    res.status(200).json({ message: "User Deleted Successfully" });
   } catch (error) {
-    res.json({ message: error.message });
+    res.status(500).json({ message: error.message });
   }
 });
 
@@ -65,9 +64,9 @@ router.put('/:id', async (req, res) => {
       return res.status(404).json({ message: "User Not Found" })
     }
     const updatedUser = await User.findById(id);
-    res.json(updatedUser);
+    res.status(200).json(updatedUser);
   } catch (error) {
-    res.json({ message: error.message })
+    res.status(500).json({ message: error.message })
   }
 });
 
