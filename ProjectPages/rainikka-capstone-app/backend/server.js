@@ -33,12 +33,29 @@ app.use(cors());
 // const notesRouter = require('./routes/books-router.js');
 // app.use('/books', notesRouter);
 
+/*** Import All Models ***/
+// const User = require('./models/user.model');
+// const Admin = require('./models/admin.model');
+// const Book = require('./models/book.model');
+
+/*** Import All Routes ***/
+// const userRoute = require('./routes/user.route');
+// const adminRoute = require('./routes/admin.route')
+// const bookRoute = require('./routes/book.route');
+
+/*** Set Endpoint for Routes ***/
+// app.use('/api/users', userRoute);
+// app.use('/api/admins', adminRoute);
+// app.use('/api / books', bookRoute);
+
 const Book = require('./models/book-model.js');
 app.get('/', (req, res) => {
   res.send('Hello from Node API Server Update')
 });
 
-app.post('/api/books', async (req, res) => {
+
+/*** Route to Create **/
+app.get('/api/books', async (req, res) => {
   try {
     const book = await Book.create(req.body);
     res.statu(201).json(book);
