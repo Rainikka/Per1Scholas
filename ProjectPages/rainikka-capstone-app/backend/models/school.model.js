@@ -37,7 +37,10 @@ const SchoolSchema = new mongoose.Schema({
     type: Number,
     required: [true, "Enter the school's zip code"]
   },
-
+  SchoolNeighborhood: {
+    type: String,
+    required: [true, "Enter the school neighborhood"]
+  },
   SchoolDistrict: {
     type: Number,
     required: [true, "Enter school district number"]
@@ -72,7 +75,6 @@ const SchoolSchema = new mongoose.Schema({
     required: true,
     enum: [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]
   },
-
   Enrollment: {
     type: Number,
     required: [true, "Enter total number of students enrolled in school"]
@@ -154,7 +156,6 @@ const SchoolSchema = new mongoose.Schema({
     type: Number,
     required: [true, "Enter the school attendance rate for 2021"]
   },
-
   Attendance2022Rate: {
     type: Number,
     required: [true, "Enter the school attendance rate for 2022"]
