@@ -448,10 +448,9 @@ function App() {
           </div>
         </div>
 
-        {/* Attendance Data Section (2018 as example) */}
+        {/* Attendance Data Sections */}
         <div className="section">
           <h2 className="title">2018 Attendance Data</h2>
-
           <div className="group">
             <label htmlFor="attendance2018Rate" className="required">Attendance Rate (%)</label>
             <input type="number"
@@ -464,7 +463,6 @@ function App() {
               max="100"
               required />
           </div>
-
           <div className="group">
             <label htmlFor="chronically2018Absent" className="required">Chronically Absent (%)</label>
             <input type="number"
@@ -479,10 +477,177 @@ function App() {
           </div>
         </div>
 
-        {/* ELA Scores Section (2018 as example) */}
+        <div className="section">
+          <h2 className="title">2019 Attendance Data</h2>
+          <div className="group">
+            <label htmlFor="attendance2019Rate" className="required">Attendance Rate (%)</label>
+            <input type="number"
+              id="attendance2019Rate"
+              name="attendance2019Rate"
+              value={attendance2019Rate}
+              placeholder="Enter the school attendance rate for 2019"
+              onChange={(e) => setAttendance2019Rate(e.target.value)}
+              min="0"
+              max="100"
+              required />
+          </div>
+          <div className="group">
+            <label htmlFor="chronically2019Absent" className="required">Chronically Absent (%)</label>
+            <input type="number"
+              id="chronically2019Absent"
+              name="chronically2019Absent"
+              value={chronically2019Absent}
+              placeholder="Enter the percentage of students chronically absent for 2019"
+              onChange={(e) => setChronically2019Absent(e.target.value)}
+              min="0"
+              max="100"
+              required />
+          </div>
+        </div>
+
+        <div className="section">
+          <h2 className="title">2020 Attendance Data</h2>
+          <div className="group">
+            <label htmlFor="attendance2020Rate" className="required">Attendance Rate (%)</label>
+            <input type="number"
+              id="attendance2020Rate"
+              name="attendance2020Rate"
+              value={attendance2020Rate}
+              placeholder="Enter the school attendance rate for 2020"
+              onChange={(e) => setAttendance2020Rate(e.target.value)}
+              min="0"
+              max="100"
+              required />
+          </div>
+          <div className="group">
+            <label htmlFor="chronically2020Absent" className="required">Chronically Absent (%)</label>
+            <input type="number"
+              id="chronically2020Absent"
+              name="chronically2020Absent"
+              value={chronically2020Absent}
+              placeholder="Enter the percentage of students chronically absent for 2020"
+              onChange={(e) => setChronically2020Absent(e.target.value)}
+              min="0"
+              max="100"
+              required />
+          </div>
+        </div>
+
+        <div className="section">
+          <h2 className="title">2021 Attendance Data</h2>
+          <div className="group">
+            <label htmlFor="attendance2021Rate" className="required">Attendance Rate (%)</label>
+            <input type="number"
+              id="attendance2021Rate"
+              name="attendance2021Rate"
+              value={attendance2021Rate}
+              placeholder="Enter the school attendance rate for 2021"
+              onChange={(e) => setAttendance2021Rate(e.target.value)}
+              min="0"
+              max="100"
+              required />
+          </div>
+          <div className="group">
+            <label htmlFor="chronically2021Absent" className="required">Chronically Absent (%)</label>
+            <input type="number"
+              id="chronically2021Absent"
+              name="chronically2021Absent"
+              value={chronically2021Absent}
+              placeholder="Enter the percentage of students chronically absent for 2021"
+              onChange={(e) => setChronically2021Absent(e.target.value)}
+              min="0"
+              max="100"
+              required />
+          </div>
+        </div>
+
+        <div className="section">
+          <h2 className="title">2022 Attendance Data</h2>
+          <div className="group">
+            <label htmlFor="attendance2022Rate" className="required">Attendance Rate (%)</label>
+            <input type="number"
+              id="attendance2022Rate"
+              name="attendance2022Rate"
+              value={attendance2022Rate}
+              placeholder="Enter the school attendance rate for 2022"
+              onChange={(e) => setAttendance2022Rate(e.target.value)}
+              min="0"
+              max="100"
+              required />
+          </div>
+          <div className="group">
+            <label htmlFor="chronically2022Absent" className="required">Chronically Absent (%)</label>
+            <input type="number"
+              id="chronically2022Absent"
+              name="chronically2022Absent"
+              value={chronically2022Absent}
+              placeholder="Enter the percentage of students chronically absent for 2022"
+              onChange={(e) => setChronically2022Absent(e.target.value)}
+              min="0"
+              max="100"
+              required />
+          </div>
+        </div>
+
+        <div className="section">
+          <h2 className="title">2023 Attendance Data</h2>
+          <div className="group">
+            <label htmlFor="attendance2023Rate" className="required">Attendance Rate (%)</label>
+            <input type="number"
+              id="attendance2023Rate"
+              name="attendance2023Rate"
+              value={attendance2023Rate}
+              placeholder="Enter the school attendance rate for 2023"
+              onChange={(e) => setAttendance2023Rate(e.target.value)}
+              min="0"
+              max="100"
+              required />
+          </div>
+          <div className="group">
+            <label htmlFor="chronically2023Absent" className="required">Chronically Absent (%)</label>
+            <input type="number"
+              id="chronically2023Absent"
+              name="chronically2023Absent"
+              value={chronically2023Absent}
+              placeholder="Enter the percentage of students chronically absent for 2023"
+              onChange={(e) => setChronically2023Absent(e.target.value)}
+              min="0"
+              max="100"
+              required />
+          </div>
+        </div>
+
+        <div className="section">
+          <h2 className="title">2024 Attendance Data</h2>
+          <div className="group">
+            <label htmlFor="attendance2024Rate" className="required">Attendance Rate (%)</label>
+            <input type="number"
+              id="attendance2024Rate"
+              name="attendance2024Rate"
+              value={attendance2024Rate}
+              placeholder="Enter the school attendance rate for 2024"
+              onChange={(e) => setAttendance2024Rate(e.target.value)}
+              min="0"
+              max="100"
+              required />
+          </div>
+          <div className="group">
+            <label htmlFor="chronically2024Absent" className="required">Chronically Absent (%)</label>
+            <input type="number"
+              id="chronically2024Absent"
+              name="chronically2024Absent"
+              value={chronically2024Absent}
+              placeholder="Enter the percentage of students chronically absent for 2024"
+              onChange={(e) => setChronically2024Absent(e.target.value)}
+              min="0"
+              max="100"
+              required />
+          </div>
+        </div>
+
+        {/* ELA Scores Sections */}
         <div className="section">
           <h2 className="title">2018 ELA Scores</h2>
-
           <div className="group">
             <label htmlFor="avg2018ELAScore" className="required">Average ELA Score</label>
             <input type="number"
@@ -493,7 +658,6 @@ function App() {
               onChange={(e) => setAvg2018ELAScore(e.target.value)}
               required />
           </div>
-
           <div className="group">
             <label htmlFor="proficient2018ELA" className="required">Proficient in ELA (%)</label>
             <input type="number"
@@ -508,10 +672,165 @@ function App() {
           </div>
         </div>
 
-        {/* Math Scores Section (2018 as example) */}
+        <div className="section">
+          <h2 className="title">2019 ELA Scores</h2>
+          <div className="group">
+            <label htmlFor="avg2019ELAScore" className="required">Average ELA Score</label>
+            <input type="number"
+              id="avg2019ELAScore"
+              name="avg2019ELAScore"
+              value={avg2019ELAScore}
+              placeholder="Enter the average score for English Language Arts in 2019"
+              onChange={(e) => setAvg2019ELAScore(e.target.value)}
+              required />
+          </div>
+          <div className="group">
+            <label htmlFor="proficient2019ELA" className="required">Proficient in ELA (%)</label>
+            <input type="number"
+              id="proficient2019ELA"
+              name="proficient2019ELA"
+              value={proficient2019ELA}
+              placeholder="Enter the percentage of students who scored at or above the proficient level for ELA in 2019"
+              onChange={(e) => setProficient2019ELA(e.target.value)}
+              min="0"
+              max="100"
+              required />
+          </div>
+        </div>
+
+        <div className="section">
+          <h2 className="title">2020 ELA Scores</h2>
+          <div className="group">
+            <label htmlFor="avg2020ELAScore" className="required">Average ELA Score</label>
+            <input type="number"
+              id="avg2020ELAScore"
+              name="avg2020ELAScore"
+              value={avg2020ELAScore}
+              placeholder="Enter the average score for English Language Arts in 2020"
+              onChange={(e) => setAvg2020ELAScore(e.target.value)}
+              required />
+          </div>
+          <div className="group">
+            <label htmlFor="proficient2020ELA" className="required">Proficient in ELA (%)</label>
+            <input type="number"
+              id="proficient2020ELA"
+              name="proficient2020ELA"
+              value={proficient2020ELA}
+              placeholder="Enter the percentage of students who scored at or above the proficient level for ELA in 2020"
+              onChange={(e) => setProficient2020ELA(e.target.value)}
+              min="0"
+              max="100"
+              required />
+          </div>
+        </div>
+
+        <div className="section">
+          <h2 className="title">2021 ELA Scores</h2>
+          <div className="group">
+            <label htmlFor="avg2021ELAScore" className="required">Average ELA Score</label>
+            <input type="number"
+              id="avg2021ELAScore"
+              name="avg2021ELAScore"
+              value={avg2021ELAScore}
+              placeholder="Enter the average score for English Language Arts in 2021"
+              onChange={(e) => setAvg2021ELAScore(e.target.value)}
+              required />
+          </div>
+          <div className="group">
+            <label htmlFor="proficient2021ELA" className="required">Proficient in ELA (%)</label>
+            <input type="number"
+              id="proficient2021ELA"
+              name="proficient2021ELA"
+              value={proficient2021ELA}
+              placeholder="Enter the percentage of students who scored at or above the proficient level for ELA in 2021"
+              onChange={(e) => setProficient2021ELA(e.target.value)}
+              min="0"
+              max="100"
+              required />
+          </div>
+        </div>
+
+        <div className="section">
+          <h2 className="title">2022 ELA Scores</h2>
+          <div className="group">
+            <label htmlFor="avg2022ELAScore" className="required">Average ELA Score</label>
+            <input type="number"
+              id="avg2022ELAScore"
+              name="avg2022ELAScore"
+              value={avg2022ELAScore}
+              placeholder="Enter the average score for English Language Arts in 2022"
+              onChange={(e) => setAvg2022ELAScore(e.target.value)}
+              required />
+          </div>
+          <div className="group">
+            <label htmlFor="proficient2022ELA" className="required">Proficient in ELA (%)</label>
+            <input type="number"
+              id="proficient2022ELA"
+              name="proficient2022ELA"
+              value={proficient2022ELA}
+              placeholder="Enter the percentage of students who scored at or above the proficient level for ELA in 2022"
+              onChange={(e) => setProficient2022ELA(e.target.value)}
+              min="0"
+              max="100"
+              required />
+          </div>
+        </div>
+
+        <div className="section">
+          <h2 className="title">2023 ELA Scores</h2>
+          <div className="group">
+            <label htmlFor="avg2023ELAScore" className="required">Average ELA Score</label>
+            <input type="number"
+              id="avg2023ELAScore"
+              name="avg2023ELAScore"
+              value={avg2023ELAScore}
+              placeholder="Enter the average score for English Language Arts in 2023"
+              onChange={(e) => setAvg2023ELAScore(e.target.value)}
+              required />
+          </div>
+          <div className="group">
+            <label htmlFor="proficient2023ELA" className="required">Proficient in ELA (%)</label>
+            <input type="number"
+              id="proficient2023ELA"
+              name="proficient2023ELA"
+              value={proficient2023ELA}
+              placeholder="Enter the percentage of students who scored at or above the proficient level for ELA in 2023"
+              onChange={(e) => setProficient2023ELA(e.target.value)}
+              min="0"
+              max="100"
+              required />
+          </div>
+        </div>
+
+        <div className="section">
+          <h2 className="title">2024 ELA Scores</h2>
+          <div className="group">
+            <label htmlFor="avg2024ELAScore" className="required">Average ELA Score</label>
+            <input type="number"
+              id="avg2024ELAScore"
+              name="avg2024ELAScore"
+              value={avg2024ELAScore}
+              placeholder="Enter the average score for English Language Arts in 2024"
+              onChange={(e) => setAvg2024ELAScore(e.target.value)}
+              required />
+          </div>
+          <div className="group">
+            <label htmlFor="proficient2024ELA" className="required">Proficient in ELA (%)</label>
+            <input type="number"
+              id="proficient2024ELA"
+              name="proficient2024ELA"
+              value={proficient2024ELA}
+              placeholder="Enter the percentage of students who scored at or above the proficient level for ELA in 2024"
+              onChange={(e) => setProficient2024ELA(e.target.value)}
+              min="0"
+              max="100"
+              required />
+          </div>
+        </div>
+
+        {/* Math Scores Sections */}
         <div className="section">
           <h2 className="title">2018 Math Scores</h2>
-
           <div className="group">
             <label htmlFor="avg2018MathScore" className="required">Average Math Score</label>
             <input type="number"
@@ -522,7 +841,6 @@ function App() {
               onChange={(e) => setAvg2018MathScore(e.target.value)}
               required />
           </div>
-
           <div className="group">
             <label htmlFor="proficient2018Math" className="required">Proficient in Math (%)</label>
             <input type="number"
@@ -531,6 +849,162 @@ function App() {
               value={proficient2018Math}
               placeholder="Enter the percentage of students who scored at or above the proficient level for Math in 2018"
               onChange={(e) => setProficient2018Math(e.target.value)}
+              min="0"
+              max="100"
+              required />
+          </div>
+        </div>
+
+        <div className="section">
+          <h2 className="title">2019 Math Scores</h2>
+          <div className="group">
+            <label htmlFor="avg2019MathScore" className="required">Average Math Score</label>
+            <input type="number"
+              id="avg2019MathScore"
+              name="avg2019MathScore"
+              value={avg2019MathScore}
+              placeholder="Enter the average score for Math in 2019"
+              onChange={(e) => setAvg2019MathScore(e.target.value)}
+              required />
+          </div>
+          <div className="group">
+            <label htmlFor="proficient2019Math" className="required">Proficient in Math (%)</label>
+            <input type="number"
+              id="proficient2019Math"
+              name="proficient2019Math"
+              value={proficient2019Math}
+              placeholder="Enter the percentage of students who scored at or above the proficient level for Math in 2019"
+              onChange={(e) => setProficient2019Math(e.target.value)}
+              min="0"
+              max="100"
+              required />
+          </div>
+        </div>
+
+        <div className="section">
+          <h2 className="title">2020 Math Scores</h2>
+          <div className="group">
+            <label htmlFor="avg2020MathScore" className="required">Average Math Score</label>
+            <input type="number"
+              id="avg2020MathScore"
+              name="avg2020MathScore"
+              value={avg2020MathScore}
+              placeholder="Enter the average score for Math in 2020"
+              onChange={(e) => setAvg2020MathScore(e.target.value)}
+              required />
+          </div>
+          <div className="group">
+            <label htmlFor="proficient2020Math" className="required">Proficient in Math (%)</label>
+            <input type="number"
+              id="proficient2020Math"
+              name="proficient2020Math"
+              value={proficient2020Math}
+              placeholder="Enter the percentage of students who scored at or above the proficient level for Math in 2020"
+              onChange={(e) => setProficient2020Math(e.target.value)}
+              min="0"
+              max="100"
+              required />
+          </div>
+        </div>
+
+        <div className="section">
+          <h2 className="title">2021 Math Scores</h2>
+          <div className="group">
+            <label htmlFor="avg2021MathScore" className="required">Average Math Score</label>
+            <input type="number"
+              id="avg2021MathScore"
+              name="avg2021MathScore"
+              value={avg2021MathScore}
+              placeholder="Enter the average score for Math in 2021"
+              onChange={(e) => setAvg2021MathScore(e.target.value)}
+              required />
+          </div>
+          <div className="group">
+            <label htmlFor="proficient2021Math" className="required">Proficient in Math (%)</label>
+            <input type="number"
+              id="proficient2021Math"
+              name="proficient2021Math"
+              value={proficient2021Math}
+              placeholder="Enter the percentage of students who scored at or above the proficient level for Math in 2021"
+              onChange={(e) => setProficient2021Math(e.target.value)}
+              min="0"
+              max="100"
+              required />
+          </div>
+        </div>
+
+        <div className="section">
+          <h2 className="title">2022 Math Scores</h2>
+          <div className="group">
+            <label htmlFor="avg2022MathScore" className="required">Average Math Score</label>
+            <input type="number"
+              id="avg2022MathScore"
+              name="avg2022MathScore"
+              value={avg2022MathScore}
+              placeholder="Enter the average score for Math in 2022"
+              onChange={(e) => setAvg2022MathScore(e.target.value)}
+              required />
+          </div>
+          <div className="group">
+            <label htmlFor="proficient2022Math" className="required">Proficient in Math (%)</label>
+            <input type="number"
+              id="proficient2022Math"
+              name="proficient2022Math"
+              value={proficient2022Math}
+              placeholder="Enter the percentage of students who scored at or above the proficient level for Math in 2022"
+              onChange={(e) => setProficient2022Math(e.target.value)}
+              min="0"
+              max="100"
+              required />
+          </div>
+        </div>
+
+        <div className="section">
+          <h2 className="title">2023 Math Scores</h2>
+          <div className="group">
+            <label htmlFor="avg2023MathScore" className="required">Average Math Score</label>
+            <input type="number"
+              id="avg2023MathScore"
+              name="avg2023MathScore"
+              value={avg2023MathScore}
+              placeholder="Enter the average score for Math in 2023"
+              onChange={(e) => setAvg2023MathScore(e.target.value)}
+              required />
+          </div>
+          <div className="group">
+            <label htmlFor="proficient2023Math" className="required">Proficient in Math (%)</label>
+            <input type="number"
+              id="proficient2023Math"
+              name="proficient2023Math"
+              value={proficient2023Math}
+              placeholder="Enter the percentage of students who scored at or above the proficient level for Math in 2023"
+              onChange={(e) => setProficient2023Math(e.target.value)}
+              min="0"
+              max="100"
+              required />
+          </div>
+        </div>
+
+        <div className="section">
+          <h2 className="title">2024 Math Scores</h2>
+          <div className="group">
+            <label htmlFor="avg2024MathScore" className="required">Average Math Score</label>
+            <input type="number"
+              id="avg2024MathScore"
+              name="avg2024MathScore"
+              value={avg2024MathScore}
+              placeholder="Enter the average score for Math in 2024"
+              onChange={(e) => setAvg2024MathScore(e.target.value)}
+              required />
+          </div>
+          <div className="group">
+            <label htmlFor="proficient2024Math" className="required">Proficient in Math (%)</label>
+            <input type="number"
+              id="proficient2024Math"
+              name="proficient2024Math"
+              value={proficient2024Math}
+              placeholder="Enter the percentage of students who scored at or above the proficient level for Math in 2024"
+              onChange={(e) => setProficient2024Math(e.target.value)}
               min="0"
               max="100"
               required />
