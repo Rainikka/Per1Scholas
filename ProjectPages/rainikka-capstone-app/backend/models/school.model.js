@@ -1,8 +1,7 @@
-
 const mongoose = require('mongoose');
 const SchoolSchema = new mongoose.Schema({
 
-  /*** DISTRICT ADMINISTRATOR Sign-In ***/
+  /*** DISTRICT ADMINISTRATOR SIGN-IN***/
   DistAdminID: {
     type: Number,
     required: [true, "Enter your district administrator ID number"]
@@ -79,7 +78,7 @@ const SchoolSchema = new mongoose.Schema({
     required: [true, "Enter total number of students enrolled in school"]
   },
 
-  DataForSchYear: {
+  AddDataForSchYear: {
     type: Number,
     required: [true, "Select the school year for the school data"],
     enum: [2018, 2019, 2020, 2021, 2022, 2023, 2024]
@@ -177,6 +176,10 @@ const SchoolSchema = new mongoose.Schema({
     type: Number,
     required: [true, "Enter the percentage of students chronically absent for 2019"]
   },
+  Chronically2020Absent: {
+    type: Number,
+    required: [true, "Enter the percentage of students chronically absent for 2021"]
+  },
   Chronically2021Absent: {
     type: Number,
     required: [true, "Enter the percentage of students chronically absent for 2021"]
@@ -185,7 +188,6 @@ const SchoolSchema = new mongoose.Schema({
     type: Number,
     required: [true, "Enter the percentage of students chronically absent for 2022"]
   },
-
   Chronically2023Absent: {
     type: Number,
     required: [true, "Enter the percentage of students chronically absent for 2023"]

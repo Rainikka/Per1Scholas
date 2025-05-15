@@ -8,7 +8,6 @@ School Data Ddashboard was created with the MERN stack and has thefollowing feat
   - Attendance % data from 2018 to 2024
   - Average Math score data from 2018 to 2024
   - Average ELA scores from 2018 to 2024
-  -
 - Two models:
   - District Administrator:
     - Capabilities: Create, Read, Update, Delete
