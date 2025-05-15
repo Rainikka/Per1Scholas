@@ -1,10 +1,60 @@
+## \*Project Overview\*\*
+
+School Data Ddashboard was created with the MERN stack and has thefollowing features:
+
+- Seed data on 300 NYC schools with each individual school having
+  - Location information
+  - Demographic data
+  - Attendance % data from 2018 to 2024
+  - Average Math score data from 2018 to 2024
+  - Average ELA scores from 2018 to 2024
+  -
+- Two models:
+  - District Administrator:
+    - Capabilities: Create, Read, Update, Delete
+    - Means to Access Data: Form
+    -
+  - General Public User:
+    - Capabilities: GET all or GET data on one school
+    - Means to Access Data: Drop-down selector on Data Dashboard
+    -
+  - Pages
+    - Data dashboard on two pages
+      - Page with school demographic data, attendance data and NYC map with school locaton starred
+      - Page with school schievement data on ELA and Math
+      - Selector with each schools as an opton and autopopulates each dashboard
+      - CRUD operations performed with form are instantly updated on dara dashboard
+    - All pages have navigation to the other pages
+
 ### Project Tutorials
 
+- Title: Final Office Hours
+- Creator: Sir Bryan Santos
+- Medium: Per Scholas Instructure
+
+- Title: API Tutorial
+- Creator: Coding Creativelyfor Free Code Camp
+- Medium: YouTube
+
 - Title: Submit Form Data To REST API In A React App
-- Creatpr: CodeARIV
+- Creator: CodeARIV
+- Medium: YouTube
 
 - Title: React & Form Data
-- Creatpr: Cosden Solutions
+- Creator: Cosden Solution
+- Medium: YouTube
+
+- Title: Get Started with Chart.js
+- Creator: Chart.js
+- Medium: Article
+
+- Title: Get Started with Chart.js
+- Creator: Chart.js
+- Medium: Article
+
+- Title: ReactC harts-Simple, Immersive Interactive Charts for React
+- Creator: React Charts
+- Medium: Article
 
 ### List of Community Schools in 2020
 
