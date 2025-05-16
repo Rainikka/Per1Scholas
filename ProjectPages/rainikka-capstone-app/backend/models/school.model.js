@@ -40,7 +40,6 @@ const SchoolSchema = new mongoose.Schema({
     type: String,
     required: [false, "Enter the school neighborhood"]
   },
-
   District: {
     type: Number,
     required: [true, "Enter school district number"]
@@ -74,21 +73,26 @@ const SchoolSchema = new mongoose.Schema({
     required: [false, "Select the year the community  partnership started"],
     enum: [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025]
   },
+  DataForSchoolYear: {
+    type: Number,
+    required: [true, "Select the school year for the school data being entered"],
+    enum: [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025]
+  },
+
+  /*** Student Demographics ***/
   Enrollment: {
     type: Number,
     required: [true, "Enter total number of students enrolled in school"]
   },
-  SchoolYearData: {
-    type: Number,
-    required: [true, "Select the school year for the school data"],
-    enum: [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025]
-  },
-  /*** Student Demographics ***/
   FemaleStudents: {
     type: Number,
     required: [true, "Enter the percentage of students that are female"]
   },
-  SpecialNeedsStudents: {
+  MaleStudents: {
+    type: Number,
+    required: [true, "Enter the percentage of students that are male"]
+  },
+  SpecialNeedStudents: {
     type: Number,
     required: [true, "Enter the percentage of students with special needs"]
   },
@@ -104,7 +108,6 @@ const SchoolSchema = new mongoose.Schema({
     type: Number,
     required: [true, "Enter the percentage of students that in economic need"]
   },
-
   /*** School Ethnicity Breakdown ***/
   AsianStudents: {
     type: Number,
