@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const School = require('../models/School.model');
-const auth = require('../middleware/auth');
 
 /************** SCHOOL: ALL CRUD ROUTES *************/
 
@@ -15,7 +14,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-/*** Route :: Get One  School :: Public Access ***/
+/*** Route :: Get One School :: Public Access ***/
 router.get('/:id', async (req, res) => {
   try {
     const school = await School.findOne({ SchoolDBN: req.params.id });
@@ -26,8 +25,8 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-/*** Route :: Create Data For A New School :: Admin-Onlyc Access ***/
-router.post('/', auth, async (req, res) => {
+/*** Route :: Create Data For A New School :: Now Public ***/
+router.post('/', async (req, res) => {
   const school = new School(req.body);
   try {
     const newSchool = await school.save();
@@ -37,8 +36,8 @@ router.post('/', auth, async (req, res) => {
   }
 });
 
-/*** Route :: Update Data Of A School :: Admin-Onlyc Access ***/
-router.patch('/:id', auth, async (req, res) => {
+/*** Route :: Update Data Of A School :: Now Public ***/
+router.patch('/:id', async (req, res) => {
   try {
     const school = await School.findOneAndUpdate(
       { SchoolDBN: req.params.id },
@@ -52,8 +51,8 @@ router.patch('/:id', auth, async (req, res) => {
   }
 });
 
-/*** Route :: Delete Data Of A School :: Admin-Onlyc Access ***/
-router.delete('/:id', auth, async (req, res) => {
+/*** Route :: Delete Data Of A School :: Now Public ***/
+router.delete('/:id', async (req, res) => {
   try {
     const school = await School.findOneAndDelete({ SchoolDBN: req.params.id });
     if (!school) return res.status(404).json({ message: 'School not found' });

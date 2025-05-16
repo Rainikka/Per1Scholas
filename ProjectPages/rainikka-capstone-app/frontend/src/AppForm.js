@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 
 function App() {
-  // District Administrator State
+  //  District Administrator State
   const [distAdminID, setDistAdminID] = useState('');
   const [distAdminName, setDistAdminName] = useState('');
   const [distAdminEmail, setDistAdminEmail] = useState('');
@@ -39,21 +39,21 @@ function App() {
   const [whiteStudents, setWhiteStudents] = useState('');
   const [otherStudents, setOtherStudents] = useState('');
 
-  // Attendance Data State (showing first few years as example)
+  // Attendance Data State
   const [attendance2018Rate, setAttendance2018Rate] = useState('');
   const [chronically2018Absent, setChronically2018Absent] = useState('');
 
-  // ELA Scores State (showing first few years as example)
+  // ELA Scores State 
   const [avg2018ELAScore, setAvg2018ELAScore] = useState('');
   const [proficient2018ELA, setProficient2018ELA] = useState('');
 
-  // Math Scores State (showing first few years as example)
+  // Math Scores State 
   const [avg2018MathScore, setAvg2018MathScore] = useState('');
   const [proficient2018Math, setProficient2018Math] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Form submission logic would go here
+
     console.log('Form submitted');
   };
 

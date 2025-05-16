@@ -30,11 +30,6 @@ app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
-// /*** Import All Models ***/
-// const User = require('./models/user.model');
-// const Aerobic = require('./models/aerobic.model');
-// const school = require('./models/school.model');
-
 /*** Import All Routes ***/
 const schoolRoutes = require('./routes/school.route');
 const adminRoutes = require('./routes/admin.route')

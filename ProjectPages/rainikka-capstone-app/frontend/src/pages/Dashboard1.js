@@ -1,8 +1,5 @@
-// Import React hooks and required libraries
-import React, { useState, useEffect } from 'react';  // Core React functionality
-import axios from 'axios';  // HTTP client for API requests
-
-// Import Chart.js components and register required elements
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -13,13 +10,10 @@ import {
   Legend,
   ArcElement
 } from 'chart.js';
-import { Bar, Pie } from 'react-chartjs-2';  // React wrappers for Chart.js
-
-// Import mapping components from react-leaflet
+import { Bar, Pie } from 'react-chartjs-2';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';  // Required CSS for leaflet maps
+import 'leaflet/dist/leaflet.css';
 
-// Register Chart.js components
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -31,12 +25,10 @@ ChartJS.register(
 );
 
 const Dashboard1 = () => {
-  // State management
-  const [schools, setSchools] = useState([]);  // Stores list of all schools
-  const [selectedSchool, setSelectedSchool] = useState(null);  // Currently selected school
-  const [loading, setLoading] = useState(true);  // Loading state indicator
+  const [schools, setSchools] = useState([]);
+  const [selectedSchool, setSelectedSchool] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  // Fetch all schools on component mount
   useEffect(() => {
     const fetchSchools = async () => {
       try {
@@ -51,7 +43,6 @@ const Dashboard1 = () => {
     fetchSchools();
   }, []);
 
-  // Fetch detailed data when a school is selected
   useEffect(() => {
     if (selectedSchool) {
       const fetchSchoolData = async () => {
@@ -66,10 +57,7 @@ const Dashboard1 = () => {
     }
   }, [selectedSchool]);
 
-  // Show loading indicator while data is being fetched
-  if (loading) return <div>Loading...</div>;
-
-  // Chart data configurations
+  // Chart data definitions
   const specialNeedsData = {
     labels: ['Special Needs', 'ELL Students'],
     datasets: [
@@ -84,12 +72,99 @@ const Dashboard1 = () => {
     ]
   };
 
-  // Additional chart configurations (economic, gender, attendance, ethnicity)
-  // ... (similar structure for other charts)
+  const economicData = {
+    labels: ['Living in Poverty', 'Economic Need'],
+    datasets: [
+      {
+        label: 'Percentage',
+        data: selectedSchool ? [
+          selectedSchool.LivingInPoverty,
+          selectedSchool.EconomicNeed
+        ] : [0, 0],
+        backgroundColor: ['rgba(255, 159, 64, 0.5)', 'rgba(75, 192, 192, 0.5)'],
+      }
+    ]
+  };
+
+  const genderData = {
+    labels: ['Female', 'Male'],
+    datasets: [
+      {
+        label: 'Percentage',
+        data: selectedSchool ? [
+          selectedSchool.FemaleStudents,
+          selectedSchool.MaleStudents
+        ] : [0, 0],
+        backgroundColor: ['rgba(153, 102, 255, 0.5)', 'rgba(255, 206, 86, 0.5)'],
+      }
+    ]
+  };
+
+  const attendanceData = {
+    labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'],
+    datasets: [
+      {
+        label: 'Attendance Rate',
+        data: selectedSchool ? [
+          selectedSchool.Attendance2018Rate,
+          selectedSchool.Attendance2019Rate,
+          selectedSchool.Attendance2020Rate,
+          selectedSchool.Attendance2021Rate,
+          selectedSchool.Attendance2022Rate,
+          selectedSchool.Attendance2023Rate,
+          selectedSchool.Attendance2024Rate,
+          selectedSchool.Attendance2025Rate
+        ] : Array(8).fill(0),
+        backgroundColor: 'rgba(54, 162, 235, 0.5)',
+      },
+      {
+        label: 'Chronically Absent',
+        data: selectedSchool ? [
+          selectedSchool.Chronically2018Absent,
+          selectedSchool.Chronically2019Absent,
+          selectedSchool.Chronically2020Absent,
+          selectedSchool.Chronically2021Absent,
+          selectedSchool.Chronically2022Absent,
+          selectedSchool.Chronically2023Absent,
+          selectedSchool.Chronically2024Absent,
+          selectedSchool.Chronically2025Absent
+        ] : Array(8).fill(0),
+        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+      }
+    ]
+  };
+
+  const ethnicityData = {
+    labels: ['Asian', 'Black', 'Latino', 'Multi-Race', 'Native', 'White', 'Other'],
+    datasets: [
+      {
+        label: 'Percentage',
+        data: selectedSchool ? [
+          selectedSchool.AsianStudents,
+          selectedSchool.BlackStudents,
+          selectedSchool.LatinoStudents,
+          selectedSchool.MultiRaceStudents,
+          selectedSchool.NativeStudents,
+          selectedSchool.WhiteStudents,
+          selectedSchool.OtherStudents
+        ] : Array(7).fill(0),
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.5)',
+          'rgba(54, 162, 235, 0.5)',
+          'rgba(255, 206, 86, 0.5)',
+          'rgba(75, 192, 192, 0.5)',
+          'rgba(153, 102, 255, 0.5)',
+          'rgba(255, 159, 64, 0.5)',
+          'rgba(199, 199, 199, 0.5)'
+        ],
+      }
+    ]
+  };
+
+  if (loading) return <div>Loading...</div>;
 
   return (
     <div style={{ padding: '20px' }}>
-      {/* School selection dropdown */}
       <div style={{ height: '5vh', marginBottom: '15px' }}>
         <select
           style={{ width: '50%' }}
@@ -110,10 +185,8 @@ const Dashboard1 = () => {
         )}
       </div>
 
-      {/* Main dashboard content (only shown when school is selected) */}
       {selectedSchool && (
         <>
-          {/* School information header */}
           <div style={{ height: '15vh', marginBottom: '10px' }}>
             <h2 style={{ width: '50%', display: 'inline-block' }}>
               {selectedSchool.SchoolName}
@@ -129,7 +202,6 @@ const Dashboard1 = () => {
             </span>
           </div>
 
-          {/* School metadata section */}
           <div style={{ height: '10vh', marginBottom: '20px' }}>
             <span style={{ width: '40%', display: 'inline-block' }}>
               {selectedSchool.CommunityBasedOrg || 'No community partner'}
@@ -142,7 +214,6 @@ const Dashboard1 = () => {
             </span>
           </div>
 
-          {/* Data visualization section */}
           <div style={{ height: '20vh', marginBottom: '20px', display: 'flex' }}>
             <div style={{ width: '40%' }}>
               <Bar
@@ -156,22 +227,28 @@ const Dashboard1 = () => {
             </div>
           </div>
 
-          {/* Additional chart visualizations */}
           <div style={{ height: '20vh', marginBottom: '30px', display: 'flex' }}>
             <div style={{ width: '35%' }}>
-              <Bar data={economicData} options={{ indexAxis: 'y', responsive: true }} />
+              <Bar
+                data={economicData}
+                options={{ indexAxis: 'y', responsive: true }}
+              />
             </div>
             <div style={{ width: '15%' }}>
-              <Bar data={genderData} options={{ responsive: true }} />
+              <Bar
+                data={genderData}
+                options={{ responsive: true }}
+              />
             </div>
           </div>
 
-          {/* Attendance trends chart */}
           <div style={{ height: '30vh', marginBottom: '30px' }}>
-            <Bar data={attendanceData} options={{ responsive: true }} />
+            <Bar
+              data={attendanceData}
+              options={{ responsive: true }}
+            />
           </div>
 
-          {/* Ethnicity pie chart and map */}
           <div style={{ height: '30vh', display: 'flex' }}>
             <div style={{ width: '30%' }}>
               <Pie data={ethnicityData} />
@@ -183,9 +260,13 @@ const Dashboard1 = () => {
                   zoom={13}
                   style={{ height: '100%', width: '100%' }}
                 >
-                  <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+                  <TileLayer
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                  />
                   <Marker position={[selectedSchool.SchoolLatitude, selectedSchool.SchoolLongitude]}>
-                    <Popup>{selectedSchool.SchoolName}</Popup>
+                    <Popup>
+                      {selectedSchool.SchoolName}
+                    </Popup>
                   </Marker>
                 </MapContainer>
               ) : (

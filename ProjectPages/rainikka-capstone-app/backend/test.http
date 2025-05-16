@@ -1,9 +1,56 @@
 
 
 ################ USER ROUTES ################
+# POST http://localhost:3000/api/schools/01M015
+# Content-Type: application/json
 
-# GET ALL USERS 
- GET http://localhost:3000/api/users
+# {
+#   "SchoolDBN": "01M015",
+#   "SchoolName": "Test School",
+#   "StreetAddress": "123 Test St",
+#   "ZipCode": 10001,
+#   "Neighborhood": "Test Neighborhood",
+#   "District": 1,
+#   "Borough": "Manhattan",
+#   "SchoolType": "General Education",
+#   "GradeLevel": "High",
+#   "CommunitySchool": false,
+#   "Enrollment": 500,
+#   "FemaleStudents": 50,
+#   "MaleStudents": 50,
+#   "SpecialNeedStudents": 10,
+#   "ELLStudents": 15,
+#   "LivingInPoverty": 30,
+#   "EconomicNeed": 35,
+#   "AsianStudents": 20,
+#   "BlackStudents": 20,
+#   "LatinoStudents": 20,
+#   "MultiRaceStudents": 10,
+#   "NativeStudents": 5,
+#   "WhiteStudents": 20,
+#   "OtherStudents": 5
+# }
+
+
+## Get All Schools:
+GET http://localhost:3000/api/public/schools
+
+## Get Single School:
+# GET /http://localhost:3000/api/public/schools/01M015
+
+# PUT http://localhost:3000/api/schools/01M015
+# Content-Type: application/json
+
+{
+  "Enrollment": 550,
+  "FemaleStudents": 52,
+  "MaleStudents": 48
+}
+
+DELETE http://localhost:3000/api/schools/01M015
+# Content-Type: application/json
+
+
 
 # GET USER BY ID
 # Get User Maxine Shaw

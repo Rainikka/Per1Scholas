@@ -1,8 +1,5 @@
-// Import React hooks and required libraries
-import React, { useState, useEffect } from 'react';  // Core React functionality
-import axios from 'axios';  // HTTP client for API requests
-
-// Import Chart.js components and register required elements
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -13,26 +10,24 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
-import { Line } from 'react-chartjs-2';  // React wrapper for Chart.js line charts
+import { Line } from 'react-chartjs-2';
 
-// Register Chart.js components we'll use
 ChartJS.register(
-  CategoryScale,  // For x-axis labels
-  LinearScale,    // For y-axis values
-  PointElement,   // For data points
-  LineElement,    // For connecting lines
-  Title,          // For chart titles
-  Tooltip,        // For hover tooltips
-  Legend          // For chart legends
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
 );
 
 const Dashboard2 = () => {
-  // State management
-  const [schools, setSchools] = useState([]);  // Stores list of all schools
-  const [selectedSchool, setSelectedSchool] = useState(null);  // Currently selected school
-  const [loading, setLoading] = useState(true);  // Loading state indicator
+  const [schools, setSchools] = useState([]);
+  const [selectedSchool, setSelectedSchool] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  // Fetch all schools on component mount (empty dependency array)
+  // Fetch all schools 
   useEffect(() => {
     const fetchSchools = async () => {
       try {
@@ -47,7 +42,7 @@ const Dashboard2 = () => {
     fetchSchools();
   }, []);
 
-  // Fetch detailed data when a school is selected
+  // Fetch school details when selected
   useEffect(() => {
     if (selectedSchool) {
       const fetchSchoolData = async () => {
@@ -62,10 +57,7 @@ const Dashboard2 = () => {
     }
   }, [selectedSchool]);
 
-  // Show loading indicator while data is being fetched
-  if (loading) return <div>Loading...</div>;
-
-  // Configuration for ELA (English Language Arts) Score Line Chart
+  // Chart data definitions
   const elaScoreData = {
     labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'],
     datasets: [
@@ -80,19 +72,19 @@ const Dashboard2 = () => {
           selectedSchool.Avg2023ELAScore,
           selectedSchool.Avg2024ELAScore,
           selectedSchool.Avg2025ELAScore
-        ] : Array(8).fill(0),  // Default to zeros if no school selected
-        borderColor: 'rgb(255, 99, 132)',  // Line color
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',  // Point fill color
+        ] : Array(8).fill(0),
+        borderColor: 'rgb(255, 99, 132)',
+        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        tension: 0.1
       }
     ]
   };
 
-  // Configuration for ELA Proficiency Percentage Line Chart
   const elaProficientData = {
     labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'],
     datasets: [
       {
-        label: 'Proficient ELA',
+        label: 'ELA Proficiency %',
         data: selectedSchool ? [
           selectedSchool.Proficient2018ELA,
           selectedSchool.Proficient2019ELA,
@@ -105,11 +97,11 @@ const Dashboard2 = () => {
         ] : Array(8).fill(0),
         borderColor: 'rgb(54, 162, 235)',
         backgroundColor: 'rgba(54, 162, 235, 0.5)',
+        tension: 0.1
       }
     ]
   };
 
-  // Configuration for Math Score Line Chart
   const mathScoreData = {
     labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'],
     datasets: [
@@ -127,16 +119,16 @@ const Dashboard2 = () => {
         ] : Array(8).fill(0),
         borderColor: 'rgb(75, 192, 192)',
         backgroundColor: 'rgba(75, 192, 192, 0.5)',
+        tension: 0.1
       }
     ]
   };
 
-  // Configuration for Math Proficiency Percentage Line Chart
   const mathProficientData = {
     labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'],
     datasets: [
       {
-        label: 'Proficient Math',
+        label: 'Math Proficiency %',
         data: selectedSchool ? [
           selectedSchool.Proficient2018Math,
           selectedSchool.Proficient2019Math,
@@ -149,9 +141,12 @@ const Dashboard2 = () => {
         ] : Array(8).fill(0),
         borderColor: 'rgb(153, 102, 255)',
         backgroundColor: 'rgba(153, 102, 255, 0.5)',
+        tension: 0.1
       }
     ]
   };
+
+  if (loading) return <div>Loading...</div>;
 
   return (
     <div style={{ padding: '20px' }}>
@@ -171,10 +166,9 @@ const Dashboard2 = () => {
         </select>
       </div>
 
-      {/* Only show content when a school is selected */}
       {selectedSchool && (
         <>
-          {/* School Information Header */}
+          {/* School Title */}
           <div style={{
             height: '15vh',
             marginBottom: '20px',
@@ -192,7 +186,7 @@ const Dashboard2 = () => {
             </div>
           </div>
 
-          {/* Academic Performance Charts */}
+          {/* Academic Charts */}
           <div style={{ marginBottom: '30px' }}>
             <h3>English Language Arts Performance</h3>
             <div style={{ display: 'flex', marginBottom: '20px' }}>
