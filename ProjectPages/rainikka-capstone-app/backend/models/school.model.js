@@ -32,20 +32,20 @@ const SchoolSchema = new mongoose.Schema({
     type: String,
     required: [true, "Enter the school's street address"]
   },
-  SchoolZipCode: {
+  ZipCode: {
     type: Number,
-    required: [true, "Enter the school's zip code"]
+    required: [false, "Enter the school's zip code"]
   },
-  SchoolNeighborhood: {
+  Neighborhood: {
     type: String,
     required: [false, "Enter the school neighborhood"]
   },
 
-  SchoolDistrict: {
+  District: {
     type: Number,
     required: [true, "Enter school district number"]
   },
-  SchoolBorough: {
+  Borough: {
     type: String,
     required: [true, "Select school borough"],
     enum: ['Manhattan', 'Brooklyn', 'Queens', 'Bronx', 'Staten Island']
@@ -78,7 +78,7 @@ const SchoolSchema = new mongoose.Schema({
     type: Number,
     required: [true, "Enter total number of students enrolled in school"]
   },
-  AddDataForSchYear: {
+  SchoolYearData: {
     type: Number,
     required: [true, "Select the school year for the school data"],
     enum: [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025]
@@ -148,12 +148,10 @@ const SchoolSchema = new mongoose.Schema({
     type: Number,
     required: [false, "Enter the school attendance rate for 2020"]
   },
-
   Attendance2021Rate: {
     type: Number,
     required: [false, "Enter the school attendance rate for 2021"]
   },
-
   Attendance2022Rate: {
     type: Number,
     required: [false, "Enter the school attendance rate for 2022"]
@@ -170,7 +168,6 @@ const SchoolSchema = new mongoose.Schema({
     type: Number,
     required: [false, "Enter the school attendance rate for 2025"]
   },
-
   Chronically2018Absent: {
     type: Number,
     required: [false, "Enter the percentage of students chronically absent for 2018"]
