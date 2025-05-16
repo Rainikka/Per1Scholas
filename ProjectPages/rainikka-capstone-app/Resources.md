@@ -12,6 +12,10 @@ NYC Community Schools Data Dashboard (2018 - 2025) created wih MERN (Mongo.db, E
 
 `npm --start-dev nodemon`
 
+### Encryption Dependencies
+
+`npm install bcryptjs jsonwebtoken`
+
 ### Frontend Creaton & Dependencies
 
 `npx create-react-app frontend`
@@ -130,12 +134,6 @@ Seed data on 280 NYC schools with each individual school having 78 variables:
   ![School Data Dashboard Created With MS Excel](./images/wireframe.jpg)
 
 #### BackEnd
-
-- Title: Final Office Hours
-
-- Creator: Sir Bryan Santos
--
-- MS Excel: Wireframe of capstone project
 
 #### FrontEnd
 

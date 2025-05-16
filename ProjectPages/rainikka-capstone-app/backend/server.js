@@ -6,7 +6,7 @@
 /******************************/
 /******* FINAL CAPSTONE *******/
 /********** PROJECT ***********/
-/******** 18-MAY-2025 *********/
+/******** 16-MAY-2025 *********/
 
 
 /********* ENVIRONMENT SET-UP ***********/
@@ -30,20 +30,20 @@ app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
-/*** Import All Models ***/
-const User = require('./models/user.model');
-const Aerobic = require('./models/aerobic.model');
-const school = require('./models/school.model');
+// /*** Import All Models ***/
+// const User = require('./models/user.model');
+// const Aerobic = require('./models/aerobic.model');
+// const school = require('./models/school.model');
 
 /*** Import All Routes ***/
-const userRoute = require('./routes/user.route');
-const aerobicRoute = require('./routes/aerobic.route')
-const schoolRoute = require('./routes/school.route');
+const schoolRoutes = require('./routes/school.route');
+const adminRoutes = require('./routes/admin.route')
+const publicRoutes = require('./routes/public.route');
 
-/*** Set Endpoint for Routes ***/
-app.use('/api/users', userRoute);
-app.use('/api/aerobics', aerobicRoute);
-app.use('/api/schools', schoolRoute);
+/*** Set  Routes for Endpoints ***/
+app.use('/api/public', publicRoutes);
+app.use('/api/admin', adminRoutes);
+app.use('/api/schools', schoolRoutes);
 
 /*** Mongo Database Connection ***/
 const mongoose = require('mongoose');
