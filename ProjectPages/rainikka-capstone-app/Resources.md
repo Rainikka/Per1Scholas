@@ -141,11 +141,11 @@ Seed data on 280 NYC schools with each individual school having 78 variables:
 
 - Title: Final Office Hours
 - Creator: Sir Bryan Santos
-- Medium: Per Scholas Canvas Instructure
+- Access Location: Per Scholas Canvas Instructure
 
 - Title: How To Structure React Projects From Beginner To Advanced
 - Creator: Web Dev Simplified
-- Medium: Article
+- Access Location: Article on the WWW
 
 - Title: Learn React In 30 Minutes
 - Creator: Web Dev Simplified
@@ -165,34 +165,31 @@ Seed data on 280 NYC schools with each individual school having 78 variables:
 
 - Title: API Tutorial
 - Creator: Coding Creativelyfor Free Code Camp
-- Medium: YouTube
+- Access Location: YouTube
 
 - Title: Submit Form Data To REST API In A React App
 - Creator: CodeARIV
-- Medium: YouTube
+- Access Location: YouTube
 
 - Title: React & Form Data
 - Creator: Cosden Solution
-- Medium: YouTube
+- Access Location: YouTube
 
 - Title: Get Started with Chart.js
 - Creator: Chart.js
-- Medium: Article
-
-- Title: Get Started with Chart.js
-- Creator: Chart.js
-- Medium: Article
+- Access Location: Creator White Paper Documentaton on Google
 
 - Title: React Charts-Simple, Immersive Interactive Charts for React
 - Creator: React Charts
-- Medium: Article
+- Access Location: Creator White Paper Documentaton on Google
 
-Title: React Leaflet: React components for Leaflet maps
-
+- Title: React Leaflet: React components for Leaflet maps
 - Creator: React Leaflet
-- Medium: Article
+- Access Location: Creator White Paper Documentaton on Google
 
-## Research Resources
+- Title: Authentication to Your App With BCrypt and JWT## Research Resources
+- Creator: Madeline Corman
+- Access Location: Medium.com Article
 
 ### List of Community Schools
 
