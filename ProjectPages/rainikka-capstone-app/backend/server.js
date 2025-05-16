@@ -56,6 +56,11 @@ mongoose.connect(mongoString)
     console.log("Database NOT Connected:", error.message);
   });
 
+/*** Routes ***/
+app.get('/', (req, res) => {
+  res.send('School Dashboard API');
+});
+
 /*** Set-Up: Port for Listening ***/
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () =>

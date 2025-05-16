@@ -4,9 +4,19 @@ NYC Community Schools Data Dashboard (2018 - 2025) created wih MERN (Mongo.db, E
 
 ## Project Inspiration
 
-## Packages Employed:
+### Backend Initializaon & Dependencies
 
-### Backend
+`npm i express mongoose cors dotenv urlencoded`
+
+### Development Dependencies
+
+`npm --start-dev nodemon`
+
+### Frontend Creaton & Dependencies
+
+`npx create-react-app frontend`
+`npm i axios react-router-dom`
+`npm install chart.js react-chartjs-2 react-leaflet leaflet`
 
 ## Project Overview
 
@@ -117,6 +127,8 @@ Seed data on 280 NYC schools with each individual school having 78 variables:
 - MS Excel :: Wireframe Model
 - Minify :: Convert MS Excel Data to JSON Object
 
+  ![School Data Dashboard Created With MS Excel](./images/wireframe.jpg)
+
 #### BackEnd
 
 - Title: Final Office Hours
@@ -131,7 +143,27 @@ Seed data on 280 NYC schools with each individual school having 78 variables:
 
 - Title: Final Office Hours
 - Creator: Sir Bryan Santos
-- Medium: Per Scholas Instructure
+- Medium: Per Scholas Canvas Instructure
+
+- Title: How To Structure React Projects From Beginner To Advanced
+- Creator: Web Dev Simplified
+- Medium: Article
+
+- Title: Learn React In 30 Minutes
+- Creator: Web Dev Simplified
+- Medium: YouTube
+
+- Title: Learn React With This One Project
+- Creator: Web Dev Simplified
+- Medium: YouTube
+
+- Title: Learn React – A Handbook for Beginners
+- Creator: Nathan Sebhastian
+- Medium: FreeCodeCamp Article
+
+- Title: React Fundamentals - Full Course for Beginners
+- Creator: FreeCodeCamp
+- Medium: YouTube
 
 - Title: API Tutorial
 - Creator: Coding Creativelyfor Free Code Camp
@@ -153,13 +185,18 @@ Seed data on 280 NYC schools with each individual school having 78 variables:
 - Creator: Chart.js
 - Medium: Article
 
-- Title: ReactC harts-Simple, Immersive Interactive Charts for React
+- Title: React Charts-Simple, Immersive Interactive Charts for React
 - Creator: React Charts
+- Medium: Article
+
+Title: React Leaflet: React components for Leaflet maps
+
+- Creator: React Leaflet
 - Medium: Article
 
 ## Research Resources
 
-### NYC School Data
+### List of Community Schools
 
 https://sites.google.com/mynycschool.org/newyorkcitycommunityschools/our-schools-1
 

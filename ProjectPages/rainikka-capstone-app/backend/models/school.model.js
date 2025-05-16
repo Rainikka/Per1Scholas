@@ -1,25 +1,7 @@
 const mongoose = require('mongoose');
 const SchoolSchema = new mongoose.Schema({
 
-  /*** DISTRICT ADMINISTRATOR SIGN-IN***/
-  DistAdminID: {
-    type: Number,
-    required: [true, "Enter your district administrator ID number"]
-  },
-  DistAdminName: {
-    type: String,
-    required: [true, "Enter your full name"]
-  },
-  DistAdminEmail: {
-    type: String,
-    required: [true, "Enter your email address"]
-  },
-
   /*** SCHOOL INFORMATION ***/
-  SchoolID: {
-    type: String,
-    required: [true, "Enter the school ID"]
-  },
   SchoolDBN: {
     type: String,
     required: [true, "Enter the school district borough number"]
@@ -334,6 +316,7 @@ const SchoolSchema = new mongoose.Schema({
     type: Number,
     required: [false, "Enter the percentage of student scores at or above the proficient level for Math in 2025"]
   },
+  /*** Locaton Data ***/
   SchoolLatitude: {
     type: Number,
     required: [false, "Enter the school's latitudinal coordinates"]
