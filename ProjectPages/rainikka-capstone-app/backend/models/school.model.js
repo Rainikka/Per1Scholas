@@ -70,7 +70,7 @@ const SchoolSchema = new mongoose.Schema({
   },
   PartnershipYearStart: {
     type: Number,
-    required: [false, "Select the year the community  partnership started"],
+    required: [false, "Select the year the community partnership started"],
     enum: [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025]
   },
   DataForSchoolYear: {
