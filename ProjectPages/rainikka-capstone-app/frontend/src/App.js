@@ -4,7 +4,7 @@ import AdminPage from './pages/AdminPage';
 import Dashboard1 from './pages/Dashboard1';
 import Dashboard2 from './pages/Dashboard2';
 import HomePage from './pages/HomePage';
-import Navbar from './components/Navbar'; // Import the Navbar component
+import Navbar from './components/Navbar';
 
 function App() {
   return (

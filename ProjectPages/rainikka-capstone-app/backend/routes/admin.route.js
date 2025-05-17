@@ -1,73 +1,53 @@
 const express = require('express');
 const router = express.Router();
-const Admin = require('../models/Admin.model');
+const Admin = require('../models/admin.model');
 
-/************** ADMIN: ROUTES WITHOUT AUTHORIZATION *************/
-
-/*** Simplified Admin Registration ***/
 router.post('/register', async (req, res) => {
   const { email, password } = req.body;
-
-  // Basic validation
-  if (!email || !password) {
-    return res.status(400).json({ message: 'Please enter all fields' });
-  }
-
   try {
-    // Check if admin exists
-    const existingAdmin = await Admin.findOne({ email });
-    if (existingAdmin) {
-      return res.status(400).json({ message: 'Admin already exists' });
-    }
-
-    // Create new admin without password hashing
-    const newAdmin = new Admin({
-      email,
-      password
-    });
-
-    await newAdmin.save();
-
-
-    res.json({
-      admin: {
-        id: newAdmin._id,
-        email: newAdmin.email
-      }
-    });
+    const admin = await Admin.create({ email, password });
+    res.json({ id: admin._id, email: admin.email });
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(err.code === 11000 ? 400 : 500)
+      .json({ error: err.code === 11000 ? 'Email exists' : 'Server error' });
   }
 });
 
-/*** Admin Login ***/
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
-  // Basic validation
-  if (!email || !password) {
-    return res.status(400).json({ message: 'Please enter all fields' });
-  }
-
   try {
-    // Check for admin
     const admin = await Admin.findOne({ email });
-    if (!admin) {
-      return res.status(400).json({ message: 'Admin does not exist' });
+    res.json(
+      admin?.password === password
+        ? { id: admin._id, email: admin.email }
+        : res.status(400).json({ error: 'Invalid credentials' })
+    );
+  } catch {
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+module.exports = router;
+
+
+router.post('/login', async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+      return res.status(400).json({ error: 'Email and password required' });
     }
 
-    if (password !== admin.password) {
-      return res.status(400).json({ message: 'Invalid credentials' });
+    const admin = await Admin.findOne({ email });
+    if (!admin || admin.password !== password) {
+      return res.status(400).json({ error: 'Invalid informaton' });
     }
 
-    res.json({
-      admin: {
-        id: admin._id,
-        email: admin.email
-      }
-    });
+    res.json({ id: admin._id, email: admin.email });
+
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(500).json({ error: 'Server error' });
   }
 });
 

@@ -31,14 +31,12 @@ const AdminPage = () => {
     NativeStudents: '',
     WhiteStudents: '',
     OtherStudents: '',
-    // Initialize all other fields with empty values
   });
-  
+
   const [selectedSchool, setSelectedSchool] = useState(null);
   const [schools, setSchools] = useState([]);
   const navigate = useNavigate();
 
-  // Fetch all schools on component mount
   useEffect(() => {
     const fetchSchools = async () => {
       try {
@@ -63,25 +61,24 @@ const AdminPage = () => {
     e.preventDefault();
     try {
       if (selectedSchool) {
-        // Update existing school
+
         await axios.patch(`/api/schools/${selectedSchool.SchoolDBN}`, schoolData);
         alert('School updated successfully');
       } else {
-        // Create new school
+
         await axios.post('/api/schools', schoolData);
         alert('School created successfully');
       }
-      
-      // Refresh school list
+
+
       const res = await axios.get('/api/schools');
       setSchools(res.data);
-      
-      // Reset form
+
+
       setSelectedSchool(null);
       setSchoolData({
         SchoolDBN: '',
         SchoolName: '',
-        // Reset all other fields to initial state
         StreetAddress: '',
         ZipCode: '',
         Neighborhood: '',
@@ -116,22 +113,21 @@ const AdminPage = () => {
 
   const handleDelete = async () => {
     if (!selectedSchool) return;
-    
+
     if (window.confirm('Are you sure you want to delete this school?')) {
       try {
         await axios.delete(`/api/schools/${selectedSchool.SchoolDBN}`);
         alert('School deleted successfully');
-        
-        // Refresh school list
+
+
         const res = await axios.get('/api/schools');
         setSchools(res.data);
-        
-        // Reset form
+
         setSelectedSchool(null);
         setSchoolData({
           SchoolDBN: '',
           SchoolName: '',
-          // Reset all other fields as above
+
         });
       } catch (err) {
         alert(`Error: ${err.response?.data?.message || err.message}`);
@@ -145,11 +141,10 @@ const AdminPage = () => {
       setSchoolData({
         SchoolDBN: '',
         SchoolName: '',
-        // Reset all other fields as above
       });
       return;
     }
-    
+
     try {
       const res = await axios.get(`/api/schools/${dbn}`);
       setSelectedSchool(res.data);
@@ -162,10 +157,10 @@ const AdminPage = () => {
   return (
     <div style={{ padding: '20px' }}>
       <h2>School Administration</h2>
-      
+
       <div style={{ marginBottom: '20px' }}>
         <h3>School Selector</h3>
-        <select 
+        <select
           onChange={(e) => handleSchoolSelect(e.target.value)}
           value={selectedSchool?.SchoolDBN || ''}
           style={{ width: '100%', padding: '8px' }}
@@ -178,7 +173,7 @@ const AdminPage = () => {
           ))}
         </select>
       </div>
-      
+
       <form onSubmit={handleSubmit} style={{ maxWidth: '600px' }}>
         <div style={{ marginBottom: '15px' }}>
           <label style={{ display: 'block', marginBottom: '5px' }}>School DBN:</label>
@@ -190,7 +185,7 @@ const AdminPage = () => {
             style={{ width: '100%', padding: '8px' }}
           />
         </div>
-        
+
         <div style={{ marginBottom: '15px' }}>
           <label style={{ display: 'block', marginBottom: '5px' }}>School Name:</label>
           <input
@@ -201,7 +196,7 @@ const AdminPage = () => {
             style={{ width: '100%', padding: '8px' }}
           />
         </div>
-        
+
         <div style={{ marginBottom: '15px' }}>
           <label style={{ display: 'block', marginBottom: '5px' }}>Street Address:</label>
           <input
@@ -212,7 +207,7 @@ const AdminPage = () => {
             style={{ width: '100%', padding: '8px' }}
           />
         </div>
-        
+
         <div style={{ marginBottom: '15px' }}>
           <label style={{ display: 'block', marginBottom: '5px' }}>Zip Code:</label>
           <input
@@ -224,9 +219,9 @@ const AdminPage = () => {
             style={{ width: '100%', padding: '8px' }}
           />
         </div>
-        
+
         {/* Add similar fields for all other required data */}
-        
+
         <div style={{ marginBottom: '15px' }}>
           <label style={{ display: 'block', marginBottom: '5px' }}>Borough:</label>
           <select
@@ -243,7 +238,7 @@ const AdminPage = () => {
             <option value="Staten Island">Staten Island</option>
           </select>
         </div>
-        
+
         <div style={{ marginBottom: '15px' }}>
           <label style={{ display: 'block', marginBottom: '5px' }}>School Type:</label>
           <select
@@ -257,7 +252,7 @@ const AdminPage = () => {
             <option value="Special Education">Special Education</option>
           </select>
         </div>
-        
+
         <div style={{ marginBottom: '15px' }}>
           <label style={{ display: 'block', marginBottom: '5px' }}>Grade Level:</label>
           <select
@@ -275,7 +270,7 @@ const AdminPage = () => {
             <option value="K-12">K-12</option>
           </select>
         </div>
-        
+
         <div style={{ marginBottom: '15px' }}>
           <label style={{ display: 'flex', alignItems: 'center' }}>
             <input
@@ -288,7 +283,7 @@ const AdminPage = () => {
             Community School
           </label>
         </div>
-        
+
         <div style={{ marginBottom: '15px' }}>
           <label style={{ display: 'block', marginBottom: '5px' }}>Enrollment:</label>
           <input
@@ -300,33 +295,33 @@ const AdminPage = () => {
             style={{ width: '100%', padding: '8px' }}
           />
         </div>
-        
+
         {/* Add more fields as needed */}
-        
+
         <div style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
-          <button 
-            type="submit" 
-            style={{ 
-              padding: '10px 20px', 
-              backgroundColor: '#4CAF50', 
-              color: 'white', 
-              border: 'none', 
+          <button
+            type="submit"
+            style={{
+              padding: '10px 20px',
+              backgroundColor: '#4CAF50',
+              color: 'white',
+              border: 'none',
               borderRadius: '4px',
               cursor: 'pointer'
             }}
           >
             {selectedSchool ? 'Update School' : 'Create School'}
           </button>
-          
+
           {selectedSchool && (
-            <button 
-              type="button" 
+            <button
+              type="button"
               onClick={handleDelete}
-              style={{ 
-                padding: '10px 20px', 
-                backgroundColor: '#f44336', 
-                color: 'white', 
-                border: 'none', 
+              style={{
+                padding: '10px 20px',
+                backgroundColor: '#f44336',
+                color: 'white',
+                border: 'none',
                 borderRadius: '4px',
                 cursor: 'pointer'
               }}
