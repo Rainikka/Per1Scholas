@@ -13,6 +13,15 @@ import {
 import { Bar, Pie } from 'react-chartjs-2';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
+import L from 'leaflet';
+
+// Fix for leaflet marker icons
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
+  iconUrl: require('leaflet/dist/images/marker-icon.png'),
+  shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
+});
 
 ChartJS.register(
   CategoryScale,
@@ -28,15 +37,17 @@ const Dashboard1 = () => {
   const [schools, setSchools] = useState([]);
   const [selectedSchool, setSelectedSchool] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchSchools = async () => {
       try {
         const res = await axios.get('/api/public/schools');
         setSchools(res.data);
-        setLoading(false);
       } catch (err) {
-        console.error(err);
+        setError('Failed to load school list');
+        console.error('Error fetching schools:', err);
+      } finally {
         setLoading(false);
       }
     };
@@ -50,7 +61,8 @@ const Dashboard1 = () => {
           const res = await axios.get(`/api/public/schools/${selectedSchool}`);
           setSelectedSchool(res.data);
         } catch (err) {
-          console.error(err);
+          setError('Failed to load school details');
+          console.error('Error fetching school data:', err);
         }
       };
       fetchSchoolData();
@@ -64,8 +76,8 @@ const Dashboard1 = () => {
       {
         label: 'Percentage',
         data: selectedSchool ? [
-          selectedSchool.SpecialNeedStudents,
-          selectedSchool.ELLStudents
+          selectedSchool.SpecialNeedStudents * 100,
+          selectedSchool.ELLStudents * 100
         ] : [0, 0],
         backgroundColor: ['rgba(54, 162, 235, 0.5)', 'rgba(255, 99, 132, 0.5)'],
       }
@@ -78,8 +90,8 @@ const Dashboard1 = () => {
       {
         label: 'Percentage',
         data: selectedSchool ? [
-          selectedSchool.LivingInPoverty,
-          selectedSchool.EconomicNeed
+          selectedSchool.LivingInPoverty * 100,
+          selectedSchool.EconomicNeed * 100
         ] : [0, 0],
         backgroundColor: ['rgba(255, 159, 64, 0.5)', 'rgba(75, 192, 192, 0.5)'],
       }
@@ -92,8 +104,8 @@ const Dashboard1 = () => {
       {
         label: 'Percentage',
         data: selectedSchool ? [
-          selectedSchool.FemaleStudents,
-          selectedSchool.MaleStudents
+          selectedSchool.FemaleStudents * 100,
+          selectedSchool.MaleStudents * 100
         ] : [0, 0],
         backgroundColor: ['rgba(153, 102, 255, 0.5)', 'rgba(255, 206, 86, 0.5)'],
       }
@@ -104,30 +116,30 @@ const Dashboard1 = () => {
     labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'],
     datasets: [
       {
-        label: 'Attendance Rate',
+        label: 'Attendance Rate %',
         data: selectedSchool ? [
-          selectedSchool.Attendance2018Rate,
-          selectedSchool.Attendance2019Rate,
-          selectedSchool.Attendance2020Rate,
-          selectedSchool.Attendance2021Rate,
-          selectedSchool.Attendance2022Rate,
-          selectedSchool.Attendance2023Rate,
-          selectedSchool.Attendance2024Rate,
-          selectedSchool.Attendance2025Rate
+          selectedSchool.Attendance2018Rate * 100,
+          selectedSchool.Attendance2019Rate * 100,
+          selectedSchool.Attendance2020Rate * 100,
+          selectedSchool.Attendance2021Rate * 100,
+          selectedSchool.Attendance2022Rate * 100,
+          selectedSchool.Attendance2023Rate * 100,
+          selectedSchool.Attendance2024Rate * 100,
+          selectedSchool.Attendance2025Rate * 100
         ] : Array(8).fill(0),
         backgroundColor: 'rgba(54, 162, 235, 0.5)',
       },
       {
-        label: 'Chronically Absent',
+        label: 'Chronically Absent %',
         data: selectedSchool ? [
-          selectedSchool.Chronically2018Absent,
-          selectedSchool.Chronically2019Absent,
-          selectedSchool.Chronically2020Absent,
-          selectedSchool.Chronically2021Absent,
-          selectedSchool.Chronically2022Absent,
-          selectedSchool.Chronically2023Absent,
-          selectedSchool.Chronically2024Absent,
-          selectedSchool.Chronically2025Absent
+          (selectedSchool.Chronically2018Absent || 0) * 100,
+          (selectedSchool.Chronically2019Absent || 0) * 100,
+          (selectedSchool.Chronically2020Absent || 0) * 100,
+          (selectedSchool.Chronically2021Absent || 0) * 100,
+          (selectedSchool.Chronically2022Absent || 0) * 100,
+          (selectedSchool.Chronically2023Absent || 0) * 100,
+          (selectedSchool.Chronically2024Absent || 0) * 100,
+          (selectedSchool.Chronically2025Absent || 0) * 100
         ] : Array(8).fill(0),
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       }
@@ -140,13 +152,13 @@ const Dashboard1 = () => {
       {
         label: 'Percentage',
         data: selectedSchool ? [
-          selectedSchool.AsianStudents,
-          selectedSchool.BlackStudents,
-          selectedSchool.LatinoStudents,
-          selectedSchool.MultiRaceStudents,
-          selectedSchool.NativeStudents,
-          selectedSchool.WhiteStudents,
-          selectedSchool.OtherStudents
+          selectedSchool.AsianStudents * 100,
+          selectedSchool.BlackStudents * 100,
+          selectedSchool.LatinoStudents * 100,
+          selectedSchool.MultiRaceStudents * 100,
+          selectedSchool.NativeStudents * 100,
+          selectedSchool.WhiteStudents * 100,
+          selectedSchool.OtherStudents * 100
         ] : Array(7).fill(0),
         backgroundColor: [
           'rgba(255, 99, 132, 0.5)',
@@ -161,13 +173,14 @@ const Dashboard1 = () => {
     ]
   };
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <div className="loading">Loading schools...</div>;
+  if (error) return <div className="error">{error}</div>;
 
   return (
-    <div style={{ padding: '20px' }}>
-      <div style={{ height: '5vh', marginBottom: '15px' }}>
+    <div className="dashboard-container">
+      {/* School selection dropdown */}
+      <div className="school-selector">
         <select
-          style={{ width: '50%' }}
           onChange={(e) => setSelectedSchool(e.target.value)}
           value={selectedSchool?.SchoolDBN || ''}
         >
@@ -179,7 +192,7 @@ const Dashboard1 = () => {
           ))}
         </select>
         {selectedSchool && (
-          <span style={{ width: '15%', marginLeft: '10px' }}>
+          <span className="neighborhood">
             {selectedSchool.Neighborhood}
           </span>
         )}
@@ -187,91 +200,141 @@ const Dashboard1 = () => {
 
       {selectedSchool && (
         <>
-          <div style={{ height: '15vh', marginBottom: '10px' }}>
-            <h2 style={{ width: '50%', display: 'inline-block' }}>
-              {selectedSchool.SchoolName}
-            </h2>
-            <span style={{ width: '15%', display: 'inline-block' }}>
-              {selectedSchool.SchoolDBN}
-            </span>
-            <span style={{ width: '10%', display: 'inline-block' }}>
-              District {selectedSchool.District}
-            </span>
-            <span style={{ width: '25%', display: 'inline-block' }}>
-              {selectedSchool.Borough}
-            </span>
+          {/* School information header */}
+          <div className="school-header">
+            <h2>{selectedSchool.SchoolName}</h2>
+            <div className="school-meta">
+              <span>DBN: {selectedSchool.SchoolDBN}</span>
+              <span>District: {selectedSchool.District}</span>
+              <span>{selectedSchool.Borough}</span>
+            </div>
           </div>
 
-          <div style={{ height: '10vh', marginBottom: '20px' }}>
-            <span style={{ width: '40%', display: 'inline-block' }}>
-              {selectedSchool.CommunityBasedOrg || 'No community partner'}
-            </span>
-            <span style={{ width: '20%', display: 'inline-block' }}>
-              {selectedSchool.SchoolType}
-            </span>
-            <span style={{ width: '20%', display: 'inline-block' }}>
-              {selectedSchool.GradeLevel}
-            </span>
+          {/* School details */}
+          <div className="school-details">
+            <span>{selectedSchool.CommunityBasedOrg || 'No community partner'}</span>
+            <span>{selectedSchool.SchoolType}</span>
+            <span>{selectedSchool.GradeLevel}</span>
           </div>
 
-          <div style={{ height: '20vh', marginBottom: '20px', display: 'flex' }}>
-            <div style={{ width: '40%' }}>
+          {/* Charts section */}
+          <div className="charts-section">
+            <div className="chart-row">
+              <div className="chart-container">
+                <Bar
+                  data={specialNeedsData}
+                  options={{
+                    indexAxis: 'y',
+                    responsive: true,
+                    scales: {
+                      x: {
+                        title: {
+                          display: true,
+                          text: 'Percentage (%)'
+                        }
+                      }
+                    }
+                  }}
+                />
+              </div>
+              <div className="enrollment-box">
+                <h3>Enrollment</h3>
+                <p>{selectedSchool.Enrollment.toLocaleString()}</p>
+              </div>
+            </div>
+
+            <div className="chart-row">
+              <div className="chart-container">
+                <Bar
+                  data={economicData}
+                  options={{
+                    indexAxis: 'y',
+                    responsive: true,
+                    scales: {
+                      x: {
+                        title: {
+                          display: true,
+                          text: 'Percentage (%)'
+                        }
+                      }
+                    }
+                  }}
+                />
+              </div>
+              <div className="chart-container">
+                <Bar
+                  data={genderData}
+                  options={{
+                    responsive: true,
+                    scales: {
+                      y: {
+                        title: {
+                          display: true,
+                          text: 'Percentage (%)'
+                        }
+                      }
+                    }
+                  }}
+                />
+              </div>
+            </div>
+
+            <div className="chart-container-wide">
               <Bar
-                data={specialNeedsData}
-                options={{ indexAxis: 'y', responsive: true }}
+                data={attendanceData}
+                options={{
+                  responsive: true,
+                  scales: {
+                    y: {
+                      title: {
+                        display: true,
+                        text: 'Percentage (%)'
+                      }
+                    }
+                  }
+                }}
               />
             </div>
-            <div style={{ width: '15%', padding: '20px', border: '1px solid #ccc' }}>
-              <h3>Enrollment</h3>
-              <p>{selectedSchool.Enrollment}</p>
-            </div>
-          </div>
 
-          <div style={{ height: '20vh', marginBottom: '30px', display: 'flex' }}>
-            <div style={{ width: '35%' }}>
-              <Bar
-                data={economicData}
-                options={{ indexAxis: 'y', responsive: true }}
-              />
-            </div>
-            <div style={{ width: '15%' }}>
-              <Bar
-                data={genderData}
-                options={{ responsive: true }}
-              />
-            </div>
-          </div>
-
-          <div style={{ height: '30vh', marginBottom: '30px' }}>
-            <Bar
-              data={attendanceData}
-              options={{ responsive: true }}
-            />
-          </div>
-
-          <div style={{ height: '30vh', display: 'flex' }}>
-            <div style={{ width: '30%' }}>
-              <Pie data={ethnicityData} />
-            </div>
-            <div style={{ width: '40%' }}>
-              {selectedSchool.SchoolLatitude && selectedSchool.SchoolLongitude ? (
-                <MapContainer
-                  center={[selectedSchool.SchoolLatitude, selectedSchool.SchoolLongitude]}
-                  zoom={13}
-                  style={{ height: '100%', width: '100%' }}
-                >
-                  <TileLayer
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                  />
-                  <Marker position={[selectedSchool.SchoolLatitude, selectedSchool.SchoolLongitude]}>
-                    <Popup>
-                      {selectedSchool.SchoolName}
-                    </Popup>
-                  </Marker>
-                </MapContainer>
-              ) : (
-                <p>No location data available</p>
-              )}
+            <div className="chart-row">
+              <div className="chart-container">
+                <Pie
+                  data={ethnicityData}
+                  options={{
+                    plugins: {
+                      tooltip: {
+                        callbacks: {
+                          label: function (context) {
+                            return `${context.label}: ${context.raw}%`;
+                          }
+                        }
+                      }
+                    }
+                  }}
+                />
+              </div>
+              <div className="map-container">
+                {selectedSchool.SchoolLatitude && selectedSchool.SchoolLongitude ? (
+                  <MapContainer
+                    center={[selectedSchool.SchoolLatitude, selectedSchool.SchoolLongitude]}
+                    zoom={13}
+                    style={{ height: '100%', width: '100%' }}
+                  >
+                    <TileLayer
+                      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                      attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    />
+                    <Marker position={[selectedSchool.SchoolLatitude, selectedSchool.SchoolLongitude]}>
+                      <Popup>
+                        <strong>{selectedSchool.SchoolName}</strong><br />
+                        {selectedSchool.StreetAddress}
+                      </Popup>
+                    </Marker>
+                  </MapContainer>
+                ) : (
+                  <p>No location data available</p>
+                )}
+              </div>
             </div>
           </div>
         </>

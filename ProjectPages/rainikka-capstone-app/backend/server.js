@@ -42,7 +42,7 @@ app.use('/api/schools', schoolRoutes);
 
 /*** Mongo Database Connection ***/
 const mongoose = require('mongoose');
-const mongoString = process.env.MONGO_URI;
+const mongoString = process.env.DATA_URI;
 mongoose.connect(mongoString)
   .then(() => {
     console.log(`Database is Connected: ${mongoose.connection.name} `)

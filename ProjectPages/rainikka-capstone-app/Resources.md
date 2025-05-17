@@ -145,7 +145,7 @@ Seed data on 280 NYC schools with each individual school having 78 variables:
 
 - Title: How To Structure React Projects From Beginner To Advanced
 - Creator: Web Dev Simplified
-- Access Location: Article on the WWW
+- Access Location: Creator Blog on WWW
 
 - Title: Learn React In 30 Minutes
 - Creator: Web Dev Simplified
@@ -190,6 +190,18 @@ Seed data on 280 NYC schools with each individual school having 78 variables:
 - Title: Authentication to Your App With BCrypt and JWT## Research Resources
 - Creator: Madeline Corman
 - Access Location: Medium.com Article
+
+- Title: Build A MERN Finance Dashboard App | Machine Learning
+- Creator: EdRoh
+- Access Location: YouTube
+
+- Mastering MERN: Crafting an Elegant Admin Dashboard
+- Creator: EdRoh
+- Access Location: YouTube
+
+- Creating Dashboard Charts, MERN STACK COURSE
+- Creator: Six Pack Programmer
+- Access Location: Youtube
 
 ### List of Community Schools
 

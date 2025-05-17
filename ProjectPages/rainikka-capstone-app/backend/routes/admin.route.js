@@ -23,12 +23,12 @@ router.post('/register', async (req, res) => {
     // Create new admin without password hashing
     const newAdmin = new Admin({
       email,
-      password // Storing plain text password (NOT recommended for production)
+      password
     });
 
     await newAdmin.save();
 
-    // Return admin data without token
+
     res.json({
       admin: {
         id: newAdmin._id,
@@ -40,7 +40,7 @@ router.post('/register', async (req, res) => {
   }
 });
 
-/*** Simplified Admin Login ***/
+/*** Admin Login ***/
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
@@ -56,12 +56,10 @@ router.post('/login', async (req, res) => {
       return res.status(400).json({ message: 'Admin does not exist' });
     }
 
-    // Simple password comparison (NOT secure)
     if (password !== admin.password) {
       return res.status(400).json({ message: 'Invalid credentials' });
     }
 
-    // Return admin data without token
     res.json({
       admin: {
         id: admin._id,

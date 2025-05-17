@@ -4,7 +4,7 @@ const SchoolSchema = new mongoose.Schema({
   /*** SCHOOL INFORMATION ***/
   SchoolDBN: {
     type: String,
-    required: [true, "Enter the school district borough number"]
+    required: [true, "Enter the school unique district borough number"]
   },
   SchoolName: {
     type: String,
@@ -13,10 +13,6 @@ const SchoolSchema = new mongoose.Schema({
   StreetAddress: {
     type: String,
     required: [true, "Enter the school's street address"]
-  },
-  ZipCode: {
-    type: Number,
-    required: [false, "Enter the school's zip code"]
   },
   Neighborhood: {
     type: String,
@@ -29,17 +25,22 @@ const SchoolSchema = new mongoose.Schema({
   Borough: {
     type: String,
     required: [true, "Select school borough"],
-    enum: ['Manhattan', 'Brooklyn', 'Queens', 'Bronx', 'Staten Island']
+    enum: ['MANHATTAN', 'BROOKLYN', 'QUEENS', 'BRONX', 'STATEN ISLAND']
   },
   SchoolType: {
     type: String,
-    required: [true, "Select school type"],
-    enum: ['General Education', 'Special Education']
+    required: [false, "Select school type"],
+    enum: ['General Academic', 'Career Technical', 'Special Education', 'Transfer School']
   },
   GradeLevel: {
     type: String,
-    required: [true, "Select grade level"],
-    enum: ['Elementary', 'Middle', 'High', 'K-8', '6-12', 'K-12']
+    required: [false, "Select grade level"],
+    enum: ['Elementary School', 'Middle School', 'High School',
+      'Secondary School', 'K-8 School', '6-12 School', 'K-12 School']
+  },
+  Grades: {
+    type: String,
+    required: [false, "Enter each grade at the school"]
   },
   CommunitySchool: {
     type: Boolean,
@@ -53,22 +54,22 @@ const SchoolSchema = new mongoose.Schema({
   PartnershipYearStart: {
     type: Number,
     required: [false, "Select the year the community partnership started"],
-    enum: [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025]
+    enum: [2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025]
   },
   DataForSchoolYear: {
     type: Number,
-    required: [true, "Select the school year for the school data being entered"],
+    required: [false, "Select the school year for the school data being entered"],
     enum: [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025]
   },
 
   /*** Student Demographics ***/
   Enrollment: {
     type: Number,
-    required: [true, "Enter total number of students enrolled in school"]
+    required: [false, "Enter total number of students enrolled in school"]
   },
   FemaleStudents: {
     type: Number,
-    required: [true, "Enter the percentage of students that are female"]
+    required: [false, "Enter the percentage of students that are female"]
   },
   MaleStudents: {
     type: Number,
@@ -76,50 +77,49 @@ const SchoolSchema = new mongoose.Schema({
   },
   SpecialNeedStudents: {
     type: Number,
-    required: [true, "Enter the percentage of students with special needs"]
+    required: [false, "Enter the percentage of students with special needs"]
   },
   ELLStudents: {
     type: Number,
-    required: [true, "Enter the percentage of students that are English Language Learners"]
+    required: [false, "Enter the percentage of students that are English Language Learners"]
   },
   LivingInPoverty: {
     type: Number,
-    required: [true, "Enter the percentage of students 80% below federal poverty line"]
+    required: [false, "Enter the percentage of students 80% below federal poverty line"]
   },
   EconomicNeed: {
     type: Number,
-    required: [true, "Enter the percentage of students that in economic need"]
+    required: [false, "Enter the percentage of students that in economic need"]
   },
   /*** School Ethnicity Breakdown ***/
   AsianStudents: {
     type: Number,
-    required: [true, "Enter the percentage of students identified as Asian"]
+    required: [false, "Enter the percentage of students identified as Asian"]
   },
   BlackStudents: {
     type: Number,
-    required: [true, "Enter the percentage of students identified as Black"]
+    required: [false, "Enter the percentage of students identified as Black"]
   },
   LatinoStudents: {
     type: Number,
-    required: [true, "Enter the percentage of students identified as Latino"]
+    required: [false, "Enter the percentage of students identified as Latino"]
   },
   MultiRaceStudents: {
     type: Number,
-    required: [true, "Enter the percentage of students identified as Multi-racial"]
+    required: [false, "Enter the percentage of students identified as Multi-racial"]
   },
-  NativeAmericanStudents: {
+  NativeStudents: {
     type: Number,
-    required: [true, "Enter the percentage of students identified as Native American"]
+    required: [false, "Enter the percentage of students identified as Native American"]
   },
   WhiteStudents: {
     type: Number,
-    required: [true, "Enter the percentage of students identified as White"]
+    required: [false, "Enter the percentage of students identified as White"]
   },
   OtherStudents: {
     type: Number,
-    required: [true, "Enter the percentage of students identified as Other"]
+    required: [false, "Enter the percentage of students identified as Other"]
   },
-
   /*** 2028 - 2024 School Attendance ***/
   Attendance2018Rate: {
     type: Number,

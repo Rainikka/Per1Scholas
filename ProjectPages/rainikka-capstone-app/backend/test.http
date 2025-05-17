@@ -1,54 +1,100 @@
 
 
-################ USER ROUTES ################
-# POST http://localhost:3000/api/schools/01M015
+# ################ USER ROUTES ################
+# POST http://localhost:3000/api/schools
 # Content-Type: application/json
 
 # {
-#   "SchoolDBN": "01M015",
-#   "SchoolName": "Test School",
-#   "StreetAddress": "123 Test St",
-#   "ZipCode": 10001,
-#   "Neighborhood": "Test Neighborhood",
-#   "District": 1,
-#   "Borough": "Manhattan",
+#   "SchoolDBN": "15K423",
+#   "SchoolName": "Brooklyn Technical High School",
+#   "StreetAddress": "29 Fort Greene Place",
+#   "ZipCode": 11217,
+#   "Neighborhood": "Fort Greene",
+#   "District": 15,
+#   "Borough": "Brooklyn",
 #   "SchoolType": "General Education",
 #   "GradeLevel": "High",
-#   "CommunitySchool": false,
-#   "Enrollment": 500,
-#   "FemaleStudents": 50,
-#   "MaleStudents": 50,
-#   "SpecialNeedStudents": 10,
-#   "ELLStudents": 15,
-#   "LivingInPoverty": 30,
-#   "EconomicNeed": 35,
-#   "AsianStudents": 20,
-#   "BlackStudents": 20,
-#   "LatinoStudents": 20,
-#   "MultiRaceStudents": 10,
-#   "NativeStudents": 5,
-#   "WhiteStudents": 20,
-#   "OtherStudents": 5
+#   "CommunitySchool": true,
+#   "CommunityBasedOrg": "Brooklyn Community Services",
+#   "PartnershipYearStart": 2018,
+#   "DataForSchoolYear": 2024,
+#   "Enrollment": 5872,
+#   "FemaleStudents": 0.45,
+#   "MaleStudents": 0.55,
+#   "SpecialNeedStudents": 0.12,
+#   "ELLStudents": 0.08,
+#   "LivingInPoverty": 0.42,
+#   "EconomicNeed": 0.38,
+#   "AsianStudents": 0.35,
+#   "BlackStudents": 0.25,
+#   "LatinoStudents": 0.15,
+#   "MultiRaceStudents": 0.08,
+#   "NativeAmericanStudents": 0.01,
+#   "WhiteStudents": 0.15,
+#   "OtherStudents": 0.01,
+#   "Attendance2018Rate": 0.92,
+#   "Attendance2019Rate": 0.93,
+#   "Attendance2020Rate": 0.85,
+#   "Attendance2021Rate": 0.88,
+#   "Attendance2022Rate": 0.91,
+#   "Attendance2023Rate": 0.94,
+#   "Attendance2024Rate": 0.95,
+#   "Chronically2018Absent": 0.18,
+#   "Chronically2019Absent": 0.15,
+#   "Chronically2020Absent": 0.28,
+#   "Chronically2021Absent": 0.22,
+#   "Chronically2022Absent": 0.16,
+#   "Chronically2023Absent": 0.12,
+#   "Chronically2024Absent": 0.10,
+#   "Avg2018ELAScore": 612.5,
+#   "Avg2019ELAScore": 615.2,
+#   "Avg2020ELAScore": null,
+#   "Avg2021ELAScore": 598.3,
+#   "Avg2022ELAScore": 608.7,
+#   "Avg2023ELAScore": 615.4,
+#   "Avg2024ELAScore": 618.2,
+#   "Proficient2018ELA": 0.68,
+#   "Proficient2019ELA": 0.72,
+#   "Proficient2020ELA": null,
+#   "Proficient2021ELA": 0.65,
+#   "Proficient2022ELA": 0.70,
+#   "Proficient2023ELA": 0.73,
+#   "Proficient2024ELA": 0.75,
+#   "Avg2018MathScore": 625.8,
+#   "Avg2019MathScore": 628.4,
+#   "Avg2020MathScore": null,
+#   "Avg2021MathScore": 618.2,
+#   "Avg2022MathScore": 622.5,
+#   "Avg2023MathScore": 627.8,
+#   "Avg2024MathScore": 630.5,
+#   "Proficient2018Math": 0.75,
+#   "Proficient2019Math": 0.78,
+#   "Proficient2020Math": null,
+#   "Proficient2021Math": 0.72,
+#   "Proficient2022Math": 0.76,
+#   "Proficient2023Math": 0.79,
+#   "Proficient2024Math": 0.81,
+#   "SchoolLatitude": 40.6887,
+#   "SchoolLongitude": -73.9765
 # }
 
-
 ## Get All Schools:
-GET http://localhost:3000/api/public/schools
+# GET http://localhost:3000/api/public/schools/15K423
 
 ## Get Single School:
 # GET /http://localhost:3000/api/public/schools/01M015
 
-# PUT http://localhost:3000/api/schools/01M015
+# PUT http://localhost:3000/api/public/schools/15K423
 # Content-Type: application/json
 
-{
-  "Enrollment": 550,
-  "FemaleStudents": 52,
-  "MaleStudents": 48
-}
+# {
+#   "Enrollment": 550,
+#   "FemaleStudents": 52,
+#   "MaleStudents": 48
+# }
 
-DELETE http://localhost:3000/api/schools/01M015
-# Content-Type: application/json
+DELETE http://localhost:3000/api/schools/15K423
+Content-Type: application/json
 
 
 
