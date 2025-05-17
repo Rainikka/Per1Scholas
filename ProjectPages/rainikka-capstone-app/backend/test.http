@@ -3,76 +3,78 @@
 # POST http://localhost:3000/api/schools
 # Content-Type: application/json
 
-#  {
-#     "SchoolDBN": "99K382",
-#     "SchoolName": "Academy for College Preparation and Career Explora",
-#     "StreetAddress": "911 FLATBUSH AVENUE",
-#     "Neighborhood": "Erasmus",
-#     "District": " 12 ",
-#     "Borough": "BRONX",
-#     "SchoolType": "General Academic",
-#     "GradeLevel": "Secondary School",
-#     "Grades": "06,07,08,09,10,11,12",
-#     "CommunitySchool": "true",
-#     "CommunityBasedOrg": " East Side House, Inc. ",
-#     "PartnershipYearStart": "2017",
-#     "Enrollment": "360",
-#     "FemaleStudents": "0.425",
-#     "MaleStudents": "0.575",
-#     "SpecialNeedStudents": "0.206",
-#     "ELLStudents": "0.164",
-#     "LivingInPoverty": "0.85",
-#     "Economic Need IndeX": "0.811",
-#     "AsianStudents": "0.003",
-#     "BlackStudents": "0.756",
-#     "LatinoStudents": "0.156",
-#     "MultiRaceStudents": "0.011",
-#     "NativeStudents": "0.044",
-#     "WhiteStudents": "0.025",
-#     "OtherStudents": "0.006",
-#     "Attendance2019Rate": "0.876",
-#     "Attendance2020Rate": "0.885",
-#     "Attendance2021Rate": "0.913",
-#     "Attendance2022Rate": "0.89",
-#     "Attendance2023Rate": "0.916",
-#     "Attendance2024Rate": "0.955",
-#     "Chronically2018Absent": "",
-#     "Chronically2019Absent": "0.385",
-#     "Chronically2020Absent": "0.35",
-#     "Chronically2021Absent": "0.231",
-#     "Chronically2022Absent": "0.291",
-#     "Chronically2023Absent": "0.222",
-#     "Chronically2024Absent": "0.118",
-#     "Avg2018ELAScore": "593.294",
-#     "Avg2019ELAScore": "593.104",
-#     "Avg2020ELAScore": "",
-#     "Avg2021ELAScore": "",
-#     "Avg2022ELAScore": "598.306",
-#     "Avg2023ELAScore": "440.481",
-#     "Avg2024ELAScore": "442.578",
-#     "Proficient2018ELA": "0.244",
-#     "Proficient2019ELA": "0.243",
-#     "Proficient2020ELA": "",
-#     "Proficient2021ELA": "",
-#     "Proficient2022ELA": "0.366",
-#     "Proficient2023ELA": "0.278",
-#     "Proficient2024ELA": "0.414",
-#     "Avg2018MathScore": "581.975",
-#     "Avg2019MathScore": "588.333",
-#     "Avg2020MathScore": "",
-#     "Avg2021MathScore": "",
-#     "Avg2022MathScore": "587.42",
-#     "Avg2023MathScore": "437.036",
-#     "Avg2024MathScore": "447.427",
-#     "Proficient2018Math": "0.033",
-#     "Proficient2019Math": "0.117",
-#     "Proficient2020Math": "",
-#     "Proficient2021Math": "",
-#     "Proficient2022Math": "0.151",
-#     "Proficient2023Math": "0.252",
-#     "Proficient2024Math": "0.452","LATITUDE": "40.649602",
-#     "LONGITUDE": "-73.957173"
-#   }
+# {
+#   "SchoolDBN": "99K382",
+#   "SchoolName": "Academy for College Preparation and Career Explora",
+#   "StreetAddress": "911 FLATBUSH AVENUE",
+#   "Neighborhood": "Erasmus",
+#   "District": "12",
+#   "Borough": "BRONX",
+#   "SchoolType": "General Academic",
+#   "GradeLevel": "Secondary School",
+#   "Grades": "06,07,08,09,10,11,12",
+#   "CommunitySchool": "true",
+#   "CommunityBasedOrg": "East Side House, Inc.",
+#   "PartnershipYearStart": "2017",
+#   "Enrollment": "360",
+#   "FemaleStudents": "0.425",
+#   "MaleStudents": "0.575",
+#   "SpecialNeedStudents": "0.206",
+#   "ELLStudents": "0.164",
+#   "LivingInPoverty": "0.85",
+#   "Economic Need IndeX": "0.811",
+#   "AsianStudents": "0.003",
+#   "BlackStudents": "0.756",
+#   "LatinoStudents": "0.156",
+#   "MultiRaceStudents": "0.011",
+#   "NativeStudents": "0.044",
+#   "WhiteStudents": "0.025",
+#   "OtherStudents": "0.006",
+#   "Attendance2019Rate": "0.876",
+#   "Attendance2020Rate": "0.885",
+#   "Attendance2021Rate": "0.913",
+#   "Attendance2022Rate": "0.89",
+#   "Attendance2023Rate": "0.916",
+#   "Attendance2024Rate": "0.955",
+#   "Chronically2018Absent": "",
+#   "Chronically2019Absent": "0.385",
+#   "Chronically2020Absent": "0.35",
+#   "Chronically2021Absent": "0.231",
+#   "Chronically2022Absent": "0.291",
+#   "Chronically2023Absent": "0.222",
+#   "Chronically2024Absent": "0.118",
+#   "Avg2018ELAScore": "593.294",
+#   "Avg2019ELAScore": "593.104",
+#   "Avg2020ELAScore": "",
+#   "Avg2021ELAScore": "",
+#   "Avg2022ELAScore": "598.306",
+#   "Avg2023ELAScore": "440.481",
+#   "Avg2024ELAScore": "442.578",
+#   "Proficient2018ELA": "0.244",
+#   "Proficient2019ELA": "0.243",
+#   "Proficient2020ELA": "",
+#   "Proficient2021ELA": "",
+#   "Proficient2022ELA": "0.366",
+#   "Proficient2023ELA": "0.278",
+#   "Proficient2024ELA": "0.414",
+#   "Avg2018MathScore": "581.975",
+#   "Avg2019MathScore": "588.333",
+#   "Avg2020MathScore": "",
+#   "Avg2021MathScore": "",
+#   "Avg2022MathScore": "587.42",
+#   "Avg2023MathScore": "437.036",
+#   "Avg2024MathScore": "447.427",
+#   "Proficient2018Math": "0.033",
+#   "Proficient2019Math": "0.117",
+#   "Proficient2020Math": "",
+#   "Proficient2021Math": "",
+#   "Proficient2022Math": "0.151",
+#   "Proficient2023Math": "0.252",
+#   "Proficient2024Math": "0.452",
+#   "Proficient2025Math": "",
+#   "LATITUDE": "40.649602",
+#   "LONGITUDE": "-73.957173"
+# }
 
 ## Get Single School:
 # GET http://localhost:3000/api/public/schools/99K382
@@ -80,8 +82,8 @@
 ## Get All Schools:
 # GET http://localhost:3000/api/public/schools
 
-## Update school data:
-# PUT http://localhost:3000/api/schools/99K382
+## Update School Data:
+# PATCH http://localhost:3000/api/schools/99K382
 # Content-Type: application/json
 
 # {
@@ -90,7 +92,7 @@
 #   "ELLStudents": "0.41"
 # }
 
-## Delete School Data
+# ## Delete School Data
 # DELETE http://localhost:3000/api/schools/99K382
 
 

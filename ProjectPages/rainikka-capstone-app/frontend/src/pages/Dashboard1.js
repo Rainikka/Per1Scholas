@@ -18,9 +18,9 @@ import L from 'leaflet';
 // Fix for leaflet marker icons
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
-  iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
-  iconUrl: require('leaflet/dist/images/marker-icon.png'),
-  shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
+  iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
+  iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
 });
 
 ChartJS.register(
@@ -35,18 +35,21 @@ ChartJS.register(
 
 const Dashboard1 = () => {
   const [schools, setSchools] = useState([]);
-  const [selectedSchool, setSelectedSchool] = useState(null);
+  const [selectedSchoolId, setSelectedSchoolId] = useState(null);
+  const [selectedSchoolData, setSelectedSchoolData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchSchools = async () => {
+      setLoading(true);
+      setError(null);
       try {
-        const res = await axios.get('/api/public/schools');
+        const res = await axios.get('/public/schools');
         setSchools(res.data);
       } catch (err) {
-        setError('Failed to load school list');
-        console.error('Error fetching schools:', err);
+        setError('Failed to load school list. Please try again later.');
+        console.error('Error fetching schools:', err.response?.data || err.message);
       } finally {
         setLoading(false);
       }
@@ -55,29 +58,33 @@ const Dashboard1 = () => {
   }, []);
 
   useEffect(() => {
-    if (selectedSchool) {
+    if (selectedSchoolId) {
       const fetchSchoolData = async () => {
+        setLoading(true);
         try {
-          const res = await axios.get(`/api/public/schools/${selectedSchool}`);
-          setSelectedSchool(res.data);
+          const res = await axios.get(`/public/schools/${selectedSchoolId}`);
+          setSelectedSchoolData(res.data);
         } catch (err) {
-          setError('Failed to load school details');
-          console.error('Error fetching school data:', err);
+          setError('Failed to load school details.');
+          console.error('Error:', err.response?.data || err.message);
+        } finally {
+          setLoading(false);
         }
       };
       fetchSchoolData();
+    } else {
+      setSelectedSchoolData(null);
     }
-  }, [selectedSchool]);
+  }, [selectedSchoolId]);
 
-  // Chart data definitions
   const specialNeedsData = {
     labels: ['Special Needs', 'ELL Students'],
     datasets: [
       {
         label: 'Percentage',
-        data: selectedSchool ? [
-          selectedSchool.SpecialNeedStudents * 100,
-          selectedSchool.ELLStudents * 100
+        data: selectedSchoolData ? [
+          (selectedSchoolData.SpecialNeedStudents || 0) * 100,
+          (selectedSchoolData.ELLStudents || 0) * 100
         ] : [0, 0],
         backgroundColor: ['rgba(54, 162, 235, 0.5)', 'rgba(255, 99, 132, 0.5)'],
       }
@@ -89,9 +96,9 @@ const Dashboard1 = () => {
     datasets: [
       {
         label: 'Percentage',
-        data: selectedSchool ? [
-          selectedSchool.LivingInPoverty * 100,
-          selectedSchool.EconomicNeed * 100
+        data: selectedSchoolData ? [
+          (selectedSchoolData.LivingInPoverty || 0) * 100,
+          (selectedSchoolData.EconomicNeedIndex || 0) * 100
         ] : [0, 0],
         backgroundColor: ['rgba(255, 159, 64, 0.5)', 'rgba(75, 192, 192, 0.5)'],
       }
@@ -103,45 +110,11 @@ const Dashboard1 = () => {
     datasets: [
       {
         label: 'Percentage',
-        data: selectedSchool ? [
-          selectedSchool.FemaleStudents * 100,
-          selectedSchool.MaleStudents * 100
+        data: selectedSchoolData ? [
+          (selectedSchoolData.FemaleStudents || 0) * 100,
+          (selectedSchoolData.MaleStudents || 0) * 100
         ] : [0, 0],
         backgroundColor: ['rgba(153, 102, 255, 0.5)', 'rgba(255, 206, 86, 0.5)'],
-      }
-    ]
-  };
-
-  const attendanceData = {
-    labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'],
-    datasets: [
-      {
-        label: 'Attendance Rate %',
-        data: selectedSchool ? [
-          selectedSchool.Attendance2018Rate * 100,
-          selectedSchool.Attendance2019Rate * 100,
-          selectedSchool.Attendance2020Rate * 100,
-          selectedSchool.Attendance2021Rate * 100,
-          selectedSchool.Attendance2022Rate * 100,
-          selectedSchool.Attendance2023Rate * 100,
-          selectedSchool.Attendance2024Rate * 100,
-          selectedSchool.Attendance2025Rate * 100
-        ] : Array(8).fill(0),
-        backgroundColor: 'rgba(54, 162, 235, 0.5)',
-      },
-      {
-        label: 'Chronically Absent %',
-        data: selectedSchool ? [
-          (selectedSchool.Chronically2018Absent || 0) * 100,
-          (selectedSchool.Chronically2019Absent || 0) * 100,
-          (selectedSchool.Chronically2020Absent || 0) * 100,
-          (selectedSchool.Chronically2021Absent || 0) * 100,
-          (selectedSchool.Chronically2022Absent || 0) * 100,
-          (selectedSchool.Chronically2023Absent || 0) * 100,
-          (selectedSchool.Chronically2024Absent || 0) * 100,
-          (selectedSchool.Chronically2025Absent || 0) * 100
-        ] : Array(8).fill(0),
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
       }
     ]
   };
@@ -151,14 +124,14 @@ const Dashboard1 = () => {
     datasets: [
       {
         label: 'Percentage',
-        data: selectedSchool ? [
-          selectedSchool.AsianStudents * 100,
-          selectedSchool.BlackStudents * 100,
-          selectedSchool.LatinoStudents * 100,
-          selectedSchool.MultiRaceStudents * 100,
-          selectedSchool.NativeStudents * 100,
-          selectedSchool.WhiteStudents * 100,
-          selectedSchool.OtherStudents * 100
+        data: selectedSchoolData ? [
+          (selectedSchoolData.AsianStudents || 0) * 100,
+          (selectedSchoolData.BlackStudents || 0) * 100,
+          (selectedSchoolData.LatinoStudents || 0) * 100,
+          (selectedSchoolData.MultiRaceStudents || 0) * 100,
+          (selectedSchoolData.NativeStudents || 0) * 100,
+          (selectedSchoolData.WhiteStudents || 0) * 100,
+          (selectedSchoolData.OtherStudents || 0) * 100
         ] : Array(7).fill(0),
         backgroundColor: [
           'rgba(255, 99, 132, 0.5)',
@@ -173,170 +146,104 @@ const Dashboard1 = () => {
     ]
   };
 
-  if (loading) return <div className="loading">Loading schools...</div>;
-  if (error) return <div className="error">{error}</div>;
+  if (loading) return <div style={{ padding: '20px' }}>Loading...</div>;
+  if (error) return <div style={{ padding: '20px', color: 'red' }}>{error}</div>;
 
   return (
-    <div className="dashboard-container">
-      {/* School selection dropdown */}
-      <div className="school-selector">
+    <div style={{ padding: '20px' }}>
+      <div style={{ marginBottom: '20px' }}>
+        <h2>School Dashboard</h2>
         <select
-          onChange={(e) => setSelectedSchool(e.target.value)}
-          value={selectedSchool?.SchoolDBN || ''}
+          onChange={(e) => setSelectedSchoolId(e.target.value)}
+          value={selectedSchoolId || ''}
+          style={{ width: '50%', padding: '8px' }}
         >
           <option value="">Select a school</option>
           {schools.map(school => (
             <option key={school.SchoolDBN} value={school.SchoolDBN}>
-              {school.SchoolName} - {school.SchoolDBN}
+              {school.SchoolName} ({school.SchoolDBN})
             </option>
           ))}
         </select>
-        {selectedSchool && (
-          <span className="neighborhood">
-            {selectedSchool.Neighborhood}
-          </span>
-        )}
       </div>
 
-      {selectedSchool && (
+      {selectedSchoolData && (
         <>
-          {/* School information header */}
-          <div className="school-header">
-            <h2>{selectedSchool.SchoolName}</h2>
-            <div className="school-meta">
-              <span>DBN: {selectedSchool.SchoolDBN}</span>
-              <span>District: {selectedSchool.District}</span>
-              <span>{selectedSchool.Borough}</span>
-            </div>
+          <div style={{ marginBottom: '30px', padding: '20px', backgroundColor: '#f5f5f5' }}>
+            <h3>{selectedSchoolData.SchoolName}</h3>
+            <p>DBN: {selectedSchoolData.SchoolDBN} | District: {selectedSchoolData.District} | Borough: {selectedSchoolData.Borough}</p>
+            <p>Address: {selectedSchoolData.StreetAddress}</p>
+            <p>Enrollment: {selectedSchoolData.Enrollment}</p>
           </div>
 
-          {/* School details */}
-          <div className="school-details">
-            <span>{selectedSchool.CommunityBasedOrg || 'No community partner'}</span>
-            <span>{selectedSchool.SchoolType}</span>
-            <span>{selectedSchool.GradeLevel}</span>
-          </div>
-
-          {/* Charts section */}
-          <div className="charts-section">
-            <div className="chart-row">
-              <div className="chart-container">
-                <Bar
-                  data={specialNeedsData}
-                  options={{
-                    indexAxis: 'y',
-                    responsive: true,
-                    scales: {
-                      x: {
-                        title: {
-                          display: true,
-                          text: 'Percentage (%)'
-                        }
-                      }
-                    }
-                  }}
-                />
-              </div>
-              <div className="enrollment-box">
-                <h3>Enrollment</h3>
-                <p>{selectedSchool.Enrollment.toLocaleString()}</p>
-              </div>
-            </div>
-
-            <div className="chart-row">
-              <div className="chart-container">
-                <Bar
-                  data={economicData}
-                  options={{
-                    indexAxis: 'y',
-                    responsive: true,
-                    scales: {
-                      x: {
-                        title: {
-                          display: true,
-                          text: 'Percentage (%)'
-                        }
-                      }
-                    }
-                  }}
-                />
-              </div>
-              <div className="chart-container">
-                <Bar
-                  data={genderData}
-                  options={{
-                    responsive: true,
-                    scales: {
-                      y: {
-                        title: {
-                          display: true,
-                          text: 'Percentage (%)'
-                        }
-                      }
-                    }
-                  }}
-                />
-              </div>
-            </div>
-
-            <div className="chart-container-wide">
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '20px' }}>
+            <div style={{ backgroundColor: 'white', padding: '15px', borderRadius: '5px' }}>
               <Bar
-                data={attendanceData}
+                data={specialNeedsData}
                 options={{
+                  indexAxis: 'y',
                   responsive: true,
-                  scales: {
-                    y: {
-                      title: {
-                        display: true,
-                        text: 'Percentage (%)'
-                      }
+                  plugins: {
+                    title: {
+                      display: true,
+                      text: 'Special Needs & ELL Students'
                     }
                   }
                 }}
               />
             </div>
-
-            <div className="chart-row">
-              <div className="chart-container">
-                <Pie
-                  data={ethnicityData}
-                  options={{
-                    plugins: {
-                      tooltip: {
-                        callbacks: {
-                          label: function (context) {
-                            return `${context.label}: ${context.raw}%`;
-                          }
-                        }
-                      }
+            <div style={{ backgroundColor: 'white', padding: '15px', borderRadius: '5px' }}>
+              <Bar
+                data={economicData}
+                options={{
+                  indexAxis: 'y',
+                  responsive: true,
+                  plugins: {
+                    title: {
+                      display: true,
+                      text: 'Economic Indicators'
                     }
-                  }}
-                />
-              </div>
-              <div className="map-container">
-                {selectedSchool.SchoolLatitude && selectedSchool.SchoolLongitude ? (
-                  <MapContainer
-                    center={[selectedSchool.SchoolLatitude, selectedSchool.SchoolLongitude]}
-                    zoom={13}
-                    style={{ height: '100%', width: '100%' }}
-                  >
-                    <TileLayer
-                      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                      attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                    />
-                    <Marker position={[selectedSchool.SchoolLatitude, selectedSchool.SchoolLongitude]}>
-                      <Popup>
-                        <strong>{selectedSchool.SchoolName}</strong><br />
-                        {selectedSchool.StreetAddress}
-                      </Popup>
-                    </Marker>
-                  </MapContainer>
-                ) : (
-                  <p>No location data available</p>
-                )}
-              </div>
+                  }
+                }}
+              />
             </div>
           </div>
+
+          <div style={{ marginBottom: '20px', backgroundColor: 'white', padding: '15px', borderRadius: '5px' }}>
+            <Pie
+              data={ethnicityData}
+              options={{
+                responsive: true,
+                plugins: {
+                  title: {
+                    display: true,
+                    text: 'Student Ethnicity Breakdown'
+                  }
+                }
+              }}
+            />
+          </div>
+
+          {selectedSchoolData.LATITUDE && selectedSchoolData.LONGITUDE && (
+            <div style={{ height: '400px', marginBottom: '20px', backgroundColor: 'white', padding: '15px', borderRadius: '5px' }}>
+              <MapContainer
+                center={[parseFloat(selectedSchoolData.LATITUDE), parseFloat(selectedSchoolData.LONGITUDE)]}
+                zoom={15}
+                style={{ height: '100%', width: '100%' }}
+              >
+                <TileLayer
+                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                />
+                <Marker position={[parseFloat(selectedSchoolData.LATITUDE), parseFloat(selectedSchoolData.LONGITUDE)]}>
+                  <Popup>
+                    <strong>{selectedSchoolData.SchoolName}</strong><br />
+                    {selectedSchoolData.StreetAddress}
+                  </Popup>
+                </Marker>
+              </MapContainer>
+            </div>
+          )}
         </>
       )}
     </div>

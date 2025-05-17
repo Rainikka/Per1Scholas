@@ -3,47 +3,55 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const AdminPage = () => {
-  const [schoolData, setSchoolData] = useState({
-    SchoolDBN: '',
-    SchoolName: '',
-    StreetAddress: '',
-    ZipCode: '',
-    Neighborhood: '',
-    District: '',
-    Borough: 'Manhattan',
-    SchoolType: 'General Education',
-    GradeLevel: 'Elementary',
+  const initialSchoolData = {
+    SchoolDBN: "",
+    SchoolName: "",
+    StreetAddress: "",
+    Neighborhood: "",
+    District: "",
+    Borough: "",
+    SchoolType: "",
+    GradeLevel: "",
     CommunitySchool: false,
-    CommunityBasedOrg: '',
-    PartnershipYearStart: '',
-    DataForSchoolYear: '',
-    Enrollment: '',
-    FemaleStudents: '',
-    MaleStudents: '',
-    SpecialNeedStudents: '',
-    ELLStudents: '',
-    LivingInPoverty: '',
-    EconomicNeed: '',
-    AsianStudents: '',
-    BlackStudents: '',
-    LatinoStudents: '',
-    MultiRaceStudents: '',
-    NativeStudents: '',
-    WhiteStudents: '',
-    OtherStudents: '',
-  });
+    CommunityBasedOrg: "",
+    Enrollment: "",
+    FemaleStudents: "",
+    MaleStudents: "",
+    SpecialNeedStudents: "",
+    ELLStudents: "",
+    LivingInPoverty: "",
+    EconomicNeedIndex: "",
+    AsianStudents: "",
+    BlackStudents: "",
+    LatinoStudents: "",
+    MultiRaceStudents: "",
+    NativeStudents: "",
+    WhiteStudents: "",
+    OtherStudents: "",
+    LATITUDE: "",
+    LONGITUDE: ""
+  };
 
+  const [schoolData, setSchoolData] = useState(initialSchoolData);
   const [selectedSchool, setSelectedSchool] = useState(null);
   const [schools, setSchools] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
+  // Fetch all schools on component mount
   useEffect(() => {
     const fetchSchools = async () => {
+      setLoading(true);
+      setError("");
       try {
-        const res = await axios.get('/api/schools');
+        const res = await axios.get('/schools');
         setSchools(res.data);
       } catch (err) {
-        alert('Error fetching schools');
+        setError('Failed to load schools. Please check your connection and try again.');
+        console.error('Error:', err.response?.data || err.message);
+      } finally {
+        setLoading(false);
       }
     };
     fetchSchools();
@@ -57,113 +65,97 @@ const AdminPage = () => {
     });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      if (selectedSchool) {
-
-        await axios.patch(`/api/schools/${selectedSchool.SchoolDBN}`, schoolData);
-        alert('School updated successfully');
-      } else {
-
-        await axios.post('/api/schools', schoolData);
-        alert('School created successfully');
-      }
-
-
-      const res = await axios.get('/api/schools');
-      setSchools(res.data);
-
-
+  const handleSchoolSelect = async (dbn) => {
+    if (!dbn) {
       setSelectedSchool(null);
-      setSchoolData({
-        SchoolDBN: '',
-        SchoolName: '',
-        StreetAddress: '',
-        ZipCode: '',
-        Neighborhood: '',
-        District: '',
-        Borough: 'Manhattan',
-        SchoolType: 'General Education',
-        GradeLevel: 'Elementary',
-        CommunitySchool: false,
-        CommunityBasedOrg: '',
-        PartnershipYearStart: '',
-        DataForSchoolYear: '',
-        Enrollment: '',
-        FemaleStudents: '',
-        MaleStudents: '',
-        SpecialNeedStudents: '',
-        ELLStudents: '',
-        LivingInPoverty: '',
-        EconomicNeed: '',
-        AsianStudents: '',
-        BlackStudents: '',
-        LatinoStudents: '',
-        MultiRaceStudents: '',
-        NativeStudents: '',
-        WhiteStudents: '',
-        OtherStudents: '',
-        // Reset all other fields
-      });
+      setSchoolData(initialSchoolData);
+      return;
+    }
+
+    setLoading(true);
+    setError("");
+    try {
+      const res = await axios.get(`/schools/${dbn}`);
+      setSelectedSchool(res.data);
+      setSchoolData(res.data);
     } catch (err) {
-      alert(`Error: ${err.response?.data?.message || err.message}`);
+      setError('Failed to load school data. Please try again.');
+      console.error('Error:', err.response?.data || err.message);
+    } finally {
+      setLoading(false);
     }
   };
 
   const handleDelete = async () => {
-    if (!selectedSchool) return;
+    if (!selectedSchool || !window.confirm('Are you sure you want to delete this school?')) return;
 
-    if (window.confirm('Are you sure you want to delete this school?')) {
-      try {
-        await axios.delete(`/api/schools/${selectedSchool.SchoolDBN}`);
-        alert('School deleted successfully');
+    setLoading(true);
+    setError("");
+    try {
+      await axios.delete(`/schools/${selectedSchool.SchoolDBN}`);
+      alert('School deleted successfully');
 
+      // Refresh school list
+      const res = await axios.get('/schools');
+      setSchools(res.data);
 
-        const res = await axios.get('/api/schools');
-        setSchools(res.data);
-
-        setSelectedSchool(null);
-        setSchoolData({
-          SchoolDBN: '',
-          SchoolName: '',
-
-        });
-      } catch (err) {
-        alert(`Error: ${err.response?.data?.message || err.message}`);
-      }
+      // Reset form
+      setSelectedSchool(null);
+      setSchoolData(initialSchoolData);
+    } catch (err) {
+      setError(err.response?.data?.message || 'Deletion failed. Please try again.');
+      console.error('Error:', err.response?.data || err.message);
+    } finally {
+      setLoading(false);
     }
   };
 
-  const handleSchoolSelect = async (dbn) => {
-    if (!dbn) {
-      setSelectedSchool(null);
-      setSchoolData({
-        SchoolDBN: '',
-        SchoolName: '',
-      });
-      return;
-    }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
 
     try {
-      const res = await axios.get(`/api/schools/${dbn}`);
-      setSelectedSchool(res.data);
-      setSchoolData(res.data);
+      if (selectedSchool) {
+        await axios.put(`/schools/${selectedSchool.SchoolDBN}`, schoolData);
+      } else {
+        await axios.post('/schools', schoolData);
+      }
+
+      // Refresh school list
+      const res = await axios.get('/schools');
+      setSchools(res.data);
+
+      // Show success message
+      alert(selectedSchool ? 'School updated successfully' : 'School created successfully');
+
+      // Reset form if new school was created
+      if (!selectedSchool) {
+        setSchoolData(initialSchoolData);
+      }
     } catch (err) {
-      alert('Error fetching school data');
+      setError(err.response?.data?.message || 'Operation failed. Please try again.');
+      console.error('Error:', err.response?.data || err.message);
+    } finally {
+      setLoading(false);
     }
   };
 
+  if (loading) return <div style={{ padding: '20px' }}>Loading...</div>;
+
   return (
-    <div style={{ padding: '20px' }}>
+    <div style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
       <h2>School Administration</h2>
 
+      {error && <div style={{ color: 'red', marginBottom: '15px' }}>{error}</div>}
+
       <div style={{ marginBottom: '20px' }}>
-        <h3>School Selector</h3>
+        <h3>Select School</h3>
         <select
           onChange={(e) => handleSchoolSelect(e.target.value)}
           value={selectedSchool?.SchoolDBN || ''}
-          style={{ width: '100%', padding: '8px' }}
+          style={{ width: '100%', padding: '8px', marginBottom: '15px' }}
+          disabled={loading}
         >
           <option value="">-- Create New School --</option>
           {schools.map(school => (
@@ -174,133 +166,135 @@ const AdminPage = () => {
         </select>
       </div>
 
-      <form onSubmit={handleSubmit} style={{ maxWidth: '600px' }}>
-        <div style={{ marginBottom: '15px' }}>
-          <label style={{ display: 'block', marginBottom: '5px' }}>School DBN:</label>
-          <input
-            name="SchoolDBN"
-            value={schoolData.SchoolDBN}
-            onChange={handleInputChange}
-            required
-            style={{ width: '100%', padding: '8px' }}
-          />
+      <form onSubmit={handleSubmit}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px' }}>
+          {/* Left Column */}
+          <div>
+            <div style={{ marginBottom: '15px' }}>
+              <label style={{ display: 'block', marginBottom: '5px' }}>School DBN*</label>
+              <input
+                name="SchoolDBN"
+                value={schoolData.SchoolDBN}
+                onChange={handleInputChange}
+                required
+                disabled={!!selectedSchool}
+                style={{ width: '100%', padding: '8px' }}
+              />
+            </div>
+
+            <div style={{ marginBottom: '15px' }}>
+              <label style={{ display: 'block', marginBottom: '5px' }}>School Name*</label>
+              <input
+                name="SchoolName"
+                value={schoolData.SchoolName}
+                onChange={handleInputChange}
+                required
+                style={{ width: '100%', padding: '8px' }}
+              />
+            </div>
+
+            <div style={{ marginBottom: '15px' }}>
+              <label style={{ display: 'block', marginBottom: '5px' }}>Street Address</label>
+              <input
+                name="StreetAddress"
+                value={schoolData.StreetAddress}
+                onChange={handleInputChange}
+                style={{ width: '100%', padding: '8px' }}
+              />
+            </div>
+
+            <div style={{ marginBottom: '15px' }}>
+              <label style={{ display: 'block', marginBottom: '5px' }}>Neighborhood</label>
+              <input
+                name="Neighborhood"
+                value={schoolData.Neighborhood}
+                onChange={handleInputChange}
+                style={{ width: '100%', padding: '8px' }}
+              />
+            </div>
+
+            <div style={{ marginBottom: '15px' }}>
+              <label style={{ display: 'block', marginBottom: '5px' }}>District</label>
+              <input
+                name="District"
+                value={schoolData.District}
+                onChange={handleInputChange}
+                style={{ width: '100%', padding: '8px' }}
+              />
+            </div>
+
+            <div style={{ marginBottom: '15px' }}>
+              <label style={{ display: 'block', marginBottom: '5px' }}>Borough</label>
+              <input
+                name="Borough"
+                value={schoolData.Borough}
+                onChange={handleInputChange}
+                style={{ width: '100%', padding: '8px' }}
+              />
+            </div>
+          </div>
+
+          {/* Right Column */}
+          <div>
+            <div style={{ marginBottom: '15px' }}>
+              <label style={{ display: 'block', marginBottom: '5px' }}>School Type</label>
+              <input
+                name="SchoolType"
+                value={schoolData.SchoolType}
+                onChange={handleInputChange}
+                style={{ width: '100%', padding: '8px' }}
+              />
+            </div>
+
+            <div style={{ marginBottom: '15px' }}>
+              <label style={{ display: 'block', marginBottom: '5px' }}>Grade Level</label>
+              <input
+                name="GradeLevel"
+                value={schoolData.GradeLevel}
+                onChange={handleInputChange}
+                style={{ width: '100%', padding: '8px' }}
+              />
+            </div>
+
+            <div style={{ marginBottom: '15px' }}>
+              <label style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <input
+                  type="checkbox"
+                  name="CommunitySchool"
+                  checked={schoolData.CommunitySchool}
+                  onChange={handleInputChange}
+                />
+                Community School
+              </label>
+            </div>
+
+            <div style={{ marginBottom: '15px' }}>
+              <label style={{ display: 'block', marginBottom: '5px' }}>Community Based Org</label>
+              <input
+                name="CommunityBasedOrg"
+                value={schoolData.CommunityBasedOrg}
+                onChange={handleInputChange}
+                style={{ width: '100%', padding: '8px' }}
+              />
+            </div>
+
+            <div style={{ marginBottom: '15px' }}>
+              <label style={{ display: 'block', marginBottom: '5px' }}>Enrollment</label>
+              <input
+                name="Enrollment"
+                value={schoolData.Enrollment}
+                onChange={handleInputChange}
+                type="number"
+                style={{ width: '100%', padding: '8px' }}
+              />
+            </div>
+          </div>
         </div>
-
-        <div style={{ marginBottom: '15px' }}>
-          <label style={{ display: 'block', marginBottom: '5px' }}>School Name:</label>
-          <input
-            name="SchoolName"
-            value={schoolData.SchoolName}
-            onChange={handleInputChange}
-            required
-            style={{ width: '100%', padding: '8px' }}
-          />
-        </div>
-
-        <div style={{ marginBottom: '15px' }}>
-          <label style={{ display: 'block', marginBottom: '5px' }}>Street Address:</label>
-          <input
-            name="StreetAddress"
-            value={schoolData.StreetAddress}
-            onChange={handleInputChange}
-            required
-            style={{ width: '100%', padding: '8px' }}
-          />
-        </div>
-
-        <div style={{ marginBottom: '15px' }}>
-          <label style={{ display: 'block', marginBottom: '5px' }}>Zip Code:</label>
-          <input
-            name="ZipCode"
-            type="number"
-            value={schoolData.ZipCode}
-            onChange={handleInputChange}
-            required
-            style={{ width: '100%', padding: '8px' }}
-          />
-        </div>
-
-        {/* Add similar fields for all other required data */}
-
-        <div style={{ marginBottom: '15px' }}>
-          <label style={{ display: 'block', marginBottom: '5px' }}>Borough:</label>
-          <select
-            name="Borough"
-            value={schoolData.Borough}
-            onChange={handleInputChange}
-            required
-            style={{ width: '100%', padding: '8px' }}
-          >
-            <option value="Manhattan">Manhattan</option>
-            <option value="Brooklyn">Brooklyn</option>
-            <option value="Queens">Queens</option>
-            <option value="Bronx">Bronx</option>
-            <option value="Staten Island">Staten Island</option>
-          </select>
-        </div>
-
-        <div style={{ marginBottom: '15px' }}>
-          <label style={{ display: 'block', marginBottom: '5px' }}>School Type:</label>
-          <select
-            name="SchoolType"
-            value={schoolData.SchoolType}
-            onChange={handleInputChange}
-            required
-            style={{ width: '100%', padding: '8px' }}
-          >
-            <option value="General Education">General Education</option>
-            <option value="Special Education">Special Education</option>
-          </select>
-        </div>
-
-        <div style={{ marginBottom: '15px' }}>
-          <label style={{ display: 'block', marginBottom: '5px' }}>Grade Level:</label>
-          <select
-            name="GradeLevel"
-            value={schoolData.GradeLevel}
-            onChange={handleInputChange}
-            required
-            style={{ width: '100%', padding: '8px' }}
-          >
-            <option value="Elementary">Elementary</option>
-            <option value="Middle">Middle</option>
-            <option value="High">High</option>
-            <option value="K-8">K-8</option>
-            <option value="6-12">6-12</option>
-            <option value="K-12">K-12</option>
-          </select>
-        </div>
-
-        <div style={{ marginBottom: '15px' }}>
-          <label style={{ display: 'flex', alignItems: 'center' }}>
-            <input
-              type="checkbox"
-              name="CommunitySchool"
-              checked={schoolData.CommunitySchool}
-              onChange={handleInputChange}
-              style={{ marginRight: '8px' }}
-            />
-            Community School
-          </label>
-        </div>
-
-        <div style={{ marginBottom: '15px' }}>
-          <label style={{ display: 'block', marginBottom: '5px' }}>Enrollment:</label>
-          <input
-            name="Enrollment"
-            type="number"
-            value={schoolData.Enrollment}
-            onChange={handleInputChange}
-            required
-            style={{ width: '100%', padding: '8px' }}
-          />
-        </div>
-
-        {/* Add more fields as needed */}
 
         <div style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
           <button
             type="submit"
+            disabled={loading}
             style={{
               padding: '10px 20px',
               backgroundColor: '#4CAF50',
@@ -317,6 +311,7 @@ const AdminPage = () => {
             <button
               type="button"
               onClick={handleDelete}
+              disabled={loading}
               style={{
                 padding: '10px 20px',
                 backgroundColor: '#f44336',

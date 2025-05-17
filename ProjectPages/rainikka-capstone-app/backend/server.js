@@ -42,7 +42,7 @@ app.use('/api/schools', schoolRoutes);
 
 /*** Mongo Database Connection ***/
 const mongoose = require('mongoose');
-const mongoString = process.env.DATA_URI;
+const mongoString = process.env.DATA_URI || 'mongodb://localhost:27017/school-dashboard';
 mongoose.connect(mongoString)
   .then(() => {
     console.log(`Database is Connected: ${mongoose.connection.name} `)
@@ -51,7 +51,7 @@ mongoose.connect(mongoString)
     console.log("Database NOT Connected:", error.message);
   });
 
-/*** Routes ***/
+/*** Basic Route ***/
 app.get('/', (req, res) => {
   res.send('School Dashboard API');
 });
